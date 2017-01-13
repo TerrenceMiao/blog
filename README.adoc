@@ -1,0 +1,11 @@
+Terrence Miao's Adventures blog
+===============================
+
+== A journey of a thousand miles begins with a single step
+
+References
+----------
+- hexo.io, a fast, simple & powerful blog framework, _https://hexo.io/_
+- How To Create a Blog With Hexo, _https://ericdouglas.github.io/2016/08/21/how-to-create-a-blog-with-hexo/_
+- BlueLake theme for Hexo, _https://github.com/chaooo/hexo-theme-BlueLake_
+- Terrence Miao's blog on GitHub, _https://terrencemiao.github.io/blog/_
