@@ -79,7 +79,7 @@ stylus:
 
 # Search
 jsonContent:
-  meta: false
+  meta: true
   pages: false
   posts:
     title: true
