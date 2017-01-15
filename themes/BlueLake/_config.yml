@@ -55,7 +55,7 @@ tinysou: ## Your tinysou_key, e.g. 4ac092ad8d749fdc6293
 
 #Cmments
 duoshuo: ## Your duoshuo_shortname, e.g. username
-disqus: ## Your disqus_shortname, e.g. username
+disqus: terrencemiao ## Your disqus_shortname, e.g. username
 
 # About page 
 about:
