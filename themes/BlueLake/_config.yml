@@ -61,8 +61,8 @@ disqus: terrencemiao ## Your disqus_shortname, e.g. username
 about:
   photo_url: https://avatars2.githubusercontent.com/u/845034 ## Your photo e.g. http://obzf7z93c.bkt.clouddn.com/themeauthor.jpg
   email: SomewhereOverTheRainbow@gmail.com ## Your email e.g.  zhenggchaoo@gmail.com
-  weibo_url: ## Your weibo's url e.g.  http://weibo.com/zhengchaooo
-  weibo_name: ## Your weibo's name e.g.  秋过冬漫长
+  weibo_url: https://plus.google.com/+TerrenceMiao ## Your weibo's url e.g.  http://weibo.com/zhengchaooo
+  weibo_name: TerrenceMiao ## Your weibo's name e.g.  秋过冬漫长
   github_url: https://github.com/TerrenceMiao ## Your github'url e.g.  https://github.com/chaooo
   github_name: TerrenceMiao ## Your github'name e.g.  chaooo
 
