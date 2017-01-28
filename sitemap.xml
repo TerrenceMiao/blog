@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://terrencemiao.github.io/blog/blog/2017/01/28/Setup-Docker-Private-Registry-in-Nexus-Repository-OSS-3-x-x/</loc>
+    
+    <lastmod>2017-01-28T03:57:33.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://terrencemiao.github.io/blog/blog/2017/01/28/Setup-HTTPS-access-in-Nexus-Repository-Manager-OSS-3-x-x/</loc>
     
     <lastmod>2017-01-28T03:04:50.000Z</lastmod>
