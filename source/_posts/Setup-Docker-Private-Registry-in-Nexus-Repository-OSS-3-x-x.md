@@ -59,15 +59,6 @@ cqCkiA==
 Welcome to Moby alpha
 Kernel 4.4.12-moby on an x86_64 (/dev/ttyS0)
 
-                        ##         .
-                  ## ## ##        ==
-               ## ## ## ## ##    ===
-           /"""""""""""""""""___/ ===
-      ~~~ {~~ ~~~~ ~~~ ~~~~ ~~~ ~ /  ===- ~~~
-           \______ o           __/
-             \    \         __/
-              \____\_______/
-
 moby login: root
 Welcome to the Moby alpha, based on Alpine Linux.
 moby:~#
@@ -111,20 +102,27 @@ Download 3rd party Repository server's certificate. Use tool like *KeyStore Expl
 Username: admin
 Password: admin123
 Login Succeeded
+```
 
+``` bash
 𝜆 docker search silencer.bigpond:18443/tomcat
 𝜆 docker pull silencer.bigpond:18443/jtech/tomcat:latest
+```
 
+``` bash
 𝜆 docker login silencer.bigpond:18444
 Username: admin
 Password: admin123
 Login Succeeded
+```
 
+``` bash
 𝜆 docker build -t jtech/camel-spring:latest .
 𝜆 docker tag jtech/camel-spring silencer.bigpond:18444/jtech/camel-spring:latest
 𝜆 docker push silencer.bigpond:18444/jtech/camel-spring:latest
+```
 
-# Try with "--disable-content-trust" if error like "Get https://silencer.gateway:18444/v1/_ping: x509: certificate signed by unknown authority"
+``` bash
 𝜆 docker push --disable-content-trust silencer.bigpond:18444/jtech/camel-spring:latest
 ```
 
@@ -132,6 +130,7 @@ Login Succeeded
 * Due to Docker Virtual Machine is immutable, the CA certificate added change made inside VM is ephemeral, and lost after VM is restarted
 * Docker Private Registry ONLY supports *HTTPS*, NOT HTTP
 * Nexus repository MUST register and use server certificate for host e.g. "silencer.bigpond", NOT "localhost.bigpond" to run Docker Private Registry
+* Try with "--disable-content-trust" if error like "Get https://silencer.gateway:18444/v1/_ping: x509: certificate signed by unknown authority"
 
 ## Reference
 * Private Registry for Docker, _https://books.sonatype.com/nexus-book/3.0/reference/docker.html_
