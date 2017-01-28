@@ -53,17 +53,11 @@ M7EN8r3g4Y/2109YoHoiWAhnN6TC3RhmCoQqGOiPsS732KHUz3KqXVbq9VTRdA3dXqFj1cUSet1T
 XTPisaiehffvbqYm2vrJ5WYgqCwb8TadDg66TToj080qvA8cXAF7qlA8pOImrbVOs7tdANSAs+AO
 cqCkiA==
 -----END CERTIFICATE-----
-
-𝜆 screen ~/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux/tty
-
-Welcome to Moby alpha
-Kernel 4.4.12-moby on an x86_64 (/dev/ttyS0)
-
-moby login: root
-Welcome to the Moby alpha, based on Alpine Linux.
-moby:~#
 ```
 
+``` bash
+𝜆 screen ~/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux/tty
+```
 Inside Docker Virtual Machine, follow these steps:
 
 ``` bash
