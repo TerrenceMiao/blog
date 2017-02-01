@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://terrencemiao.github.io/blog/"/>
-  <updated>2017-02-01T12:50:04.000Z</updated>
+  <updated>2017-02-01T13:02:41.000Z</updated>
   <id>https://terrencemiao.github.io/blog/</id>
   
   <author>
@@ -14,6 +14,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Web Components are coming</title>
+    <link href="https://terrencemiao.github.io/blog/2017/02/01/Web-Components-are-coming/"/>
+    <id>https://terrencemiao.github.io/blog/2017/02/01/Web-Components-are-coming/</id>
+    <published>2017-02-01T12:56:19.000Z</published>
+    <updated>2017-02-01T13:02:41.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>AngularJS is going to continue to succeed for some time. But change is inevitable.</p>
+<p><em>Web Components are coming.</em> </p>
+<p>WebComponents create the ability to do all the sorts of markup-driven programming like AngularJS, ReactJS, but less ecosystem dependent. Because DOM is integration point for all the kinds of JavaScript frameworks. Web Components make it MUCH easier to interoperate between components. </p>
+<p>The future isn’t here yet, but it will change fundamental assumptions about how a JavaScript framework should act and what it should be responsible for. Those shifts in assumptions frequently cause frameworks will drop out of the ecosystem quickly than expected.</p>
+<p><img src="https://lh3.googleusercontent.com/proxy/HUuJ77cm67p-cQAHIqXUDI1s3WngVunCpraVyWv_7pldMa2-bFF7LDKWbG-PX-Tj25-c7zl9v_SZc3ZXw7J5TZWPngCPostqMA=s110-p-rw" alt="Web Components"></p>
+<p>URL: <a href="https://www.webcomponents.org/" target="_blank" rel="external">https://www.webcomponents.org/</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;AngularJS is going to continue to succeed for some time. But change is inevitable.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Web Components are coming.&lt;/em&gt; &lt;/p&gt;
+&lt;p&gt;Web
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Perfection</title>
