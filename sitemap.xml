@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://terrencemiao.github.io/blog/blog/2017/02/11/Remote-debugging-Java-applications-run-on-Tomcat/</loc>
+    
+    <lastmod>2017-02-11T03:04:55.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://terrencemiao.github.io/blog/blog/2017/02/01/Web-Components-are-coming/</loc>
     
     <lastmod>2017-02-01T13:02:41.000Z</lastmod>

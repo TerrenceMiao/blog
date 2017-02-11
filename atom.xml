@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://terrencemiao.github.io/blog/"/>
-  <updated>2017-02-01T13:02:41.000Z</updated>
+  <updated>2017-02-11T03:04:55.000Z</updated>
   <id>https://terrencemiao.github.io/blog/</id>
   
   <author>
@@ -14,6 +14,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Remote debugging Java applications run on Tomcat</title>
+    <link href="https://terrencemiao.github.io/blog/2017/02/11/Remote-debugging-Java-applications-run-on-Tomcat/"/>
+    <id>https://terrencemiao.github.io/blog/2017/02/11/Remote-debugging-Java-applications-run-on-Tomcat/</id>
+    <published>2017-02-11T02:52:26.000Z</published>
+    <updated>2017-02-11T03:04:55.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Enable JVM option to attach a remote debugger:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">export</span> JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,<span class="built_in">suspend</span>=y,address=5005</div></pre></td></tr></table></figure>
+<p>“suspend” set to “y” is to let remote debugger start loading the application. </p>
+<p>Now, start running Tomcat. JVM debugging port is bound on port 5005i on the machine runs on Tomcat. </p>
+<p>Next, set up SSH tunnel mirror remotei host (ip-10-213-79-77.ap-southeast-2.compute.internal) 5005 port to localhost on port 5005. For example:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh -L 5005:ip-10-213-79-77.ap-southeast-2.compute.internal:5005 <span class="_">-l</span> ec2-user ip-10-213-79-77.ap-southeast-2.compute.internal</div></pre></td></tr></table></figure>
+<p>You can start remote debugging in IDE like IntelliJ and debug the code since.</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Enable JVM option to attach a remote debugger:&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Web Components are coming</title>
