@@ -22,7 +22,7 @@ public final class FactorialFunction {
 
     public static final Function<Integer, Long> FACTORIAL = (x) ->
             FACTORIAL_MAP.computeIfAbsent(x,
-                    n -> n * FunctionCalculator.FACTORIAL.apply(n - 1));
+                    n -> n * FactorialFunction.FACTORIAL.apply(n - 1));
 
     static {
         FACTORIAL_MAP.put(1, 1L); // FACTORIAL(1)
@@ -53,10 +53,10 @@ public class FactorialFunctionTest {
     @Test
     public void testFactorialFunction() throws Exception {
 
-        assertEquals("Incorrect result", Long.valueOf(1), FunctionCalculator.FACTORIAL.apply(1));
-        assertEquals("Incorrect result", Long.valueOf(2), FunctionCalculator.FACTORIAL.apply(2));
+        assertEquals("Incorrect result", Long.valueOf(1), FactorialFunction.FACTORIAL.apply(1));
+        assertEquals("Incorrect result", Long.valueOf(2), FactorialFunction.FACTORIAL.apply(2));
 
-        assertEquals("Incorrect result", Long.valueOf(3628800), FunctionCalculator.FACTORIAL.apply(10));
+        assertEquals("Incorrect result", Long.valueOf(3628800), FactorialFunction.FACTORIAL.apply(10));
     }
 
 }
