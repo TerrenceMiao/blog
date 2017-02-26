@@ -94,7 +94,7 @@ Manually create a Lambda Trigger. This time we use AWS API Gateway to trigger / 
 
 After Lambda Trigger created, an exposed RESTful interface for Lambda "hello" function.
 
-![Lambda API Gateway](ihttps://raw.githubusercontent.com/TerrenceMiao/AWS/master/serverless-example/Lambda%20API%20Gateway.png)
+![Lambda API Gateway](https://raw.githubusercontent.com/TerrenceMiao/AWS/master/serverless-example/Lambda%20API%20Gateway.png)
 
 ### Say "hello"
 
@@ -164,5 +164,5 @@ Function "hello" log:
 
 ### References
 
-* serverless framework, _https://serverless.com/_
-* Example source code and artefact, _https://github.com/TerrenceMiao/AWS/tree/master/serverless-example_
+* serverless framework, *https://serverless.com/*
+* Example source code and artefact, *https://github.com/TerrenceMiao/AWS/tree/master/serverless-example*
