@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://terrencemiao.github.io/blog/blog/2017/02/26/Set-up-and-run-AWS-Lambda-hello-function-with-serverless/</loc>
+    
+    <lastmod>2017-02-26T08:27:19.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://terrencemiao.github.io/blog/blog/2017/02/18/The-State-Quadrants-Functional-vs-Object-Oriented/</loc>
     
     <lastmod>2017-02-18T12:25:02.000Z</lastmod>
