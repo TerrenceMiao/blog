@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://terrencemiao.github.io/blog/"/>
-  <updated>2017-02-26T08:36:21.000Z</updated>
+  <updated>2017-03-03T12:04:34.000Z</updated>
   <id>https://terrencemiao.github.io/blog/</id>
   
   <author>
@@ -16,48 +16,64 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>SQL script generates random data and insert into MySQL database</title>
+    <link href="https://terrencemiao.github.io/blog/2017/03/03/SQL-script-generates-random-data-and-insert-into-MySQL-database/"/>
+    <id>https://terrencemiao.github.io/blog/2017/03/03/SQL-script-generates-random-data-and-insert-into-MySQL-database/</id>
+    <published>2017-03-03T12:02:17.000Z</published>
+    <updated>2017-03-03T12:04:34.000Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">DROP</span> <span class="keyword">PROCEDURE</span> InsertRandomRecords;</div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">DELIMITER $$</div><div class="line">CREATE PROCEDURE InsertRandomRecords(IN NumRows INT)</div><div class="line">    BEGIN</div><div class="line">        DECLARE i INT;</div><div class="line">        SET i = 1;</div><div class="line">        START TRANSACTION;</div><div class="line">        WHILE i &lt;= NumRows DO</div><div class="line">            INSERT INTO draftorders.draft_order (c_number, source_time_in_ms, source_item_id, shipment, shipment_id, quantity, source_system, status)</div><div class="line">            VALUES ('C01234567890', RAND()*1000000000, CONCAT('randomSourceRef-', UUID_SHORT()),</div><div class="line">                    '&#123;"to": &#123;"name": "T T", "lines": ["Lvl 100", "123 smith st"], "phone": "0356567567", "state": "VIC", "suburb": "Greensborough", "postcode": "3088", "business_name": "In debt"&#125;, "from": &#123;"name": "Carl Block", "lines": ["1341 Dandenong Road"], "state": "VIC", "suburb": "Geelong", "postcode": "3220"&#125;, "items": [&#123;"width": "10", "height": "10", "length": "10", "weight": "10", "product_id": "3D85", "item_reference": "blocked", "authority_to_leave": true, "allow_partial_delivery": true, "contains_dangerous_goods": true&#125;], "shipment_reference": "My second shipment ref", "customer_reference_1": "cr1234", "customer_reference_2": "cr5678"&#125;',</div><div class="line">                    UUID(), 1, 'EBAY', ELT(1 + FLOOR(RAND()*3), 'DRAFT', 'READY_TO_SHIP', 'SHIPPED'));</div><div class="line">            SET i = i + 1;</div><div class="line">        END WHILE;</div><div class="line">        COMMIT;</div><div class="line">    END$$</div><div class="line">DELIMITER ;</div></pre></td></tr></table></figure>
+<p>To generate 1,000,000 draft orders:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CALL</span> InsertRandomRecords(<span class="number">1000000</span>);</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;figure class=&quot;highlight sql&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Set up and run AWS Lambda &#39;hello&#39; function with serverless</title>
     <link href="https://terrencemiao.github.io/blog/2017/02/26/Set-up-and-run-AWS-Lambda-hello-function-with-serverless/"/>
     <id>https://terrencemiao.github.io/blog/2017/02/26/Set-up-and-run-AWS-Lambda-hello-function-with-serverless/</id>
     <published>2017-02-26T08:00:26.000Z</published>
-    <updated>2017-02-26T08:36:21.000Z</updated>
+    <updated>2017-02-26T08:41:23.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="serverless"><a href="#serverless" class="headerlink" title="serverless"></a>serverless</h3><p>With latest Node.js 6.x.x installed, then install serverless globally:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install serverless -g</div></pre></td></tr></table></figure>
 <h3 id="AWS-Lambda"><a href="#AWS-Lambda" class="headerlink" title="AWS Lambda"></a>AWS Lambda</h3><p>Create a AWS Lambda skeleton project with serverless:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">$ mkdir serverless-example &amp;&amp; <span class="built_in">cd</span> <span class="variable">$_</span></div><div class="line"></div><div class="line">$ sls create -t aws-nodejs</div><div class="line">Serverless: Generating boilerplate...</div><div class="line"> _______                             __</div><div class="line">|   _   .-----.----.--.--.-----.----|  .-----.-----.-----.</div><div class="line">|   |___|  -__|   _|  |  |  -__|   _|  |  -__|__ --|__ --|</div><div class="line">|____   |_____|__|  \___/|_____|__| |__|_____|_____|_____|</div><div class="line">|   |   |             The Serverless Application Framework</div><div class="line">|       |                           serverless.com, v1.7.0</div><div class="line"> -------<span class="string">'</span></div><div class="line"></div><div class="line">Serverless: Successfully generated boilerplate for template: "aws-nodejs"</div><div class="line">Serverless: NOTE: Please update the "service" property in serverless.yml with your service name</div></pre></td></tr></table></figure>
 <ul>
-<li><strong>Policies set up for Lambda function</strong></li>
+<li><strong>Policies set up for Lambda function</strong><br>For AWS user “ec2-user”, now need to have some policies with permissions to let “serverless” create role, Lambda function and deployment it …</li>
 </ul>
-<p>For AWS user “ec2-user”, now need to have some policies with permissions to let “serverless” create role, Lambda function and deployment it …</p>
 <p><img src="https://raw.githubusercontent.com/TerrenceMiao/AWS/master/serverless-example/Lambda%20Policies.png" alt="Polices set up for Lambda function"></p>
 <ul>
-<li><strong>Roles for Lambda function</strong></li>
+<li><strong>Roles for Lambda function</strong><br>Lambda function role created after Lambda function added and deployed into AWS.</li>
 </ul>
-<p>Lambda function role created after Lambda function added and deployed into AWS.</p>
 <p><img src="https://raw.githubusercontent.com/TerrenceMiao/AWS/master/serverless-example/Lambda%20Roles.png" alt="Roles for Lambda function"></p>
 <h3 id="Deployment"><a href="#Deployment" class="headerlink" title="Deployment"></a>Deployment</h3><p>Make sure AWS environment has been set up, including access key, user, group, policies …</p>
 <p>Pack and deploy Lambda example into AWS:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">$ sls deploy -r ap-southeast-2 <span class="_">-s</span> dev</div><div class="line">Serverless: Packaging service...</div><div class="line">Serverless: Uploading CloudFormation file to S3...</div><div class="line">Serverless: Uploading service .zip file to S3 (583 B)...</div><div class="line">Serverless: Updating Stack...</div><div class="line">Serverless: Checking Stack update progress...</div><div class="line">..................</div><div class="line">Serverless: Stack update finished...</div><div class="line">Service Informations</div><div class="line">service: serverless-example</div><div class="line">stage: dev</div><div class="line">region: ap-southeast-2</div><div class="line">api keys:</div><div class="line">  None</div><div class="line">endpoints:</div><div class="line">  None</div><div class="line"><span class="built_in">functions</span>:</div><div class="line">  serverless-example-dev-hello</div></pre></td></tr></table></figure>
 <ul>
-<li><strong>Lambda “hello” function</strong></li>
+<li><strong>Lambda “hello” function</strong><br>A “hello” Lambda function has been created in Lambda after it’s deployed into AWS by “serverless”.</li>
 </ul>
-<p>A “hello” Lambda function has been created in Lambda after it’s deployed into AWS by “serverless”.</p>
 <p><img src="https://raw.githubusercontent.com/TerrenceMiao/AWS/master/serverless-example/Lambda%20Hello%20function.png" alt="Lambda &quot;hello&quot; function"></p>
 <ul>
-<li><strong>Events generated during Lambda function deployment</strong></li>
+<li><strong>Events generated during Lambda function deployment</strong><br>Deployment events generated during Lambda “hello” function deployed into AWS.</li>
 </ul>
-<p>Deployment events generated during Lambda “hello” function deployed into AWS.</p>
 <p><img src="https://raw.githubusercontent.com/TerrenceMiao/AWS/master/serverless-example/Lambda%20CloudFormation.png" alt="Events generated during Lambda function deployment"></p>
 <ul>
-<li><strong>Add Lambda Trigger on AWS API Gateway</strong></li>
+<li><strong>Add Lambda Trigger on AWS API Gateway</strong><br>Manually create a Lambda Trigger. This time we use AWS API Gateway to trigger / invoke Lambda “hello” function.</li>
 </ul>
-<p>Manually create a Lambda Trigger. This time we use AWS API Gateway to trigger / invoke Lambda “hello” function.</p>
 <p><img src="https://raw.githubusercontent.com/TerrenceMiao/AWS/master/serverless-example/Lambda%20Trigger%20on%20API%20Gateway.png" alt="Lambda Trigger created on AWS API Gateway"></p>
 <ul>
-<li><strong>Exposed Lambda API Gateway</strong></li>
+<li><strong>Exposed Lambda API Gateway</strong><br>After Lambda Trigger created, an exposed RESTful interface for Lambda “hello” function.</li>
 </ul>
-<p>After Lambda Trigger created, an exposed RESTful interface for Lambda “hello” function.</p>
 <p><img src="https://raw.githubusercontent.com/TerrenceMiao/AWS/master/serverless-example/Lambda%20API%20Gateway.png" alt="Lambda API Gateway"></p>
 <h3 id="Say-“hello”"><a href="#Say-“hello”" class="headerlink" title="Say “hello”"></a>Say “hello”</h3><p>Set up AWS API Gateway trigger for Lambda “hello” function. Go to url, e.g.:</p>
 <p>Function “hello” log:</p>
