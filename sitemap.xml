@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://terrencemiao.github.io/blog/blog/2017/03/04/Spring-Data-powerful-and-succinct-abstraction/</loc>
+    
+    <lastmod>2017-03-03T23:30:18.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://terrencemiao.github.io/blog/blog/2017/02/26/Set-up-and-run-AWS-Lambda-hello-function-with-serverless/</loc>
     
     <lastmod>2017-03-03T12:09:28.000Z</lastmod>
