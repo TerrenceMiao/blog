@@ -163,6 +163,6 @@ Function "hello" log:
 ```
 
 ### References
+* serverless framework, https://serverless.com/
+* Example source code and artefact, https://github.com/TerrenceMiao/AWS/tree/master/serverless-example
 
-* serverless framework, *https://serverless.com/*
-* Example source code and artefact, *https://github.com/TerrenceMiao/AWS/tree/master/serverless-example*
