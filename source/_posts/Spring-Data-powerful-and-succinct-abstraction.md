@@ -109,6 +109,23 @@ databaseChangeLog:
             onUpdate: RESTRICT
             referencedColumnNames: id
             referencedTableName: draft_order
+  - changeSet:
+      id: 2
+      author: Terrence Miao
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  # For MySQL 5.7.x above, the first TIMESTAMP column in the table gets current timestamp as the default value, likely. So 
+                  # if an INSERT or UPDATE without supplying a value, the column will get the current timestamp.  Any subsequent TIMESTAMP 
+                  # columns should have a default value explicitly defined. If you have two TIMESTAMP columns and if you don't specify a 
+                  # default value for the second column, you will get this error while trying to create the table: 
+                  #   ERROR 1067 (42000): Invalid default value for 'COLUMN_NAME'
+                  name: date_created
+                  type: timestamp(3)
+                  constraints:
+                    nullable: false
+            tableName: draft_order
 ```
 
 DAO definition
