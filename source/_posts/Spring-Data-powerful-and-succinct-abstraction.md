@@ -125,6 +125,12 @@ databaseChangeLog:
                   type: timestamp(3)
                   constraints:
                     nullable: false
+              - column:
+                  name: date_updated
+                  type: timestamp(3)
+		  defaultValueComputed: LOCALTIMESTAMP(3)
+                  constraints:
+                    nullable: false
             tableName: draft_order
 ```
 
