@@ -3,6 +3,9 @@ Terrence Miao's Adventures blog
 
 ==== A journey of a thousand miles begins with a single step
 
+How to create blog website hosting on Github with Hexo
+------------------------------------------------------
+
 - Create a new post
 
 [source.console]
