@@ -32,7 +32,7 @@ Serving HTTP on 0.0.0.0 port 4000 ...
 
 - Test blog go to _http://localhost:4000/blog/_
 
-- Don't commit Search Javascript file - js/search.json.js changes into Github hosting site
+- Don't commit Search Javascript file - *js/search.json.js* changes into Github hosting site
 
 [source.console]
 ----
