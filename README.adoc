@@ -114,6 +114,7 @@ Changes to be committed:
 	modified:   index.html
 	modified:   page/2/index.html
 	modified:   sitemap.xml
+----
 
 - Visit blog hosting on Github _https://terrencemiao.github.io/blog/_
 
