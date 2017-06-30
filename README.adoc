@@ -85,6 +85,8 @@ Changes to be committed:
 
 - Commit changes under terrence@Silencer ~/Projects/blog/blog directory to https://github.com/TerrenceMiao/blog gh-pages branch
 
+[source.console]
+----
 terrence@Silencer ~/Projects/blog/blog
 23:20:33 12 $ git status
 On branch gh-pages
