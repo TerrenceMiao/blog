@@ -32,7 +32,7 @@ Serving HTTP on 0.0.0.0 port 4000 ...
 
 - Test blog go to _http://localhost:4000/blog/_
 
-- Don't modify Search Javascript file - js/search.json.js when commit changes into Github hosting site
+- Don't commit Search Javascript file - js/search.json.js changes into Github hosting site
 
 [source.console]
 ----
@@ -71,7 +71,47 @@ index 179a060..7224a90 100644
 
 - Commit changes under terrence@Silencer ~/Projects/blog directory to https://github.com/TerrenceMiao/blog master branch
 
+[source.console]
+----
+terrence@Silencer ~/Projects/blog
+23:23:50 16 $ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	new file:   source/_posts/Ant-Colony-Optimization-ACO.md
+----
+
 - Commit changes under terrence@Silencer ~/Projects/blog/blog directory to https://github.com/TerrenceMiao/blog gh-pages branch
+
+terrence@Silencer ~/Projects/blog/blog
+23:20:33 12 $ git status
+On branch gh-pages
+Your branch is up-to-date with 'origin/gh-pages'.
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	modified:   2017/01/13/hello-world/index.html
+	modified:   2017/02/01/Perfection/index.html
+
+  ...
+
+	new file:   2017/06/30/Ant-Colony-Optimization-ACO/index.html
+	modified:   about/index.html
+	modified:   archives/2017/01/index.html
+	modified:   archives/2017/02/index.html
+	modified:   archives/2017/03/index.html
+	new file:   archives/2017/06/index.html
+	modified:   archives/2017/index.html
+	modified:   archives/2017/page/2/index.html
+	modified:   archives/index.html
+	modified:   archives/page/2/index.html
+	modified:   atom.xml
+	modified:   content.json
+	modified:   index.html
+	modified:   page/2/index.html
+	modified:   sitemap.xml
 
 - Visit blog hosting on Github _https://terrencemiao.github.io/blog/_
 
