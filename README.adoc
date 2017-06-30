@@ -3,6 +3,78 @@ Terrence Miao's Adventures blog
 
 ==== A journey of a thousand miles begins with a single step
 
+- Create a new post
+
+[source.console]
+----
+terrence@Silencer ~/Projects/blog
+22:46:40 13 $ hexo new post "Ant Colony Optimization (ACO)"
+----
+
+- Edit post markdown file in ~/Projects/blog/source/_posts/Ant-Colony-Optimization-ACO.md
+
+- Generate / Publish new post to blog
+
+[source.console]
+----
+terrence@Silencer ~/Projects/blog
+23:01:29 7 $ hexo generate
+----
+
+- Start a local website which is hosting the blog
+
+[source.console]
+----
+terrence@Silencer /Users/terrence/Projects/blog
+22:49:41 𝜆 python -m SimpleHTTPServer 4000
+Serving HTTP on 0.0.0.0 port 4000 ...
+----
+
+- Test blog go to _http://localhost:4000/blog/_
+
+- Don't modify Search Javascript file - js/search.json.js when commit changes into Github hosting site
+
+[source.console]
+----
+terrence@Silencer ~/Projects/blog/blog
+23:20:17 11 $ git diff js/search.json.js
+diff --git a/js/search.json.js b/js/search.json.js
+index 179a060..7224a90 100644
+--- a/js/search.json.js
++++ b/js/search.json.js
+@@ -21,7 +21,7 @@
+     function loadData(success) {
+         if (!searchData) {
+             var xhr = new XMLHttpRequest();
+-            xhr.open('GET', '/blog/content.json', true);
++            xhr.open('GET', '/content.json', true);
+             xhr.onload = function() {
+                 if (this.status >= 200 && this.status < 300) {
+                     var res = JSON.parse(this.response||this.responseText);
+@@ -54,7 +54,7 @@
+             html = data.map(function(post) {
+                 return tpl(searchTpl, {
+                     title: post.title,
+-                    path: 'blog/' + post.path,
++                    path: post.path,
+                     date: new Date(post.date).toLocaleDateString(),
+                     tags: post.tags.map(function(tag) {
+                         return '<span>' + tag.name + '</span>';
+@@ -111,4 +111,4 @@
+         addClass(searchWrap, 'hide');
+         addClass(searchMask, 'hide');
+     };
+-})();
++})();
+\ No newline at end of file
+----
+
+- Commit changes under terrence@Silencer ~/Projects/blog directory to https://github.com/TerrenceMiao/blog master branch
+
+- Commit changes under terrence@Silencer ~/Projects/blog/blog directory to https://github.com/TerrenceMiao/blog gh-pages branch
+
+- Visit blog hosting on Github _https://terrencemiao.github.io/blog/_
+
 References
 ----------
 - hexo.io, a fast, simple & powerful blog framework, _https://hexo.io/_
