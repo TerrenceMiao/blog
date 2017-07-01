@@ -30,6 +30,14 @@ In computer science and operations research, the ant colony optimization algorit
 Visualization
 -------------
 
+A visual demo of Ant Colony Optimisation written in Javascript (ES6):
+
+![Visual demo of Ant Colony Optimisation ](https://camo.githubusercontent.com/2199a8a12e6e22c3fee6fb931449db0f36fff7a5/687474703a2f2f692e696d6775722e636f6d2f57536c6179356b2e676966 "Visual demo of Ant Colony Optimisation")
+
+Another visual demo of Ant Colony Optimisation:
+
+![Visual demo of Ant Colony Optimisation](/blog/img/Visual%20demo%20of%20Ant%20Colony%20Optimisation.png "Visual demo of Ant Colony Optimisation")
+
 References
 ----------
 
