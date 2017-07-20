@@ -33,14 +33,14 @@ iQunix Lambo
 
 ![iQunix Lambo 60%](https://ae01.alicdn.com/aetfs/bao/uploaded/i2/134583372/TB2EZ.CipXXXXbmXpXXXXXXXXXX_!!134583372.jpg "iQunix Lambo 60%")
 
-拆掉原装的塑料键盘壳。换装 iQunix Lambo 铝制外壳 (https://www.aliexpress.com/item/Iqunix-lambo-60-mechanical-keyboard-anode-alumina-shell-base-gh60-poker2/32677061753.html)。
+拆掉原装的塑料键盘壳。换装 iQunix Lambo (https://www.aliexpress.com/item/Iqunix-lambo-60-mechanical-keyboard-anode-alumina-shell-base-gh60-poker2/32677061753.html) 铝制外壳。
 
 GMK 3Run Keycap Set
 -------------------
 
 ![GMK 3Run Keycap Set](https://lh3.googleusercontent.com/z2KseMMpuwDi99YfmnM4_e2-DoRToMLQEyg7meR5EvSoMMtdYj-J-0BR-5hEhArBsC_WdspvqY1Bu7xpnJfJN6rnkdUJfbwTxqJyC_frmBIt1edzQnBsSmi-XR1GPJYA8UjzP6UL9hfDAW360-5ckorC-1_nEyMPk0S_zzgKZHP3IOABbbyuZisFF6hsHQ0mFYKnmZmOM8w3cuIb3SE8XSoPtJocl3WvsITwn8TXloMtZjZJ1YzAeu2Pb4rHhjVWvDdxXx9_GsaMp2yTD24IevzxdKRI5to0sNIGc6jNgmVRhGiqEBolB5AppSplHBDo-GZRUz3z9WNRPzkq3rYMhI98FPB8DlT3i7uMLGbVu-xCyMxqgjpe-r4DNp8nEq4O6fGBxumFaFTBkJz9wuNLguQrQN2AthdWCmSyvdDPeuybQAioJ_FDfRNzpsd61BMnjJgT4qQc1jzP0S6GB5fXMf3PRgLLGqXMngneQbGYlDd1U_7PSeEarrGV6bRVXWlST9NmIxSgMxi1w_qOmFk4Wkeu-adIdgMw1munUseuSdfjrhESJZ7TVuXrx2xy42jnvWlinWnL4K0yP1FiUSugRIgmoWS5OhIBhRzbqZcU5NHkCGHHfa7heJqsnI1ARo6rz6IfiUc1yuwC17H4cOmZEAUHLsyn4eUUB_cJUrLcNJCagQU=w955-h637-no "GMK 3Run Keycap Set")
 
-最后再装上德国 GMK 工厂造的 3Run ABS keycaps 后 (https://www.massdrop.com/buy/gmk-3run-keycap-set)，一个拥有自己 signature，体现个性，品味的机械键盘诞生了。
+最后再装上德国 GMK 工厂造的 3Run ABS keycaps 后 (https://www.massdrop.com/buy/gmk-3run-keycap-set) ，一个拥有自己 signature，体现个性，品味的机械键盘诞生了。
 
 极简之道 / Simplicity
 -------------------
