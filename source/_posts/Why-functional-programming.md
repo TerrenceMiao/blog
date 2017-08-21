@@ -37,8 +37,19 @@ Benefit of Functional Programming
 
 没有副作用的函数可以独立地进行测试，因为不需要写大量的设置代码来构造它们所依赖的整个环境。
 
+Functional programming, views a program as a mathematical function which is evaluated to produce a result value. That function may call upon nested functions, which in turn may call upon more nested functions. A nested function evaluates to produce a result. From there, that result is passed on to the enclosing function, which uses the nested function values to calculate its own return value. To enable functions to easily pass data to and from other functions, functional programming languages typically define data structures in the most generic possible way, as a collection of (any) things. They also allow functions to be passed to other functions as if they were data parameters. A function in this paradigm is not allowed to produce any side effects such as modifying a global variable that maintains state information. Instead, it is only allowed to receive parameters and perform some operations on them in order to produce its return value. Executing a functional program involves evaluating the outermost function, which in turn causes evaluation of all the nested functions, recursively down to the most basic functions that have no nested functions.
+
+Why is functional programming a big deal?
+
+* Clarity: Programming without side effects creates code that is easier to follow - a function is completely described by what goes in and what comes out. A function that produces the right answer today will produce the right answer tomorrow. This creates code that is easier to debug, easier to test, and easier to re-use.
+
+* Brevity: In functional languages, data is implicitly passed from a nested function to its parent function, via a general-purpose collection data type. This makes functional programs much more compact than those of other paradigms, which require substantial “housekeeping” code to pass data from one function to the next.
+
+* Efficiency: Because functions do not have side effects, operations can be re-ordered or performed in parallel in order to optimize performance, or can be skipped entirely if their result is not used by any other function.
+
 
 References
 ----------
 
 * Kotlin 初体验：主要特征与应用, http://geek.csdn.net/news/detail/231497
+* The Rise and Fall of Scala, https://dzone.com/articles/the-rise-and-fall-of-scala
