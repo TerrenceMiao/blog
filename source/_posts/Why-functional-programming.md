@@ -41,11 +41,17 @@ Functional programming, views a program as a mathematical function which is eval
 
 Why is functional programming a big deal?
 
-* Clarity: Programming without side effects creates code that is easier to follow - a function is completely described by what goes in and what comes out. A function that produces the right answer today will produce the right answer tomorrow. This creates code that is easier to debug, easier to test, and easier to re-use.
+* Clarity
 
-* Brevity: In functional languages, data is implicitly passed from a nested function to its parent function, via a general-purpose collection data type. This makes functional programs much more compact than those of other paradigms, which require substantial “housekeeping” code to pass data from one function to the next.
+Programming without side effects creates code that is easier to follow - a function is completely described by what goes in and what comes out. A function that produces the right answer today will produce the right answer tomorrow. This creates code that is easier to debug, easier to test, and easier to re-use.
 
-* Efficiency: Because functions do not have side effects, operations can be re-ordered or performed in parallel in order to optimize performance, or can be skipped entirely if their result is not used by any other function.
+* Brevity
+
+In functional languages, data is implicitly passed from a nested function to its parent function, via a general-purpose collection data type. This makes functional programs much more compact than those of other paradigms, which require substantial “housekeeping” code to pass data from one function to the next.
+
+* Efficiency
+
+Because functions do not have side effects, operations can be re-ordered or performed in parallel in order to optimize performance, or can be skipped entirely if their result is not used by any other function.
 
 
 References
