@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://terrencemiao.github.io/blog/"/>
-  <updated>2017-08-17T13:44:54.000Z</updated>
+  <updated>2017-08-21T13:40:45.000Z</updated>
   <id>https://terrencemiao.github.io/blog/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://terrencemiao.github.io/blog/2017/08/17/Why-functional-programming/"/>
     <id>https://terrencemiao.github.io/blog/2017/08/17/Why-functional-programming/</id>
     <published>2017-08-17T13:15:35.000Z</published>
-    <updated>2017-08-17T13:44:54.000Z</updated>
+    <updated>2017-08-21T13:40:45.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="https://lh3.googleusercontent.com/FXZ-mN3B3uKCrN4aazrmNfvxCeNHCibi0FZ4Fp6c2xoQQlUQZtQS7Jzm6iQVizb17iA8ydDQ8vW3c4QLv5bfuh4kZE2b_HW5VK48m3Gan4B1VbzOkcJ_mEu8Bb7oo7dheTWrk2olKoax3UVS5Zh3QVehiquSVWZfTMeiH7AHuL5F_MqnwE7__fgEezNZxzyHCA7ZKY3SF82CYciTyw3Yb_FaE4I88lXICm-wyYrmhXgtB36VamFsEFeiZHvLwWnJGxaBWPYqyC4Yz2_Q2jnM3_3LVYbb5aLRbAikJpkXkE7td58BlcBBqwZz0tQMCpcwJeWjAGviZu3sv7Hiz9m_EIk2dSCq2VhVaouiD9mW8lCTvHOh9rAQJhxGYCCsf92uoNyN1rXMdEfN2zkk0HnGcEVGraMD8-ZRfvPTH5v1CuoLBIcnLy7eRAIewlPXSBtkGyQB-Qjt3cQ3tiAoR8XOs5bxo4IumjCCBgInj-67eJZiymGysNJ1JkA4U_c4LQlxO9xKDRLEf56OVevEs4rncS2dUeYt5lg4bUsE-ihF8Pa9h0_YmQURg2hJU7KRtK_kk4ON5YLXmip7ITOnbB2sUVVLWr7UysRpTqfAwIfTwBHVPkjzDR748A=w402-h284-no" alt="Why Functional Programming?" title="Why Functional Programming?"></p>
 <h2 id="Why-Static-Type"><a href="#Why-Static-Type" class="headerlink" title="Why Static Type?"></a>Why Static Type?</h2><ul>
@@ -48,8 +48,19 @@
 <li>测试更加容易</li>
 </ul>
 <p>没有副作用的函数可以独立地进行测试，因为不需要写大量的设置代码来构造它们所依赖的整个环境。</p>
+<p>Functional programming, views a program as a mathematical function which is evaluated to produce a result value. That function may call upon nested functions, which in turn may call upon more nested functions. A nested function evaluates to produce a result. From there, that result is passed on to the enclosing function, which uses the nested function values to calculate its own return value. To enable functions to easily pass data to and from other functions, functional programming languages typically define data structures in the most generic possible way, as a collection of (any) things. They also allow functions to be passed to other functions as if they were data parameters. A function in this paradigm is not allowed to produce any side effects such as modifying a global variable that maintains state information. Instead, it is only allowed to receive parameters and perform some operations on them in order to produce its return value. Executing a functional program involves evaluating the outermost function, which in turn causes evaluation of all the nested functions, recursively down to the most basic functions that have no nested functions.</p>
+<p>Why is functional programming a big deal?</p>
+<ul>
+<li><p>Clarity: Programming without side effects creates code that is easier to follow - a function is completely described by what goes in and what comes out. A function that produces the right answer today will produce the right answer tomorrow. This creates code that is easier to debug, easier to test, and easier to re-use.</p>
+</li>
+<li><p>Brevity: In functional languages, data is implicitly passed from a nested function to its parent function, via a general-purpose collection data type. This makes functional programs much more compact than those of other paradigms, which require substantial “housekeeping” code to pass data from one function to the next.</p>
+</li>
+<li><p>Efficiency: Because functions do not have side effects, operations can be re-ordered or performed in parallel in order to optimize performance, or can be skipped entirely if their result is not used by any other function.</p>
+</li>
+</ul>
 <h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
 <li>Kotlin 初体验：主要特征与应用, <a href="http://geek.csdn.net/news/detail/231497" target="_blank" rel="external">http://geek.csdn.net/news/detail/231497</a></li>
+<li>The Rise and Fall of Scala, <a href="https://dzone.com/articles/the-rise-and-fall-of-scala" target="_blank" rel="external">https://dzone.com/articles/the-rise-and-fall-of-scala</a></li>
 </ul>
 ]]></content>
     
