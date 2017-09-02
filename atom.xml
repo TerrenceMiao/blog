@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://terrencemiao.github.io/blog/"/>
-  <updated>2017-09-02T04:50:54.000Z</updated>
+  <updated>2017-09-02T04:56:13.000Z</updated>
   <id>https://terrencemiao.github.io/blog/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://terrencemiao.github.io/blog/2017/09/02/Plato-and-Socrates-%E6%9F%8F%E6%8B%89%E5%9B%BE%E9%BA%A6%E7%A9%97%E9%97%AE%E9%A2%98/"/>
     <id>https://terrencemiao.github.io/blog/2017/09/02/Plato-and-Socrates-柏拉图麦穗问题/</id>
     <published>2017-09-02T03:58:00.000Z</published>
-    <updated>2017-09-02T04:50:54.000Z</updated>
+    <updated>2017-09-02T04:56:13.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="https://lh3.googleusercontent.com/vyuQIzcEupI0S5rfz_Y7ICSGtzBsFL-Fx-v4HSOxC4o0s_hPgEJMhzeBrvBPDAnAsMmuARodnz6YoodekBIv89Clrwf51_-IWzOsedmLbWuY3h1Ld3oThDAWG2UpSZaxa8F-WTpVQ2MCS3oijN7zS27f35GtcaEuBpOh9nfh5rVdVpcrMY-2Djl7hvUoj1Ia948Qf-2OQAurrRffdB2ZcDLSmrUhUlpZ8LjALmpKz-OYjhAnUgqlpFbQQ0rqzswtElY6bIQ9RSG_NyKJDKwUkN9J6r-k4lu27c1UcfPzJchsQIwgnpPO6islX538EVqyAS4Skg-cjyRdsRL3mdQN7bSLY-qk0GBmYnLEfNeEJg7orCeWBKaN_p_4suLv_X5wHZu36fSEAB5Y3bMnlfUv0QkyANOa-8O0tD_bvFOhAJh-iYh3q3hSnHGgH96qjqcuqBwBitUQaZMmigxCv_HCWAV0tFaqgOEBrKnAckaeSipxkqccR98WkChAEqLvtRN83zOKA1tHhuju4q63AMlqsqWpbYnBmpoHDf-4HAiLYr26GpJ6FR7nMlnq2g4deBgiqw0T3UuwZ0-UXY6uk_i4GuZuKfbdYI-PC2m3BhRYskgyD-U0UFDBPg=w1281-h933-no" alt="The meaning of Love, Marriage and Life" title="The meaning of Love, Marriage and Life"></p>
 <p>One day, Plato asked his teacher Socrates, “What is love? How can I find it?” Socrates answered, “There is a vast wheat field in front. Walk forward without turning back, and pick only one stalk. If you find the most magnificent stalk, then you have found love.” Plato walked forward, and before long, he returned with empty hands, having picked nothing. His teacher asked, “Why did you not pick any stalk?” Plato answered, “Because I could only pick once, and yet I could not turn back. I did find the most magnificent stalk, but did not know if there were any better ones ahead, so I did not pick it. As I walked further, the stalks that I saw were not as good as the earlier one, so! I did not pick any in the end.”</p>
@@ -42,8 +42,8 @@
 <h2 id="柏拉图麦穗问题的数学解答"><a href="#柏拉图麦穗问题的数学解答" class="headerlink" title="柏拉图麦穗问题的数学解答"></a>柏拉图麦穗问题的数学解答</h2><p>　　<br>现在我们用数学的角度来讨论这个问题。</p>
 <p>假设我们碰到的麦穗有 n 个，我们用这样的策略来选麦穗，前 k 个，记住一个最大的麦穗记为 d（可能是重量，也可能是体积），然后 k + 1 个开始，只要大于 d 的，就选择，否则就不选择。</p>
 <p>对于某个固定的 k，如果最大的麦穗出现在了第 i 个位置（k &lt; i ≤ n），要想让他有幸正好被选中，就必须得满足前 i - 1 个麦穗中的最好的麦穗在前 k 个麦穗里，这有 k / (i - 1) 的可能。考虑所有可能的 i，我们便得到了前 k 个麦穗作为参考，能选中最大麦穗的总概率 P(k)：</p>
-<p><img src="/blog/img/Wheat%20Paradox%201.gif" alt="Wheat Paradox" title="Wheat Paradox"></p>
-<p>设 k / n = x，并且假设 n 充分大，则上述公式可以改为：<br>　　<br><img src="/blog/img/Wheat%20Paradox%202.gif" alt="Wheat Paradox" title="Wheat Paradox"></p>
+<p><img src="/blog/img/Wheat%20paradox%201.gif" alt="Wheat Paradox" title="Wheat Paradox"></p>
+<p>设 k / n = x，并且假设 n 充分大，则上述公式可以改为：<br>　　<br><img src="/blog/img/Wheat%20paradox%202.gif" alt="Wheat Paradox" title="Wheat Paradox"></p>
 <p>对 x·ln(x) 求导，并令这个导数为 0，可以解出 x 的最优值，它就是欧拉研究的神秘常数的倒数 1 / e.</p>
 <p>所以 k = n / e.<br>　　<br>如果你想摘取最大的麦穗，假设有 n 个麦穗，你应该先将前 n / e 个麦穗作为参考，然后再 k + 1 个麦穗开始选择比前面 k 个最大的麦穗即可。</p>
 <p>e = 2.718281828459</p>
