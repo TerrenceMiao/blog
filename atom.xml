@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://terrencemiao.github.io/blog/"/>
-  <updated>2017-09-03T06:27:00.000Z</updated>
+  <updated>2017-09-03T06:45:09.000Z</updated>
   <id>https://terrencemiao.github.io/blog/</id>
   
   <author>
@@ -16,11 +16,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>画虾</title>
+    <link href="https://terrencemiao.github.io/blog/2017/09/03/%E7%94%BB%E8%99%BE/"/>
+    <id>https://terrencemiao.github.io/blog/2017/09/03/画虾/</id>
+    <published>2017-09-03T06:31:32.000Z</published>
+    <updated>2017-09-03T06:45:09.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>今购得一画，甚喜。</p>
+<p>构图严谨而不失大气，疏密有致且遥相呼应，笔墨灵动犹如活物跃然纸上。齐白石三字字迹遒劲有力，却又透露出儿童般的天真烂漫。</p>
+<p>字，画相应得章，疏可走马密不透风，装裱更是别具一格，边上圆点疏密一致，深色背景与浅色画面相互映衬。</p>
+<p>实为难得佳作，并经砖家鉴定真迹无疑。</p>
+<p><img src="/blog/img/Shrimp.jpg" alt="画虾" title="画虾"></p>
+<p>此画还有一神奇之处，若放笼屉蒸 10 分钟，画面生彩，触觉肌理，意境更佳。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;今购得一画，甚喜。&lt;/p&gt;
+&lt;p&gt;构图严谨而不失大气，疏密有致且遥相呼应，笔墨灵动犹如活物跃然纸上。齐白石三字字迹遒劲有力，却又透露出儿童般的天真烂漫。&lt;/p&gt;
+&lt;p&gt;字，画相应得章，疏可走马密不透风，装裱更是别具一格，边上圆点疏密一致，深色背景与浅色画面相互映衬。&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>为什么要读书</title>
     <link href="https://terrencemiao.github.io/blog/2017/09/03/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E8%AF%BB%E4%B9%A6/"/>
     <id>https://terrencemiao.github.io/blog/2017/09/03/为什么要读书/</id>
     <published>2017-09-03T06:09:19.000Z</published>
-    <updated>2017-09-03T06:27:00.000Z</updated>
+    <updated>2017-09-03T06:29:27.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="/blog/img/Maiden%201.jpg" alt="Maiden" title="Maiden"></p>
 <p>父子二人饮茶，儿问：“为什么要我读书？”</p>
@@ -661,60 +687,6 @@
     
       &lt;p&gt;Il semble que la perfection soit atteinte non quand il n’y a plus rien à ajouter, mais quand il n’y a plus rien à retrancher.&lt;/p&gt;
 &lt;figure
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Setup Docker Private Registry in Nexus Repository OSS 3.x.x</title>
-    <link href="https://terrencemiao.github.io/blog/2017/01/28/Setup-Docker-Private-Registry-in-Nexus-Repository-OSS-3-x-x/"/>
-    <id>https://terrencemiao.github.io/blog/2017/01/28/Setup-Docker-Private-Registry-in-Nexus-Repository-OSS-3-x-x/</id>
-    <published>2017-01-28T03:37:50.000Z</published>
-    <updated>2017-01-28T04:18:41.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>Make sure Nexus Repository has been setup with Self Signed certificate, certificate for host/server e.g. “silencer.bigpond”.</p>
-<p>The following instructions have been successfully tested in Nexus version <em>3.2.0-01</em>.</p>
-<h2 id="Create-Docker-Hub-repository-in-Nexus"><a href="#Create-Docker-Hub-repository-in-Nexus" class="headerlink" title="Create Docker Hub repository in Nexus"></a>Create Docker Hub repository in Nexus</h2><p><img src="https://raw.githubusercontent.com/TerrenceMiao/nexus/master/images/docker-hub%20repository.png" alt="Docker Hub repository"></p>
-<h2 id="Create-Docker-Internal-repository-in-Nexus"><a href="#Create-Docker-Internal-repository-in-Nexus" class="headerlink" title="Create Docker Internal repository in Nexus"></a>Create Docker Internal repository in Nexus</h2><p><img src="https://raw.githubusercontent.com/TerrenceMiao/nexus/master/images/docker-internal%20repository.png" alt="Docker Internal repository"></p>
-<h2 id="Create-Docker-Group-repository-in-Nexus"><a href="#Create-Docker-Group-repository-in-Nexus" class="headerlink" title="Create Docker Group repository in Nexus"></a>Create Docker Group repository in Nexus</h2><p><img src="https://raw.githubusercontent.com/TerrenceMiao/nexus/master/images/docker-group%20repository.png" alt="Docker Group repository"></p>
-<h2 id="Run-Docker-with-Docker-Native"><a href="#Run-Docker-with-Docker-Native" class="headerlink" title="Run Docker with Docker Native"></a>Run Docker with Docker Native</h2><h4 id="Add-Docker-Private-Registry-in-Insecure-Registries"><a href="#Add-Docker-Private-Registry-in-Insecure-Registries" class="headerlink" title="Add Docker Private Registry in Insecure Registries"></a>Add Docker Private Registry in Insecure Registries</h4><p><img src="https://raw.githubusercontent.com/TerrenceMiao/nexus/master/images/docker%20native%20-%20Insecure%20registries.png" alt="Docker Native Insecure registries"></p>
-<p>Now this approach supports <em>docker pull</em> and <em>docker push</em>.</p>
-<p>Work around with “<em>x509: certificate signed by unknown authority</em>“ error by adding “–disable-content-trust” option on <em>docker push</em> command line if Docker doesn’t accept Self-Signed certificate.</p>
-<h4 id="Add-Docker-Private-Registry-server’s-certificate-into-Docker-Virtual-Machine-CA-list"><a href="#Add-Docker-Private-Registry-server’s-certificate-into-Docker-Virtual-Machine-CA-list" class="headerlink" title="Add Docker Private Registry server’s certificate into Docker Virtual Machine CA list"></a>Add Docker Private Registry server’s certificate into Docker Virtual Machine CA list</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">𝜆 keytool -printcert -rfc -sslserver silencer.bigpond:8444 &gt; silencer.bigpond.pem</div><div class="line">-----BEGIN CERTIFICATE-----</div><div class="line">MIIDkDCCAnigAwIBAgIEAqo9kTANBgkqhkiG9w0BAQsFADBgMQswCQYDVQQGEwJBVTEUMBIGA1UE</div><div class="line">CBMLVW5zcGVjaWZpZWQxFDASBgNVBAcTC1Vuc3BlY2lmaWVkMREwDwYDVQQKEwhTb25hdHlwZTES</div><div class="line">MBAGA1UEAwwJKi5iaWdwb25kMB4XDTE2MDYxMjExMzY1M1oXDTMwMDIxOTExMzY1M1owYDELMAkG</div><div class="line">A1UEBhMCQVUxFDASBgNVBAgTC1Vuc3BlY2lmaWVkMRQwEgYDVQQHEwtVbnNwZWNpZmllZDERMA8G</div><div class="line">A1UEChMIU29uYXR5cGUxEjAQBgNVBAMMCSouYmlncG9uZDCCASIwDQYJKoZIhvcNAQEBBQADggEP</div><div class="line">ADCCAQoCggEBAJNO5mDpBDQQ8n4t0P2z8ChWzIFQ3Pf+5U8x6P17O3WtKTfsbuRYobHYmas5tVdV</div><div class="line">dnLIqpb4JV9DWIoS+CNG6cRLy3GIWWT7CbjsrpDlOTArslvk3KuzQ0dsZNflRfdd+ughI2LczehE</div><div class="line">fhzPJzA+ZU8Am1CadM+VUa+T6MilFQMXpWfjND6BNnV+qr/MX1QQfSjiWt7oWBex0BB0VPv9ooBZ</div><div class="line">UqO+8jk5fUY8wEIa/kqLUqIKGxIUx9BMQBwBJwDKZmK93DXSPvAFYbKQjj6/nbV9R1VWmR7fhkLG</div><div class="line">+Ixlx5ld2dxv4+xvXmS8s4NanBtKZWUfEYVPp7gUF9HZoW9A1jcCAwEAAaNSMFAwDAYDVR0TBAUw</div><div class="line">AwEB/zAhBgNVHREEGjAYghBzaWxlbmNlci5iaWdwb25khwQKAAAJMB0GA1UdDgQWBBQV3WTuC+GI</div><div class="line">8lHtH0uL+kYqTG+vczANBgkqhkiG9w0BAQsFAAOCAQEAUwL+qnKVT0ENZEZnDjB+cjPfvkeWOD05</div><div class="line">PrGUOn4YB4vllq2S6Cgfm0OaZ+vMt3KMXPf9pIgZ797jdPhOP/s5IVJItldky+u/Hk9gNtUwEjpg</div><div class="line">l0MjhSm/PqxR5XoJdkYlvUdtq+PTrU5RU3v3GImeOmlI4mM5PaZ6OT8HC5VMX5s9RawBr/5EbJHR</div><div class="line">M7EN8r3g4Y/2109YoHoiWAhnN6TC3RhmCoQqGOiPsS732KHUz3KqXVbq9VTRdA3dXqFj1cUSet1T</div><div class="line">XTPisaiehffvbqYm2vrJ5WYgqCwb8TadDg66TToj080qvA8cXAF7qlA8pOImrbVOs7tdANSAs+AO</div><div class="line">cqCkiA==</div><div class="line">-----END CERTIFICATE-----</div></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">𝜆 screen ~/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux/tty</div></pre></td></tr></table></figure>
-<p>Inside Docker Virtual Machine, follow these steps:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ sudo cat silencer.bigpond.pem &gt;&gt; /etc/ssl/certs/ca-certificates.crt</div><div class="line">$ sudo /etc/init.d/docker restart</div><div class="line">$ tail <span class="_">-f</span> /var/lib/boot2docker/docker.log</div></pre></td></tr></table></figure>
-<h2 id="With-Docker-Toolbox"><a href="#With-Docker-Toolbox" class="headerlink" title="With Docker Toolbox"></a>With Docker Toolbox</h2><h4 id="Add-Docker-Private-Registry-server’s-certificate-into-Docker-Virtual-Machine-CA-list-1"><a href="#Add-Docker-Private-Registry-server’s-certificate-into-Docker-Virtual-Machine-CA-list-1" class="headerlink" title="Add Docker Private Registry server’s certificate into Docker Virtual Machine CA list"></a>Add Docker Private Registry server’s certificate into Docker Virtual Machine CA list</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">𝜆 keytool -printcert -rfc -sslserver silencer.bigpond:8444 &gt; silencer.bigpond.pem</div><div class="line">𝜆 docker-machine ssh default</div></pre></td></tr></table></figure>
-<p>Inside Docker Virtual Machine, follow these steps:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ sudo cat silencer.bigpond.pem &gt;&gt; /etc/ssl/certs/ca-certificates.crt</div><div class="line">$ sudo /etc/init.d/docker restart</div><div class="line">$ tail <span class="_">-f</span> /var/lib/boot2docker/docker.log</div></pre></td></tr></table></figure></p>
-<p>Press Ctrl + D and Ctrl + D to exist SCREEN program. Type “screen -r” to re-entry SCREEN program.</p>
-<h2 id="Additional-Certificates"><a href="#Additional-Certificates" class="headerlink" title="Additional Certificates"></a>Additional Certificates</h2><p>Download 3rd party Repository server’s certificate. Use tool like <em>KeyStore Explorer</em> to add 3rd party server certificates into existing <em>keystore.jks</em>. Due to a certificate chain that does not exist within the existing Java truststore, Java does not trust the certificate and fails to connect to the application.</p>
-<h2 id="Test"><a href="#Test" class="headerlink" title="Test"></a>Test</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">𝜆 docker login silencer.bigpond:18443</div><div class="line">Username: admin</div><div class="line">Password: admin123</div><div class="line">Login Succeeded</div></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">𝜆 docker search silencer.bigpond:18443/tomcat</div><div class="line">𝜆 docker pull silencer.bigpond:18443/jtech/tomcat:latest</div></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">𝜆 docker login silencer.bigpond:18444</div><div class="line">Username: admin</div><div class="line">Password: admin123</div><div class="line">Login Succeeded</div></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">𝜆 docker build -t jtech/camel-spring:latest .</div><div class="line">𝜆 docker tag jtech/camel-spring silencer.bigpond:18444/jtech/camel-spring:latest</div><div class="line">𝜆 docker push silencer.bigpond:18444/jtech/camel-spring:latest</div></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">𝜆 docker push --disable-content-trust silencer.bigpond:18444/jtech/camel-spring:latest</div></pre></td></tr></table></figure>
-<h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><ul>
-<li>Due to Docker Virtual Machine is immutable, the CA certificate added change made inside VM is ephemeral, and lost after VM is restarted</li>
-<li>Docker Private Registry ONLY supports <em>HTTPS</em>, NOT HTTP</li>
-<li>Nexus repository MUST register and use server certificate for host e.g. “silencer.bigpond”, NOT “localhost.bigpond” to run Docker Private Registry</li>
-<li>Try with “–disable-content-trust” if error like “Get <a href="https://silencer.gateway:18444/v1/_ping" target="_blank" rel="external">https://silencer.gateway:18444/v1/_ping</a>: x509: certificate signed by unknown authority”</li>
-</ul>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
-<li>Private Registry for Docker, <em><a href="https://books.sonatype.com/nexus-book/3.0/reference/docker.html" target="_blank" rel="external">https://books.sonatype.com/nexus-book/3.0/reference/docker.html</a></em></li>
-<li>Using Self-Signed Certificates with Nexus Repository Manager and Docker Daemon, <em><a href="https://support.sonatype.com/hc/en-us/articles/217542177" target="_blank" rel="external">https://support.sonatype.com/hc/en-us/articles/217542177</a></em></li>
-<li>SSL Certificate Guide, <em><a href="https://support.sonatype.com/hc/en-us/articles/213465768" target="_blank" rel="external">https://support.sonatype.com/hc/en-us/articles/213465768</a></em></li>
-<li>Setup HTTPS access Nexus Repository, <em><a href="https://github.com/TerrenceMiao/nexus/wiki/Setup-HTTPS-access-Nexus-Repository-Manager-OSS-3.xx" target="_blank" rel="external">https://github.com/TerrenceMiao/nexus/wiki/Setup-HTTPS-access-Nexus-Repository-Manager-OSS-3.xx</a></em></li>
-<li>Add Self Signed CA certificate into Docker’s CA list, <em><a href="https://github.com/klippx/inject-docker-certs" target="_blank" rel="external">https://github.com/klippx/inject-docker-certs</a></em></li>
-<li>Adding Self Signed certificate in Docker Native for Mac, <em><a href="https://forums.docker.com/t/adding-self-signed-certificates/9761" target="_blank" rel="external">https://forums.docker.com/t/adding-self-signed-certificates/9761</a></em></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Make sure Nexus Repository has been setup with Self Signed certificate, certificate for host/server e.g. “silencer.bigpond”.&lt;/p&gt;
-&lt;p&gt;The f
     
     </summary>
     
