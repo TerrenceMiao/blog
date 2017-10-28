@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://terrencemiao.github.io/blog/"/>
-  <updated>2017-09-24T10:01:02.000Z</updated>
+  <updated>2017-10-28T23:45:18.000Z</updated>
   <id>https://terrencemiao.github.io/blog/</id>
   
   <author>
@@ -14,6 +14,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>First ever half marathon trial</title>
+    <link href="https://terrencemiao.github.io/blog/2017/10/29/First-ever-half-marathon-trial/"/>
+    <id>https://terrencemiao.github.io/blog/2017/10/29/First-ever-half-marathon-trial/</id>
+    <published>2017-10-28T23:18:10.000Z</published>
+    <updated>2017-10-28T23:45:18.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Try the first ever half marathon today - Yarra Boulevard run.</p>
+<p>New experience such routine, Yarra Boulevard from suburb Kew to Hawthorn, either by walking or cycling.</p>
+<p>Terrible weather condition today, windy and hot. Have to stop several time to supply water in case of dehydrated.</p>
+<p>After 17km, left leg calf muscles start cramping, force me to reduce the pace. After 19km, right leg calf muscles also start cramping, but I keep moving forward.</p>
+<p>New new personal best of Performance Level - 55 after run. Meanwhile, remind me my limits.</p>
+<p><img src="https://lh3.googleusercontent.com/N8oHoJU_p3p4hWyT_8oeNnLttknqUPWrAigIGKqPXo9OwEmawW129f5485TxA65ECjvhdcyDGZGQ6yNywPU-KpkYfstJjYO_Soo8LB-BeumyhMs8mR82Uvk1RGajRUI-gCL9WOrGa_2kWjW3IlEno7Q88oyNCr_UU5vGDbeILDJvTW5leveNX0SEuh-aIacge4AA8vQJ09PX1RGBg9ShCICNaP3KRXdTpsAQDte_vW1FScdDxhHRDQ3FCuo3StDlYHcMKsqb6vI0Uqj-8sprglsmSmBfPg_jlNRRAdVB832kMesq0rXtBDB0jj9rXMKE3RGJCNuuIPqbpxYoTAQubrng-VNdApdq3mLvGsB-ged4Mr4eQmZb5PDcu8jhFd_rNKkE8wSDAC7O0TPkppfxkAsq3xBU-I88oYpg-Fzt7ejmtvKCgomheTY_ScdBJ7xrDM0Aa6flsqVDhVu92AHKzj9elKNnERhn82ZRBOSENfYkOBJzAkpuySAScOG-e8TA_l3eyrk45UAmOZea0u3HgvBlnvFnqYWRfJ8BvGMav2SzzeGLBp00Dzc-f2SIjenGTdotnxinfjX-BNwAX7Bi16sEpHPB7CECVKtwuO6l7dw=w1278-h1107-no" alt="First ever half marathon tria" title="First ever half marathon trial"></p>
+<p>Quotes from Johnnie Walker commercial:</p>
+<p>“When the sun came shining and I was strolling and the wheat fields waving and the dust clouds rolling. As the fog was lifting, a voice was chanting, this land was made for you and me.”</p>
+<p>“As I was walking that ribbon of highway, I saw above me that endless sky way. I saw below me that golden valley, Esta tierra fue hecha para ti y para mí.”</p>
+<p>“I’ve roamed and rambled and I’ve followed my footsteps to the sparkling sands over diamond deserts, and all around me a voice was sounding, this land was made for you and me.”</p>
+<p>Keep running!</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Try the first ever half marathon today - Yarra Boulevard run.&lt;/p&gt;
+&lt;p&gt;New experience such routine, Yarra Boulevard from suburb Kew to Hawt
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>浅谈程序员的数学修养</title>
@@ -781,32 +811,6 @@
     <summary type="html">
     
       &lt;h3 id=&quot;Implementation&quot;&gt;&lt;a href=&quot;#Implementation&quot; class=&quot;headerlink&quot; title=&quot;Implementation&quot;&gt;&lt;/a&gt;Implementation&lt;/h3&gt;&lt;figure class=&quot;highlight 
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Remote debugging Java applications run on Tomcat</title>
-    <link href="https://terrencemiao.github.io/blog/2017/02/11/Remote-debugging-Java-applications-run-on-Tomcat/"/>
-    <id>https://terrencemiao.github.io/blog/2017/02/11/Remote-debugging-Java-applications-run-on-Tomcat/</id>
-    <published>2017-02-11T02:52:26.000Z</published>
-    <updated>2017-02-11T03:04:55.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>Enable JVM option to attach a remote debugger:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">export</span> JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,<span class="built_in">suspend</span>=y,address=5005</div></pre></td></tr></table></figure>
-<p>“suspend” set to “y” is to let remote debugger start loading the application. </p>
-<p>Now, start running Tomcat. JVM debugging port is bound on port 5005i on the machine runs on Tomcat. </p>
-<p>Next, set up SSH tunnel mirror remotei host (ip-10-213-79-77.ap-southeast-2.compute.internal) 5005 port to localhost on port 5005. For example:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh -L 5005:ip-10-213-79-77.ap-southeast-2.compute.internal:5005 <span class="_">-l</span> ec2-user ip-10-213-79-77.ap-southeast-2.compute.internal</div></pre></td></tr></table></figure>
-<p>You can start remote debugging in IDE like IntelliJ and debug the code since.</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Enable JVM option to attach a remote debugger:&lt;/p&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;
     
     </summary>
     
