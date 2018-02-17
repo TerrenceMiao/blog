@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://terrencemiao.github.io/blog/"/>
-  <updated>2018-02-06T12:48:03.000Z</updated>
+  <updated>2018-02-17T09:42:03.000Z</updated>
   <id>https://terrencemiao.github.io/blog/</id>
   
   <author>
@@ -14,6 +14,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>AWS ElasticSearch and Kibana proxy setup</title>
+    <link href="https://terrencemiao.github.io/blog/2018/02/17/AWS-ElasticSearch-and-Kibana-proxy-setup/"/>
+    <id>https://terrencemiao.github.io/blog/2018/02/17/AWS-ElasticSearch-and-Kibana-proxy-setup/</id>
+    <published>2018-02-17T09:26:41.000Z</published>
+    <updated>2018-02-17T09:42:03.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>To access Amazon AWS ElasticSearch and Kibana services, which HTTP based, need to install a proxy application. Download AWS ES/Kibana Proxy from <em><a href="https://www.npmjs.com/package/aws-es-kibana" target="_blank" rel="external">https://www.npmjs.com/package/aws-es-kibana</a></em> and install:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install -g aws-es-kibana</div></pre></td></tr></table></figure>
+<p>Run AWS ES/Kibana Proxy then connect to ElasticSearch and Kibana services on AWS:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">$ cat ~/.aws/config</div><div class="line">[default]</div><div class="line">output = json</div><div class="line">region = ap-southeast-2</div><div class="line"></div><div class="line">[profile sandy-test]</div><div class="line">output = json</div><div class="line">region = ap-southeast-2</div><div class="line"></div><div class="line">$ cat ~/.aws/credentials</div><div class="line">[default]</div><div class="line">aws_access_key_id=Academy</div><div class="line">aws_secret_access_key=Dingly Ding</div><div class="line"></div><div class="line">[ap-test]</div><div class="line">aws_access_key_id=Abracadbra</div><div class="line">aws_secret_access_key=Somewhere Over The Rainbow</div><div class="line"></div><div class="line">$ AWS_PROFILE=ap-test aws-es-kibana search-pcc-esv5-ptest-01-esd-2bviw75xaivyygelizoftpzvh4.ap-southeast-2.es.amazonaws.com</div><div class="line">__________       _________    _________________    ________                            ______</div><div class="line">___    |_ |     / /_  ___/    ___  ____/_  ___/    ___  __ \________________  ______  ____  /</div><div class="line">__  /| |_ | /| / /_____ \     __  __/  _____ \     __  /_/ /_  ___/  __ \_  |/_/_  / / /_  /</div><div class="line">_  ___ |_ |/ |/ / ____/ /     _  /___  ____/ /     _  ____/_  /   / /_/ /_&gt;  &lt; _  /_/ / /_/</div><div class="line">/_/  |_|___/|__/  /____/      /_____/  /____/      /_/     /_/    \____//_/|_| _\__, / (_)</div><div class="line">                                                                               /____/</div><div class="line">AWS ES cluster available at http://127.0.0.1:9200</div><div class="line">Kibana available at http://127.0.0.1:9200/_plugin/kibana/</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;To access Amazon AWS ElasticSearch and Kibana services, which HTTP based, need to install a proxy application. Download AWS ES/Kibana Pro
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Good things come to those who could wait till the last</title>
@@ -841,25 +863,6 @@
     <summary type="html">
     
       &lt;h3 id=&quot;serverless&quot;&gt;&lt;a href=&quot;#serverless&quot; class=&quot;headerlink&quot; title=&quot;serverless&quot;&gt;&lt;/a&gt;serverless&lt;/h3&gt;&lt;p&gt;With latest Node.js 6.x.x installed, t
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>The State Quadrants - Functional vs. Object Oriented</title>
-    <link href="https://terrencemiao.github.io/blog/2017/02/18/The-State-Quadrants-Functional-vs-Object-Oriented/"/>
-    <id>https://terrencemiao.github.io/blog/2017/02/18/The-State-Quadrants-Functional-vs-Object-Oriented/</id>
-    <published>2017-02-18T12:19:56.000Z</published>
-    <updated>2017-02-18T12:25:02.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="https://lh3.googleusercontent.com/GzTcUK5qFtyGvu541IZpeRYf8Nqwlvs-XHBflIuWJpzNEg9QB8Xy-64aY0ImWqtYZbbIqSfrrMpUEXRzVjaFqLKuLYAzs47AxGCDammqPTEzJqYiXt_fKJSUDzvbkrwS8Mv70mrXJpH8Fyr1LFPZJCgX5VzPUwrE7-knfrxF3eBI-nRC4V9NB7_XtbZ7tPNrBoi_SqaDb9y7EJbrnKdc3_uDM6kfJnSovWiSHx_NgZBC7QF3mu5K_o9vcznNU3zZ14LQLjCk7yH09kkJHTol3h6R0yYsjT_YSXU0PJfNd_iuF0lGUv1wIlHsau01gWFCTpgPL6p01W3ff3Ft1pSxGWAAwcMw35_27OUKmn-zLvm4vdFhE5A1EKFQEOpnJqv1hd70lOBSuPw-75t2LI68KlixAx2ASDX0AR7PxNp9aWzMM-0rapQwMTAD5ZF7mmupZIQvIHbUdXSJWCKoLnuCyKnKN0ZANQtnhpnw-OBuxvLto1rP0ehjJ4EgGxI1y8ODAS6k7DiwVWZ-Y_5w1I9vTpUc627fhzp_vgX68GL9NRz7SSP4gxjrqPbQPdh8O5x-QCYI-_VCuh2Lx53fdGCeq6pI7_hqnOqk5BIuRgMFZ52H1Xu35PuGrw=w389-h276-no" alt="The State Quadrants"></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;https://lh3.googleusercontent.com/GzTcUK5qFtyGvu541IZpeRYf8Nqwlvs-XHBflIuWJpzNEg9QB8Xy-64aY0ImWqtYZbbIqSfrrMpUEXRzVjaFqLKuLYAzs
     
     </summary>
     
