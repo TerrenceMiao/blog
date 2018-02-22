@@ -31,7 +31,7 @@ aws_secret_access_key=Dingly Ding
 aws_access_key_id=Abracadbra
 aws_secret_access_key=Somewhere Over The Rainbow
 
-$ AWS_PROFILE=ap-test aws-es-kibana search-pcc-esv5-ptest-01-esd-2bviw75xaivyygelizoftpzvh4.ap-southeast-2.es.amazonaws.com
+$ AWS_PROFILE=ap-test aws-es-kibana search-paradise-esv5-test-01-esd-blah23dlaoed81nz890adle4.ap-southeast-2.es.amazonaws.com
 __________       _________    _________________    ________                            ______
 ___    |_ |     / /_  ___/    ___  ____/_  ___/    ___  __ \________________  ______  ____  /
 __  /| |_ | /| / /_____ \     __  __/  _____ \     __  /_/ /_  ___/  __ \_  |/_/_  / / /_  /
