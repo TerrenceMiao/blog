@@ -41,3 +41,14 @@ _  ___ |_ |/ |/ / ____/ /     _  /___  ____/ /     _  ____/_  /   / /_/ /_>  < _
 AWS ES cluster available at http://127.0.0.1:9200
 Kibana available at http://127.0.0.1:9200/_plugin/kibana/
 ```
+
+SSH Tunnel https://search-paradise-esv5-test-01-esd-blah23dlaoed81nz890adle4.ap-southeast-2.es.amazonaws.com from AWS 443 port to localhost 9200:
+
+Query by ElasticSearch Head:
+
+https://localhost:9200/orders-search-test/
+_search
+
+```
+
+```
