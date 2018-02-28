@@ -4,9 +4,11 @@ date: 2018-02-17 20:26:41
 tags:
 ---
 
+There are several ways to access Amazon AWS ElasticSearch and Kibana services, which are HTTP based, without inject into HTTP request headers with authentication key ...
+
 ## AWS ES Proxy
 
-To access Amazon AWS ElasticSearch and Kibana services, which HTTP based, need to install a proxy application. Download AWS ES/Kibana Proxy from _https://www.npmjs.com/package/aws-es-kibana_ and install:
+Install a proxy application - AWS ES/Kibana Proxy. Download it from _https://www.npmjs.com/package/aws-es-kibana_ and install:
 
 ```bash
 $ npm install -g aws-es-kibana
