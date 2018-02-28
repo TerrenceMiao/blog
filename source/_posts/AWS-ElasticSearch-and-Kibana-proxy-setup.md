@@ -4,6 +4,8 @@ date: 2018-02-17 20:26:41
 tags:
 ---
 
+## AWS ES Proxy
+
 To access Amazon AWS ElasticSearch and Kibana services, which HTTP based, need to install a proxy application. Download AWS ES/Kibana Proxy from _https://www.npmjs.com/package/aws-es-kibana_ and install:
 
 ```bash
@@ -42,13 +44,16 @@ AWS ES cluster available at http://127.0.0.1:9200
 Kibana available at http://127.0.0.1:9200/_plugin/kibana/
 ```
 
-SSH Tunnel https://search-paradise-esv5-test-01-esd-blah23dlaoed81nz890adle4.ap-southeast-2.es.amazonaws.com from AWS 443 port to localhost 9200:
+## SSH Tunnel
 
-Query by ElasticSearch Head:
+Set up SSH Tunnel for AWS ElasticSearch https://search-paradise-esv5-test-01-esd-blah23dlaoed81nz890adle4.ap-southeast-2.es.amazonaws.com from 443 port to localhost 9200:
 
-https://localhost:9200/orders-search-test/
-_search
-
+``` bash
+𝜆 ssh -L 9200:search-paradise-esv5-test-01-esd-blah23dlaoed81nz890adle4.ap-southeast-2.es.amazonaws.com:443 -l ec2-user aws-jump-box
 ```
 
-```
+Then access AWS ElasticSearch at: https://localhost:9200, AWS Kibana at: https://localhost:9200/_plugin/kibana
+
+## ElasticSearch Head
+
+With plugin ElasticSearch Head, to query ElasticSearch, using URL and index "orders-search-box" e.g. https://localhost:9200/orders-search-test/, and context path "_search"
