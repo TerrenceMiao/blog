@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://terrencemiao.github.io/blog/"/>
-  <updated>2018-02-28T12:50:22.000Z</updated>
+  <updated>2018-02-28T12:56:05.000Z</updated>
   <id>https://terrencemiao.github.io/blog/</id>
   
   <author>
@@ -20,9 +20,10 @@
     <link href="https://terrencemiao.github.io/blog/2018/02/17/AWS-ElasticSearch-and-Kibana-proxy-setup/"/>
     <id>https://terrencemiao.github.io/blog/2018/02/17/AWS-ElasticSearch-and-Kibana-proxy-setup/</id>
     <published>2018-02-17T09:26:41.000Z</published>
-    <updated>2018-02-28T12:50:22.000Z</updated>
+    <updated>2018-02-28T12:56:05.000Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="AWS-ES-Proxy"><a href="#AWS-ES-Proxy" class="headerlink" title="AWS ES Proxy"></a>AWS ES Proxy</h2><p>To access Amazon AWS ElasticSearch and Kibana services, which HTTP based, need to install a proxy application. Download AWS ES/Kibana Proxy from <em><a href="https://www.npmjs.com/package/aws-es-kibana" target="_blank" rel="external">https://www.npmjs.com/package/aws-es-kibana</a></em> and install:</p>
+    <content type="html"><![CDATA[<p>There are several ways to access Amazon AWS ElasticSearch and Kibana services, which are HTTP based, without inject into HTTP request headers with authentication key …</p>
+<h2 id="AWS-ES-Proxy"><a href="#AWS-ES-Proxy" class="headerlink" title="AWS ES Proxy"></a>AWS ES Proxy</h2><p>Install a proxy application - AWS ES/Kibana Proxy. Download it from <em><a href="https://www.npmjs.com/package/aws-es-kibana" target="_blank" rel="external">https://www.npmjs.com/package/aws-es-kibana</a></em> and install:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install -g aws-es-kibana</div></pre></td></tr></table></figure>
 <p>Run AWS ES/Kibana Proxy then connect to ElasticSearch and Kibana services on AWS:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">$ cat ~/.aws/config</div><div class="line">[default]</div><div class="line">output = json</div><div class="line">region = ap-southeast-2</div><div class="line"></div><div class="line">[profile sandy-test]</div><div class="line">output = json</div><div class="line">region = ap-southeast-2</div><div class="line"></div><div class="line">$ cat ~/.aws/credentials</div><div class="line">[default]</div><div class="line">aws_access_key_id=Academy</div><div class="line">aws_secret_access_key=Dingly Ding</div><div class="line"></div><div class="line">[ap-test]</div><div class="line">aws_access_key_id=Abracadbra</div><div class="line">aws_secret_access_key=Somewhere Over The Rainbow</div><div class="line"></div><div class="line">$ AWS_PROFILE=ap-test aws-es-kibana search-paradise-esv5-test-01-esd-blah23dlaoed81nz890adle4.ap-southeast-2.es.amazonaws.com</div><div class="line">__________       _________    _________________    ________                            ______</div><div class="line">___    |_ |     / /_  ___/    ___  ____/_  ___/    ___  __ \________________  ______  ____  /</div><div class="line">__  /| |_ | /| / /_____ \     __  __/  _____ \     __  /_/ /_  ___/  __ \_  |/_/_  / / /_  /</div><div class="line">_  ___ |_ |/ |/ / ____/ /     _  /___  ____/ /     _  ____/_  /   / /_/ /_&gt;  &lt; _  /_/ / /_/</div><div class="line">/_/  |_|___/|__/  /____/      /_____/  /____/      /_/     /_/    \____//_/|_| _\__, / (_)</div><div class="line">                                                                               /____/</div><div class="line">AWS ES cluster available at http://127.0.0.1:9200</div><div class="line">Kibana available at http://127.0.0.1:9200/_plugin/kibana/</div></pre></td></tr></table></figure>
@@ -34,7 +35,7 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;AWS-ES-Proxy&quot;&gt;&lt;a href=&quot;#AWS-ES-Proxy&quot; class=&quot;headerlink&quot; title=&quot;AWS ES Proxy&quot;&gt;&lt;/a&gt;AWS ES Proxy&lt;/h2&gt;&lt;p&gt;To access Amazon AWS ElasticSe
+      &lt;p&gt;There are several ways to access Amazon AWS ElasticSearch and Kibana services, which are HTTP based, without inject into HTTP request hea
     
     </summary>
     
