@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://terrencemiao.github.io/blog/"/>
-  <updated>2018-03-11T09:29:41.000Z</updated>
+  <updated>2018-03-25T08:53:18.000Z</updated>
   <id>https://terrencemiao.github.io/blog/</id>
   
   <author>
@@ -14,6 +14,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>AlphaGo movie</title>
+    <link href="https://terrencemiao.github.io/blog/2018/03/25/AlphaGo-movie/"/>
+    <id>https://terrencemiao.github.io/blog/2018/03/25/AlphaGo-movie/</id>
+    <published>2018-03-25T08:45:06.000Z</published>
+    <updated>2018-03-25T08:53:18.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>AlphaGo is an intriguing movie, full of striking imagery.</p>
+<p>Proud of witnessing DeepMind and Google are making history …</p>
+<p><img src="https://lh3.googleusercontent.com/cdkmuPebs1rrj-fF0eYtF68lNh5OU5l8Q7CCjl6u6YcswgbRQQoxbJaG8mpbB20lgHYefVmuqtxpJ1ihkGYUb20wiNo2K6UoMiTCcWo5B12euo19KsBOARwvuq9mdP1kc2vQ8eBNOAt_jpcfmQdrcwmNa-V5JYeBrgoZjLQbLsyI6OENEOgKqfqOYJtbO8v4xl5V_U-ETOvR4wU4A2vnxVgDzAP1_28n_ONRVO2dSYojYzBXjWUSU_bOFCuNM2nSEa70uVa01a1iR8tkhzi3HbctTJYMUZAwrUpyA2heqI5XalCul7C55Il-70_tZ8A4TVNQzjCRYgzSwPiJhCJqqed7Fi-aFW4xQY-hKQXnxiG4rTCtIqkJjiGvFSsK_H3Hbm7AkzWMHGLmOVN1ZzrcpF8vTolH6bDkmwibFJuK-2hg9CY4zdkeFx7Zck8Oh3v-KzfWTxM-1sypeOQ6-Vdc7t8y0oYAwvNR2-twG96RHKDbHXOtdoCsKXCdxhX3RkCwxqInGuxyNdAUNpP361fi5UVa3uzoLYRfTpPhtPs4Dl-E_2txx0F_IE_jesBXX7dUTw-ZRe8Ju0CYOBvoJbowPLMjyTs6qdQbKh_AweC6=w1812-h906-no" alt="AlphaGo movie"></p>
+<p><img src="https://lh3.googleusercontent.com/u_CCIbRUgG-I5WLrnHGtbJjcRkJQ_xh-5bvM3LaxO_iZen4pV4f9eAjDgcL1geYfW-9NH-u-2niPTj1IyUbslQGtIrFVKpgloMBTE2I2kC-0eFEjPHTJkbBFaF5XQKml60rQeulmZ7R86gAsPwI5Tez8GEc3JjPC9wFLtZ4S78SU7asaNod-ya3daUhW4gD35VD0rZ5lvc_V36t-wO5UBP_JFp2r6vw1FaeP-wRNslDlVYfcgLA7802cDwuWqJwJsw8SDWNYFgjAI93USUKGAd_nqzHy3y6pYxAcuoFP2zjCXCPp9tfpGtw2AoaJQ-nfZeSaNXM8DOxasedmXsGEAw3OBGX0bgZ0NrJv_OEGCxpHGVGixN45XgFb-k44dv3MDJR85TjnVI8gxwjGNjeXpxxRxLdAP_5FihSoPcVVvWftcjaBdnHyTkODyhtdEHu0DMOzAX5m_DBl4q99yfCjPT4CxjT9Ed_RQJVJc1i4rJFboe3PonIe82J-GFZn2dCvtvavUCsILHAk4oc6zZsmZ7-bMG-jXHLOc8hILuyuIikWNuWC4PO-BYZcm-KLQ3x7BaMlxHpbsG_DDPp7jJ5QsbIH3L33rtN57WLv5zM4=w1812-h906-no" alt="AlphaGo movie"></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;AlphaGo is an intriguing movie, full of striking imagery.&lt;/p&gt;
+&lt;p&gt;Proud of witnessing DeepMind and Google are making history …&lt;/p&gt;
+&lt;p&gt;&lt;img
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>The A.I. Revolution Will Not Be Supervised</title>
@@ -796,26 +820,6 @@
     
       &lt;p&gt;Ant Colony Optimization (ACO) for the the Traveling Salesman Problem (TSP).&lt;/p&gt;
 &lt;p&gt;In computer science and operations research, the ant c
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Influence Without Authority</title>
-    <link href="https://terrencemiao.github.io/blog/2017/03/12/Influence-Without-Authority/"/>
-    <id>https://terrencemiao.github.io/blog/2017/03/12/Influence-Without-Authority/</id>
-    <published>2017-03-12T11:31:23.000Z</published>
-    <updated>2017-03-12T11:42:40.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>The Psychology of Persuasion.</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;The Psychology of Persuasion.&lt;/p&gt;
-
     
     </summary>
     

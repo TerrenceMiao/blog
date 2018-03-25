@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://terrencemiao.github.io/blog/blog/2018/03/25/AlphaGo-movie/</loc>
+    
+    <lastmod>2018-03-25T08:53:18.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://terrencemiao.github.io/blog/blog/2018/03/10/RESTful-calls-to-create-Index-and-Mappings-in-ElasticSearch/</loc>
     
     <lastmod>2018-03-17T00:31:29.000Z</lastmod>
