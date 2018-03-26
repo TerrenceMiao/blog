@@ -1,0 +1,17 @@
+---
+title: House Prices Down Under
+date: 2018-03-26 19:59:11
+tags:
+---
+
+A look at historical house prices in Sydney and Melbourne from 1880 to 2010.
+
+![Historical house prices in Sydney and Melbourne from 1880 to 2010](https://lh3.googleusercontent.com/urBebU_YT9zPwWJ1ktN0YqNphJQ8mqo8F2bT1XJCuVFfX_lr6yKD1d0OASiaYOfBLnUD66EKqjJ_Q-BxNRXUboKFs3k-J-nF0w8-mcdVUX7Tl4GZ3HdhHOfeUQtyPGFZdsf_YxXYz_iQU0gu-FaUhqB_EvB8FkoqS95YFe8aQArJVjLHgzKVHyvmZKYV4kVZcwbYTiFd1Jugn4QKJJKZHDcWNizf7Xd_umWXHB7XA450KpOGiG7uEWlVfxmGQdEImHGHry07lLXQ-ssMqw2NhP4U_0QuzMKxR3PnJAVS5iWYpI7EzgaWHt5WWj9v-XAWu2CdUbD5PMTjEp_CL6a5Su3njAxvDctl3G-5pLnAsIml5RIgGCrjQivqJZ-NPWaSPFtXvgQeTmLpw7hCpZTKX02WjJBBjH4kiceohI9_30ZmkdYLXmOt2UezNe8oB6hJ2hjtGrdJ-SwaAjNFPAVYJvKn4Mxxm_s59tRmLXxzIy4DjTOVOTaGNGDULyLNOgn0UbF1hD_LOK3G_peYzBMfOUIwzx-1MJoJV_BgpNZ7QFLygKtfEV41fXTktiRsnNCwiE88N5OiH4txJJqKeNsUz-SXlnMApV4NrAWIA_ht=w1024-h632-no)
+
+Melbourne Median vs Average Wage 1965 - 2010
+
+![Melbourne Median vs Average Wage 1965 - 2010](https://lh3.googleusercontent.com/6uZvO3CIR1qscMDtPoEJqf_HlCawTU_NlSF2HPSD1cqxflHFBrcFcUUg1Dl3skKLYiL5rtFkUhtPyLpmm7i845rMAm8epwyYZIWZyADH62b74d-XSmgg7hWVMTXkbOiUU2EclO9ORuMsXZFDSzEUWHc2Mf7_hTwznBwWBHYbvL4BwjPdNVOhmtjZ_y_iO-R5k7G5ztoSLsbO_zMafdsoOKrB2W8nfiiU1aTt63a31wJv-aA2RP8JheU0xE39mxOLPJcwKzG8_zu-15xRMbZgnYnKc_jXXqJ8IuEpduBZr4LXxd-JRrFEDsMjTejzGnBwu8S3wTK2YOACHBhioBN90GOHSvubT6vCj1xRruSOWvuANi-NGZufgxX7x5EppMAoVlJwfVvvpbvSMhvnLogx0JPZ5wZxvUy0qB_FLDkzS-xxZ-r1aPOPT_CKtl8OYJEZcbyNf0L678t3dANyj3RYeBD2opxIuVV4VFOHdT08Fjzn82zQvswVR47EMjgGHsbOY-3VaEXFnLhmzkz5NAt-81b17Ivrf1yDPGx63eSUPCsO6fb4j63WYIIng3aQyuYK0gZnaK1UVYr-RNveJ8-VcXmM-O2tGDQMu_s5nIWZ=w1306-h767-no)
+
+**It must be remembered that house prices are determined by the demand and supply of credit, not the demand for and supply of housing.**
+
+房价不与国民收入，社会福利放在一起进行讨论，无异于光天化日里耍流氓。
