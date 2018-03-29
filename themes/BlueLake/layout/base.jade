@@ -32,6 +32,12 @@ html(lang='#{config.language}')
     link(rel='apple-touch-icon-precomposed', href=url_for('apple-touch-icon.png'))
     if config.feed
       link(rel='alternate', type=feed_type, href=url_for(config.feed.path))
+    script(async src='//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js')
+    script().
+      (adsbygoogle = window.adsbygoogle || []).push({
+           google_ad_client: "ca-pub-7274218747178099",
+           enable_page_level_ads: true
+      });
 
   body
     .body_container
