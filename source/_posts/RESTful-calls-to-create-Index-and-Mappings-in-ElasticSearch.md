@@ -94,7 +94,58 @@ Create Mappings in ElasticSearch with Mappings JSON file. URL: http://localhost:
 }
 ```
 
-An ElasticSearch query example:
+To add a new fields to ElasticSearch, while dynamic mapping is off:
+
+```bash
+{
+  "dynamic": "false"
+}
+```
+
+Run with additional fields JSON file, with URL: http://localhost:9200/orders/_mapping/order, Method: **PUT**
+
+```bash
+{
+  "properties": {
+    "from_name": {
+      "type": "text",
+      "analyzer": "partial_matcher",
+      "search_analyzer": "standard"
+    },
+    "from_business_name": {
+      "type": "text",
+      "analyzer": "partial_matcher",
+      "search_analyzer": "standard"
+    },
+    "from_suburb": {
+      "type": "text",
+      "analyzer": "whitespace"
+    },
+    "from_state": {
+      "type": "text",
+      "analyzer": "whitespace"
+    },
+    "from_postcode": {
+      "type": "text",
+      "analyzer": "whitespace"
+    },
+    "from_country": {
+      "type": "text",
+      "analyzer": "whitespace"
+    },
+    "from_email": {
+      "type": "text",
+      "analyzer": "whitespace"
+    },
+    "from_phone": {
+      "type": "text",
+      "analyzer": "whitespace"
+    }
+  }
+}
+```
+
+An ElasticSearch query example, with URL: http://localhost:9200/orders/_search, Method: **POST**
 
 ```bash
 {
@@ -141,5 +192,26 @@ An ElasticSearch query example:
    {"shipment_creation_date": {"order": "desc"} }
  ],
  "from": "0","size": "1"
+}
+```
+
+An example query with date/time type in a range:
+
+```bash
+{
+  "query": {
+    "range": {
+      "shipment_creation_date": {
+        "gte": "2018-04-19T15:30:00",
+        "lte": "now",
+        "time_zone": "+10:00"
+
+      }
+    }
+  },
+  "from": 0,
+  "size": 10,
+  "sort": [],
+  "aggs": {}
 }
 ```
