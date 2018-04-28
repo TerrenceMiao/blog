@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://terrencemiao.github.io/blog/2018/04/28/Data-Science-Knowledge-Graph/</loc>
+    
+    <lastmod>2018-04-28T12:17:03.748Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://terrencemiao.github.io/blog/about/index.html</loc>
     
     <lastmod>2018-04-28T07:47:12.956Z</lastmod>
@@ -156,7 +163,7 @@
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2018/02/06/Good-things-come-to-those-who-could-wait-till-the-last/</loc>
+    <loc>https://terrencemiao.github.io/blog/2017/09/20/Geoffrey-Hinton-interview/</loc>
     
     <lastmod>2018-04-28T07:47:12.949Z</lastmod>
     
@@ -170,7 +177,7 @@
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2017/09/20/Geoffrey-Hinton-interview/</loc>
+    <loc>https://terrencemiao.github.io/blog/2018/02/06/Good-things-come-to-those-who-could-wait-till-the-last/</loc>
     
     <lastmod>2018-04-28T07:47:12.949Z</lastmod>
     
@@ -191,7 +198,7 @@
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2017/02/18/Factorial-function-implementation-in-Java-8/</loc>
+    <loc>https://terrencemiao.github.io/blog/2017/02/18/Fibonacci-function-implementation-in-Java-8/</loc>
     
     <lastmod>2018-04-28T07:47:12.948Z</lastmod>
     
@@ -205,7 +212,7 @@
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2017/02/18/Fibonacci-function-implementation-in-Java-8/</loc>
+    <loc>https://terrencemiao.github.io/blog/2017/02/18/Factorial-function-implementation-in-Java-8/</loc>
     
     <lastmod>2018-04-28T07:47:12.948Z</lastmod>
     
@@ -219,14 +226,14 @@
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2017/06/30/Ant-Colony-Optimization-ACO/</loc>
+    <loc>https://terrencemiao.github.io/blog/2017/09/03/C10k-C10M-Challenge/</loc>
     
     <lastmod>2018-04-28T07:47:12.947Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2017/09/03/C10k-C10M-Challenge/</loc>
+    <loc>https://terrencemiao.github.io/blog/2017/06/30/Ant-Colony-Optimization-ACO/</loc>
     
     <lastmod>2018-04-28T07:47:12.947Z</lastmod>
     
