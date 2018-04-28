@@ -14,7 +14,7 @@
 
 ```shell
 $ git clone https://github.com/chaooo/hexo-theme-BlueLake.git themes/BlueLake
-$ npm install hexo-renderer-jade --save
+$ npm install hexo-renderer-jade@0.3.0 --save
 $ npm install hexo-renderer-stylus --save
 ```
 ### 启用
@@ -41,8 +41,12 @@ git pull
 打开`themes/BlueLake/_config.yml`进行配置。
 
 ``` yml
+##########################
+## Site Config Settings ##
+##########################
+
 # Theme version
-version: 1.1.0
+version: 2.0.1
 
 # Header
 menu:
@@ -61,36 +65,87 @@ menu:
 
 # Sidebar
 widgets:
-  - search
+  - recent_posts
   - category
   - tag
   - archive
-  - recent_posts
-  - recent_comments
-  ##- weibo
-  ##- links
+  #- weibo
+  - links
+
+# Toc
+toc:
+  enable: true
+  number: false
 
 # Static files
 js: js
 css: css
 
+# Extensions
+Plugins:
+  hexo-generator-feed
+  hexo-generator-sitemap
+  hexo-generator-baidu-sitemap
+
+#Feed Atom
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
+
+#sitemap
+sitemap:
+  path: sitemap.xml
+baidusitemap:
+  path: baidusitemap.xml
+
 #Local search
 local_search: true ## Use a javascript-based local search engine, true/false.
-swiftype: ## Your swiftype_key, e.g. m7b11ZrsT8Me7gzApciT
-tinysou: ## Your tinysou_key, e.g. 4ac092ad8d749fdc6293
 
 #Cmments
-duoshuo: ## Your duoshuo_shortname, e.g. username
-disqus: ## Your disqus_shortname, e.g. username
+comment:
+  duoshuo: #chaooo ## duoshuo_shortname
+  disqus: ## disqus_shortname
+  livere: ## 来必力(data-uid)
+  uyan: ## 友言(uid)
+  cloudTie: ## 网易云跟帖(productKey)
+  changyan: ## 畅言需在下方配置两个参数，此处不填。
+    appid: ## 畅言(appid)
+    appkey: ##畅言(appkey)
 
-# About page 
+#Share
+baidu_share: true ## 百度分享
+JiaThis_share: ##true ##JiaThis分享
+duoshuo_share: #true ##true 多说分享必须和多说评论一起使用。
+
+# Analytics
+google_analytics: ## Your Google Analytics tracking id, e.g. UA-42025684-2
+baidu_analytics: ## Your Baidu Analytics tracking id, e.g. 1006843030519956000
+
+# Miscellaneous
+show_category_count: true ## If you want to show the count of categories in the sidebar widget please set the value to true.
+widgets_on_small_screens: true ## Set to true to enable widgets on small screens.
+busuanzi: true ## If you want to use Busuanzi page views please set the value to true.
+
+# About page
 about:
   photo_url: ## Your photo e.g. http://obzf7z93c.bkt.clouddn.com/themeauthor.jpg
-  email: ## Your email(show for footer and about page) e.g.  zhenggchaoo@gmail.com
-  weibo_url: ## Your weibo's url(show for footer and about page) e.g.  http://weibo.com/zhengchaooo
-  weibo_name: ## Your weibo's name e.g.  秋过冬漫长
-  github_url: ## Your github'url(show for footer and about page) e.g.  https://github.com/chaooo
-  github_name: ## Your github'name e.g.  chaooo
+  items:
+  - label: email
+    url: ## Your email with mailto: e.g.  mailto:zhenggchaoo@gmail.com
+    title: ## Your email e.g.  zhenggchaoo@gmail.com
+  - label: github
+    url: ## Your github'url e.g.  https://github.com/chaooo
+    title: ## Your github'name e.g.  chaooo
+  - label: weibo
+    url: ## Your weibo's url e.g.  http://weibo.com/zhengchaooo
+    title: ## Your weibo's name e.g.  秋过冬漫长
+  - label: twitter
+    url:
+    title:
+  - label: facebook
+    url:
+    title:
 
 # Friend link
 links:
@@ -100,26 +155,22 @@ links:
     url: http://www.example2.com/
   - title: site-name3
     url: http://www.example3.com/
-
-# Miscellaneous
-show_category_count: true ## If you want to show the count of categories in the sidebar widget please set the value to true.
-widgets_on_small_screens: true ## Set to true to enable widgets on small screens.
-busuanzi: true ## If you want to use Busuanzi page views please set the value to true.
-google_analytics: ## Your Google Analytics tracking id, e.g. UA-42425684-2
-baidu_analytics: ## Your Baidu Analytics tracking id, e.g. 8006843039519956000
 ```
 
 - **version** - 用于自动刷新CDN上的静态文件。
 - **menu** - 导航菜单。
 - **widgets** - 侧边栏中的窗口小部件。
+- **Toc** - 文章目录
 - **Static files** - 静态文件目录，以方便CDN使用。
 - **Local search**
-- self_search - 默认本地JS搜索. 
-- tinysou - [Tiny Search](http://tinysou.com) key。
-- swiftype - [Swiftype Search](https://swiftype.com) key。
+- self_search - 默认本地JS搜索.
 - **Cmments**
 - duoshuo - 若使用[多说评论](http://duoshuo.com)，注册多说后在这填写short_name(用于评论与分享)。
 - disqus - 若使用[Disqus评论](https://disqus.com)，注册Disqus后在这填写short_name。
+- livere- 若使用[来必力评论](https://livere.com)，注册来必力,获得data-uid。
+- uyan - 若使用[友言评论](http://www.uyan.cc/)，注册友言,获得uid。
+- cloudTie - 若使用[网易云跟帖评论](https://gentie.163.com/info.html)，注册网易云跟帖,获得productKey。
+- changyan - 若使用[畅言评论](http://changyan.kuaizhan.com)，注册畅言，获得appid，appkey。
 - **About page** - 关于我页面(hexo new page 'about')。
 - **links** - 友情链接。
 - **Miscellaneous**
@@ -136,12 +187,24 @@ baidu_analytics: ## Your Baidu Analytics tracking id, e.g. 8006843039519956000
 
 您可以为苹果设备添加网站徽标，请将名为** apple-touch-icon.png **的图像放入hexo目录的“source”文件夹中，建议大小为：114px * 114px。
 
+#### 添加站点关键字
+请在hexo目录的“hexo/_config.yml”中添加`keywords`字段，如：
+```YAML
+# Site
+title: Hexo
+subtitle: 副标题
+description: 网站简要描述,如：Charles·Zheng's blog.
+keywords: 网站关键字, key, key1, key2, key3
+author: Charles
+language: zh-CN
+```
+
 #### 设置阅读全文
 您可以在文章的 front-matter 中添加 description，并提供文章摘录，或在文章中使用‘‘`<!--more-->`’’手动进行截断（Hexo推荐的方式）。
 
 #### 自定义page页面
 在`source`文件夹中创建文件夹`index.md`来添加页面，并在`index.md`的`front-matter'中添加`layout：page`。
-Create folders inlcuding `index.md` in `source` folder to add pages, and add a `layout: page` in `front-matter` of `index.md`. 
+Create folders inlcuding `index.md` in `source` folder to add pages, and add a `layout: page` in `front-matter` of `index.md`.
 
 #### About页面
 此主题默认page页面是关于我页面的布局，生成一个关于我页面：
@@ -150,14 +213,30 @@ $ hexo new page 'about'
 ```
 配置照片地址、邮箱、微博链接、微博名、GitHub链接、Github名：
 ```YAML
-# About page 
+# About page
 about:
   photo_url: ## Your photo e.g. http://obzf7z93c.bkt.clouddn.com/themeauthor.jpg
-  email: ## Your email 
-  weibo_url: ## weibo photo 
-  weibo_name: ## Your weibo's name 
-  github_url: ## Your github'url 
-  github_name: ## Your github'name 
+  items:
+  - label: email
+    icon: fa-email
+    url: ## Your email with mailto: e.g.  mailto:zhenggchaoo@gmail.com
+    title: ## Your email e.g.  zhenggchaoo@gmail.com
+  - label: github
+    icon: fa-github
+    url: ## Your github'url e.g.  https://github.com/chaooo
+    title: ## Your github'name e.g.  chaooo
+  - label: weibo
+    icon: fa-weibo
+    url: ## Your weibo's url e.g.  http://weibo.com/zhengchaooo
+    title: ## Your weibo's name e.g.  秋过冬漫长
+  - label: twitter
+    icon: fa-twitter
+    url:
+    title:
+  - label: facebook
+    icon: fa-facebook
+    url:
+    title:
 ```
 [点击预览About页面](http://chaoo.oschina.io/about/)
 
@@ -174,7 +253,7 @@ highlight:
 #### 本地搜索
 如果要使用本地站点搜索，您必须安装插件[hexo-generator-json-content](https://github.com/alexbruno/hexo-generator-json-content)来创建JSON搜索文件 ，然后将配置添加到`hexo/_config.yml`：
 ```shell
-$ npm install hexo-generator-json-content --save
+$ npm install hexo-generator-json-content@2.2.0 --save
 ```
 然后在`hexo/_config.yml`添加配置：
 ```YAML

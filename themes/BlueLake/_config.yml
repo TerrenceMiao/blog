@@ -1,5 +1,9 @@
+##########################
+## Site Config Settings ##
+##########################
+
 # Theme version
-version: 1.2.0
+version: 2.0.1
 
 # Header
 menu:
@@ -18,18 +22,29 @@ menu:
 
 # Sidebar
 widgets:
-  - search
+  - recent_posts
+  - recent_comments
   - category
   - tag
   - archive
-  - recent_posts
-  - recent_comments
-  ##- weibo
-  ##- links
+  #- weibo
+  #- links
+
+# Toc
+toc:
+  enable: true
+  number: false
 
 # Static files
 js: js
 css: css
+
+# Date_formats
+date_formats:
+  archive: "MM月DD日"
+  category: "YYYY/MM/DD"
+  post: "MMM DD, YYYY"
+  tag: "YYYY/MM/DD"
 
 # Extensions
 Plugins:
@@ -42,6 +57,7 @@ feed:
   type: atom
   path: atom.xml
   limit: 20
+
 #sitemap
 sitemap:
   path: sitemap.xml
@@ -54,19 +70,58 @@ swiftype: ## Your swiftype_key, e.g. m7b11ZrsT8Me7gzApciT
 tinysou: ## Your tinysou_key, e.g. 4ac092ad8d749fdc6293
 
 #Cmments
-duoshuo: ## Your duoshuo_shortname, e.g. username
-disqus: terrencemiao ## Your disqus_shortname, e.g. username
+comment:
+  duoshuo: #chaooo ## duoshuo_shortname
+  disqus: terrencemiao ## disqus_shortname
+  livere: ## 来必力(data-uid)
+  uyan: ## 友言(uid)
+  cloudTie: ## 网易云跟帖(productKey)
+  changyan: ## 畅言需在下方配置两个参数，此处不填。
+    appid: ## 畅言(appid)
+    appkey: ##畅言(appkey)
 
-# About page 
+#Share
+baidu_share: true ## 百度分享
+JiaThis_share: ##true ##JiaThis分享
+duoshuo_share: #true ##true 多说分享必须和多说评论一起使用。
+addToAny_share: # AddToAny share. Empty list hides. List items are service name at url. For ex: email for '<a href="https://www.addtoany.com/add_to/email?linkurl=...'
+#  - twitter
+#  - baidu
+#  - facebook
+#  - google_plus
+#  - linkedin
+#  - email
+
+# Analytics
+google_analytics: UA-29903050-1 ## Your Google Analytics tracking id, e.g. UA-42025684-2
+baidu_analytics: ## Your Baidu Analytics tracking id, e.g. 1006843030519956000
+
+# Miscellaneous
+show_category_count: true ## If you want to show the count of categories in the sidebar widget please set the value to true.
+widgets_on_small_screens: true ## Set to true to enable widgets on small screens.
+busuanzi: true ## If you want to use Busuanzi page views please set the value to true.
+
+# About page
 about:
   photo_url: https://avatars2.githubusercontent.com/u/845034 ## Your photo e.g. http://obzf7z93c.bkt.clouddn.com/themeauthor.jpg
-  email: SomewhereOverTheRainbow@gmail.com ## Your email e.g.  zhenggchaoo@gmail.com
-  weibo_url: https://plus.google.com/+TerrenceMiao ## Your weibo's url e.g.  http://weibo.com/zhengchaooo
-  weibo_name: TerrenceMiao ## Your weibo's name e.g.  秋过冬漫长
-  github_url: https://github.com/TerrenceMiao ## Your github'url e.g.  https://github.com/chaooo
-  github_name: TerrenceMiao ## Your github'name e.g.  chaooo
+  items:
+  - label: email
+    url: mailto:SomewhereOverTheRainbow@gmail.com ## Your email with mailto: e.g.  mailto:zhenggchaoo@gmail.com
+    title: SomewhereOverTheRainbow@gmail.com ## Your email e.g.  zhenggchaoo@gmail.com
+  - label: github
+    url: https://github.com/TerrenceMiao ## Your github'url e.g.  https://github.com/chaooo
+    title: Life without passion is like a broken pencil … ... pointless ## Your github'name e.g.  chaooo
+  - label: weibo
+    url: https://plus.google.com/+TerrenceMiao ## Your weibo's url e.g.  http://weibo.com/zhengchaooo
+    title: Terrence Miao on G+ ## Your weibo's name e.g.  秋过冬漫长
+# - label: twitter
+#   url: 
+#   title:
+# - label: facebook
+#   url:
+#   title:
 
-# Friend link
+# Links widget. Empty links will hide widget.
 links:
   - title: site-name1
     url: http://www.example1.com/
@@ -74,11 +129,3 @@ links:
     url: http://www.example2.com/
   - title: site-name3
     url: http://www.example3.com/
-
-
-# Miscellaneous
-show_category_count: true ## If you want to show the count of categories in the sidebar widget please set the value to true.
-widgets_on_small_screens: true ## Set to true to enable widgets on small screens.
-busuanzi: true ## If you want to use Busuanzi page views please set the value to true.
-google_analytics: UA-29903050-1 ## Your Google Analytics tracking id, e.g. UA-42425684-2
-baidu_analytics: ## Your Baidu Analytics tracking id, e.g. 8006843039519956000
