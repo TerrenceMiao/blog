@@ -1,0 +1,7 @@
+---
+title: 'Serenity, powered by Simple Design'
+date: 2018-05-03 08:43:08
+tags:
+---
+
+![Serenity, powered by Simple Design](https://lh3.googleusercontent.com/o7wnK7fv4dq-WBb4ThUMiPFQV4LrpIx2GL6hwc4WDC3jxr_1AAEsxdFkPLEmOF_A39LoTLrmzMw3DUVuHOdNhz7NaynGsOHKVw0LdktrIp3-cYhxMBBgTwmqhULyhi5PFRJ-IYKvBqw754_ukFlDFniPHzEl6f1KHVGPQuJ5aP0-eMib5MulHnvae-EdhLNPBJzXL9RnwRhK4QanFL6pH4sgFc7lKU0Rc7Al0YGYswlMB-xx25yCb4GjknFfJTuKUYpogzqNDc_pyJlKUYblxh14PCptNhpkY8lXbQzHmZNxRc5Kax4o58BOk9kDKIqtgUl068osdSG8ER4YO0RQDaGd2utkFooZNPw_UsODyuCEgXjHAbRRYkGpqOzGmLM7ezdsfZHWO1n8IXEZjuKHj0HxFnmhzJl_Kg1YInDLa2TSVwyGJnNBCXsVnrNsoAykP-gWQPrAJccDvJ_9lat5Eco_romJINuc4g_zGC4-nxv1Ie6PmaDIdBLFSjN-G7dRrUQ1-INbH7Hfw1bgylE3X6hQB7Z18NvG6TfmimPR8NyFXFO911agBlIRS0VjGF8=s1920-w1920-h1280-no "Serenity, powered by Simple Design")
