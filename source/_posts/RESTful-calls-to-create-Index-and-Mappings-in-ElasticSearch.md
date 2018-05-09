@@ -22,6 +22,12 @@ Create Index in ElasticSearch with Settings JSON file. URL: http://localhost:920
             "max_gram": 40
           }
         },
+        "normalizer": {
+           "lowercase_normalizer": {
+             "type": "custom",
+             "filter": ["lowercase"]
+           }
+         },        
         "analyzer": {
           "partial_matcher": {
             "type": "custom",
@@ -67,7 +73,8 @@ Create Mappings in ElasticSearch with Mappings JSON file. URL: http://localhost:
       "type": "text"
     },
     "order_id": {
-      "type": "keyword"
+      "type": "keyword",
+      "normalizer": "lowercase_normalizer"
     },
     "to_name": {
       "type": "text",
