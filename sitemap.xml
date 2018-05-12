@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://terrencemiao.github.io/blog/2018/05/12/The-Evolution-of-Mobile-Phones/</loc>
+    
+    <lastmod>2018-05-12T09:17:57.058Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://terrencemiao.github.io/blog/2018/05/12/The-Evolution-of-Communication/</loc>
     
     <lastmod>2018-05-12T09:13:08.194Z</lastmod>
@@ -37,7 +44,7 @@
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2017/09/23/%E6%B5%85%E8%B0%88%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%95%B0%E5%AD%A6%E4%BF%AE%E5%85%BB/</loc>
+    <loc>https://terrencemiao.github.io/blog/2017/09/03/%E7%94%BB%E8%99%BE/</loc>
     
     <lastmod>2018-04-28T07:47:12.955Z</lastmod>
     
@@ -51,14 +58,14 @@
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2017/09/03/%E7%94%BB%E8%99%BE/</loc>
+    <loc>https://terrencemiao.github.io/blog/2017/09/23/%E6%B5%85%E8%B0%88%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%95%B0%E5%AD%A6%E4%BF%AE%E5%85%BB/</loc>
     
     <lastmod>2018-04-28T07:47:12.955Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2017/07/16/%E6%9E%81%E7%AE%80%E4%B9%8B%E9%81%93-The-interface-%E4%BA%BA%E4%B8%8E%E6%9C%BA%E5%99%A8%E7%9A%84%E6%80%9D%E6%83%B3%E4%BA%A4%E6%B5%81/</loc>
+    <loc>https://terrencemiao.github.io/blog/2017/08/17/Why-functional-programming/</loc>
     
     <lastmod>2018-04-28T07:47:12.954Z</lastmod>
     
@@ -72,16 +79,9 @@
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2017/08/17/Why-functional-programming/</loc>
+    <loc>https://terrencemiao.github.io/blog/2017/07/16/%E6%9E%81%E7%AE%80%E4%B9%8B%E9%81%93-The-interface-%E4%BA%BA%E4%B8%8E%E6%9C%BA%E5%99%A8%E7%9A%84%E6%80%9D%E6%83%B3%E4%BA%A4%E6%B5%81/</loc>
     
     <lastmod>2018-04-28T07:47:12.954Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2017/02/01/Web-Components-are-coming/</loc>
-    
-    <lastmod>2018-04-28T07:47:12.953Z</lastmod>
     
   </url>
   
@@ -100,16 +100,9 @@
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2017/03/04/Spring-Data-powerful-and-succinct-abstraction/</loc>
+    <loc>https://terrencemiao.github.io/blog/2017/02/01/Web-Components-are-coming/</loc>
     
-    <lastmod>2018-04-28T07:47:12.952Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2018/03/11/The-A-I-Revolution-Will-Not-Be-Supervised/</loc>
-    
-    <lastmod>2018-04-28T07:47:12.952Z</lastmod>
+    <lastmod>2018-04-28T07:47:12.953Z</lastmod>
     
   </url>
   
@@ -121,9 +114,16 @@
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2017/01/28/Setup-HTTPS-access-in-Nexus-Repository-Manager-OSS-3-x-x/</loc>
+    <loc>https://terrencemiao.github.io/blog/2017/03/04/Spring-Data-powerful-and-succinct-abstraction/</loc>
     
-    <lastmod>2018-04-28T07:47:12.951Z</lastmod>
+    <lastmod>2018-04-28T07:47:12.952Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2018/03/11/The-A-I-Revolution-Will-Not-Be-Supervised/</loc>
+    
+    <lastmod>2018-04-28T07:47:12.952Z</lastmod>
     
   </url>
   
@@ -149,9 +149,9 @@
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2017/02/01/Perfection/</loc>
+    <loc>https://terrencemiao.github.io/blog/2017/01/28/Setup-HTTPS-access-in-Nexus-Repository-Manager-OSS-3-x-x/</loc>
     
-    <lastmod>2018-04-28T07:47:12.950Z</lastmod>
+    <lastmod>2018-04-28T07:47:12.951Z</lastmod>
     
   </url>
   
@@ -177,6 +177,13 @@
   </url>
   
   <url>
+    <loc>https://terrencemiao.github.io/blog/2017/02/01/Perfection/</loc>
+    
+    <lastmod>2018-04-28T07:47:12.950Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://terrencemiao.github.io/blog/2018/02/06/Good-things-come-to-those-who-could-wait-till-the-last/</loc>
     
     <lastmod>2018-04-28T07:47:12.949Z</lastmod>
@@ -184,14 +191,14 @@
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2018/03/26/House-Prices-Down-Under/</loc>
+    <loc>https://terrencemiao.github.io/blog/2017/09/20/Geoffrey-Hinton-interview/</loc>
     
     <lastmod>2018-04-28T07:47:12.949Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2017/09/20/Geoffrey-Hinton-interview/</loc>
+    <loc>https://terrencemiao.github.io/blog/2018/03/26/House-Prices-Down-Under/</loc>
     
     <lastmod>2018-04-28T07:47:12.949Z</lastmod>
     
