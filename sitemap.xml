@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://terrencemiao.github.io/blog/2018/05/12/The-Evolution-of-Communication/</loc>
+    
+    <lastmod>2018-05-12T09:03:48.049Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://terrencemiao.github.io/blog/2018/03/10/RESTful-calls-to-create-Index-and-Mappings-in-ElasticSearch/</loc>
     
     <lastmod>2018-05-09T06:04:34.870Z</lastmod>
@@ -37,14 +44,14 @@
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2017/09/03/%E7%94%BB%E8%99%BE/</loc>
+    <loc>https://terrencemiao.github.io/blog/2017/08/04/%E8%82%A1%E5%B8%82%E6%8A%95%E8%B5%84%E4%B8%89%E8%A6%81%E7%B4%A0/</loc>
     
     <lastmod>2018-04-28T07:47:12.955Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2017/08/04/%E8%82%A1%E5%B8%82%E6%8A%95%E8%B5%84%E4%B8%89%E8%A6%81%E7%B4%A0/</loc>
+    <loc>https://terrencemiao.github.io/blog/2017/09/03/%E7%94%BB%E8%99%BE/</loc>
     
     <lastmod>2018-04-28T07:47:12.955Z</lastmod>
     
@@ -72,13 +79,6 @@
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2017/07/02/The-end-of-IT-is-Art/</loc>
-    
-    <lastmod>2018-04-28T07:47:12.953Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://terrencemiao.github.io/blog/2017/02/01/Web-Components-are-coming/</loc>
     
     <lastmod>2018-04-28T07:47:12.953Z</lastmod>
@@ -93,9 +93,9 @@
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2018/03/11/The-A-I-Revolution-Will-Not-Be-Supervised/</loc>
+    <loc>https://terrencemiao.github.io/blog/2017/07/02/The-end-of-IT-is-Art/</loc>
     
-    <lastmod>2018-04-28T07:47:12.952Z</lastmod>
+    <lastmod>2018-04-28T07:47:12.953Z</lastmod>
     
   </url>
   
@@ -107,16 +107,16 @@
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2017/02/18/The-State-Quadrants-Functional-vs-Object-Oriented/</loc>
+    <loc>https://terrencemiao.github.io/blog/2018/03/11/The-A-I-Revolution-Will-Not-Be-Supervised/</loc>
     
     <lastmod>2018-04-28T07:47:12.952Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2017/01/28/Setup-Docker-Private-Registry-in-Nexus-Repository-OSS-3-x-x/</loc>
+    <loc>https://terrencemiao.github.io/blog/2017/02/18/The-State-Quadrants-Functional-vs-Object-Oriented/</loc>
     
-    <lastmod>2018-04-28T07:47:12.951Z</lastmod>
+    <lastmod>2018-04-28T07:47:12.952Z</lastmod>
     
   </url>
   
@@ -142,21 +142,14 @@
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2017/02/11/Remote-debugging-Java-applications-run-on-Tomcat/</loc>
+    <loc>https://terrencemiao.github.io/blog/2017/01/28/Setup-Docker-Private-Registry-in-Nexus-Repository-OSS-3-x-x/</loc>
     
-    <lastmod>2018-04-28T07:47:12.950Z</lastmod>
+    <lastmod>2018-04-28T07:47:12.951Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://terrencemiao.github.io/blog/2017/02/01/Perfection/</loc>
-    
-    <lastmod>2018-04-28T07:47:12.950Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2018/01/12/OnePlus-5T-a-smartphone-full-of-all-the-right-ideas/</loc>
     
     <lastmod>2018-04-28T07:47:12.950Z</lastmod>
     
@@ -170,9 +163,16 @@
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2017/09/20/Geoffrey-Hinton-interview/</loc>
+    <loc>https://terrencemiao.github.io/blog/2017/02/11/Remote-debugging-Java-applications-run-on-Tomcat/</loc>
     
-    <lastmod>2018-04-28T07:47:12.949Z</lastmod>
+    <lastmod>2018-04-28T07:47:12.950Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2018/01/12/OnePlus-5T-a-smartphone-full-of-all-the-right-ideas/</loc>
+    
+    <lastmod>2018-04-28T07:47:12.950Z</lastmod>
     
   </url>
   
@@ -185,6 +185,13 @@
   
   <url>
     <loc>https://terrencemiao.github.io/blog/2018/03/26/House-Prices-Down-Under/</loc>
+    
+    <lastmod>2018-04-28T07:47:12.949Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2017/09/20/Geoffrey-Hinton-interview/</loc>
     
     <lastmod>2018-04-28T07:47:12.949Z</lastmod>
     
@@ -247,13 +254,6 @@
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2018/03/25/AlphaGo-movie/</loc>
-    
-    <lastmod>2018-04-28T07:47:12.946Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://terrencemiao.github.io/blog/2018/03/10/AWS-access-key-id-and-secret-access-key/</loc>
     
     <lastmod>2018-04-28T07:47:12.946Z</lastmod>
@@ -262,6 +262,13 @@
   
   <url>
     <loc>https://terrencemiao.github.io/blog/2018/04/17/Always-safe-Always-fun/</loc>
+    
+    <lastmod>2018-04-28T07:47:12.946Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2018/03/25/AlphaGo-movie/</loc>
     
     <lastmod>2018-04-28T07:47:12.946Z</lastmod>
     
