@@ -46,6 +46,20 @@ AWS ES cluster available at http://127.0.0.1:9200
 Kibana available at http://127.0.0.1:9200/_plugin/kibana/
 ```
 
+With Fish Shell:
+
+```fish
+𝜆 env AWS_PROFILE=ap-test aws-es-kibana search-paradise-esv5-test-01-esd-blah23dlaoed81nz890adle4.ap-southeast-2.es.amazonaws.com
+__________       _________    _________________    ________                            ______
+___    |_ |     / /_  ___/    ___  ____/_  ___/    ___  __ \________________  ______  ____  /
+__  /| |_ | /| / /_____ \     __  __/  _____ \     __  /_/ /_  ___/  __ \_  |/_/_  / / /_  /
+_  ___ |_ |/ |/ / ____/ /     _  /___  ____/ /     _  ____/_  /   / /_/ /_>  < _  /_/ / /_/
+/_/  |_|___/|__/  /____/      /_____/  /____/      /_/     /_/    \____//_/|_| _\__, / (_)
+                                                                               /____/
+AWS ES cluster available at http://127.0.0.1:9200
+Kibana available at http://127.0.0.1:9200/_plugin/kibana/
+```
+
 ## SSH Tunnel
 
 Set up SSH Tunnel for AWS ElasticSearch https://search-paradise-esv5-test-01-esd-blah23dlaoed81nz890adle4.ap-southeast-2.es.amazonaws.com from 443 port to localhost 9200:
