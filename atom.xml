@@ -6,7 +6,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://terrencemiao.github.io/blog/"/>
-  <updated>2018-05-12T09:17:57.058Z</updated>
+  <updated>2018-06-08T07:50:11.852Z</updated>
   <id>https://terrencemiao.github.io/blog/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Setup and run DEVHINTS.IO cheatsheets on localhost</title>
+    <link href="https://terrencemiao.github.io/blog/2018/06/08/Setup-and-run-DEVHINTS-IO-cheatsheets-on-localhost/"/>
+    <id>https://terrencemiao.github.io/blog/2018/06/08/Setup-and-run-DEVHINTS-IO-cheatsheets-on-localhost/</id>
+    <published>2018-06-08T07:32:39.000Z</published>
+    <updated>2018-06-08T07:50:11.852Z</updated>
+    
+    <content type="html"><![CDATA[<p>This is a static website based on Jekyll framework <a href="https://jekyllrb.com/" target="_blank" rel="noopener">https://jekyllrb.com/</a>. Need install Jekyll and .</p><p>Login as user “root” due to write permission required into <strong>/Library/Ruby/Gems</strong> directory. Install <strong>bundler</strong> and <strong>Jekyll</strong> at first:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">igloo:cheatsheets root<span class="comment"># gem install bundler jekyll</span></span><br></pre></td></tr></table></figure><p>Then install all this application dependent libraries:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">igloo:cheatsheets root<span class="comment"># bundler install</span></span><br></pre></td></tr></table></figure><p>Start up Jekyll website on localhost, with user “terrence” this time:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">terrence@igloo ~/Projects/cheatsheets (master ☡=)</span><br><span class="line">17:28:56 𝜆 bundle <span class="built_in">exec</span> jekyll serve --incremental</span><br><span class="line">Configuration file: /Users/terrence/Projects/cheatsheets/_config.yml</span><br><span class="line">            Source: /Users/terrence/Projects/cheatsheets</span><br><span class="line">       Destination: /Users/terrence/Projects/cheatsheets/_site</span><br><span class="line"> Incremental build: enabled</span><br><span class="line">      Generating...</span><br><span class="line">DEPRECATION WARNING on line 83, column 12 of /Users/terrence/Projects/cheatsheets/_sass/vendor/modularscale/_modularscale.scss:</span><br><span class="line">Unescaped multiline strings are deprecated and will be removed <span class="keyword">in</span> a future version of Sass.</span><br><span class="line">To include a newline <span class="keyword">in</span> a string, use <span class="string">"\a"</span> or <span class="string">"\a "</span> as <span class="keyword">in</span> CSS.</span><br><span class="line"></span><br><span class="line">                    <span class="keyword">done</span> <span class="keyword">in</span> 3.163 seconds.</span><br><span class="line"> Auto-regeneration: enabled <span class="keyword">for</span> <span class="string">'/Users/terrence/Projects/cheatsheets'</span></span><br><span class="line">    Server address: http://127.0.0.1:4000</span><br><span class="line">  Server running... press ctrl-c to stop.</span><br></pre></td></tr></table></figure><p>Go to URL: <a href="http://127.0.0.1:4000" target="_blank" rel="noopener">http://127.0.0.1:4000</a> start searching and using cheatsheets in localhost environment:</p><p><img src="https://ph-files.imgix.net/9585bd9a-5b33-4c1d-bda2-f285fbd5f9ae" alt="DEVHINTS.IO - cheatsheets" title="DEVHINTS.IO - cheatsheets"></p><p><img src="https://ph-files.imgix.net/a04245b3-65d1-4e27-b6ce-45216f479063" alt="DEVHINTS.IO - cheatsheets" title="DEVHINTS.IO - cheatsheets"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;This is a static website based on Jekyll framework &lt;a href=&quot;https://jekyllrb.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://jekyllrb.com/&lt;/
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>The Evolution of Mobile Phones</title>
@@ -346,9 +367,9 @@
     <link href="https://terrencemiao.github.io/blog/2017/10/29/First-ever-half-marathon-trial/"/>
     <id>https://terrencemiao.github.io/blog/2017/10/29/First-ever-half-marathon-trial/</id>
     <published>2017-10-28T23:18:10.000Z</published>
-    <updated>2018-04-28T07:47:12.948Z</updated>
+    <updated>2018-06-08T07:45:26.378Z</updated>
     
-    <content type="html"><![CDATA[<p>Try the first ever half marathon today - Yarra Boulevard run.</p><p>New experience such routine, Yarra Boulevard from suburb Kew to Hawthorn, either by walking or cycling.</p><p>Terrible weather condition today, windy and hot. Have to stop several time to get water supplied in case of dehydrated.</p><p>After 17km, left leg calf muscles start cramping, force me to reduce the pace. After 19km, right leg calf muscles also start cramping, but I keep moving forward.</p><p>New new personal best of Performance Level - 55 after run. Meanwhile, remind me there is limits inside me, but I know I can finish it.</p><p><img src="https://lh3.googleusercontent.com/N8oHoJU_p3p4hWyT_8oeNnLttknqUPWrAigIGKqPXo9OwEmawW129f5485TxA65ECjvhdcyDGZGQ6yNywPU-KpkYfstJjYO_Soo8LB-BeumyhMs8mR82Uvk1RGajRUI-gCL9WOrGa_2kWjW3IlEno7Q88oyNCr_UU5vGDbeILDJvTW5leveNX0SEuh-aIacge4AA8vQJ09PX1RGBg9ShCICNaP3KRXdTpsAQDte_vW1FScdDxhHRDQ3FCuo3StDlYHcMKsqb6vI0Uqj-8sprglsmSmBfPg_jlNRRAdVB832kMesq0rXtBDB0jj9rXMKE3RGJCNuuIPqbpxYoTAQubrng-VNdApdq3mLvGsB-ged4Mr4eQmZb5PDcu8jhFd_rNKkE8wSDAC7O0TPkppfxkAsq3xBU-I88oYpg-Fzt7ejmtvKCgomheTY_ScdBJ7xrDM0Aa6flsqVDhVu92AHKzj9elKNnERhn82ZRBOSENfYkOBJzAkpuySAScOG-e8TA_l3eyrk45UAmOZea0u3HgvBlnvFnqYWRfJ8BvGMav2SzzeGLBp00Dzc-f2SIjenGTdotnxinfjX-BNwAX7Bi16sEpHPB7CECVKtwuO6l7dw=w1278-h1107-no" alt="First ever half marathon tria" title="First ever half marathon trial"></p><p>Quotes from Johnnie Walker commercial:</p><p>“When the sun came shining and I was strolling and the wheat fields waving and the dust clouds rolling. As the fog was lifting, a voice was chanting, this land was made for you and me.”</p><p>“As I was walking that ribbon of highway, I saw above me that endless sky way. I saw below me that golden valley, Esta tierra fue hecha para ti y para mí.”</p><p>“I’ve roamed and rambled and I’ve followed my footsteps to the sparkling sands over diamond deserts, and all around me a voice was sounding, this land was made for you and me.”</p><p>Keep running!</p>]]></content>
+    <content type="html"><![CDATA[<p>Try the first ever half marathon today - Yarra Boulevard run.</p><p>New experience such routine, Yarra Boulevard from suburb Kew to Hawthorn, either by walking or cycling.</p><p>Terrible weather condition today, windy and hot. Have to stop several time to get water supplied in case of dehydrated.</p><p>After 17km, left leg calf muscles start cramping, force me to reduce the pace. After 19km, right leg calf muscles also start cramping, but I keep moving forward.</p><p>New new personal best of Performance Level - 55 after run. Meanwhile, remind me there is limits inside me, but I know I can finish it.</p><p><img src="https://lh3.googleusercontent.com/N8oHoJU_p3p4hWyT_8oeNnLttknqUPWrAigIGKqPXo9OwEmawW129f5485TxA65ECjvhdcyDGZGQ6yNywPU-KpkYfstJjYO_Soo8LB-BeumyhMs8mR82Uvk1RGajRUI-gCL9WOrGa_2kWjW3IlEno7Q88oyNCr_UU5vGDbeILDJvTW5leveNX0SEuh-aIacge4AA8vQJ09PX1RGBg9ShCICNaP3KRXdTpsAQDte_vW1FScdDxhHRDQ3FCuo3StDlYHcMKsqb6vI0Uqj-8sprglsmSmBfPg_jlNRRAdVB832kMesq0rXtBDB0jj9rXMKE3RGJCNuuIPqbpxYoTAQubrng-VNdApdq3mLvGsB-ged4Mr4eQmZb5PDcu8jhFd_rNKkE8wSDAC7O0TPkppfxkAsq3xBU-I88oYpg-Fzt7ejmtvKCgomheTY_ScdBJ7xrDM0Aa6flsqVDhVu92AHKzj9elKNnERhn82ZRBOSENfYkOBJzAkpuySAScOG-e8TA_l3eyrk45UAmOZea0u3HgvBlnvFnqYWRfJ8BvGMav2SzzeGLBp00Dzc-f2SIjenGTdotnxinfjX-BNwAX7Bi16sEpHPB7CECVKtwuO6l7dw=w1278-h1107-no" alt="First ever half marathon trial" title="First ever half marathon trial"></p><p>Quotes from Johnnie Walker commercial:</p><p>“When the sun came shining and I was strolling and the wheat fields waving and the dust clouds rolling. As the fog was lifting, a voice was chanting, this land was made for you and me.”</p><p>“As I was walking that ribbon of highway, I saw above me that endless sky way. I saw below me that golden valley, Esta tierra fue hecha para ti y para mí.”</p><p>“I’ve roamed and rambled and I’ve followed my footsteps to the sparkling sands over diamond deserts, and all around me a voice was sounding, this land was made for you and me.”</p><p>Keep running!</p>]]></content>
     
     <summary type="html">
     
@@ -423,29 +444,6 @@
         &lt;p&gt;今购得一画，甚喜。&lt;/p&gt;
 &lt;p&gt;构图严谨而不失大气，疏密有致且遥相呼应，笔墨灵动犹如活物跃然纸上。齐白石三字字迹遒劲有力，却又透露出儿童般的天真烂漫。&lt;/p&gt;
 &lt;p&gt;字，画相应得章，疏可走马密不透风，装裱更是别具一格，边上圆点疏密一致，深色背景与浅色画面相互映衬。&lt;/p&gt;
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>为什么要读书</title>
-    <link href="https://terrencemiao.github.io/blog/2017/09/03/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E8%AF%BB%E4%B9%A6/"/>
-    <id>https://terrencemiao.github.io/blog/2017/09/03/为什么要读书/</id>
-    <published>2017-09-03T06:09:19.000Z</published>
-    <updated>2018-04-28T07:47:12.954Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="/blog/img/Maiden%201.jpg" alt="Maiden" title="Maiden"></p><p>父子二人饮茶，儿问：“为什么要我读书？”</p><p>父答：“我这么跟你说吧！你读了书，喝这茶时就会说：‘此茶汤色澄红透亮，气味幽香如兰，口感饱满纯正，圆润如诗，回味甘醇，齿颊留芳，韵味十足，顿觉如梦似幻，仿佛天上人间，真乃茶中极品！’”</p><p>而如果你没有读书，你就会说：：“‘卧操！这茶不赖’”</p><p><img src="/blog/img/Maiden%202.jpg" alt="Maiden" title="Maiden"></p><p>近日对《中国诗词大会》上瘾，于是思考人为什么要读书？又如何用好的词语来描述心情和感受呢？</p><p>有人曾提出这样一个问题：大部分读过的书最后都会忘掉，那读书的意义何在？这是我见过最好的回答：“小的时候我吃了很多东西，其中的大部分我已记不清是什么，但我知道，他们已经成了我现在的骨和肉”。读书，也是如此。它在不知不觉中就已经影响了你的思想，你的言行，你的形象。</p><p>1，当你开心的时候<br>你可以说：<br>春风得意马蹄疾<br>一日看尽长安花</p><p>而不是只会说：<br>哈哈, 哈哈, 哈哈, 哈哈, 哈哈哈</p><p>2，当你伤心的时候<br>你可以说：<br>问君能有几多愁，<br>恰似一江春水向东流</p><p>而不是只会说：<br>我的心好痛</p><p>3，当你看到帅哥时<br>你可以说：<br>陌上人如玉<br>公子世无双</p><p>而不是只会说：<br>我靠，好帅！<br>我靠靠靠，太帅了</p><p>4，当你看到美女时<br>你可以说：<br>北方有佳人，绝世而独立</p><p>而不是只会说：<br>我去，她好美<br>我去，她真美</p><p>5，当你遇见渣男时<br>你可以说：<br>遇人不淑 ，识人不善</p><p>而不是只会说：<br>瞎了老子的狗眼</p><p>6，当你向一个人表达爱意时<br>你可以说：<br>山有木兮木有枝<br>心悦君兮君不知</p><p>而不是只会说：<br>我喜欢你，天荒地老，海枯石烂</p><p>7，当你思念一个人的时候<br>你可以说：<br>衣带渐宽终不悔<br>为伊消得人憔悴</p><p>而不是只会说：<br>我想死你啦</p><p>8，当你失恋的时候<br>你可以说：<br>人生若只如初见<br>何事秋风悲画扇<br>等闲变却故人心<br>却道故人心易变</p><p>而不是只会千万遍的呼喊：<br>蓝瘦，香菇</p><p>9，结婚的时候<br>你可以说：<br>春宵一刻值千金<br>花有清香月有阴</p><p>而不是只会说：<br>嘿嘿, 嘿嘿, 嘿嘿嘿</p><p>10，分手的时候<br>你可以说：<br>相濡以沫<br>不如相忘于江湖</p><p>而不是只会说：<br>我们不合适</p><p>11，看见大漠戈壁的时候<br>你可以说：<br>大漠孤烟直，长河落日圆</p><p>而不是只会说：<br>唉呀妈呀，这全都是沙子</p><p>12，看见夕阳余晖的时候<br>你可以说：<br>落霞与孤鹜齐飞<br>秋水共长天一色</p><p>而不是只会说：<br>卧槽<br>这么多鸟<br>真好看<br>真他妈太好看了</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;img src=&quot;/blog/img/Maiden%201.jpg&quot; alt=&quot;Maiden&quot; title=&quot;Maiden&quot;&gt;&lt;/p&gt;
-&lt;p&gt;父子二人饮茶，儿问：“为什么要我读书？”&lt;/p&gt;
-&lt;p&gt;父答：“我这么跟你说吧！你读了书，喝这茶时就会说：‘此茶汤色澄红透亮，气味
       
     
     </summary>

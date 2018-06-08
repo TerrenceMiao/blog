@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://terrencemiao.github.io/blog/2018/06/08/Setup-and-run-DEVHINTS-IO-cheatsheets-on-localhost/</loc>
+    
+    <lastmod>2018-06-08T07:50:11.852Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2017/10/29/First-ever-half-marathon-trial/</loc>
+    
+    <lastmod>2018-06-08T07:45:26.378Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://terrencemiao.github.io/blog/2018/02/17/AWS-ElasticSearch-and-Kibana-proxy-setup/</loc>
     
     <lastmod>2018-05-30T01:03:37.644Z</lastmod>
@@ -51,14 +65,14 @@
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2017/09/03/%E7%94%BB%E8%99%BE/</loc>
+    <loc>https://terrencemiao.github.io/blog/2017/09/23/%E6%B5%85%E8%B0%88%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%95%B0%E5%AD%A6%E4%BF%AE%E5%85%BB/</loc>
     
     <lastmod>2018-04-28T07:47:12.955Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2017/09/23/%E6%B5%85%E8%B0%88%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%95%B0%E5%AD%A6%E4%BF%AE%E5%85%BB/</loc>
+    <loc>https://terrencemiao.github.io/blog/2017/09/03/%E7%94%BB%E8%99%BE/</loc>
     
     <lastmod>2018-04-28T07:47:12.955Z</lastmod>
     
@@ -68,6 +82,13 @@
     <loc>https://terrencemiao.github.io/blog/2017/08/04/%E8%82%A1%E5%B8%82%E6%8A%95%E8%B5%84%E4%B8%89%E8%A6%81%E7%B4%A0/</loc>
     
     <lastmod>2018-04-28T07:47:12.955Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2017/08/17/Why-functional-programming/</loc>
+    
+    <lastmod>2018-04-28T07:47:12.954Z</lastmod>
     
   </url>
   
@@ -86,21 +107,14 @@
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2017/08/17/Why-functional-programming/</loc>
-    
-    <lastmod>2018-04-28T07:47:12.954Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2018/03/28/The-longest-official-place-name-in-Australia/</loc>
+    <loc>https://terrencemiao.github.io/blog/2017/02/01/Web-Components-are-coming/</loc>
     
     <lastmod>2018-04-28T07:47:12.953Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2017/02/01/Web-Components-are-coming/</loc>
+    <loc>https://terrencemiao.github.io/blog/2018/03/28/The-longest-official-place-name-in-Australia/</loc>
     
     <lastmod>2018-04-28T07:47:12.953Z</lastmod>
     
@@ -121,14 +135,14 @@
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2018/03/11/The-A-I-Revolution-Will-Not-Be-Supervised/</loc>
+    <loc>https://terrencemiao.github.io/blog/2017/02/18/The-State-Quadrants-Functional-vs-Object-Oriented/</loc>
     
     <lastmod>2018-04-28T07:47:12.952Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2017/02/18/The-State-Quadrants-Functional-vs-Object-Oriented/</loc>
+    <loc>https://terrencemiao.github.io/blog/2018/03/11/The-A-I-Revolution-Will-Not-Be-Supervised/</loc>
     
     <lastmod>2018-04-28T07:47:12.952Z</lastmod>
     
@@ -163,21 +177,7 @@
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2017/02/11/Remote-debugging-Java-applications-run-on-Tomcat/</loc>
-    
-    <lastmod>2018-04-28T07:47:12.950Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://terrencemiao.github.io/blog/2018/01/12/OnePlus-5T-a-smartphone-full-of-all-the-right-ideas/</loc>
-    
-    <lastmod>2018-04-28T07:47:12.950Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2017/02/01/Perfection/</loc>
     
     <lastmod>2018-04-28T07:47:12.950Z</lastmod>
     
@@ -191,21 +191,21 @@
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2018/03/26/House-Prices-Down-Under/</loc>
+    <loc>https://terrencemiao.github.io/blog/2017/02/01/Perfection/</loc>
     
-    <lastmod>2018-04-28T07:47:12.949Z</lastmod>
+    <lastmod>2018-04-28T07:47:12.950Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2017/02/11/Remote-debugging-Java-applications-run-on-Tomcat/</loc>
+    
+    <lastmod>2018-04-28T07:47:12.950Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://terrencemiao.github.io/blog/2017/09/20/Geoffrey-Hinton-interview/</loc>
-    
-    <lastmod>2018-04-28T07:47:12.949Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2017/03/12/Influence-Without-Authority/</loc>
     
     <lastmod>2018-04-28T07:47:12.949Z</lastmod>
     
@@ -219,9 +219,16 @@
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2018/04/07/Flow/</loc>
+    <loc>https://terrencemiao.github.io/blog/2018/03/26/House-Prices-Down-Under/</loc>
     
-    <lastmod>2018-04-28T07:47:12.948Z</lastmod>
+    <lastmod>2018-04-28T07:47:12.949Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2017/03/12/Influence-Without-Authority/</loc>
+    
+    <lastmod>2018-04-28T07:47:12.949Z</lastmod>
     
   </url>
   
@@ -240,16 +247,9 @@
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2017/10/29/First-ever-half-marathon-trial/</loc>
+    <loc>https://terrencemiao.github.io/blog/2018/04/07/Flow/</loc>
     
     <lastmod>2018-04-28T07:47:12.948Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2017/09/03/C10k-C10M-Challenge/</loc>
-    
-    <lastmod>2018-04-28T07:47:12.947Z</lastmod>
     
   </url>
   
@@ -268,6 +268,13 @@
   </url>
   
   <url>
+    <loc>https://terrencemiao.github.io/blog/2017/09/03/C10k-C10M-Challenge/</loc>
+    
+    <lastmod>2018-04-28T07:47:12.947Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://terrencemiao.github.io/blog/2018/04/17/Always-safe-Always-fun/</loc>
     
     <lastmod>2018-04-28T07:47:12.946Z</lastmod>
@@ -275,14 +282,14 @@
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2018/03/10/AWS-access-key-id-and-secret-access-key/</loc>
+    <loc>https://terrencemiao.github.io/blog/2018/03/25/AlphaGo-movie/</loc>
     
     <lastmod>2018-04-28T07:47:12.946Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2018/03/25/AlphaGo-movie/</loc>
+    <loc>https://terrencemiao.github.io/blog/2018/03/10/AWS-access-key-id-and-secret-access-key/</loc>
     
     <lastmod>2018-04-28T07:47:12.946Z</lastmod>
     
