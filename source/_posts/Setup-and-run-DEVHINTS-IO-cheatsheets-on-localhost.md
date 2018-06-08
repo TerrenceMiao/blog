@@ -43,3 +43,23 @@ Go to URL: http://127.0.0.1:4000 start searching and using cheatsheets in localh
 ![DEVHINTS.IO - cheatsheets](https://ph-files.imgix.net/9585bd9a-5b33-4c1d-bda2-f285fbd5f9ae "DEVHINTS.IO - cheatsheets")
 
 ![DEVHINTS.IO - cheatsheets](https://ph-files.imgix.net/a04245b3-65d1-4e27-b6ce-45216f479063 "DEVHINTS.IO - cheatsheets")
+
+To generate static web content ONLY:
+
+```bash
+terrence@igloo ~/Projects/cheatsheets (master ☡=)
+17:28:56 𝜆 bundle exec jekyll build
+Configuration file: /Users/terrence/Projects/cheatsheets/_config.yml
+            Source: /Users/terrence/Projects/cheatsheets
+       Destination: ../terrencemiao.github.io/cheatsheets
+ Incremental build: disabled. Enable with --incremental
+      Generating...
+DEPRECATION WARNING on line 83, column 12 of /Users/terrence/Projects/cheatsheets/_sass/vendor/modularscale/_modularscale.scss:
+Unescaped multiline strings are deprecated and will be removed in a future version of Sass.
+To include a newline in a string, use "\a" or "\a " as in CSS.
+
+                    done in 43.269 seconds.
+ Auto-regeneration: disabled. Use --watch to enable.
+```
+
+Then can upload published website content from ../terrencemiao.github.io/cheatsheets directory to https://terrencemiao.github.io.
