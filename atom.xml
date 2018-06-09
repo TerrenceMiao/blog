@@ -6,7 +6,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://terrencemiao.github.io/blog/"/>
-  <updated>2018-06-08T08:45:01.244Z</updated>
+  <updated>2018-06-09T01:52:00.495Z</updated>
   <id>https://terrencemiao.github.io/blog/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Take over Mac OS X Bluetooth Control</title>
+    <link href="https://terrencemiao.github.io/blog/2018/06/09/Take-over-Mac-OS-X-Bluetooth-Control/"/>
+    <id>https://terrencemiao.github.io/blog/2018/06/09/Take-over-Mac-OS-X-Bluetooth-Control/</id>
+    <published>2018-06-09T01:45:17.000Z</published>
+    <updated>2018-06-09T01:52:00.495Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://support.apple.com/library/content/dam/edam/applecare/images/en_US/osx/el_capitan-system_preferences-bluetooth.png" alt="Bluetooth on Mac OS X" title="Bluetooth on Mac OS X"></p><p>Quite annoying when Bluetooth on Mac OS X is off, you can’t turn it on manually via Systme Preferences interface. Now you can install <strong>blueutil</strong> from <a href="https://github.com/toy/blueutil" target="_blank" rel="noopener">https://github.com/toy/blueutil</a> to solve this issue.</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">igloo:cheatsheets root<span class="comment"># blueutil --help</span></span><br><span class="line">blueutil v2.1.0</span><br><span class="line"></span><br><span class="line">Usage:</span><br><span class="line">  blueutil [options]</span><br><span class="line"></span><br><span class="line">Without options outputs current state</span><br><span class="line"></span><br><span class="line">    -p, --power               output power state as 1 or 0</span><br><span class="line">    -p, --power STATE         <span class="built_in">set</span> power state</span><br><span class="line">    -d, --discoverable        output discoverable state as 1 or 0</span><br><span class="line">    -d, --discoverable STATE  <span class="built_in">set</span> discoverable state</span><br><span class="line"></span><br><span class="line">    -h, --<span class="built_in">help</span>                this <span class="built_in">help</span></span><br><span class="line">    -v, --version             show version</span><br><span class="line"></span><br><span class="line">STATE can be one of: 1, on, 0, off, toggle</span><br></pre></td></tr></table></figure><p>Firstly, turn off Bluetooth service via command line:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">igloo:cheatsheets root<span class="comment"># blueutil -p 0</span></span><br><span class="line">igloo:cheatsheets root<span class="comment"># blueutil -d 0</span></span><br></pre></td></tr></table></figure><p>Then turn on Bluetooth service via command line:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">igloo:cheatsheets root<span class="comment"># blueutil -d 1</span></span><br><span class="line">igloo:cheatsheets root<span class="comment"># blueutil -p 1</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;img src=&quot;https://support.apple.com/library/content/dam/edam/applecare/images/en_US/osx/el_capitan-system_preferences-bluetooth.png&quot; alt=
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Setup and run DEVHINTS.IO cheatsheets on localhost</title>
@@ -421,29 +442,6 @@
       
       
         &lt;h2 id=&quot;About-this-course&quot;&gt;&lt;a href=&quot;#About-this-course&quot; class=&quot;headerlink&quot; title=&quot;About this course&quot;&gt;&lt;/a&gt;About this course&lt;/h2&gt;&lt;p&gt;If you wan
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>画虾</title>
-    <link href="https://terrencemiao.github.io/blog/2017/09/03/%E7%94%BB%E8%99%BE/"/>
-    <id>https://terrencemiao.github.io/blog/2017/09/03/画虾/</id>
-    <published>2017-09-03T06:31:32.000Z</published>
-    <updated>2018-04-28T07:47:12.955Z</updated>
-    
-    <content type="html"><![CDATA[<p>今购得一画，甚喜。</p><p>构图严谨而不失大气，疏密有致且遥相呼应，笔墨灵动犹如活物跃然纸上。齐白石三字字迹遒劲有力，却又透露出儿童般的天真烂漫。</p><p>字，画相应得章，疏可走马密不透风，装裱更是别具一格，边上圆点疏密一致，深色背景与浅色画面相互映衬。</p><p>实为难得佳作，并经砖家鉴定真迹无疑。</p><p><img src="/blog/img/Shrimp.jpg" alt="画虾" title="画虾"></p><p>此画还有一神奇之处，若放笼屉蒸 10 分钟，画面生彩，触觉肌理，意境更佳。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;今购得一画，甚喜。&lt;/p&gt;
-&lt;p&gt;构图严谨而不失大气，疏密有致且遥相呼应，笔墨灵动犹如活物跃然纸上。齐白石三字字迹遒劲有力，却又透露出儿童般的天真烂漫。&lt;/p&gt;
-&lt;p&gt;字，画相应得章，疏可走马密不透风，装裱更是别具一格，边上圆点疏密一致，深色背景与浅色画面相互映衬。&lt;/p&gt;
       
     
     </summary>
