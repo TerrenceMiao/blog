@@ -6,7 +6,7 @@ tags:
 
 ![Bluetooth on Mac OS X](https://support.apple.com/library/content/dam/edam/applecare/images/en_US/osx/el_capitan-system_preferences-bluetooth.png "Bluetooth on Mac OS X")
 
-Quite annoying when Bluetooth on Mac OS X is off, you can't turn it on manually via Systme Preferences interface. Now you can install **blueutil** from https://github.com/toy/blueutil to solve this issue.
+Quite annoying when Bluetooth on Mac OS X is off, you can't turn it on manually via Systme Preferences interface. Now you can install **blueutil** from <https://github.com/toy/blueutil> to solve this issue.
 
 ```bash
 igloo:cheatsheets root# blueutil --help
