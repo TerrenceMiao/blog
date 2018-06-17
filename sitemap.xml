@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://terrencemiao.github.io/blog/2018/06/16/Making-VSCode-like-IntelliJ-after-line-commented-the-cursor-automatically-moved-to-next-line/</loc>
+    
+    <lastmod>2018-06-17T04:01:52.875Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://terrencemiao.github.io/blog/2018/06/09/Take-over-Mac-OS-X-Bluetooth-Control/</loc>
     
     <lastmod>2018-06-09T08:47:04.441Z</lastmod>
@@ -114,13 +121,6 @@
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2017/02/01/Web-Components-are-coming/</loc>
-    
-    <lastmod>2018-04-28T07:47:12.953Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://terrencemiao.github.io/blog/2018/03/28/The-longest-official-place-name-in-Australia/</loc>
     
     <lastmod>2018-04-28T07:47:12.953Z</lastmod>
@@ -135,9 +135,9 @@
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2017/03/04/Spring-Data-powerful-and-succinct-abstraction/</loc>
+    <loc>https://terrencemiao.github.io/blog/2017/02/01/Web-Components-are-coming/</loc>
     
-    <lastmod>2018-04-28T07:47:12.952Z</lastmod>
+    <lastmod>2018-04-28T07:47:12.953Z</lastmod>
     
   </url>
   
@@ -156,21 +156,14 @@
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2017/01/28/Setup-Docker-Private-Registry-in-Nexus-Repository-OSS-3-x-x/</loc>
+    <loc>https://terrencemiao.github.io/blog/2017/03/04/Spring-Data-powerful-and-succinct-abstraction/</loc>
     
-    <lastmod>2018-04-28T07:47:12.951Z</lastmod>
+    <lastmod>2018-04-28T07:47:12.952Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://terrencemiao.github.io/blog/2017/02/26/Set-up-and-run-AWS-Lambda-hello-function-with-serverless/</loc>
-    
-    <lastmod>2018-04-28T07:47:12.951Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2017/03/03/SQL-script-generates-random-data-and-insert-into-MySQL-database/</loc>
     
     <lastmod>2018-04-28T07:47:12.951Z</lastmod>
     
@@ -184,21 +177,21 @@
   </url>
   
   <url>
+    <loc>https://terrencemiao.github.io/blog/2017/01/28/Setup-Docker-Private-Registry-in-Nexus-Repository-OSS-3-x-x/</loc>
+    
+    <lastmod>2018-04-28T07:47:12.951Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2017/03/03/SQL-script-generates-random-data-and-insert-into-MySQL-database/</loc>
+    
+    <lastmod>2018-04-28T07:47:12.951Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://terrencemiao.github.io/blog/2017/09/02/Plato-and-Socrates-%E6%9F%8F%E6%8B%89%E5%9B%BE%E9%BA%A6%E7%A9%97%E9%97%AE%E9%A2%98/</loc>
-    
-    <lastmod>2018-04-28T07:47:12.950Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2018/01/12/OnePlus-5T-a-smartphone-full-of-all-the-right-ideas/</loc>
-    
-    <lastmod>2018-04-28T07:47:12.950Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2017/02/01/Perfection/</loc>
     
     <lastmod>2018-04-28T07:47:12.950Z</lastmod>
     
@@ -212,14 +205,21 @@
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2017/09/20/Geoffrey-Hinton-interview/</loc>
+    <loc>https://terrencemiao.github.io/blog/2017/02/01/Perfection/</loc>
     
-    <lastmod>2018-04-28T07:47:12.949Z</lastmod>
+    <lastmod>2018-04-28T07:47:12.950Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2018/03/26/House-Prices-Down-Under/</loc>
+    <loc>https://terrencemiao.github.io/blog/2018/01/12/OnePlus-5T-a-smartphone-full-of-all-the-right-ideas/</loc>
+    
+    <lastmod>2018-04-28T07:47:12.950Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2017/03/12/Influence-Without-Authority/</loc>
     
     <lastmod>2018-04-28T07:47:12.949Z</lastmod>
     
@@ -233,14 +233,21 @@
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2017/03/12/Influence-Without-Authority/</loc>
+    <loc>https://terrencemiao.github.io/blog/2018/03/26/House-Prices-Down-Under/</loc>
     
     <lastmod>2018-04-28T07:47:12.949Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2018/04/07/Flow/</loc>
+    <loc>https://terrencemiao.github.io/blog/2017/09/20/Geoffrey-Hinton-interview/</loc>
+    
+    <lastmod>2018-04-28T07:47:12.949Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2017/02/18/Fibonacci-function-implementation-in-Java-8/</loc>
     
     <lastmod>2018-04-28T07:47:12.948Z</lastmod>
     
@@ -254,16 +261,9 @@
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2017/02/18/Fibonacci-function-implementation-in-Java-8/</loc>
+    <loc>https://terrencemiao.github.io/blog/2018/04/07/Flow/</loc>
     
     <lastmod>2018-04-28T07:47:12.948Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2017/06/30/Ant-Colony-Optimization-ACO/</loc>
-    
-    <lastmod>2018-04-28T07:47:12.947Z</lastmod>
     
   </url>
   
@@ -282,14 +282,21 @@
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2018/03/10/AWS-access-key-id-and-secret-access-key/</loc>
+    <loc>https://terrencemiao.github.io/blog/2017/06/30/Ant-Colony-Optimization-ACO/</loc>
+    
+    <lastmod>2018-04-28T07:47:12.947Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2018/04/17/Always-safe-Always-fun/</loc>
     
     <lastmod>2018-04-28T07:47:12.946Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2018/04/17/Always-safe-Always-fun/</loc>
+    <loc>https://terrencemiao.github.io/blog/2018/03/10/AWS-access-key-id-and-secret-access-key/</loc>
     
     <lastmod>2018-04-28T07:47:12.946Z</lastmod>
     
