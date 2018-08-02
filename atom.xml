@@ -6,7 +6,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://terrencemiao.github.io/blog/"/>
-  <updated>2018-08-02T23:25:53.391Z</updated>
+  <updated>2018-08-02T23:30:25.652Z</updated>
   <id>https://terrencemiao.github.io/blog/</id>
   
   <author>
@@ -21,16 +21,16 @@
     <link href="https://terrencemiao.github.io/blog/2018/08/03/An-bash-curl-and-awk-example/"/>
     <id>https://terrencemiao.github.io/blog/2018/08/03/An-bash-curl-and-awk-example/</id>
     <published>2018-08-02T23:00:06.000Z</published>
-    <updated>2018-08-02T23:25:53.391Z</updated>
+    <updated>2018-08-02T23:30:25.652Z</updated>
     
-    <content type="html"><![CDATA[<p>This is an example how in a bash script, curl and awk work together:</p><script src="https://gist.github.com/TerrenceMiao/2a89c5941503eb25fe15b86a333fdc49.js"></script><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## Call Session API and get Authorization bearer token</span></span><br><span class="line">token=$(curl -D - -X POST \</span><br><span class="line">    https://api.paradise.org/session/v1 \</span><br><span class="line">    -H <span class="string">"Accept: application/json"</span> \</span><br><span class="line">    -H <span class="string">"Cache-Control: no-cache"</span> \</span><br><span class="line">    -H <span class="string">"Content-Type: application/json"</span> \</span><br><span class="line">    -d <span class="string">'&#123;</span></span><br><span class="line"><span class="string">        "username": "master@paradise.org",</span></span><br><span class="line"><span class="string">        "password": "Password Go Go Go"</span></span><br><span class="line"><span class="string">    &#125;'</span> | awk <span class="string">'BEGIN &#123;FS=": "&#125;/^Authorization/&#123;print $2&#125;'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">## Migrate each member into new culture pot</span></span><br><span class="line"><span class="keyword">for</span> memberId <span class="keyword">in</span> $(cat member-ids)</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">    curl -D - -X POST \</span><br><span class="line">        https://api.paradise.org/cultrue/v2/migrate \</span><br><span class="line">        -H <span class="string">"Accept: application/json"</span> \</span><br><span class="line">        -H <span class="string">"Authorization: <span class="variable">$token</span>"</span> \</span><br><span class="line">        -H <span class="string">"Cache-Control: no-cache"</span> \</span><br><span class="line">        -H <span class="string">"Content-Type: application/json"</span> \</span><br><span class="line">        -H <span class="string">"organisation-id: <span class="variable">$memberId</span>"</span> \</span><br><span class="line">        -d <span class="string">"&#123;&#125;"</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">""</span>    </span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"---------------------------------------------------------------------------------------------------"</span>    </span><br><span class="line">    <span class="built_in">echo</span> <span class="string">""</span>    </span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<p>This is an example how in a bash script, curl and awk work together, on gist.</p><script src="https://gist.github.com/TerrenceMiao/2a89c5941503eb25fe15b86a333fdc49.js"></script>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;This is an example how in a bash script, curl and awk work together:&lt;/p&gt;
-&lt;script src=&quot;https://gist.github.com/TerrenceMiao/2a89c5941503eb
+        &lt;p&gt;This is an example how in a bash script, curl and awk work together, on gist.&lt;/p&gt;
+&lt;script src=&quot;https://gist.github.com/TerrenceMiao/2a89c
       
     
     </summary>
