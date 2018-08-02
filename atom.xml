@@ -6,7 +6,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://terrencemiao.github.io/blog/"/>
-  <updated>2018-07-06T21:54:27.236Z</updated>
+  <updated>2018-08-02T23:25:53.391Z</updated>
   <id>https://terrencemiao.github.io/blog/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>An bash, curl and awk example</title>
+    <link href="https://terrencemiao.github.io/blog/2018/08/03/An-bash-curl-and-awk-example/"/>
+    <id>https://terrencemiao.github.io/blog/2018/08/03/An-bash-curl-and-awk-example/</id>
+    <published>2018-08-02T23:00:06.000Z</published>
+    <updated>2018-08-02T23:25:53.391Z</updated>
+    
+    <content type="html"><![CDATA[<p>This is an example how in a bash script, curl and awk work together:</p><script src="https://gist.github.com/TerrenceMiao/2a89c5941503eb25fe15b86a333fdc49.js"></script><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## Call Session API and get Authorization bearer token</span></span><br><span class="line">token=$(curl -D - -X POST \</span><br><span class="line">    https://api.paradise.org/session/v1 \</span><br><span class="line">    -H <span class="string">"Accept: application/json"</span> \</span><br><span class="line">    -H <span class="string">"Cache-Control: no-cache"</span> \</span><br><span class="line">    -H <span class="string">"Content-Type: application/json"</span> \</span><br><span class="line">    -d <span class="string">'&#123;</span></span><br><span class="line"><span class="string">        "username": "master@paradise.org",</span></span><br><span class="line"><span class="string">        "password": "Password Go Go Go"</span></span><br><span class="line"><span class="string">    &#125;'</span> | awk <span class="string">'BEGIN &#123;FS=": "&#125;/^Authorization/&#123;print $2&#125;'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">## Migrate each member into new culture pot</span></span><br><span class="line"><span class="keyword">for</span> memberId <span class="keyword">in</span> $(cat member-ids)</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">    curl -D - -X POST \</span><br><span class="line">        https://api.paradise.org/cultrue/v2/migrate \</span><br><span class="line">        -H <span class="string">"Accept: application/json"</span> \</span><br><span class="line">        -H <span class="string">"Authorization: <span class="variable">$token</span>"</span> \</span><br><span class="line">        -H <span class="string">"Cache-Control: no-cache"</span> \</span><br><span class="line">        -H <span class="string">"Content-Type: application/json"</span> \</span><br><span class="line">        -H <span class="string">"organisation-id: <span class="variable">$memberId</span>"</span> \</span><br><span class="line">        -d <span class="string">"&#123;&#125;"</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">""</span>    </span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"---------------------------------------------------------------------------------------------------"</span>    </span><br><span class="line">    <span class="built_in">echo</span> <span class="string">""</span>    </span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;This is an example how in a bash script, curl and awk work together:&lt;/p&gt;
+&lt;script src=&quot;https://gist.github.com/TerrenceMiao/2a89c5941503eb
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Assumptions and Conditional Test execution, ignoring in JUnit</title>
@@ -419,28 +441,6 @@
       
       
         &lt;p&gt;Bought one OnePlus 5T Lava Red (熔岩红) special edition from OnePlus China website - &lt;a href=&quot;http://rush.oneplus.cn/&quot; target=&quot;_blank&quot; rel=&quot;
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>First ever half marathon trial</title>
-    <link href="https://terrencemiao.github.io/blog/2017/10/29/First-ever-half-marathon-trial/"/>
-    <id>https://terrencemiao.github.io/blog/2017/10/29/First-ever-half-marathon-trial/</id>
-    <published>2017-10-28T23:18:10.000Z</published>
-    <updated>2018-06-08T07:45:26.378Z</updated>
-    
-    <content type="html"><![CDATA[<p>Try the first ever half marathon today - Yarra Boulevard run.</p><p>New experience such routine, Yarra Boulevard from suburb Kew to Hawthorn, either by walking or cycling.</p><p>Terrible weather condition today, windy and hot. Have to stop several time to get water supplied in case of dehydrated.</p><p>After 17km, left leg calf muscles start cramping, force me to reduce the pace. After 19km, right leg calf muscles also start cramping, but I keep moving forward.</p><p>New new personal best of Performance Level - 55 after run. Meanwhile, remind me there is limits inside me, but I know I can finish it.</p><p><img src="https://lh3.googleusercontent.com/N8oHoJU_p3p4hWyT_8oeNnLttknqUPWrAigIGKqPXo9OwEmawW129f5485TxA65ECjvhdcyDGZGQ6yNywPU-KpkYfstJjYO_Soo8LB-BeumyhMs8mR82Uvk1RGajRUI-gCL9WOrGa_2kWjW3IlEno7Q88oyNCr_UU5vGDbeILDJvTW5leveNX0SEuh-aIacge4AA8vQJ09PX1RGBg9ShCICNaP3KRXdTpsAQDte_vW1FScdDxhHRDQ3FCuo3StDlYHcMKsqb6vI0Uqj-8sprglsmSmBfPg_jlNRRAdVB832kMesq0rXtBDB0jj9rXMKE3RGJCNuuIPqbpxYoTAQubrng-VNdApdq3mLvGsB-ged4Mr4eQmZb5PDcu8jhFd_rNKkE8wSDAC7O0TPkppfxkAsq3xBU-I88oYpg-Fzt7ejmtvKCgomheTY_ScdBJ7xrDM0Aa6flsqVDhVu92AHKzj9elKNnERhn82ZRBOSENfYkOBJzAkpuySAScOG-e8TA_l3eyrk45UAmOZea0u3HgvBlnvFnqYWRfJ8BvGMav2SzzeGLBp00Dzc-f2SIjenGTdotnxinfjX-BNwAX7Bi16sEpHPB7CECVKtwuO6l7dw=w1278-h1107-no" alt="First ever half marathon trial" title="First ever half marathon trial"></p><p>Quotes from Johnnie Walker commercial:</p><p>“When the sun came shining and I was strolling and the wheat fields waving and the dust clouds rolling. As the fog was lifting, a voice was chanting, this land was made for you and me.”</p><p>“As I was walking that ribbon of highway, I saw above me that endless sky way. I saw below me that golden valley, Esta tierra fue hecha para ti y para mí.”</p><p>“I’ve roamed and rambled and I’ve followed my footsteps to the sparkling sands over diamond deserts, and all around me a voice was sounding, this land was made for you and me.”</p><p>Keep running!</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Try the first ever half marathon today - Yarra Boulevard run.&lt;/p&gt;
-&lt;p&gt;New experience such routine, Yarra Boulevard from suburb Kew to Hawt
       
     
     </summary>
