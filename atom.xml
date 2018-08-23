@@ -6,7 +6,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://terrencemiao.github.io/blog/"/>
-  <updated>2018-08-23T10:41:23.677Z</updated>
+  <updated>2018-08-23T10:51:15.835Z</updated>
   <id>https://terrencemiao.github.io/blog/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://terrencemiao.github.io/blog/2018/08/23/Step-by-step-resetting-Bluetooth-on-Mac-OS/"/>
     <id>https://terrencemiao.github.io/blog/2018/08/23/Step-by-step-resetting-Bluetooth-on-Mac-OS/</id>
     <published>2018-08-23T10:30:49.000Z</published>
-    <updated>2018-08-23T10:41:23.677Z</updated>
+    <updated>2018-08-23T10:51:15.835Z</updated>
     
-    <content type="html"><![CDATA[<p>Latest Mac OS High Sierra version 10.13.6.</p><ul><li>Open Terminal and login as user “root”:</li></ul><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> rm /Library/Preferences/com.apple.Bluetooth.plist</span></span><br></pre></td></tr></table></figure><ul><li>Reset the Bluetooth Module wiht Option + Shift + click on bluetooth icon in taskbar. Click on Debug -&gt; Reset the Bluetooth Module</li><li>Reset PRAM / NVRAM: Shut down; power on, immediately press Command + Option + P + R until it resets itself a couple times. Official guide <a href="https://support.apple.com/en-us/HT204063" target="_blank" rel="noopener">https://support.apple.com/en-us/HT204063</a></li><li>Reset SMC: Shut down; hold down Shift + Control + Option while holding the power button for 10 seconds. Official guide <a href="https://support.apple.com/en-us/HT201295" target="_blank" rel="noopener">https://support.apple.com/en-us/HT201295</a></li></ul>]]></content>
+    <content type="html"><![CDATA[<p>Latest Mac OS High Sierra version 10.13.6.</p><ul><li>Open Terminal and login as user “root”:</li></ul><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> rm /Library/Preferences/com.apple.Bluetooth.plist</span><br></pre></td></tr></table></figure><ul><li>Reset the Bluetooth Module with Option + Shift + click on bluetooth icon in taskbar. Click on Debug -&gt; Reset the Bluetooth Module</li></ul><p><img src="/blog/img/MacOS%20Bluetooth.png" alt="Reset Bluetooth on Mac OS" title="Reset Bluetooth on Mac OS"></p><ul><li>Reset PRAM / NVRAM: Shut down; power on, immediately press Command + Option + P + R until it resets itself a couple times. Official guide <a href="https://support.apple.com/en-us/HT204063" target="_blank" rel="noopener">https://support.apple.com/en-us/HT204063</a></li><li>Reset SMC: Shut down; hold down Shift + Control + Option while holding the power button for 10 seconds. Official guide <a href="https://support.apple.com/en-us/HT201295" target="_blank" rel="noopener">https://support.apple.com/en-us/HT201295</a></li></ul>]]></content>
     
     <summary type="html">
     
