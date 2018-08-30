@@ -6,7 +6,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://terrencemiao.github.io/blog/"/>
-  <updated>2018-08-30T05:55:51.852Z</updated>
+  <updated>2018-08-30T06:03:02.605Z</updated>
   <id>https://terrencemiao.github.io/blog/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://terrencemiao.github.io/blog/2018/08/30/A-Python-script-which-implements-Mantua-Cipher/"/>
     <id>https://terrencemiao.github.io/blog/2018/08/30/A-Python-script-which-implements-Mantua-Cipher/</id>
     <published>2018-08-30T05:54:36.000Z</published>
-    <updated>2018-08-30T05:55:51.852Z</updated>
+    <updated>2018-08-30T06:03:02.605Z</updated>
     
-    <content type="html"><![CDATA[<script src="https://gist.github.com/TerrenceMiao/483f216498fe90517accf6768482c2df.js"></script>]]></content>
+    <content type="html"><![CDATA[<script src="https://gist.github.com/TerrenceMiao/483f216498fe90517accf6768482c2df.js"></script><p>Run output from Console:</p><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> PycharmProjects/cipher/venv/bin/python PycharmProjects/cipher/src/cipher.py</span><br><span class="line">[ 60 31 53 33 33 53 23 ] :  blossom</span><br><span class="line">[ 60 55 73 66 66 73 23 ] :  blossom</span><br><span class="line">[ 20 37 12 0 0 12 23 ] :  blossom</span><br><span class="line">[ 60 37 82 14 14 82 89 ] :  blossom</span><br><span class="line">[ 20 31 82 95 95 82 89 ] :  blossom</span><br><span class="line">[ 60 36 90 0 0 90 23 ] :  blossom</span><br><span class="line">[ 20 37 90 94 94 90 23 ] :  blossom</span><br><span class="line">[ 20 55 90 94 94 90 89 ] :  blossom</span><br><span class="line">[ 20 36 97 94 94 97 89 ] :  blossom</span><br><span class="line">[ 60 36 82 0 0 82 23 ] :  blossom</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
@@ -31,6 +31,8 @@
       
         &lt;script src=&quot;https://gist.github.com/TerrenceMiao/483f216498fe90517accf6768482c2df.js&quot;&gt;&lt;/script&gt;
 
+&lt;p&gt;Run output from Console:&lt;/p&gt;
+&lt;figure cl
       
     
     </summary>
