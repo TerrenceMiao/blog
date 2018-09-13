@@ -6,7 +6,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://terrencemiao.github.io/blog/"/>
-  <updated>2018-08-30T06:03:02.605Z</updated>
+  <updated>2018-09-13T22:26:37.994Z</updated>
   <id>https://terrencemiao.github.io/blog/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>The 10 Commandments of Good Products</title>
+    <link href="https://terrencemiao.github.io/blog/2018/09/14/The-10-Commandments-of-Good-Products/"/>
+    <id>https://terrencemiao.github.io/blog/2018/09/14/The-10-Commandments-of-Good-Products/</id>
+    <published>2018-09-13T22:22:00.000Z</published>
+    <updated>2018-09-13T22:26:37.994Z</updated>
+    
+    <content type="html"><![CDATA[<p>The Vespa scooter is an example of how great design truly transcends time. The Vespa has been relatively unchanged in decades. The simplicity and style of it still make it a desirable item to this day.</p><p><img src="https://raw.githubusercontent.com/TerrenceMiao/igloo-design/master/The%2010%20Commandments%20of%20Good%20Products/Vespa%20Legend%20vs%20Modern.png" alt="The 10 Commandments of Good Products" title="The 10 Commandments of Good Products"></p><ul><li>The 10 Commandments of Good Products, <a href="https://medium.com/swlh/the-10-commandments-of-good-products-d1d0a97b30ee" target="_blank" rel="noopener">https://medium.com/swlh/the-10-commandments-of-good-products-d1d0a97b30ee</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;The Vespa scooter is an example of how great design truly transcends time. The Vespa has been relatively unchanged in decades. The simpli
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>A Python script which implements Mantua Cipher</title>
@@ -426,27 +447,6 @@
       
       
         &lt;p&gt;There is a simple way, using RESTful client to create Index and Mappings in ElasticSearch, for example, with ElasticSearch Head plugin.&lt;/
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>AWS access key id and secret access key</title>
-    <link href="https://terrencemiao.github.io/blog/2018/03/10/AWS-access-key-id-and-secret-access-key/"/>
-    <id>https://terrencemiao.github.io/blog/2018/03/10/AWS-access-key-id-and-secret-access-key/</id>
-    <published>2018-03-09T23:28:06.000Z</published>
-    <updated>2018-04-28T07:47:12.946Z</updated>
-    
-    <content type="html"><![CDATA[<p>There are some secret of AWS credentials, i.e., its Access Key ID and Secret Access Key, which let you connect AWS services withouth authentication.</p><p>In a quintessential project environment, you have dev, test, prod environment setup in AWS. Your local AWS_PROFILE is something like this so you can switch to different targeting end services while run your application on localhost:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">𝜆 cat ~/.aws/credentials</span><br><span class="line">[default]</span><br><span class="line">aws_access_key_id=dev-aws_access_key_id</span><br><span class="line">aws_secret_access_key=dev-aws_secret_access_key</span><br><span class="line"></span><br><span class="line">[dev]</span><br><span class="line">aws_access_key_id=dev-aws_access_key_id</span><br><span class="line">aws_secret_access_key=dev-aws_secret_access_key</span><br><span class="line"></span><br><span class="line">[<span class="built_in">test</span>]</span><br><span class="line">aws_access_key_id=<span class="built_in">test</span>-aws_access_key_id</span><br><span class="line">aws_secret_access_key=<span class="built_in">test</span>-aws_secret_access_key</span><br><span class="line"></span><br><span class="line">[prod]</span><br><span class="line">aws_access_key_id=prod-aws_access_key_id</span><br><span class="line">aws_secret_access_key=prod-aws_secret_access_key</span><br></pre></td></tr></table></figure><p>When test Jest client in Test environment, a AWS ElasticSearch client library, error thrown:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">2018-02-27 15:18:19 INFO  org.paradise.search.routes.ElasticSearchRoute  - Body: io.searchbox.core.Index@4804b850[uri=orders/order/4SMK1UmbtqIAAAFhmYAFt9V7,method=PUT] message: searchIndexRoute - updating search index</span><br><span class="line">2018-02-27 15:18:19 INFO  org.apache.camel.processor.interceptor.Tracer  - &gt;&gt;&gt; (searchIndexRoute) org.paradise.search.routes.ElasticSearchRoute$<span class="variable">$Lambda</span><span class="variable">$137</span>/819330075@119b837 --&gt; org.paradise.search.routes.ElasticSearchRoute$<span class="variable">$Lambda</span><span class="variable">$138</span>/2035788375@2acacdf &lt;&lt;&lt; Pattern:InOnly, BodyType:io.searchbox.core.Index</span><br><span class="line">2018-02-27 15:18:19 ERROR org.paradise.search.routes.ElasticSearchRoute  - Error <span class="keyword">while</span> updating search index. 403 Forbidden &#123;<span class="string">"Message"</span>:<span class="string">"User: arn:aws:iam::123456789012:user/svcbamboo is not authorized to perform: es:ESHttpPut on resource: paradise-esv5-test-esd"</span>&#125; at <span class="string">'orders/order/4SMK1UmbtqIAAAFhmYAFt9V7'</span></span><br></pre></td></tr></table></figure><p>It turns out that WRONG Dev AWS_PROFILE applied in Test environment.</p><p>Replacing “aws_access_key_id” and “aws_secret_access_key” from the default profile with “aws_access_key_id” and “aws_secret_access_key” from test profile:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">𝜆 cat ~/.aws/credentials</span><br><span class="line">[default]</span><br><span class="line">aws_access_key_id=<span class="built_in">test</span>-aws_access_key_id</span><br><span class="line">aws_secret_access_key=<span class="built_in">test</span>-aws_secret_access_key</span><br><span class="line"></span><br><span class="line">[dev]</span><br><span class="line">aws_access_key_id=dev-aws_access_key_id</span><br><span class="line">aws_secret_access_key=dev-aws_secret_access_key</span><br><span class="line"></span><br><span class="line">[<span class="built_in">test</span>]</span><br><span class="line">aws_access_key_id=<span class="built_in">test</span>-aws_access_key_id</span><br><span class="line">aws_secret_access_key=<span class="built_in">test</span>-aws_secret_access_key</span><br><span class="line"></span><br><span class="line">[prod]</span><br><span class="line">aws_access_key_id=prod-aws_access_key_id</span><br><span class="line">aws_secret_access_key=prod-aws_secret_access_key</span><br></pre></td></tr></table></figure><p>Rerun the test and in log:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">2018-02-27 15:23:54 INFO  org.paradise.search.routes.ElasticSearchRoute  - Body: io.searchbox.core.Index@62b18125[uri=orders/order/RVwK1UIBXmoAAAFhdJkFo9WA,method=PUT] message: searchIndexRoute - updating search index</span><br><span class="line">2018-02-27 15:23:54 INFO  org.apache.camel.processor.interceptor.Tracer  - &gt;&gt;&gt; (searchIndexRoute) org.paradise.search.routes.ElasticSearchRoute$<span class="variable">$Lambda</span><span class="variable">$137</span>/1716909005@a809a62 --&gt; org.paradise.search.routes.ElasticSearchRoute$<span class="variable">$Lambda</span><span class="variable">$138</span>/612681832@4b2713b1 &lt;&lt;&lt; Pattern:InOnly, BodyType:io.searchbox.core.Index</span><br><span class="line">2018-02-27 15:23:55 INFO  org.paradise.search.routes.ElasticSearchRoute  - Finished updating search index at <span class="string">'orders/order/RVwK1UIBXmoAAAFhdJkFo9WA'</span>.</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;There are some secret of AWS credentials, i.e., its Access Key ID and Secret Access Key, which let you connect AWS services withouth auth
       
     
     </summary>
