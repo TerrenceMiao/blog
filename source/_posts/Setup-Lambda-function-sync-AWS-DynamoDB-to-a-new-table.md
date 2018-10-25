@@ -1,20 +1,20 @@
 ---
-title: Setup Lambda function sync AWS DynamoDB to a new table
+title: Setup Lambda migrate & sync AWS DynamoDB to new table
 date: 2018-10-24 14:29:00
 tags:
 ---
 
-AWS DynamoDB is a good persistence solution for a specific solution. However, it’s not for a growing and changing application that could need new indexes and queries for its ever expanding features at any time. This time is where the flexibility and speed of a relational database really shined through.
+AWS DynamoDB is a good persistence solution for a specific solution. However, it’s not for a growing and changing application that could need new indexes and queries for its ever expanding features at any time. At this moment it is where the flexibility and speed of a relational database really shined through.
 
-Now, a DynamoDB table with Consumers Preferences need to update:
+Now, a DynamoDB table with Consumers Preferences data urgently needs to update:
 
 - RENAME one EXISTING attribute
 - ADD a new attribute
-- SET value in the new attribute for ALL EXISTING items in DynamoDB
+- SET a value in the new attribute for ALL EXISTING items in DynamoDB's new table
 
 ![AWS DynamoDB Table](/blog/img/DynamoDB%20Table.png "AWS DynamoDB Table")
 
-AWS lambda function plays handy here to sync **newly inserted**, **modified / updated**, **deleted** items between existing and new DynamoDB tables.
+AWS lambda function plays handy here to migrate data, and sync **newly inserted**, **modified / updated**, **deleted** items between existing and new DynamoDB tables.
 
 - Create new DynamoDB table
 
@@ -63,6 +63,44 @@ $ aws dynamodb create-table \
 }
 ```
 
+Migrate Data
+------------
+
+- Create Migrate Data Lambda function
+
+![AWS DynamoDB Lambda Migrate](/blog/img/DynamoDB%20Lambda%20Migrate.png "AWS DynamoDB Lambda Migrate")
+
+Increase runtime Timeout in case of execution pre-maturely ended without finishing the migration.
+
+**migrate.js**
+
+<script src="https://gist.github.com/TerrenceMiao/1a35793e951786b3fb8998e7d067bb0e.js"></script>
+
+- Add AWS DynamoDB Lambda execution role
+
+![AWS DynamoDB Lambda Execution Role](/blog/img/DynamoDB%20Lambda%20Role.png "AWS DynamoDB Lambda Execution Role")
+
+**userpreferences-ptest-02-migrateRole**
+
+<script src="https://gist.github.com/TerrenceMiao/efc13c16267430ee867b239a11fdc486.js"></script>
+
+- Create a simple test event that can kick off function
+
+```json
+{
+  "key1": "value1",
+  "key2": "value2",
+  "key3": "value3"
+}
+```
+
+Trigger run the function. Should see the data migrated from existing DynamoDB table into new table.
+
+Log can be found at AWS CloudWatch Log Groups **/aws/lambda/userpreferences-ptest-02-migrate**
+
+Sync Data
+---------
+
 - Enable Stream on the existing DynamoDB table
 
 ![AWS DynamoDB Stream Enabled](/blog/img/DynamoDB%20Stream%20Enabled.png "AWS DynamoDB Stream Enabled")
@@ -73,21 +111,13 @@ $ aws dynamodb create-table \
 
 - Create a new Lambda function linked to trigger
 
-![AWS DynamoDB Lambda](/blog/img/DynamoDB%20Lambda.png "AWS DynamoDB Lambda")
+![AWS DynamoDB Lambda Sync](/blog/img/DynamoDB%20Lambda%20Sync.png "AWS DynamoDB Lambda Sync")
 
-**userpreferences-migrate.js**
+**sync.js**
 
 <script src="https://gist.github.com/TerrenceMiao/7346fc986e3b7999ef205dde6f203eaa.js"></script>
 
-- Add AWS DynamoDB Lambda execution role
-
-![AWS DynamoDB Lambda Execution Role](/blog/img/DynamoDB%20Lambda%20Role.png "AWS DynamoDB Lambda Execution Role")
-
-**userpreferences-ptest-02-migrateRole**
-
-<script src="https://gist.github.com/TerrenceMiao/efc13c16267430ee867b239a11fdc486.js"></script>
-
-- Testing
+- Trigger Testing
 
 AWS Lambda built-in test can test trigger:
 
@@ -97,7 +127,7 @@ AWS Lambda built-in test can test trigger:
 
 - Logging
 
-Lambda function log can be found on AWS CloudWatch:
+Lambda function log can be found on AWS CloudWatch Log Groups **/aws/lambda/userpreferences-ptest-02-sync**
 
 ![AWS DynamoDB CloudWatch Logging](/blog/img/DynamoDB%20CloudWatch%20Logging.png "AWS DynamoDB CloudWatch Logging")
 
