@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://terrencemiao.github.io/blog/2018/11/06/After-new-Macbook-Air-Mac-Mini-iPad-Pro-2018/</loc>
+    
+    <lastmod>2018-11-06T01:22:37.968Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://terrencemiao.github.io/blog/2018/10/24/Setup-Lambda-function-sync-AWS-DynamoDB-to-a-new-table/</loc>
     
     <lastmod>2018-10-25T02:29:52.671Z</lastmod>
@@ -135,6 +142,13 @@
   </url>
   
   <url>
+    <loc>https://terrencemiao.github.io/blog/2017/08/04/%E8%82%A1%E5%B8%82%E6%8A%95%E8%B5%84%E4%B8%89%E8%A6%81%E7%B4%A0/</loc>
+    
+    <lastmod>2018-04-28T07:47:12.955Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://terrencemiao.github.io/blog/2017/09/03/%E7%94%BB%E8%99%BE/</loc>
     
     <lastmod>2018-04-28T07:47:12.955Z</lastmod>
@@ -143,13 +157,6 @@
   
   <url>
     <loc>https://terrencemiao.github.io/blog/2017/09/23/%E6%B5%85%E8%B0%88%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%95%B0%E5%AD%A6%E4%BF%AE%E5%85%BB/</loc>
-    
-    <lastmod>2018-04-28T07:47:12.955Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2017/08/04/%E8%82%A1%E5%B8%82%E6%8A%95%E8%B5%84%E4%B8%89%E8%A6%81%E7%B4%A0/</loc>
     
     <lastmod>2018-04-28T07:47:12.955Z</lastmod>
     
@@ -177,6 +184,13 @@
   </url>
   
   <url>
+    <loc>https://terrencemiao.github.io/blog/2017/02/01/Web-Components-are-coming/</loc>
+    
+    <lastmod>2018-04-28T07:47:12.953Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://terrencemiao.github.io/blog/2018/03/28/The-longest-official-place-name-in-Australia/</loc>
     
     <lastmod>2018-04-28T07:47:12.953Z</lastmod>
@@ -191,14 +205,7 @@
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2017/02/01/Web-Components-are-coming/</loc>
-    
-    <lastmod>2018-04-28T07:47:12.953Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2017/02/18/The-State-Quadrants-Functional-vs-Object-Oriented/</loc>
+    <loc>https://terrencemiao.github.io/blog/2018/03/11/The-A-I-Revolution-Will-Not-Be-Supervised/</loc>
     
     <lastmod>2018-04-28T07:47:12.952Z</lastmod>
     
@@ -212,7 +219,7 @@
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2018/03/11/The-A-I-Revolution-Will-Not-Be-Supervised/</loc>
+    <loc>https://terrencemiao.github.io/blog/2017/02/18/The-State-Quadrants-Functional-vs-Object-Oriented/</loc>
     
     <lastmod>2018-04-28T07:47:12.952Z</lastmod>
     
@@ -233,13 +240,6 @@
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2017/03/03/SQL-script-generates-random-data-and-insert-into-MySQL-database/</loc>
-    
-    <lastmod>2018-04-28T07:47:12.951Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://terrencemiao.github.io/blog/2017/01/28/Setup-HTTPS-access-in-Nexus-Repository-Manager-OSS-3-x-x/</loc>
     
     <lastmod>2018-04-28T07:47:12.951Z</lastmod>
@@ -247,7 +247,21 @@
   </url>
   
   <url>
+    <loc>https://terrencemiao.github.io/blog/2017/03/03/SQL-script-generates-random-data-and-insert-into-MySQL-database/</loc>
+    
+    <lastmod>2018-04-28T07:47:12.951Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://terrencemiao.github.io/blog/2017/02/01/Perfection/</loc>
+    
+    <lastmod>2018-04-28T07:47:12.950Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2018/01/12/OnePlus-5T-a-smartphone-full-of-all-the-right-ideas/</loc>
     
     <lastmod>2018-04-28T07:47:12.950Z</lastmod>
     
@@ -268,14 +282,7 @@
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2018/01/12/OnePlus-5T-a-smartphone-full-of-all-the-right-ideas/</loc>
-    
-    <lastmod>2018-04-28T07:47:12.950Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2018/03/26/House-Prices-Down-Under/</loc>
+    <loc>https://terrencemiao.github.io/blog/2017/09/20/Geoffrey-Hinton-interview/</loc>
     
     <lastmod>2018-04-28T07:47:12.949Z</lastmod>
     
@@ -289,7 +296,7 @@
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2017/09/20/Geoffrey-Hinton-interview/</loc>
+    <loc>https://terrencemiao.github.io/blog/2018/03/26/House-Prices-Down-Under/</loc>
     
     <lastmod>2018-04-28T07:47:12.949Z</lastmod>
     
@@ -303,14 +310,14 @@
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2018/04/07/Flow/</loc>
+    <loc>https://terrencemiao.github.io/blog/2017/02/18/Fibonacci-function-implementation-in-Java-8/</loc>
     
     <lastmod>2018-04-28T07:47:12.948Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2017/02/18/Fibonacci-function-implementation-in-Java-8/</loc>
+    <loc>https://terrencemiao.github.io/blog/2018/04/07/Flow/</loc>
     
     <lastmod>2018-04-28T07:47:12.948Z</lastmod>
     
