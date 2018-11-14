@@ -70,7 +70,7 @@ Migrate Data
 
 ![AWS DynamoDB Lambda Migrate](/blog/img/DynamoDB%20Lambda%20Migrate.png "AWS DynamoDB Lambda Migrate")
 
-Increase runtime Timeout in case of execution pre-maturely ended without finishing the migration.
+Increase Memory and Runtime Timeout _https://docs.aws.amazon.com/lambda/latest/dg/limits.html_ in case of execution pre-maturely ended without finishing the migration. Furthermore, in case of overcharging DynamoDB due to its limits _https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html_ add time delay in Lambda function.
 
 **migrate.js**
 
@@ -130,6 +130,15 @@ AWS Lambda built-in test can test trigger:
 Lambda function log can be found on AWS CloudWatch Log Groups **/aws/lambda/userpreferences-ptest-02-sync**
 
 ![AWS DynamoDB CloudWatch Logging](/blog/img/DynamoDB%20CloudWatch%20Logging.png "AWS DynamoDB CloudWatch Logging")
+
+Counter Data
+------------
+
+This Lambda function can count the number of items in DynamoDB table.
+
+**counter.js**
+
+<script src="https://gist.github.com/TerrenceMiao/3d6af3de8ba07e5bdfbb785667117dc3.js"></script>
 
 References
 ----------
