@@ -140,8 +140,37 @@ This Lambda function can count the number of items in DynamoDB table.
 
 <script src="https://gist.github.com/TerrenceMiao/3d6af3de8ba07e5bdfbb785667117dc3.js"></script>
 
+
+Async call, callback and Non-blocking, it's very hard implement so in every applications. In addition, reject promises or async functions, don't handle them with a catch, NodeJS will raise a warning. In a large complex applications with lots of async, having a single unhandled promise or await function terminate NodeJS, or have to handle them with try and catch in every place (spaghetti code again?) would be very bad.
+
+An example of AWS DynamoDB error:
+
+```console
+2018-11-14T02:20:50.742Z	715f18fb-e7b3-11e8-b5c4-d75f9089dd50	Error thrown: { ProvisionedThroughputExceededException: The level of configured provisioned throughput for the table was exceeded. Consider increasing your provisioning level with the UpdateTable API.
+at Request.extractError (/var/runtime/node_modules/aws-sdk/lib/protocol/json.js:48:27)
+at Request.callListeners (/var/runtime/node_modules/aws-sdk/lib/sequential_executor.js:105:20)
+at Request.emit (/var/runtime/node_modules/aws-sdk/lib/sequential_executor.js:77:10)
+at Request.emit (/var/runtime/node_modules/aws-sdk/lib/request.js:683:14)
+at Request.transition (/var/runtime/node_modules/aws-sdk/lib/request.js:22:10)
+at AcceptorStateMachine.runTo (/var/runtime/node_modules/aws-sdk/lib/state_machine.js:14:12)
+at /var/runtime/node_modules/aws-sdk/lib/state_machine.js:26:10
+at Request.<anonymous> (/var/runtime/node_modules/aws-sdk/lib/request.js:38:9)
+at Request.<anonymous> (/var/runtime/node_modules/aws-sdk/lib/request.js:685:12)
+at Request.callListeners (/var/runtime/node_modules/aws-sdk/lib/sequential_executor.js:115:18)
+message: 'The level of configured provisioned throughput for the table was exceeded. Consider increasing your provisioning level with the UpdateTable API.',
+code: 'ProvisionedThroughputExceededException',
+time: 2018-11-14T02:20:50.687Z,
+requestId: 'C38MODOISAJEGTVPI2ISOPFGDBVV4KQNSO5AEMVJF66Q9ASUAAJG',
+statusCode: 400,
+retryable: true }
+```
+
+AWS example doesn't throw the error in the catch block, it returns error instead, so any errors end up in the catch block. And return promises early and use Promise.all() method.
+
 References
 ----------
 
 - DynamoDB: Changing table schema, _https://www.abhayachauhan.com/2018/01/dynamodb-changing-table-schema/_
 - Tutorial: Processing New Items in a DynamoDB Table, _https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Streams.Lambda.Tutorial.html_
+- How to escape async/await hell, _https://medium.freecodecamp.org/avoiding-the-async-await-hell-c77a0fb71c4c_
+- Node.js 8.10 runtime now available in AWS Lambda, _https://aws.amazon.com/blogs/compute/node-js-8-10-runtime-now-available-in-aws-lambda/_
