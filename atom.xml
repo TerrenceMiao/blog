@@ -6,7 +6,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://terrencemiao.github.io/blog/"/>
-  <updated>2018-11-21T23:00:50.550Z</updated>
+  <updated>2018-12-03T08:38:04.326Z</updated>
   <id>https://terrencemiao.github.io/blog/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Bind customised KeyStore,TrustStore and PoolingHttpClientConnectionManager in Apache Camel</title>
+    <link href="https://terrencemiao.github.io/blog/2018/12/03/Bind-customised-KeyStore-TrustStore-and-PoolingHttpClientConnectionManager-in-Apache-Camel/"/>
+    <id>https://terrencemiao.github.io/blog/2018/12/03/Bind-customised-KeyStore-TrustStore-and-PoolingHttpClientConnectionManager-in-Apache-Camel/</id>
+    <published>2018-12-03T07:54:16.000Z</published>
+    <updated>2018-12-03T08:38:04.326Z</updated>
+    
+    <content type="html"><![CDATA[<p>In Apache HTTPClient 4.x, PoolingHttpClientConnectionManager and BasicHttpClientConnectionManager can be used as Connection Managers for HTTP Client. By default, above two Connection Managers load <strong>cacerts</strong> trust store, from $JRE_HOME/lib/security directory, not programmatically specified.</p><p>Since Apache Camel starts supporting HTTP4 Component, camel-http4 is using Apache HTTPClient 4.x. The following is a solution how to customise PoolingHttpClientConnectionManager and SSLContext to use specified KeyStore and TrustStore.</p><script src="https://gist.github.com/TerrenceMiao/fefc0d10359146c3612fde33046b95d0.js"></script><p>In <strong>application.properties</strong> file defined environment specified KeyStore and TrustStore:</p><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">keystore.location=classpath:certificates/client-certs.jks</span><br><span class="line">keystore.password=client123</span><br><span class="line">truststore.location=classpath:certificates/trusted-cacerts.jks</span><br><span class="line">truststore.password=changeit</span><br><span class="line">...</span><br></pre></td></tr></table></figure><p>Without Connection Managers like PoolingHttpClientConnectionManager and BasicHttpClientConnectionManager in Apache HTTPClient 4.x, Apache Camel Route can be written in this way, binding programmatically specified KeyStore and TrustStore.</p><script src="https://gist.github.com/TerrenceMiao/ecdb7cb674887a7f82199ac880987224.js"></script><h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul><li>Apache Camel HTTP4 Component, <em><a href="http://camel.apache.org/http4.html" target="_blank" rel="noopener">http://camel.apache.org/http4.html</a></em></li><li>Java SSL with Multiple KeyStores, <em><a href="http://codyaray.com/2013/04/java-ssl-with-multiple-keystores" target="_blank" rel="noopener">http://codyaray.com/2013/04/java-ssl-with-multiple-keystores</a></em></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;In Apache HTTPClient 4.x, PoolingHttpClientConnectionManager and BasicHttpClientConnectionManager can be used as Connection Managers for 
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Inspirational Thought</title>
@@ -424,27 +445,6 @@
       
         &lt;p&gt;A feeling of complete absorption when you’re engaged in something you love to do without being disrupted by anxiety or boredom.&lt;/p&gt;
 &lt;p&gt;&lt;i
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>The longest official place name in Australia</title>
-    <link href="https://terrencemiao.github.io/blog/2018/03/28/The-longest-official-place-name-in-Australia/"/>
-    <id>https://terrencemiao.github.io/blog/2018/03/28/The-longest-official-place-name-in-Australia/</id>
-    <published>2018-03-28T11:16:57.000Z</published>
-    <updated>2018-04-28T07:47:12.953Z</updated>
-    
-    <content type="html"><![CDATA[<p><strong>Mamungkukumpurangkuntjunya Hill</strong>, is a hill in South Australia. The name means “where the devil urinates” in the regional Pitjantjatjara language. The name is the longest official place name in Australia. The hill is located approximately 108.8 km west north-west of Marla.</p><p><img src="https://lh3.googleusercontent.com/4Ui953ILUYYhftxG2XGxJtpGPuYUzllmo1fyD8k27x49pjb4jjQulpt7Qe708K9En2QEQv3OBHmKyX78furD5B2C88cmOrgzH1O7nSeiuCLq-jxTVVgn3_3CjfcCe8wINqHYdCu1QTU_hVEweQbtdJ81rSuA7ttrBZnnpcB-cgWB3tfkmfQ8niDRaEEimvZvhXtbtRZon11kDNT-sDxaPNsaK8894x5Pdn5-KJTGEO6KOpPU1pHTxxGMX8jEwj-XwwbUnRfpJOWki1hzAQDqpr6kmzaodWFDpIXza0sLObXTBgHCOBLdT7H1SZ6L0HYBwJRAMYX0l8H_JYGSXXcd-Fta3b6VybDOPJ7KiGqBuAqYSEfiIGoUNtKOCy8YptP_OUnNIYUjHVI1BoS0E54P75j0NJAlZfC68nGoTDlFQnLs60cnArC3f8yzkzuvqcX874JVul3_zs7hhDWr-tmlnvTLAGjHl_dd-9fInO7AhLdLgjb9NEib2srxH2GiX9GbTUzxFPV4t96epl3BK3cz2_kv4YfgQWbUGZ9-bt4ropI5zRJPhiMlB35F9f4tXJACoA9u7BxtjqSWFW_zVIwt4TKiGm2MIp3ZyS8hupwE=w1352-h960-no" alt="Mamungkukumpurangkuntjunya Hill"></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;strong&gt;Mamungkukumpurangkuntjunya Hill&lt;/strong&gt;, is a hill in South Australia. The name means “where the devil urinates” in the regional
       
     
     </summary>
