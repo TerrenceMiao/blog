@@ -30,3 +30,4 @@ References
 
 - Apache Camel HTTP4 Component, _http://camel.apache.org/http4.html_
 - Java SSL with Multiple KeyStores, _http://codyaray.com/2013/04/java-ssl-with-multiple-keystores_
+- Multiple Keystores in Apache Camel/HttpClient, _http://codyaray.com/2013/05/multiple-keystores-in-apache-camelhttpclient_
