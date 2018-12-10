@@ -65,8 +65,8 @@ Then visit _http://localhost:9000_
 
 Create a Kafka cluster at first:
 
-![Kafka Cluster](/blog/img/Kafka%20Cluster.jpg "Kafka Cluster")
+![Kafka Cluster](/blog/img/Kafka%20Cluster.png "Kafka Cluster")
 
 Visit "test" topic in Kafka cluster:
 
-![Kafka Manager](/blog/img/Kafka%20Manager.jpg "Kafka Manager")
+![Kafka Manager](/blog/img/Kafka%20Manager.png "Kafka Manager")
