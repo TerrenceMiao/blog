@@ -6,7 +6,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://terrencemiao.github.io/blog/"/>
-  <updated>2018-12-31T13:58:01.466Z</updated>
+  <updated>2019-01-11T00:12:35.650Z</updated>
   <id>https://terrencemiao.github.io/blog/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Add final and javadoc for auto-generated getters and setters in IntelliJ</title>
+    <link href="https://terrencemiao.github.io/blog/2019/01/11/Add-final-and-javadoc-for-auto-generated-getters-and-setters-in-IntelliJ/"/>
+    <id>https://terrencemiao.github.io/blog/2019/01/11/Add-final-and-javadoc-for-auto-generated-getters-and-setters-in-IntelliJ/</id>
+    <published>2019-01-10T23:29:06.000Z</published>
+    <updated>2019-01-11T00:12:35.650Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li>Default final modifier</li></ul><p>To satisfy Checkstyle setup. In IntelliJ (version 2018.3.2) Preferences | Editor &gt; Code Style &gt; Java, select “Code Generation” tab, check “Make generated parameters final”</p><p><img src="/blog/img/IntelliJ%20-%20final%20modifier.png" alt="Final Modifier" title="Final Modifier"></p><ul><li>javadoc for auto-generated getters and setters</li></ul><p>Create customised Getter Template:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">* Gets $field.name.</span><br><span class="line">*</span><br><span class="line">* @return value of $field.name</span><br><span class="line">*/</span><br><span class="line">#if($field.modifierStatic)</span><br><span class="line">static ##</span><br><span class="line">#end</span><br><span class="line">$field.type ##</span><br><span class="line">#set($name = $StringUtil.capitalizeWithJavaBeanConvention($StringUtil.sanitizeJavaIdentifier($helper.getPropertyName($field, $project))))</span><br><span class="line">#if ($field.boolean &amp;&amp; $field.primitive)</span><br><span class="line">    is##</span><br><span class="line">#else</span><br><span class="line">    get##</span><br><span class="line">#end</span><br><span class="line">$&#123;name&#125;() &#123;</span><br><span class="line">    return $field.name;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><img src="/blog/img/IntelliJ%20-%20Getter%20Template.png" alt="Getter Template" title="Getter Template"></p><p>Create customised Setter Template:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">* Sets $field.name.</span><br><span class="line">*</span><br><span class="line">* @param $field.name value of $field.name</span><br><span class="line">*/</span><br><span class="line">#set($paramName = $helper.getParamName($field, $project))</span><br><span class="line">#if($field.modifierStatic)</span><br><span class="line">static ##</span><br><span class="line">#end</span><br><span class="line">void set$StringUtil.capitalizeWithJavaBeanConvention($StringUtil.sanitizeJavaIdentifier($helper.getPropertyName($field, $project)))($field.type $paramName) &#123;</span><br><span class="line">#if ($field.name == $paramName)</span><br><span class="line">    #if (!$field.modifierStatic)</span><br><span class="line">    this.##</span><br><span class="line">    #else</span><br><span class="line">        $classname.##</span><br><span class="line">    #end</span><br><span class="line">#end</span><br><span class="line">$field.name = $paramName;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><img src="/blog/img/IntelliJ%20-%20Setter%20Template.png" alt="Setter Template" title="Setter Template"></p><p>Use the customised Getter and Setter templates when automatically generate getters and setters:</p><p><img src="/blog/img/IntelliJ%20-%20auto-generated%20getters%20setters.png" alt="auto-generated getters setters" title="auto-generated getters setters"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ul&gt;
+&lt;li&gt;Default final modifier&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;To satisfy Checkstyle setup. In IntelliJ (version 2018.3.2) Preferences | Editor &amp;gt; Code Sty
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Year 2018 in the Rear View Mirror</title>
@@ -424,27 +448,6 @@
       
       
         &lt;p&gt;&lt;img src=&quot;https://lh3.googleusercontent.com/YzTa0oT6aF3aVswjpNEfQuo0VVY9eItB39kLPCxZcnIc_X-lyU6Ycio3Ijrucs7TOsLP0bWc8qLnsRHG5BNqmw0g791jy
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Serenity, powered by Simple Design</title>
-    <link href="https://terrencemiao.github.io/blog/2018/05/03/Serenity-powered-by-Simple-Design/"/>
-    <id>https://terrencemiao.github.io/blog/2018/05/03/Serenity-powered-by-Simple-Design/</id>
-    <published>2018-05-02T22:43:08.000Z</published>
-    <updated>2018-05-02T22:45:15.099Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="https://lh3.googleusercontent.com/o7wnK7fv4dq-WBb4ThUMiPFQV4LrpIx2GL6hwc4WDC3jxr_1AAEsxdFkPLEmOF_A39LoTLrmzMw3DUVuHOdNhz7NaynGsOHKVw0LdktrIp3-cYhxMBBgTwmqhULyhi5PFRJ-IYKvBqw754_ukFlDFniPHzEl6f1KHVGPQuJ5aP0-eMib5MulHnvae-EdhLNPBJzXL9RnwRhK4QanFL6pH4sgFc7lKU0Rc7Al0YGYswlMB-xx25yCb4GjknFfJTuKUYpogzqNDc_pyJlKUYblxh14PCptNhpkY8lXbQzHmZNxRc5Kax4o58BOk9kDKIqtgUl068osdSG8ER4YO0RQDaGd2utkFooZNPw_UsODyuCEgXjHAbRRYkGpqOzGmLM7ezdsfZHWO1n8IXEZjuKHj0HxFnmhzJl_Kg1YInDLa2TSVwyGJnNBCXsVnrNsoAykP-gWQPrAJccDvJ_9lat5Eco_romJINuc4g_zGC4-nxv1Ie6PmaDIdBLFSjN-G7dRrUQ1-INbH7Hfw1bgylE3X6hQB7Z18NvG6TfmimPR8NyFXFO911agBlIRS0VjGF8=s1920-w1920-h1280-no" alt="Serenity, powered by Simple Design" title="Serenity, powered by Simple Design"></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;img src=&quot;https://lh3.googleusercontent.com/o7wnK7fv4dq-WBb4ThUMiPFQV4LrpIx2GL6hwc4WDC3jxr_1AAEsxdFkPLEmOF_A39LoTLrmzMw3DUVuHOdNhz7NaynGs
       
     
     </summary>
