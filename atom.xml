@@ -6,7 +6,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://terrencemiao.github.io/blog/"/>
-  <updated>2019-01-11T00:19:41.628Z</updated>
+  <updated>2019-01-11T00:42:07.667Z</updated>
   <id>https://terrencemiao.github.io/blog/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Keep running</title>
+    <link href="https://terrencemiao.github.io/blog/2019/01/11/Keep-running/"/>
+    <id>https://terrencemiao.github.io/blog/2019/01/11/Keep-running/</id>
+    <published>2019-01-11T00:27:56.000Z</published>
+    <updated>2019-01-11T00:42:07.667Z</updated>
+    
+    <content type="html"><![CDATA[<p>许多杰出的人物都是长跑爱好者，比如阿兰·图灵。</p><p>图灵的头衔有很多，传奇性的数学家、逻辑学家、现代计算机之父。但很少人知道他也是一位出色的跑者，甚至差点站上了奥运会的舞台。</p><p>图灵从中学就开始跑步，但直到 30 多岁才正式进行长跑训练。</p><p>跑道上的图灵“大器晚成”，出色的运动天赋丝毫不逊色于他的头脑。</p><p>14 岁那年，他在谢伯恩寄宿高中就读的第一日，由于大罢工，当地的公共交通设施全部停运。图灵没有等到交通恢复，就从南安普敦一口气骑行 96 公里到达位于多塞特郡西北的学校上学，引发全校轰动。</p><p>1931 年，当他进入剑桥国王学院学习时，他曾多次在学校和伊利镇之间进行折返跑，一个来回就差不多 50 公里。</p><p>1947 年，在莱斯特郡拉夫堡（Loughborough）大学体育场举行的英国业余田径协会马拉松锦标赛上，图灵跑出了他在马拉松赛中的个人最好成绩 2 小时 46 分 03 秒，在那场比赛中名列第五。</p><p>在 1948 年伦敦的奥运会马拉松比赛上，当时冠军的成绩是 2 小时 34 分 52 秒。图灵仅比金牌得主慢了 11 分钟。而据英国《泰晤士报》报道，图灵的最好成绩在当年（1947年）足以排名世界前三。</p><p><img src="https://therunnereclectic.files.wordpress.com/2014/11/alan-turing-running.jpg" alt="Alan Turning running" title="Alan Turning running"></p><p>When Alan Turing was asked why he punished himself so much in training. He said “I have such a stressful job that the only way I can get it out of my mind is by running hard; its the only way I can get some release.”</p><p>奥斯卡最佳改编剧本电影《模仿游戏》The Imitation Game 是根据他的传记《Alan Turing: The Enigma》拍摄的。</p><p><img src="https://img01.mgo-images.com/image/thumbnail/v2/content/MMV23F9EE71557457EFE04D2B6E4DBBA320A.jpeg" alt="The Imitation Game" title="The Imitation Game"></p><p><img src="https://static.gamesurf.it/immagini/2014/11272/big/the_imitation_game_584289.jpg" alt="Movie scene: Alan Turning running" title="Movie scene: Alan Turning running"></p><p>苹果公司的商标一度被误认为是源于图灵自杀时咬下的苹果，但该图案的设计师和苹果公司都否认这一说法。</p><p>Stephen Fry said on the BBC show QI XL in 2011 that his friend Steve Jobs said of the Turing tale, “It isn’t true, but God we wish it were!”</p><p>乔布斯被英国广播公司电视节目《QI》主持人史蒂芬·弗莱问到此事时说：“这（LOGO 向图灵致敬）不是真的，但是上帝啊，我们希望它是真的。”</p><p><img src="https://www.fineprintart.com/images/blog/history-of-apple-logo/Apple-Logo-by-Rob-Janoff.svg" alt="&quot;Apple logo&quot;" title="Apple logo"></p><p>Keep running.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;许多杰出的人物都是长跑爱好者，比如阿兰·图灵。&lt;/p&gt;
+&lt;p&gt;图灵的头衔有很多，传奇性的数学家、逻辑学家、现代计算机之父。但很少人知道他也是一位出色的跑者，甚至差点站上了奥运会的舞台。&lt;/p&gt;
+&lt;p&gt;图灵从中学就开始跑步，但直到 30 多岁才正式进行长跑训练。&lt;/p&gt;
+&lt;p
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Add final and javadoc for auto-generated getters and setters in IntelliJ</title>
@@ -239,7 +263,7 @@
     <published>2018-08-30T05:54:36.000Z</published>
     <updated>2018-08-30T06:03:02.605Z</updated>
     
-    <content type="html"><![CDATA[<script src="https://gist.github.com/TerrenceMiao/483f216498fe90517accf6768482c2df.js"></script><p>Run output from Console:</p><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> PycharmProjects/cipher/venv/bin/python PycharmProjects/cipher/src/cipher.py</span></span><br><span class="line">[ 60 31 53 33 33 53 23 ] :  blossom</span><br><span class="line">[ 60 55 73 66 66 73 23 ] :  blossom</span><br><span class="line">[ 20 37 12 0 0 12 23 ] :  blossom</span><br><span class="line">[ 60 37 82 14 14 82 89 ] :  blossom</span><br><span class="line">[ 20 31 82 95 95 82 89 ] :  blossom</span><br><span class="line">[ 60 36 90 0 0 90 23 ] :  blossom</span><br><span class="line">[ 20 37 90 94 94 90 23 ] :  blossom</span><br><span class="line">[ 20 55 90 94 94 90 89 ] :  blossom</span><br><span class="line">[ 20 36 97 94 94 97 89 ] :  blossom</span><br><span class="line">[ 60 36 82 0 0 82 23 ] :  blossom</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<script src="https://gist.github.com/TerrenceMiao/483f216498fe90517accf6768482c2df.js"></script><p>Run output from Console:</p><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> PycharmProjects/cipher/venv/bin/python PycharmProjects/cipher/src/cipher.py</span><br><span class="line">[ 60 31 53 33 33 53 23 ] :  blossom</span><br><span class="line">[ 60 55 73 66 66 73 23 ] :  blossom</span><br><span class="line">[ 20 37 12 0 0 12 23 ] :  blossom</span><br><span class="line">[ 60 37 82 14 14 82 89 ] :  blossom</span><br><span class="line">[ 20 31 82 95 95 82 89 ] :  blossom</span><br><span class="line">[ 60 36 90 0 0 90 23 ] :  blossom</span><br><span class="line">[ 20 37 90 94 94 90 23 ] :  blossom</span><br><span class="line">[ 20 55 90 94 94 90 89 ] :  blossom</span><br><span class="line">[ 20 36 97 94 94 97 89 ] :  blossom</span><br><span class="line">[ 60 36 82 0 0 82 23 ] :  blossom</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
@@ -424,27 +448,6 @@
       
         &lt;p&gt;Bigger and bigger screen, fewer and fewer buttons, more and more entertaining, less and less thinking.&lt;/p&gt;
 &lt;p&gt;屏幕越来越大，按键越来越少。&lt;br&gt;娱乐越来越多，思考
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>The Evolution of Communication</title>
-    <link href="https://terrencemiao.github.io/blog/2018/05/12/The-Evolution-of-Communication/"/>
-    <id>https://terrencemiao.github.io/blog/2018/05/12/The-Evolution-of-Communication/</id>
-    <published>2018-05-12T09:00:19.000Z</published>
-    <updated>2018-05-12T09:13:08.194Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="https://lh3.googleusercontent.com/YzTa0oT6aF3aVswjpNEfQuo0VVY9eItB39kLPCxZcnIc_X-lyU6Ycio3Ijrucs7TOsLP0bWc8qLnsRHG5BNqmw0g791jyb1s_NCQx3pSFcXkBDWx4dHdAzxsoxWqytORH9Io1CeYFAQOWkxuLkgGCiCsMffW0oxibHz99BlxVE5ni2h7GpyWfs9tmo6hTp1DCBG3raBkNq7_bGtKYGYT3Zhu2iNY7KJJ_YorXUKRLVkysDQAnydHjKuFCZDl_wIt5orYpchlF_-hMrGDWc1mm-SboGhnHQ4T1dlMU2-6cDftqIh1gQyxpUpU6kFTtCsFYYceBPIZlEfJWWn521iclYhG6ntrVEJbbWOH3pTw_E3zjTtJ2HSGNe60wHY4VI6BQyitfUAvAuwehO8rFHGJk6GKO8POvA79BXV_L4gi_354_sxW-I3TSLG_F8gXbiRDpLYf0swJlU6UVkz0NRKBuJD32dYj1evE0bWWUkDaUJqPV9ywWkxpQJ0AmIi2F21O5o1N5yVHaFdNLVfTBySAqpFaCi2v39JfeTdl7Ofc-K8BOKHZk2fNnV1mT4RwJMTRPKfKf7ZV_r8X_yVJmSqtuXC5gz-WCgRe2ksl7NBW=w700-h374-no" alt="The Evolution of Communication" title="The Evolution of Communication"></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;img src=&quot;https://lh3.googleusercontent.com/YzTa0oT6aF3aVswjpNEfQuo0VVY9eItB39kLPCxZcnIc_X-lyU6Ycio3Ijrucs7TOsLP0bWc8qLnsRHG5BNqmw0g791jy
       
     
     </summary>
