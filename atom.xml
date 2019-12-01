@@ -6,7 +6,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://terrencemiao.github.io/blog/"/>
-  <updated>2019-11-28T04:02:20.838Z</updated>
+  <updated>2019-12-01T03:27:51.404Z</updated>
   <id>https://terrencemiao.github.io/blog/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Why React?</title>
+    <link href="https://terrencemiao.github.io/blog/2019/12/01/Why-React/"/>
+    <id>https://terrencemiao.github.io/blog/2019/12/01/Why-React/</id>
+    <published>2019-12-01T02:40:56.000Z</published>
+    <updated>2019-12-01T03:27:51.404Z</updated>
+    
+    <content type="html"><![CDATA[<p>A new pedigree of Frontend Development.</p><p>The following are the preferred technical choices for any new projects that do not have a “<strong>hammer whats already there</strong>“ constraint that have been chosen for consistency.</p><h2 id="Programming-Language-TypeScript"><a href="#Programming-Language-TypeScript" class="headerlink" title="Programming Language: TypeScript "></a>Programming Language: TypeScript </h2><p>Alternatives to avoid:</p><ul><li><strong>Raw JS</strong> / <a href="https://babeljs.io/" target="_blank" rel="noopener"><strong>Babel</strong></a>: Types can prevent a significant amount of bugs and provide a great means of documenting code that can be validated by a compiler. Therefore we will not dabble in untyped programming languages for Frontend development.</li><li>Other TypeSafe alternatives:<ul><li><a href="https://dart.dev/" target="_blank" rel="noopener"><strong>Dart</strong></a> / <a href="https://elm-lang.org/" target="_blank" rel="noopener"><strong>Elm</strong></a> / <a href="https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor" target="_blank" rel="noopener"><strong>Blazor</strong></a> - typed compile to JavaScript languages: Browsers operate on JavaScript using a language that is too far removed from JS means people will need to learn two language and fix bugs at two levels.</li><li><a href="https://flow.org/" target="_blank" rel="noopener"><strong>Flow</strong></a> - A facebook alternative to TypeScript. Flow was a decent experiment into JavaScript type safety by the Facebook team, but news from inside Facebook (chats at conferences) is that it is not actively getting maintained. Therefore it should be avoided.</li></ul></li></ul><h2 id="UI-Library-React"><a href="#UI-Library-React" class="headerlink" title="UI Library: React"></a>UI Library: React</h2><p>Alternatives to avoid:</p><ul><li><a href="https://angular.io/" target="_blank" rel="noopener"><strong>Angular</strong></a>: <strong>Angular</strong> goes through significant breaking changes as can be <a href="https://github.com/angular/angular/blob/master/CHANGELOG.md" target="_blank" rel="noopener">witnessed by the changelog</a>. Also <strong>Angular</strong> is a full framework (as opposed to a library), but people rarely use it as a framework as there will be inevitable external dependencies for alternative (even better) community tools e.g. <a href="https://rxjs.dev/" target="_blank" rel="noopener"><strong>rxjs</strong></a> for state, <a href="https://github.com/axios/axios" target="_blank" rel="noopener"><strong>axios</strong></a> for api etc.</li><li><a href="https://vuejs.org/" target="_blank" rel="noopener"><strong>Vue</strong></a>: <strong>Vue</strong> is the third most popular choice. However it not backed by a major enterprise (Facebook for <strong>React</strong>, Google for <strong>Angular</strong>)</li><li><a href="https://svelte.dev/" target="_blank" rel="noopener"><strong>Svelte</strong></a>: Same reasons as <strong>Vue</strong>.</li></ul><h2 id="State-Management-MobX"><a href="#State-Management-MobX" class="headerlink" title="State Management: MobX"></a>State Management: <a href="https://mobx.js.org/" target="_blank" rel="noopener">MobX</a></h2><p>Alternatives to avoid:</p><ul><li><a href="https://redux.js.org/" target="_blank" rel="noopener"><strong>Redux</strong></a>: <strong>Redux</strong> is definitely the more popular choice in the React community. However most people will use it with some additional middleware library e.g. <a href="https://github.com/reduxjs/redux-thunk" target="_blank" rel="noopener">redux-thunk</a> or <a href="https://github.com/redux-saga/redux-saga/" target="_blank" rel="noopener">redux-saga</a> leading to multiple ways of doing Frontend. Also, <strong>Redux</strong> is significantly more verbose (because of always new object creation) and difficult to optimise (because of no internal knowledge of what changed).</li></ul><h2 id="Styles-CSS-in-JS"><a href="#Styles-CSS-in-JS" class="headerlink" title="Styles: CSS in JS"></a>Styles: CSS in JS</h2><p>Prefer <a href="https://github.com/emotion-js/emotion" target="_blank" rel="noopener">Emotion</a> or <a href="https://github.com/typestyle/typestyle" target="_blank" rel="noopener">TypeStyle</a> over others.</p><p>Alternatives to avoid:</p><ul><li>CSS preprocessor (e.g. <a href="https://sass-lang.com/" target="_blank" rel="noopener"><strong>sass</strong></a> / <a href="https://github.com/css-modules/css-modules" target="_blank" rel="noopener"><strong>css-modules</strong></a>). For CSS in JS there is an <a href="https://speakerdeck.com/vjeux/react-css-in-js" target="_blank" rel="noopener">excellent presentation</a> that you should checkout. Key reasons are clear code co-location and management practices for CSS, the same way <strong>React</strong> does it for Html (with JSX).</li></ul><h2 id="End-to-End-Testing-Cypress"><a href="#End-to-End-Testing-Cypress" class="headerlink" title="End to End Testing : Cypress"></a>End to End Testing : Cypress</h2><p><a href="https://www.cypress.io/" target="_blank" rel="noopener"><strong>Cypress</strong></a> for E2E testing.</p><p>Alternatives to avoid:</p><ul><li><a href="https://selenium.dev/" target="_blank" rel="noopener"><strong>Selenium</strong></a> based solutions (e.g. <a href="https://www.protractortest.org/#/" target="_blank" rel="noopener"><strong>Protractor</strong></a> / <a href="https://nightwatchjs.org/" target="_blank" rel="noopener"><strong>Nightwatch</strong></a>). <strong>Selenium</strong> operates over a wire transfer protocol that makes it impossible to provide many of the debugging features provided by <strong>Cypress</strong>. <strong>Cypress</strong> operates in process with the tests making automatic retries with greater flake resistance and a significantly improved debugging experience.</li></ul><h2 id="HTTP-Requests"><a href="#HTTP-Requests" class="headerlink" title="HTTP Requests"></a>HTTP Requests</h2><p>Prefer <a href="https://github.com/axios/axios" target="_blank" rel="noopener"><strong>axios</strong></a> due to is built in TypeScript definitions, great browser support and community guidance.</p><p>Alternatives to avoid:</p><ul><li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API" target="_blank" rel="noopener"><strong>fetch</strong></a>: Needs polyfill and needs explicit calls for json de-serialization.</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;A new pedigree of Frontend Development.&lt;/p&gt;
+&lt;p&gt;The following are the preferred technical choices for any new projects that do not have a 
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>A PC person&#39;s guide to Mac</title>
@@ -327,7 +349,7 @@
     <published>2018-08-30T05:54:36.000Z</published>
     <updated>2018-08-30T06:03:02.605Z</updated>
     
-    <content type="html"><![CDATA[<script src="https://gist.github.com/TerrenceMiao/483f216498fe90517accf6768482c2df.js"></script><p>Run output from Console:</p><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> PycharmProjects/cipher/venv/bin/python PycharmProjects/cipher/src/cipher.py</span><br><span class="line">[ 60 31 53 33 33 53 23 ] :  blossom</span><br><span class="line">[ 60 55 73 66 66 73 23 ] :  blossom</span><br><span class="line">[ 20 37 12 0 0 12 23 ] :  blossom</span><br><span class="line">[ 60 37 82 14 14 82 89 ] :  blossom</span><br><span class="line">[ 20 31 82 95 95 82 89 ] :  blossom</span><br><span class="line">[ 60 36 90 0 0 90 23 ] :  blossom</span><br><span class="line">[ 20 37 90 94 94 90 23 ] :  blossom</span><br><span class="line">[ 20 55 90 94 94 90 89 ] :  blossom</span><br><span class="line">[ 20 36 97 94 94 97 89 ] :  blossom</span><br><span class="line">[ 60 36 82 0 0 82 23 ] :  blossom</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<script src="https://gist.github.com/TerrenceMiao/483f216498fe90517accf6768482c2df.js"></script><p>Run output from Console:</p><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> PycharmProjects/cipher/venv/bin/python PycharmProjects/cipher/src/cipher.py</span></span><br><span class="line">[ 60 31 53 33 33 53 23 ] :  blossom</span><br><span class="line">[ 60 55 73 66 66 73 23 ] :  blossom</span><br><span class="line">[ 20 37 12 0 0 12 23 ] :  blossom</span><br><span class="line">[ 60 37 82 14 14 82 89 ] :  blossom</span><br><span class="line">[ 20 31 82 95 95 82 89 ] :  blossom</span><br><span class="line">[ 60 36 90 0 0 90 23 ] :  blossom</span><br><span class="line">[ 20 37 90 94 94 90 23 ] :  blossom</span><br><span class="line">[ 20 55 90 94 94 90 89 ] :  blossom</span><br><span class="line">[ 20 36 97 94 94 97 89 ] :  blossom</span><br><span class="line">[ 60 36 82 0 0 82 23 ] :  blossom</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
@@ -426,28 +448,6 @@
       
       
         &lt;p&gt;Sometime you want to ignore some test depends on environment settings. Now both JUnit 4 and JUnit 5 support the concept of assumptions.&lt;/
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Making VSCode like IntelliJ after line commented the cursor automatically moved to next line</title>
-    <link href="https://terrencemiao.github.io/blog/2018/06/16/Making-VSCode-like-IntelliJ-after-line-commented-the-cursor-automatically-moved-to-next-line/"/>
-    <id>https://terrencemiao.github.io/blog/2018/06/16/Making-VSCode-like-IntelliJ-after-line-commented-the-cursor-automatically-moved-to-next-line/</id>
-    <published>2018-06-16T05:44:06.000Z</published>
-    <updated>2018-06-17T04:01:52.875Z</updated>
-    
-    <content type="html"><![CDATA[<p>Want to make VSCode key bindings as closed as IntelliJ key bindings like.</p><p>Firstly, install VSCode extension <strong>macros</strong>.</p><p><img src="/blog/img/macros%20extension.png" alt="macros" title="macros"></p><p>Open Code -&gt; Preferences -&gt; Settings. Add following configuration into <strong>User Settings</strong>.</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"macros"</span>: &#123;</span><br><span class="line">    <span class="string">"commentLine"</span>: [</span><br><span class="line">        <span class="string">"editor.action.commentLine"</span>,</span><br><span class="line">        <span class="string">"cursorDown"</span></span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><img src="/blog/img/User%20Settings.png" alt="User Settings" title="User Settings"></p><p>Open Code -&gt; Preferences -&gt; Keyboard Shortcuts. Add following configuration into <strong>keybindings.json</strong> file.</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// Place your key bindings <span class="keyword">in</span> this file to overwrite the defaults</span><br><span class="line">[</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">"key"</span>: <span class="string">"cmd+/"</span>,</span><br><span class="line">        <span class="string">"command"</span>: <span class="string">"macros.commentLine"</span>,</span><br><span class="line">        <span class="string">"when"</span>: <span class="string">"editorTextFocus &amp;&amp; !editorReadonly"</span></span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure><p><img src="/blog/img/keybindings%20json.png" alt="keybindings.json" title="keybindings.json"></p><p>That’s newly added Toggle Line Comment looks like after the change:</p><p><img src="/blog/img/Toggle%20Line%20Comment.png" alt="Toggle Line Comment" title="Toggle Line Comment"></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Want to make VSCode key bindings as closed as IntelliJ key bindings like.&lt;/p&gt;
-&lt;p&gt;Firstly, install VSCode extension &lt;strong&gt;macros&lt;/strong
       
     
     </summary>
