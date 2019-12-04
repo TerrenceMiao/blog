@@ -6,7 +6,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://terrencemiao.github.io/blog/"/>
-  <updated>2019-12-01T03:27:51.404Z</updated>
+  <updated>2019-12-04T23:40:56.313Z</updated>
   <id>https://terrencemiao.github.io/blog/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>AWS EKS with Fargate</title>
+    <link href="https://terrencemiao.github.io/blog/2019/12/05/AWS-EKS-with-Fargate/"/>
+    <id>https://terrencemiao.github.io/blog/2019/12/05/AWS-EKS-with-Fargate/</id>
+    <published>2019-12-04T23:26:58.000Z</published>
+    <updated>2019-12-04T23:40:56.313Z</updated>
+    
+    <content type="html"><![CDATA[<p>After AWS EKS with Fargate annouced in Re:Invent 2019 - <a href="https://aws.amazon.com/blogs/aws/amazon-eks-on-aws-fargate-now-generally-available/" target="_blank" rel="noopener">Amazon EKS on AWS Fargate Now Generally Available</a>, I have a quick spin.</p><p>General configuration:</p><p><img src="/blog/img/AWS%20EKS%20on%20Fargate%20-%20Configuration.png" alt="AWS EKS on Fargate - Configuration" title="AWS EKS on Fargate - Configuration"></p><p><img src="/blog/img/AWS%20EKS%20on%20Fargate%20-%20Configuration%20II.png" alt="AWS EKS on Fargate - Configuration" title="AWS EKS on Fargate - Configuration"></p><p>Fargate profile configuration:</p><p><img src="/blog/img/AWS%20EKS%20on%20Fargate%20-%20Profile.png" alt="AWS EKS on Fargate - Profile" title="AWS EKS on Fargate - Profile"></p><p>Fargate roles:</p><p><img src="/blog/img/AWS%20EKS%20on%20Fargate%20-%20Roles.png" alt="AWS EKS on Fargate - Roles" title="AWS EKS on Fargate - Roles"></p><p>Subnets for Fargate, including private subnets:</p><p><img src="/blog/img/AWS%20EKS%20on%20Fargate%20-%20Subnets.png" alt="AWS EKS on Fargate - Subnets" title="AWS EKS on Fargate - Subnets"></p><h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul><li>Getting Started with AWS Fargate on Amazon EKS, <em><a href="https://docs.aws.amazon.com/eks/latest/userguide/fargate-getting-started.html" target="_blank" rel="noopener">https://docs.aws.amazon.com/eks/latest/userguide/fargate-getting-started.html</a></em></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;After AWS EKS with Fargate annouced in Re:Invent 2019 - &lt;a href=&quot;https://aws.amazon.com/blogs/aws/amazon-eks-on-aws-fargate-now-generally
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Why React?</title>
@@ -349,7 +370,7 @@
     <published>2018-08-30T05:54:36.000Z</published>
     <updated>2018-08-30T06:03:02.605Z</updated>
     
-    <content type="html"><![CDATA[<script src="https://gist.github.com/TerrenceMiao/483f216498fe90517accf6768482c2df.js"></script><p>Run output from Console:</p><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> PycharmProjects/cipher/venv/bin/python PycharmProjects/cipher/src/cipher.py</span></span><br><span class="line">[ 60 31 53 33 33 53 23 ] :  blossom</span><br><span class="line">[ 60 55 73 66 66 73 23 ] :  blossom</span><br><span class="line">[ 20 37 12 0 0 12 23 ] :  blossom</span><br><span class="line">[ 60 37 82 14 14 82 89 ] :  blossom</span><br><span class="line">[ 20 31 82 95 95 82 89 ] :  blossom</span><br><span class="line">[ 60 36 90 0 0 90 23 ] :  blossom</span><br><span class="line">[ 20 37 90 94 94 90 23 ] :  blossom</span><br><span class="line">[ 20 55 90 94 94 90 89 ] :  blossom</span><br><span class="line">[ 20 36 97 94 94 97 89 ] :  blossom</span><br><span class="line">[ 60 36 82 0 0 82 23 ] :  blossom</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<script src="https://gist.github.com/TerrenceMiao/483f216498fe90517accf6768482c2df.js"></script><p>Run output from Console:</p><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> PycharmProjects/cipher/venv/bin/python PycharmProjects/cipher/src/cipher.py</span><br><span class="line">[ 60 31 53 33 33 53 23 ] :  blossom</span><br><span class="line">[ 60 55 73 66 66 73 23 ] :  blossom</span><br><span class="line">[ 20 37 12 0 0 12 23 ] :  blossom</span><br><span class="line">[ 60 37 82 14 14 82 89 ] :  blossom</span><br><span class="line">[ 20 31 82 95 95 82 89 ] :  blossom</span><br><span class="line">[ 60 36 90 0 0 90 23 ] :  blossom</span><br><span class="line">[ 20 37 90 94 94 90 23 ] :  blossom</span><br><span class="line">[ 20 55 90 94 94 90 89 ] :  blossom</span><br><span class="line">[ 20 36 97 94 94 97 89 ] :  blossom</span><br><span class="line">[ 60 36 82 0 0 82 23 ] :  blossom</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
@@ -427,27 +448,6 @@
       
         &lt;p&gt;This is an example how in a bash script, curl and awk work together, on gist.&lt;/p&gt;
 &lt;script src=&quot;https://gist.github.com/TerrenceMiao/2a89c
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Assumptions and Conditional Test execution, ignoring in JUnit</title>
-    <link href="https://terrencemiao.github.io/blog/2018/07/07/Assumptions-and-Conditional-Test-execution-ignoring-in-JUnit/"/>
-    <id>https://terrencemiao.github.io/blog/2018/07/07/Assumptions-and-Conditional-Test-execution-ignoring-in-JUnit/</id>
-    <published>2018-07-06T21:40:20.000Z</published>
-    <updated>2018-07-06T21:54:27.236Z</updated>
-    
-    <content type="html"><![CDATA[<p>Sometime you want to ignore some test depends on environment settings. Now both JUnit 4 and JUnit 5 support the concept of assumptions.</p><p>Unit Test like this:</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testRun</span><span class="params">()</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">   Assume.assumeTrue(BooleanUtils.toBoolean(System.getProperty(<span class="string">"runtest"</span>)));</span><br><span class="line"></span><br><span class="line">   <span class="comment">// Rest of testcase</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>With Gradle, pass in parameter like this:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ gradle <span class="built_in">test</span> -Pruntest=<span class="literal">false</span></span><br></pre></td></tr></table></figure><h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul><li>Assumptions and Conditional Test Execution with JUnit 4 and 5, <a href="https://reflectoring.io/conditional-junit4-junit5-tests/" target="_blank" rel="noopener">https://reflectoring.io/conditional-junit4-junit5-tests/</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Sometime you want to ignore some test depends on environment settings. Now both JUnit 4 and JUnit 5 support the concept of assumptions.&lt;/
       
     
     </summary>
