@@ -4,6 +4,9 @@ date: 2019-11-22 12:09:05
 tags:
 ---
 
+AWS Session Manager
+-------------------
+
 New AWS Systems Manager, including Session Manager is another step enhance security on Cloud. Here are step by step how to set up.
 
 - You have `ec2-user` account on AWS EC2 instance. On localhost:
