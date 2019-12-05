@@ -4,6 +4,9 @@ date: 2019-12-05 10:26:58
 tags:
 ---
 
+AWS EKS
+-------
+
 After AWS EKS with Fargate annouced in Re:Invent 2019 - [Amazon EKS on AWS Fargate Now Generally Available](https://aws.amazon.com/blogs/aws/amazon-eks-on-aws-fargate-now-generally-available/), I have a quick spin.
 
 General configuration:
