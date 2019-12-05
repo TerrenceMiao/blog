@@ -180,6 +180,8 @@ https://aws.amazon.com/amazon-linux-2/
 stack-overflow.log                                                                 100%   67KB 437.0KB/s   00:00
 ```
 
+Transferring files directly is not possible with the AWS Session Manager. You should use S3 bucket and the AWS CLI to exchange data. Doing so is not quite the same as using `scp`.
+
 OKTA
 ----
 
