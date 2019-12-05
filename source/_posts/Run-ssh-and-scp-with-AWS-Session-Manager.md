@@ -14,10 +14,19 @@ New AWS Systems Manager, including Session Manager is another step enhance secur
 output = json
 region = ap-southeast-2
 
+[session]
+output = json
+region = ap-southeast-2
+
 𝜆 cat .aws/credentials
 [default]
 aws_access_key_id = ASIANPOWERHOUSEBLAHBLAH
 aws_secret_access_key = aGLMountainLionPIEXL0UK0TunalNB61Kt+GuavaVm4tAD
+
+[session]
+aws_access_key_id = ASIANPOWERHOUSEBLAHBLAH
+aws_secret_access_key = aGLMountainLionPIEXL0UK0TunalNB61Kt+GuavaVm4tAD
+aws_session_token = FwoGZXIvYXdzEB8aDDuzeYcE5QDFo0 ... z2h/Px7nUMEWaZOZZw==
 
 𝜆 ssh -i .ssh/aws-key.pem -l ec2-user ec2-3-121-69-96.ap-southeast-2.compute.amazonaws.com
 Last login: Fri Nov 22 01:17:33 2019 from 155.144.114.41
@@ -30,10 +39,16 @@ https://aws.amazon.com/amazon-linux-2/
 
 ```
 
+NOTE: **IAM role** for EC2 instance need to have `AmazonSSMManagedInstanceCore` policy
+
+![AWS Session Manager - Managed instances](/blog/img/AWS%20Session%20Manager%20-%20Managed%20instances.png "AWS Session Manager - Managed instances")
+
 - Install all the dependencies
   1. latest Systems Manager Agent on your EC2 instance; enabled “**Agent auto update**” under Managed Instances in AWS Systems Manager
   2. latest AWS CLI on localhost
   3. lastest Session Manager Plugin on localhost
+
+![AWS Session Manager - Agent auto update](/blog/img/AWS%20Session%20Manager%20-%20Agent%20auto%20update.png "AWS Session Manager - Agent auto update")
 
 - Update SSH config file on localhost to proxy commands through the AWS Session Manager for any EC2 instance id
 
@@ -162,7 +177,56 @@ https://aws.amazon.com/amazon-linux-2/
 stack-overflow.log                                                                 100%   67KB 437.0KB/s   00:00
 ```
 
+OKTA
+----
+
+Set up integrated OKTA authentication with session. Have you OKTA AWS CLI installed at first, and configure it:
+
+```console
+𝜆 cat ~/.okta-aws
+[default]
+base-url = hello.paradise.org
+
+## The remaining parameters are optional.
+## You will be prompted for them, if they're not included here.
+username = terrence.miao@paradise.org
+factor = OKTA                                                       # Current choices are: GOOGLE or OKTA
+role =                                                              # AWS role name (match one of the options prompted for by "Please select the AWS role" when this parameter is not specified
+app-link = https://hello.paradise.org/home/amazon_aws/0oa1ch3l6/272 # Found in Okta's configuration for your AWS account.
+duration = 3600
+```
+
+Create session:
+
+```console
+𝜆 bin/okta/okta --okta-profile default --profile session
+Enter password:
+Multi-factor Authentication required.
+Pick a factor:
+[ 0 ] Okta Verify App: SmartPhone_Android: ONEPLUS A5010
+[ 1 ] token:software:totp( OKTA ) : terrence.miao@paradise.org
+Selection: 0
+1: arn:aws:iam::004385754915:role/federation/DeveloperPowerUser
+2: arn:aws:iam::254184710243:role/federation/DeveloperPowerUser
+3: arn:aws:iam::755034721059:role/federation/DeveloperPowerUser
+4: arn:aws:iam::844986439712:role/federation/DeveloperPowerUser
+5: arn:aws:iam::844986439712:role/federation/Operations
+6: arn:aws:iam::915951833499:role/federation/DeveloperPowerUser
+Please select the AWS role: 3
+Session token expires on: 2019-12-05 06:30:18+00:00
+```
+
+Login EC2 instance, overwritting default `ap-southeast-2` region:
+
+```console
+𝜆 aws ssm start-session --target i-04ee902e33625c4f3 --profile session --region us-east-2 --debug
+
+Starting session with SessionId: terrence.miao@paradise.org-05411f2e2d5a58b0b
+```
+
+
 References
 ----------
 
 - Troubleshooting Systems Manager Run Command, _https://docs.aws.amazon.com/systems-manager/latest/userguide/troubleshooting-remote-commands.html#systems-manager-ssm-agent-log-files_
+- Provides Okta authentication for awscli, _https://github.com/jmhale/okta-awscli_
