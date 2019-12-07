@@ -94,7 +94,51 @@ kubernetes-dashboard   kubernetes-dashboard-995fd6fb4-xqcj5         1/1     Runn
 Connect Kubernetes Dashboard via proxy:
 
 ```console
-𝜆 kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep eks-admin | awk '{print $1}')
+𝜆 cat .kube/config
+apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority: /Users/terrence/.minikube/ca.crt
+    server: https://192.168.99.100:8443
+  name: minikube
+- cluster:
+    certificate-authority-data: LS0tLS1CRUd ... tLS0tLQo=
+    server: https://0559DE89F43B8766B56C7FD066C6C50F.yl4.us-east-2.eks.amazonaws.com
+  name: sandpit.us-east-2.eksctl.io
+contexts:
+- context:
+    cluster: sandpit.us-east-2.eksctl.io
+    user: ADMMiaoT@sandpit.us-east-2.eksctl.io
+  name: ADMMiaoT@sandpit.us-east-2.eksctl.io
+- context:
+    cluster: minikube
+    user: minikube
+  name: minikube
+current-context: ADMMiaoT@sandpit.us-east-2.eksctl.io
+kind: Config
+preferences: {}
+users:
+- name: ADMMiaoT@sandpit.us-east-2.eksctl.io
+  user:
+    exec:
+      apiVersion: client.authentication.k8s.io/v1alpha1
+      args:
+      - token
+      - -i
+      - sandpit
+      command: aws-iam-authenticator
+      env:
+      - name: AWS_PROFILE
+        value: paradise-dev
+- name: minikube
+  user:
+    client-certificate: /Users/terrence/.minikube/client.crt
+    client-key: /Users/terrence/.minikube/client.key
+
+𝜆 kubectl -n kube-system get secret | grep eks-admin | awk '{print $1}'
+eks-admin-token-s2gf5
+
+𝜆 kubectl -n kube-system describe secret eks-admin-token-s2gf5
 Name:         eks-admin-token-s2gf5
 Namespace:    kube-system
 Labels:       <none>
