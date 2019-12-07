@@ -162,9 +162,9 @@ Choose Token, paste the token output from the previous command into the Token fi
 
 ![AWS EKS on Fargate, with eksctl - Nodes](/blog/img/AWS%20EKS%20on%20Fargate,%20with%20eksctl%20-%20Nodes.png "AWS EKS on Fargate, with eksctl - Nodes")
 
-With AWS managed nodes, on Node EC2 instance:
+With AWS managed nodes, on Node EC2 Instance:
 
-![AWS EKS on Fargate, with eksctl - EC2 instance](/blog/img/AWS%20EKS%20on%20Fargate,%20with%20eksctl%20-%20EC2%20instance.png "AWS EKS on Fargate, with eksctl - EC2 instance")
+![AWS EKS on Fargate, with eksctl - EC2 Instance](/blog/img/AWS%20EKS%20on%20Fargate,%20with%20eksctl%20-%20EC2%20Instance.png "AWS EKS on Fargate, with eksctl - EC2 Instance")
 
 References
 ----------
