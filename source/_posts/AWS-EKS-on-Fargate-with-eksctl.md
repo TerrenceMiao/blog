@@ -67,7 +67,10 @@ Create and add EKS mansged node group:
 [ℹ]  all nodegroups have up-to-date configuration
 ```
 
-Install Kubernetes Dashboard:
+Kubernetes Dashboard
+--------------------
+
+Install Kubernetes Dashboard in Kubernetes cluster:
 
 ```console
 𝜆 kubectl get services  --all-namespaces
@@ -166,8 +169,140 @@ With AWS managed nodes, on Node EC2 Instance:
 
 ![AWS EKS on Fargate, with eksctl - EC2 Instance](/blog/img/AWS%20EKS%20on%20Fargate,%20with%20eksctl%20-%20EC2%20Instance.png "AWS EKS on Fargate, with eksctl - EC2 Instance")
 
+First Docker application
+------------------------
+
+Deploy first Docker application `react-typescript`, from Docker Hub _https://hub.docker.com/r/jtech/react-typescript_, into Kubernetes.
+
+```console
+𝜆 kubectl run react-typescript --image=jtech/react-typescript --port 3000
+kubectl run --generator=deployment/apps.v1 is DEPRECATED and will be removed in a future version. Use kubectl run --generator=run-pod/v1 or kubectl create instead.
+deployment.apps/react-typescript created
+
+𝜆 kubectl describe deployments
+Name:                   react-typescript
+Namespace:              default
+CreationTimestamp:      Mon, 09 Dec 2019 14:56:09 +1100
+Labels:                 run=react-typescript
+Annotations:            deployment.kubernetes.io/revision: 1
+Selector:               run=react-typescript
+Replicas:               1 desired | 1 updated | 1 total | 0 available | 1 unavailable
+StrategyType:           RollingUpdate
+MinReadySeconds:        0
+RollingUpdateStrategy:  25% max unavailable, 25% max surge
+Pod Template:
+  Labels:  run=react-typescript
+  Containers:
+   react-typescript:
+    Image:        jtech/react-typescript
+    Port:         3000/TCP
+    Host Port:    0/TCP
+    Environment:  <none>
+    Mounts:       <none>
+  Volumes:        <none>
+Conditions:
+  Type           Status  Reason
+  ----           ------  ------
+  Available      False   MinimumReplicasUnavailable
+  Progressing    True    ReplicaSetUpdated
+OldReplicaSets:  <none>
+NewReplicaSet:   react-typescript-867c948446 (1/1 replicas created)
+Events:
+  Type    Reason             Age   From                   Message
+  ----    ------             ----  ----                   -------
+  Normal  ScalingReplicaSet  71s   deployment-controller  Scaled up replica set react-typescript-867c948446 to 1
+
+𝜆 kubectl describe pods react-typescript
+Name:               react-typescript-867c948446-qtvrp
+Namespace:          default
+Priority:           2000001000
+PriorityClassName:  system-node-critical
+Node:               fargate-ip-192-168-183-250.us-east-2.compute.internal/192.168.183.250
+Start Time:         Mon, 09 Dec 2019 14:56:59 +1100
+Labels:             eks.amazonaws.com/fargate-profile=fp-default
+                    pod-template-hash=867c948446
+                    run=react-typescript
+Annotations:        kubernetes.io/psp: eks.privileged
+Status:             Running
+IP:                 192.168.183.250
+Controlled By:      ReplicaSet/react-typescript-867c948446
+Containers:
+  react-typescript:
+    Container ID:   containerd://2ea5f1ea4fb731eb844f0e267581e9e188d29ab7a639b7b8ca50c83cfb12b4c3
+    Image:          jtech/react-typescript
+    Image ID:       docker.io/jtech/react-typescript@sha256:0951fe4d9a24390123c7aa23612c8cdf1d8191a9d8e7d3cbc8bb4d8d763e0ce5
+    Port:           3000/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Mon, 09 Dec 2019 14:57:28 +1100
+    Ready:          True
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-knpqq (ro)
+Conditions:
+  Type              Status
+  Initialized       True
+  Ready             True
+  ContainersReady   True
+  PodScheduled      True
+Volumes:
+  default-token-knpqq:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-knpqq
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:
+  Type    Reason   Age   From                                                            Message
+  ----    ------   ----  ----                                                            -------
+  Normal  Pulling  76s   kubelet, fargate-ip-192-168-183-250.us-east-2.compute.internal  Pulling image "jtech/react-typescript"
+  Normal  Pulled   49s   kubelet, fargate-ip-192-168-183-250.us-east-2.compute.internal  Successfully pulled image "jtech/react-typescript"
+  Normal  Created  49s   kubelet, fargate-ip-192-168-183-250.us-east-2.compute.internal  Created container react-typescript
+  Normal  Started  49s   kubelet, fargate-ip-192-168-183-250.us-east-2.compute.internal  Started container react-typescript
+```
+
+Expose service:
+
+```console
+𝜆 kubectl expose deployment react-typescript --type="NodePort"
+service/react-typescript exposed
+
+𝜆 kubectl describe services react-typescript
+Name:                     react-typescript
+Namespace:                default
+Labels:                   run=react-typescript
+Annotations:              <none>
+Selector:                 run=react-typescript
+Type:                     NodePort
+IP:                       10.100.54.37
+Port:                     <unset>  3000/TCP
+TargetPort:               3000/TCP
+NodePort:                 <unset>  31799/TCP
+Endpoints:                192.168.183.250:3000
+Session Affinity:         None
+External Traffic Policy:  Cluster
+Events:                   <none>
+
+𝜆 kubectl get services  --all-namespaces
+NAMESPACE              NAME                        TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)          AGE
+default                kubernetes                  ClusterIP   10.100.0.1       <none>        443/TCP          46h
+default                react-typescript            NodePort    10.100.54.37     <none>        3000:31799/TCP   4m55s
+kube-system            kube-dns                    ClusterIP   10.100.0.10      <none>        53/UDP,53/TCP    46h
+kube-system            metrics-server              ClusterIP   10.100.142.106   <none>        443/TCP          45h
+kubernetes-dashboard   dashboard-metrics-scraper   ClusterIP   10.100.91.78     <none>        8000/TCP         45h
+kubernetes-dashboard   kubernetes-dashboard        ClusterIP   10.100.75.0      <none>        443/TCP          45h
+```
+
+Run `kubectl proxy` and connect to `react-typscript` application on URL: http://localhost:8001/api/v1/namespaces/default/services/http:react-typescript:3000/proxy/
+
+![AWS EKS on Fargate, with eksctl - React Typescript](/blog/img/AWS%20EKS%20on%20Fargate,%20with%20eksctl%20-%20React%20Typescript.png "AWS EKS on Fargate, with eksctl - React Typescript")
+
 References
 ----------
 
 - `eksctl`, a simple CLI tool for creating clusters on Amazon’s new managed Kubernetes service for EC2 - EKS. Written in Go, uses CloudFormation, _https://eksctl.io/_
 - AWS EKS, _https://docs.aws.amazon.com/eks/latest/userguide/what-is-eks.html_
+- Tutorial: Deploy Kubernetes Dashboard, _https://docs.aws.amazon.com/eks/latest/userguide/dashboard-tutorial.html_
