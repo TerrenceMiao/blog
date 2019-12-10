@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://terrencemiao.github.io/blog/2019/12/05/AWS-EKS-with-Fargate/</loc>
+    
+    <lastmod>2019-12-10T23:37:51.737Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://terrencemiao.github.io/blog/2019/12/07/AWS-EKS-on-Fargate-with-eksctl/</loc>
     
     <lastmod>2019-12-09T04:29:17.561Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>https://terrencemiao.github.io/blog/2019/11/22/Run-ssh-and-scp-with-AWS-Session-Manager/</loc>
     
     <lastmod>2019-12-05T08:44:46.874Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2019/12/05/AWS-EKS-with-Fargate/</loc>
-    
-    <lastmod>2019-12-05T07:49:32.733Z</lastmod>
     
   </url>
   
