@@ -1,5 +1,5 @@
 ---
-title: AWS EKS with Fargate
+title: AWS EKS for Fargate
 date: 2019-12-05 10:26:58
 tags:
 ---
@@ -7,7 +7,7 @@ tags:
 AWS EKS
 -------
 
-After AWS EKS with Fargate annouced in Re:Invent 2019 - [Amazon EKS on AWS Fargate Now Generally Available](https://aws.amazon.com/blogs/aws/amazon-eks-on-aws-fargate-now-generally-available/), I have a quick spin.
+After AWS EKS for Fargate annouced in Re:Invent 2019 - [Amazon EKS on AWS Fargate Now Generally Available](https://aws.amazon.com/blogs/aws/amazon-eks-on-aws-fargate-now-generally-available/), I have a quick spin.
 
 General configuration:
 
@@ -69,5 +69,6 @@ Subnets for Fargate, including private subnets (subnet without Internet Gateway)
 References
 ----------
 
-- Getting Started with AWS Fargate on Amazon EKS, _https://docs.aws.amazon.com/eks/latest/userguide/fargate-getting-started.html_
-- Amazon EKS Worker Node IAM Role, _https://docs.aws.amazon.com/eks/latest/userguide/worker_node_IAM_role.html_
+- Getting Started with AWS Fargate on Amazon EKS, https://docs.aws.amazon.com/eks/latest/userguide/fargate-getting-started.html
+- Amazon EKS Worker Node IAM Role, https://docs.aws.amazon.com/eks/latest/userguide/worker_node_IAM_role.html
+- EKS + Fargate = Extensibility of Kubernetes + Serverless Benefits, https://itnext.io/eks-fargate-extensibility-of-kubernetes-serverless-benefits-77599ac1763
