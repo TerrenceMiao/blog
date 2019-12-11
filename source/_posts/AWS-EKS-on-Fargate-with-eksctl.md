@@ -1,5 +1,5 @@
 ---
-title: 'AWS EKS on Fargate, with eksctl'
+title: 'AWS EKS for Fargate, with eksctl'
 date: 2019-12-07 22:33:38
 tags:
 ---
