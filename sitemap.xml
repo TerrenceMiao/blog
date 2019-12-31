@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://terrencemiao.github.io/blog/2019/12/29/2019-Year-in-Review/</loc>
+    
+    <lastmod>2019-12-31T01:38:09.720Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://terrencemiao.github.io/blog/2019/12/07/AWS-EKS-on-Fargate-with-eksctl/</loc>
     
     <lastmod>2019-12-11T04:59:14.124Z</lastmod>
@@ -233,7 +240,7 @@
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2017/08/04/%E8%82%A1%E5%B8%82%E6%8A%95%E8%B5%84%E4%B8%89%E8%A6%81%E7%B4%A0/</loc>
+    <loc>https://terrencemiao.github.io/blog/2017/09/23/%E6%B5%85%E8%B0%88%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%95%B0%E5%AD%A6%E4%BF%AE%E5%85%BB/</loc>
     
     <lastmod>2018-04-28T07:47:12.955Z</lastmod>
     
@@ -247,21 +254,21 @@
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2017/09/23/%E6%B5%85%E8%B0%88%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%95%B0%E5%AD%A6%E4%BF%AE%E5%85%BB/</loc>
+    <loc>https://terrencemiao.github.io/blog/2017/08/04/%E8%82%A1%E5%B8%82%E6%8A%95%E8%B5%84%E4%B8%89%E8%A6%81%E7%B4%A0/</loc>
     
     <lastmod>2018-04-28T07:47:12.955Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2017/09/03/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E8%AF%BB%E4%B9%A6/</loc>
+    <loc>https://terrencemiao.github.io/blog/2017/08/17/Why-functional-programming/</loc>
     
     <lastmod>2018-04-28T07:47:12.954Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2017/08/17/Why-functional-programming/</loc>
+    <loc>https://terrencemiao.github.io/blog/2017/09/03/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E8%AF%BB%E4%B9%A6/</loc>
     
     <lastmod>2018-04-28T07:47:12.954Z</lastmod>
     
@@ -345,14 +352,14 @@
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2017/02/01/Perfection/</loc>
+    <loc>https://terrencemiao.github.io/blog/2018/01/12/OnePlus-5T-a-smartphone-full-of-all-the-right-ideas/</loc>
     
     <lastmod>2018-04-28T07:47:12.950Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2017/02/11/Remote-debugging-Java-applications-run-on-Tomcat/</loc>
+    <loc>https://terrencemiao.github.io/blog/2017/02/01/Perfection/</loc>
     
     <lastmod>2018-04-28T07:47:12.950Z</lastmod>
     
@@ -366,9 +373,16 @@
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2018/01/12/OnePlus-5T-a-smartphone-full-of-all-the-right-ideas/</loc>
+    <loc>https://terrencemiao.github.io/blog/2017/02/11/Remote-debugging-Java-applications-run-on-Tomcat/</loc>
     
     <lastmod>2018-04-28T07:47:12.950Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2017/09/20/Geoffrey-Hinton-interview/</loc>
+    
+    <lastmod>2018-04-28T07:47:12.949Z</lastmod>
     
   </url>
   
@@ -387,16 +401,16 @@
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2017/09/20/Geoffrey-Hinton-interview/</loc>
+    <loc>https://terrencemiao.github.io/blog/2017/03/12/Influence-Without-Authority/</loc>
     
     <lastmod>2018-04-28T07:47:12.949Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2017/03/12/Influence-Without-Authority/</loc>
+    <loc>https://terrencemiao.github.io/blog/2017/02/18/Factorial-function-implementation-in-Java-8/</loc>
     
-    <lastmod>2018-04-28T07:47:12.949Z</lastmod>
+    <lastmod>2018-04-28T07:47:12.948Z</lastmod>
     
   </url>
   
@@ -409,13 +423,6 @@
   
   <url>
     <loc>https://terrencemiao.github.io/blog/2018/04/07/Flow/</loc>
-    
-    <lastmod>2018-04-28T07:47:12.948Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2017/02/18/Factorial-function-implementation-in-Java-8/</loc>
     
     <lastmod>2018-04-28T07:47:12.948Z</lastmod>
     
@@ -450,14 +457,14 @@
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2018/03/25/AlphaGo-movie/</loc>
+    <loc>https://terrencemiao.github.io/blog/2018/04/17/Always-safe-Always-fun/</loc>
     
     <lastmod>2018-04-28T07:47:12.946Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2018/04/17/Always-safe-Always-fun/</loc>
+    <loc>https://terrencemiao.github.io/blog/2018/03/25/AlphaGo-movie/</loc>
     
     <lastmod>2018-04-28T07:47:12.946Z</lastmod>
     
