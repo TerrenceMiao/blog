@@ -42,7 +42,9 @@ https://aws.amazon.com/amazon-linux-2/
 
 ```
 
-NOTE: **IAM role** for EC2 instance need to have `AmazonSSMManagedInstanceCore` policy
+NOTE: Need **ROOT** access key pair `ASIANPOWERHOUSEBLAHBLAH` above setup in `sandpit` profile to run `aws sts` command.
+
+NOTE: **IAM role** for EC2 instance need to have `AmazonSSMManagedInstanceCore` policy. So create a customised role `CustomAmazonSSMManagedInstanceCore` in AWS IAM including `AmazonSSMManagedInstanceCore` policy, and bind this IAM role with EC2 instance, also with security group and key pair.
 
 ![AWS Session Manager - Managed instances](/blog/img/AWS%20Session%20Manager%20-%20Managed%20instances.png "AWS Session Manager - Managed instances")
 
@@ -69,7 +71,7 @@ host i-* mi-*
 𝜆 date
 Thu 21 Nov 2019 04:33:03 UTC
 
-𝜆 aws sts get-session-token --duration-seconds 129600
+𝜆 aws sts get-session-token --duration-seconds 129600 --profile sandpit
 {
     "Credentials": {
         "SecretAccessKey": "I7brpY8XWDWYwwyUdp5PLq7cxpskuMSHyBtPjPNE",
@@ -204,7 +206,7 @@ duration = 3600
 Create session:
 
 ```console
-𝜆 bin/okta/okta --okta-profile default --profile session
+𝜆 bin/okta/okta --okta-profile default --force --profile session
 Enter password:
 Multi-factor Authentication required.
 Pick a factor:
