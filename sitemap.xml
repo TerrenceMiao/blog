@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://terrencemiao.github.io/blog/2019/11/22/Run-ssh-and-scp-with-AWS-Session-Manager/</loc>
+    
+    <lastmod>2020-02-07T01:29:55.505Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://terrencemiao.github.io/blog/2019/12/29/2019-Year-in-Review/</loc>
     
     <lastmod>2019-12-31T01:38:09.720Z</lastmod>
@@ -19,13 +26,6 @@
     <loc>https://terrencemiao.github.io/blog/2019/12/05/AWS-EKS-with-Fargate/</loc>
     
     <lastmod>2019-12-10T23:37:51.737Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2019/11/22/Run-ssh-and-scp-with-AWS-Session-Manager/</loc>
-    
-    <lastmod>2019-12-05T08:44:46.874Z</lastmod>
     
   </url>
   
