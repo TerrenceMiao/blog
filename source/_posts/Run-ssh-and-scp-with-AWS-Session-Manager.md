@@ -197,10 +197,18 @@ base-url = hello.paradise.org
 ## The remaining parameters are optional.
 ## You will be prompted for them, if they're not included here.
 username = terrence.miao@paradise.org
-factor = OKTA                                                       # Current choices are: GOOGLE or OKTA
-role =                                                              # AWS role name (match one of the options prompted for by "Please select the AWS role" when this parameter is not specified
-app-link = https://hello.paradise.org/home/amazon_aws/0oa1ch3l6/272 # Found in Okta's configuration for your AWS account.
-duration = 3600
+
+# Current choices are: GOOGLE or OKTA
+factor = OKTA
+
+# AWS role name (match one of the options prompted for by "Please select the AWS role" when this parameter is not specified
+role =
+
+# Found in Okta's configuration for your AWS account.
+app-link = https://hello.paradise.org/home/amazon_aws/0oa1ch3l6/272
+
+# duration in seconds to request a session token for, make sure your accounts (both AWS itself and the associated okta application) allow for large durations. default: 3600
+duration = 28800
 ```
 
 Create session:
