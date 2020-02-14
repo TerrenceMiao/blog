@@ -6,7 +6,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://terrencemiao.github.io/blog/"/>
-  <updated>2020-02-14T01:18:39.476Z</updated>
+  <updated>2020-02-14T01:54:04.573Z</updated>
   <id>https://terrencemiao.github.io/blog/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://terrencemiao.github.io/blog/2020/02/14/Creating-AWS-Lambda-with-AWS-SAM/"/>
     <id>https://terrencemiao.github.io/blog/2020/02/14/Creating-AWS-Lambda-with-AWS-SAM/</id>
     <published>2020-02-14T01:12:06.000Z</published>
-    <updated>2020-02-14T01:18:39.476Z</updated>
+    <updated>2020-02-14T01:54:04.573Z</updated>
     
-    <content type="html"><![CDATA[<p>This is a simple Lambda with REST API and SNS enabled. Firstly, have a look the Nodejs script:</p><script src="https://gist.github.com/TerrenceMiao/7d60e5c79f9b93c362bb9a5ff40f67c3.js"></script><h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul><li>Creating AWS Lambda Applications With SAM by <strong>Daniel Weibel</strong>, <em><a href="https://itnext.io/creating-aws-lambda-applications-with-sam-dd13258c16dd" target="_blank" rel="noopener">https://itnext.io/creating-aws-lambda-applications-with-sam-dd13258c16dd</a></em></li></ul>]]></content>
+    <content type="html"><![CDATA[<p>This is a simple Lambda with REST API and SNS enabled. Firstly, have a look the Nodejs script:</p><script src="https://gist.github.com/TerrenceMiao/7d60e5c79f9b93c362bb9a5ff40f67c3.js"></script><p>AWS SAMP template yaml file:</p><script src="https://gist.github.com/TerrenceMiao/3512439f22c427e70db8cadc5cc83846.js"></script><p>Generate AWS CloudFormation yaml file and package / zip / create an artefact:</p><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">𝜆 sam package --template-file template.yml --output-template-file CloudFormation.yml --s3-bucket hello-world-bucket</span><br></pre></td></tr></table></figure><p>Can also create artefact file with <code>zip</code> command, and upload zip file into AWS S3 bucket:</p><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">𝜆 zip hello-world.zip README.md index.js template.yml</span><br></pre></td></tr></table></figure><p>What AWS CloudFormation yaml file looks like:</p><script src="https://gist.github.com/TerrenceMiao/a0ffabc5e118b78dfb21b5cee814e44c.js"></script><p>Deploy application’s AWS CloudFormation stack with AWS SAM command:</p><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">𝜆 sam deploy --template-file CloudFormation.yml --stack-name hello-world --capabilities CAPABILITY_IAM</span><br></pre></td></tr></table></figure><p>NOTE: The <code>--capabilities CAPABILITY_IAM</code> option is necessary to authorise your stack to create IAM roles, which SAM applications do by default.</p><p>Now log on AWS Console, have a look the resources this Lambda application used in CloudFormation, S3 Bucket, Lambda, IAM, SNS, CloudWatch, API Gateway.</p><p>After this Lambda application successfully deployed into AWS, you will receive an email asking whether you want to subscribe the SNS topic. You can also unsubscribe the SNS topic. You can manually test Lambda function in AWS Console.</p><h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul><li>Creating AWS Lambda Applications With SAM by <strong>Daniel Weibel</strong>, <em><a href="https://itnext.io/creating-aws-lambda-applications-with-sam-dd13258c16dd" target="_blank" rel="noopener">https://itnext.io/creating-aws-lambda-applications-with-sam-dd13258c16dd</a></em></li></ul>]]></content>
     
     <summary type="html">
     
