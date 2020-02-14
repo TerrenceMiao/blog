@@ -8,7 +8,7 @@ This is a simple Lambda with REST API and SNS enabled. Firstly, have a look the 
 
 <script src="https://gist.github.com/TerrenceMiao/7d60e5c79f9b93c362bb9a5ff40f67c3.js"></script>
 
-AWS SAMP template yaml file:
+AWS SAM template yaml file:
 
 <script src="https://gist.github.com/TerrenceMiao/3512439f22c427e70db8cadc5cc83846.js"></script>
 
