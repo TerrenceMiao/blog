@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://terrencemiao.github.io/blog/2020/02/14/Creating-AWS-Lambda-with-AWS-SAM/</loc>
+    
+    <lastmod>2020-02-14T01:18:39.476Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://terrencemiao.github.io/blog/2019/11/22/Run-ssh-and-scp-with-AWS-Session-Manager/</loc>
     
     <lastmod>2020-02-07T01:53:09.831Z</lastmod>
@@ -247,13 +254,6 @@
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2017/09/03/%E7%94%BB%E8%99%BE/</loc>
-    
-    <lastmod>2018-04-28T07:47:12.955Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://terrencemiao.github.io/blog/2017/08/04/%E8%82%A1%E5%B8%82%E6%8A%95%E8%B5%84%E4%B8%89%E8%A6%81%E7%B4%A0/</loc>
     
     <lastmod>2018-04-28T07:47:12.955Z</lastmod>
@@ -261,14 +261,21 @@
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2017/08/17/Why-functional-programming/</loc>
+    <loc>https://terrencemiao.github.io/blog/2017/09/03/%E7%94%BB%E8%99%BE/</loc>
+    
+    <lastmod>2018-04-28T07:47:12.955Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2017/09/03/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E8%AF%BB%E4%B9%A6/</loc>
     
     <lastmod>2018-04-28T07:47:12.954Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2017/09/03/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E8%AF%BB%E4%B9%A6/</loc>
+    <loc>https://terrencemiao.github.io/blog/2017/08/17/Why-functional-programming/</loc>
     
     <lastmod>2018-04-28T07:47:12.954Z</lastmod>
     
@@ -289,14 +296,14 @@
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2018/03/28/The-longest-official-place-name-in-Australia/</loc>
+    <loc>https://terrencemiao.github.io/blog/2017/02/01/Web-Components-are-coming/</loc>
     
     <lastmod>2018-04-28T07:47:12.953Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2017/02/01/Web-Components-are-coming/</loc>
+    <loc>https://terrencemiao.github.io/blog/2018/03/28/The-longest-official-place-name-in-Australia/</loc>
     
     <lastmod>2018-04-28T07:47:12.953Z</lastmod>
     
@@ -359,6 +366,13 @@
   </url>
   
   <url>
+    <loc>https://terrencemiao.github.io/blog/2017/02/11/Remote-debugging-Java-applications-run-on-Tomcat/</loc>
+    
+    <lastmod>2018-04-28T07:47:12.950Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://terrencemiao.github.io/blog/2017/02/01/Perfection/</loc>
     
     <lastmod>2018-04-28T07:47:12.950Z</lastmod>
@@ -373,21 +387,7 @@
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2017/02/11/Remote-debugging-Java-applications-run-on-Tomcat/</loc>
-    
-    <lastmod>2018-04-28T07:47:12.950Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://terrencemiao.github.io/blog/2017/09/20/Geoffrey-Hinton-interview/</loc>
-    
-    <lastmod>2018-04-28T07:47:12.949Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2018/02/06/Good-things-come-to-those-who-could-wait-till-the-last/</loc>
     
     <lastmod>2018-04-28T07:47:12.949Z</lastmod>
     
@@ -401,6 +401,13 @@
   </url>
   
   <url>
+    <loc>https://terrencemiao.github.io/blog/2018/02/06/Good-things-come-to-those-who-could-wait-till-the-last/</loc>
+    
+    <lastmod>2018-04-28T07:47:12.949Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://terrencemiao.github.io/blog/2017/03/12/Influence-Without-Authority/</loc>
     
     <lastmod>2018-04-28T07:47:12.949Z</lastmod>
@@ -408,14 +415,14 @@
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2017/02/18/Factorial-function-implementation-in-Java-8/</loc>
+    <loc>https://terrencemiao.github.io/blog/2017/02/18/Fibonacci-function-implementation-in-Java-8/</loc>
     
     <lastmod>2018-04-28T07:47:12.948Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2017/02/18/Fibonacci-function-implementation-in-Java-8/</loc>
+    <loc>https://terrencemiao.github.io/blog/2017/02/18/Factorial-function-implementation-in-Java-8/</loc>
     
     <lastmod>2018-04-28T07:47:12.948Z</lastmod>
     
