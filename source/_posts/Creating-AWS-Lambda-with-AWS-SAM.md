@@ -15,7 +15,7 @@ AWS SAM template yaml file:
 Generate AWS CloudFormation yaml file and package / zip / create an artefact (need to create AWS S3 bucket `hello-world-tub` in advance):
 
 ```console
-𝜆 sam package --profile personal --template-file template.yml --output-template-file cloudFormation.yml --s3-bucket hello-world-tub
+𝜆 sam package --profile personal --template-file template.yml --output-template-file cloudFormation.yml --s3-bucket hello-sam-tub
 Uploading to 7431f83ac979bfccc26980049807e595  1461 / 1461.0  (100.00%)
 
 Successfully packaged artifacts and wrote output template to file cloudFormation.yml.
