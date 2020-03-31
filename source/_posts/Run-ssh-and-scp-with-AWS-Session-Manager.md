@@ -51,9 +51,20 @@ NOTE: **IAM role** for EC2 instance need to have `AmazonSSMManagedInstanceCore` 
 - Install all the dependencies
   1. latest Systems Manager Agent on your EC2 instance; enabled “**Agent auto update**” under Managed Instances in AWS Systems Manager
   2. latest AWS CLI on localhost
-  3. lastest Session Manager Plugin on localhost
+  3. latest Session Manager Plugin on localhost
 
 ![AWS Session Manager - Agent auto update](/blog/img/AWS%20Session%20Manager%20-%20Agent%20auto%20update.png "AWS Session Manager - Agent auto update")
+
+- Add customised RunAs users via "Run Command"
+
+To elevated `SSM_pwr_user`, a customised user to allow login EC2 instance, with command:
+
+```console
+𝜆 useradd -g wheel SSM_pwr_user
+𝜆 echo "SSM_pwr_user ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/SSM_pwr_user
+```
+
+![AWS System Manager - Run a command](/blog/img/AWS%20System%20Manager%20-%20Run%20a%20command.png "AWS System Manager - Run a command")
 
 - Update SSH config file on localhost to proxy commands through the AWS Session Manager for any EC2 instance id
 
