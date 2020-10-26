@@ -6,7 +6,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://terrencemiao.github.io/blog/"/>
-  <updated>2020-10-13T12:41:28.873Z</updated>
+  <updated>2020-10-26T06:57:07.737Z</updated>
   <id>https://terrencemiao.github.io/blog/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Risk Management for CI/CD processes</title>
+    <link href="https://terrencemiao.github.io/blog/2020/10/26/Risk-Management-for-CI-CD-processes/"/>
+    <id>https://terrencemiao.github.io/blog/2020/10/26/Risk-Management-for-CI-CD-processes/</id>
+    <published>2020-10-26T05:55:13.000Z</published>
+    <updated>2020-10-26T06:57:07.737Z</updated>
+    
+    <content type="html"><![CDATA[<p>Consider a full development and deployment cycle, and the potential risks involved during the different stages in CDP (CI / Continuous Integration, CD / Continuous Delivery, CDP / Continuous Deployment):</p><ul><li>Code</li></ul><table><thead><tr><th>Role</th><th>Details</th></tr></thead><tbody><tr><td>Stakeholders</td><td>Individual Developer</td></tr><tr><td></td><td>Pair Programming Mentor</td></tr><tr><td></td><td>DBA</td></tr><tr><td></td><td>Security Team</td></tr><tr><td>Failure Points</td><td>Logic flaws</td></tr><tr><td></td><td>Security flaws</td></tr><tr><td></td><td>Code standards issues</td></tr><tr><td>Safeguards</td><td>Test Driven Development</td></tr><tr><td></td><td>Red/Green/Refactor</td></tr><tr><td></td><td>Linting tools</td></tr><tr><td></td><td>Testing Docker containers</td></tr><tr><td></td><td>Pair programming</td></tr><tr><td></td><td>Query analysis</td></tr><tr><td></td><td>Static code analysis</td></tr></tbody></table><ul><li>Commit</li></ul><table><thead><tr><th>Role</th><th>Details</th></tr></thead><tbody><tr><td>Stakeholders</td><td>Security Team Member for sign-off</td></tr><tr><td></td><td>Engineering Team Lead for sign-off</td></tr><tr><td>Failure Points</td><td>Force pushes</td></tr><tr><td></td><td>Merge conflicts</td></tr><tr><td>Safeguards</td><td>Master branch protections</td></tr><tr><td></td><td>3 member sign-off before master merge</td></tr><tr><td></td><td>Commit hooks</td></tr></tbody></table><ul><li>Test</li></ul><table><thead><tr><th>Role</th><th>Details</th></tr></thead><tbody><tr><td>Stakeholders</td><td>Individual Developer</td></tr><tr><td></td><td>QA Team</td></tr><tr><td>Failure Points</td><td>Broken tests</td></tr><tr><td></td><td>Stale tests</td></tr><tr><td></td><td>False positive tests</td></tr><tr><td>Safeguards</td><td>Weekly failure testing triage meeting to catch broken tests</td></tr><tr><td></td><td>Daily cron runs of test suite against mock prod environment</td></tr></tbody></table><ul><li>Deployment</li></ul><table><thead><tr><th>Role</th><th>Details</th></tr></thead><tbody><tr><td>Stakeholders</td><td>SysOps Team</td></tr><tr><td></td><td>Individual Developers</td></tr><tr><td></td><td>Support Team</td></tr><tr><td></td><td>Customers</td></tr><tr><td>Failure Points</td><td>Broken deployments</td></tr><tr><td></td><td>Dropped customer traffic</td></tr><tr><td>Safeguards</td><td>Blue/Green deployment</td></tr><tr><td></td><td>Traffic re-routing</td></tr><tr><td></td><td>Pre deployment spare instance warmup</td></tr><tr><td></td><td>Communicate out to support in order to verify proper staffing levels</td></tr></tbody></table><ul><li>Runtime</li></ul><table><thead><tr><th>Role</th><th>Details</th></tr></thead><tbody><tr><td>Stakeholders</td><td>Security Team</td></tr><tr><td></td><td>SysOps Team</td></tr><tr><td></td><td>Engineering Teams</td></tr><tr><td></td><td>Support Team</td></tr><tr><td></td><td>Customers</td></tr><tr><td>Failure Points</td><td>High resource usage</td></tr><tr><td></td><td>Slow queries</td></tr><tr><td></td><td>Malicious actors</td></tr><tr><td></td><td>MProvider downtime</td></tr><tr><td>Safeguards</td><td>Communicate out to support for new feature awareness and appropriate categories for issues regarding the component</td></tr><tr><td></td><td>System resource alarms for various metrics and slow DB log alerts</td></tr><tr><td></td><td>Instant maintenance page switchover capabilities</td></tr><tr><td></td><td>Status page on redundant providers</td></tr><tr><td></td><td>Application firewalls</td></tr><tr><td></td><td>Database replicas</td></tr></tbody></table>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Consider a full development and deployment cycle, and the potential risks involved during the different stages in CDP (CI / Continuous In
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>AWS CloudWatch Metrics Example</title>
@@ -421,27 +442,6 @@
       
         &lt;p&gt;列举一下我认为的苹果产品设计的经典。我并不是苹果的粉丝，也从来没有拥有过任何一代 iPhone 产品，from first generation iPhone, to latest iPhone XS。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://lh3.google
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>The 10 Commandments of Good Products</title>
-    <link href="https://terrencemiao.github.io/blog/2018/09/14/The-10-Commandments-of-Good-Products/"/>
-    <id>https://terrencemiao.github.io/blog/2018/09/14/The-10-Commandments-of-Good-Products/</id>
-    <published>2018-09-13T22:22:00.000Z</published>
-    <updated>2018-09-13T22:26:37.994Z</updated>
-    
-    <content type="html"><![CDATA[<p>The Vespa scooter is an example of how great design truly transcends time. The Vespa has been relatively unchanged in decades. The simplicity and style of it still make it a desirable item to this day.</p><p><img src="https://raw.githubusercontent.com/TerrenceMiao/igloo-design/master/The%2010%20Commandments%20of%20Good%20Products/Vespa%20Legend%20vs%20Modern.png" alt="The 10 Commandments of Good Products" title="The 10 Commandments of Good Products"></p><ul><li>The 10 Commandments of Good Products, <a href="https://medium.com/swlh/the-10-commandments-of-good-products-d1d0a97b30ee" target="_blank" rel="noopener">https://medium.com/swlh/the-10-commandments-of-good-products-d1d0a97b30ee</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;The Vespa scooter is an example of how great design truly transcends time. The Vespa has been relatively unchanged in decades. The simpli
       
     
     </summary>
