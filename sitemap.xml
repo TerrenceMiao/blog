@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://terrencemiao.github.io/blog/2020/11/25/Bring-back-MagSafe/</loc>
+    
+    <lastmod>2020-11-25T00:25:02.085Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://terrencemiao.github.io/blog/2020/10/26/Risk-Management-for-CI-CD-processes/</loc>
     
     <lastmod>2020-10-26T06:57:07.737Z</lastmod>
@@ -261,13 +268,6 @@
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2017/09/23/%E6%B5%85%E8%B0%88%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%95%B0%E5%AD%A6%E4%BF%AE%E5%85%BB/</loc>
-    
-    <lastmod>2018-04-28T07:47:12.955Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://terrencemiao.github.io/blog/2017/09/03/%E7%94%BB%E8%99%BE/</loc>
     
     <lastmod>2018-04-28T07:47:12.955Z</lastmod>
@@ -276,6 +276,13 @@
   
   <url>
     <loc>https://terrencemiao.github.io/blog/2017/08/04/%E8%82%A1%E5%B8%82%E6%8A%95%E8%B5%84%E4%B8%89%E8%A6%81%E7%B4%A0/</loc>
+    
+    <lastmod>2018-04-28T07:47:12.955Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2017/09/23/%E6%B5%85%E8%B0%88%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%95%B0%E5%AD%A6%E4%BF%AE%E5%85%BB/</loc>
     
     <lastmod>2018-04-28T07:47:12.955Z</lastmod>
     
@@ -303,13 +310,6 @@
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2017/07/02/The-end-of-IT-is-Art/</loc>
-    
-    <lastmod>2018-04-28T07:47:12.953Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://terrencemiao.github.io/blog/2018/03/28/The-longest-official-place-name-in-Australia/</loc>
     
     <lastmod>2018-04-28T07:47:12.953Z</lastmod>
@@ -318,6 +318,13 @@
   
   <url>
     <loc>https://terrencemiao.github.io/blog/2017/02/01/Web-Components-are-coming/</loc>
+    
+    <lastmod>2018-04-28T07:47:12.953Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2017/07/02/The-end-of-IT-is-Art/</loc>
     
     <lastmod>2018-04-28T07:47:12.953Z</lastmod>
     
@@ -387,6 +394,13 @@
   </url>
   
   <url>
+    <loc>https://terrencemiao.github.io/blog/2017/09/02/Plato-and-Socrates-%E6%9F%8F%E6%8B%89%E5%9B%BE%E9%BA%A6%E7%A9%97%E9%97%AE%E9%A2%98/</loc>
+    
+    <lastmod>2018-04-28T07:47:12.950Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://terrencemiao.github.io/blog/2017/02/11/Remote-debugging-Java-applications-run-on-Tomcat/</loc>
     
     <lastmod>2018-04-28T07:47:12.950Z</lastmod>
@@ -394,9 +408,9 @@
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2017/09/02/Plato-and-Socrates-%E6%9F%8F%E6%8B%89%E5%9B%BE%E9%BA%A6%E7%A9%97%E9%97%AE%E9%A2%98/</loc>
+    <loc>https://terrencemiao.github.io/blog/2017/03/12/Influence-Without-Authority/</loc>
     
-    <lastmod>2018-04-28T07:47:12.950Z</lastmod>
+    <lastmod>2018-04-28T07:47:12.949Z</lastmod>
     
   </url>
   
@@ -415,23 +429,9 @@
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2017/03/12/Influence-Without-Authority/</loc>
-    
-    <lastmod>2018-04-28T07:47:12.949Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://terrencemiao.github.io/blog/2018/03/26/House-Prices-Down-Under/</loc>
     
     <lastmod>2018-04-28T07:47:12.949Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2017/02/18/Factorial-function-implementation-in-Java-8/</loc>
-    
-    <lastmod>2018-04-28T07:47:12.948Z</lastmod>
     
   </url>
   
@@ -443,16 +443,16 @@
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2018/04/07/Flow/</loc>
+    <loc>https://terrencemiao.github.io/blog/2017/02/18/Factorial-function-implementation-in-Java-8/</loc>
     
     <lastmod>2018-04-28T07:47:12.948Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2017/06/30/Ant-Colony-Optimization-ACO/</loc>
+    <loc>https://terrencemiao.github.io/blog/2018/04/07/Flow/</loc>
     
-    <lastmod>2018-04-28T07:47:12.947Z</lastmod>
+    <lastmod>2018-04-28T07:47:12.948Z</lastmod>
     
   </url>
   
@@ -471,6 +471,13 @@
   </url>
   
   <url>
+    <loc>https://terrencemiao.github.io/blog/2017/06/30/Ant-Colony-Optimization-ACO/</loc>
+    
+    <lastmod>2018-04-28T07:47:12.947Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://terrencemiao.github.io/blog/2018/03/10/AWS-access-key-id-and-secret-access-key/</loc>
     
     <lastmod>2018-04-28T07:47:12.946Z</lastmod>
@@ -478,14 +485,14 @@
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2018/03/25/AlphaGo-movie/</loc>
+    <loc>https://terrencemiao.github.io/blog/2018/04/17/Always-safe-Always-fun/</loc>
     
     <lastmod>2018-04-28T07:47:12.946Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2018/04/17/Always-safe-Always-fun/</loc>
+    <loc>https://terrencemiao.github.io/blog/2018/03/25/AlphaGo-movie/</loc>
     
     <lastmod>2018-04-28T07:47:12.946Z</lastmod>
     
