@@ -6,7 +6,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://terrencemiao.github.io/blog/"/>
-  <updated>2020-11-30T00:45:26.658Z</updated>
+  <updated>2021-03-02T23:21:50.551Z</updated>
   <id>https://terrencemiao.github.io/blog/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>A Modern Architecture Application</title>
+    <link href="https://terrencemiao.github.io/blog/2021/03/02/A-Modern-Architecture-Application/"/>
+    <id>https://terrencemiao.github.io/blog/2021/03/02/A-Modern-Architecture-Application/</id>
+    <published>2021-03-02T05:55:13.000Z</published>
+    <updated>2021-03-02T23:21:50.551Z</updated>
+    
+    <content type="html"><![CDATA[<p>RAD (Rapid Application Development) of a Serverless application “Notification Service” on modern technologies, e.g. AWS CDK &amp; SAM, AWS Step Functions, TypeScript, VS Code, Open API Top Down Design and Test Driven Development, in order to rapidly build a prototype, or a POC, verify and test some technologies and approaches.</p><p>Request Handler =&gt; Step Functions (orchestration for Lambda functions, represents a single centralized executable business process, outsources low level operations like <strong>retry</strong> / <strong>exception catch and handle</strong>. Another choice is SNS) =&gt; Service Providers</p><p>Have experienced of Terraform, Serverless, SAM … Now this time based on code over configuration principle, what you get is flexibility, predictability and more control. You focus on code you tell the tools what steps it has to complete directly. At the end of day, it is a simple matter of separation of concerns and single responsibility principle.</p><p>• VS Code for API Spec editing</p><p>• Postman API, Environment and Mock server, for QA team, then switch to real service in DEV/TEST environment</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">𝜆 npm run openapi</span><br></pre></td></tr></table></figure><p>• <code>openapi-generator</code> generates model classes; <code>typescript-json-validator</code> generates JSON Schema and validator</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">𝜆 openapi-generator generate -g typescript-node -i Notification\ API\ openapi.json -o Notification\ API\ generated</span><br><span class="line">𝜆 npx typescript-json-validator notificationRequest.ts NotificationRequest</span><br></pre></td></tr></table></figure><p>• Kong / API Manager, <a href="https://pdev.npe.auspost.com.au/developers" target="_blank" rel="noopener">https://pdev.npe.auspost.com.au/developers</a></p><p>• CDK, still based on CloudFormation. It can generates CloudFormation template file <code>template.yaml</code></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">𝜆 cdk synth --no-staging &gt; template.yaml</span><br></pre></td></tr></table></figure><p>• Demo of local run and debug lambda, with background TSC watch process</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">𝜆 npm run watch</span><br><span class="line"></span><br><span class="line">𝜆 sam local invoke RequestNotification9F9F3C31 -e samples/api-gateway-notification-event.json</span><br><span class="line">𝜆 sam local invoke RequestNotification9F9F3C31 -e samples/api-gateway-notification-event.json -d 5858</span><br></pre></td></tr></table></figure><p>Data validation to make data integrity unbreachable will take a lot time.</p><p><code>ajv</code> framework and performance benchmark, <a href="https://github.com/ebdrup/json-schema-benchmark" target="_blank" rel="noopener">https://github.com/ebdrup/json-schema-benchmark</a></p><p>• Code lint with <code>eslint</code> and <code>prettier</code> and automatically correction</p><p>• Code commit rule enforcement</p><p>• Change code and deploy AWS stack by CDK</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">𝜆 cdk deploy --require-approval never --profile dev-cicd</span><br></pre></td></tr></table></figure><p>• Behavior Driven Test Framework Jest, <a href="https://github.com/facebook/jest" target="_blank" rel="noopener">https://github.com/facebook/jest</a>, 2x / 3x faster than Karma, with code coverage, easy mocking</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">𝜆 npm t</span><br></pre></td></tr></table></figure><p>• Automatically generate application changelog and release notes</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">𝜆 npm run release:minor</span><br></pre></td></tr></table></figure><p>• Automatically generate application document</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">𝜆 npm run docs</span><br></pre></td></tr></table></figure><p>• AWS resources created by CDK</p><p>• Not Mono Repo app, which multiple projects all under one giant Repo</p><p>• ONE AWS Layers put all dependent NPM libs and shared code into; size of Lambda functions, readability</p><p>• EventBridge tro trigger and send event to Request Handler, for scheduling task</p><p>• Health Check, with Service Monitoring Dashboard, verify dependencies at the endpoints, keep Lambda warming up</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">𝜆 curl https://c81234xdae8w1a9.execute-api.ap-southeast-2.amazonaws.com/health</span><br></pre></td></tr></table></figure><p>Cloud computing and Serverless architecture let developers in fast lane for Application Development. Right now, there are so many low hanging fruit to pick up.</p><p>As developers, we should not always think about our comfort zone, we need to think about people who take over your work, think about BAU team to support the application. The codebase is not about you, but about the value that your code brings to others, and the organization that you work for.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;RAD (Rapid Application Development) of a Serverless application “Notification Service” on modern technologies, e.g. AWS CDK &amp;amp; SAM, AW
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Why Repairable Is Important</title>
@@ -419,28 +440,6 @@
       
         &lt;p&gt;Inspirational Thought from Jeff Bezos.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;/blog/img/Inspirational%20Thought.png&quot; alt=&quot;Inspirational Thought&quot; title=&quot;Inspira
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>After new Macbook Air, Mac Mini, iPad Pro 2018</title>
-    <link href="https://terrencemiao.github.io/blog/2018/11/06/After-new-Macbook-Air-Mac-Mini-iPad-Pro-2018/"/>
-    <id>https://terrencemiao.github.io/blog/2018/11/06/After-new-Macbook-Air-Mac-Mini-iPad-Pro-2018/</id>
-    <published>2018-11-06T01:02:29.000Z</published>
-    <updated>2018-11-06T01:33:00.075Z</updated>
-    
-    <content type="html"><![CDATA[<p>最新的苹果发布会是一次团结的大会，求实的大会，胜利的大会。在以苹果总书记库克同志为核心的领导下，Apple Design 拨乱反正，继往开来，重拾经典。</p><p>Macbook Air 得以继续，Mac Mini 得到重生。iPad Pro 在经过不断的探索、失败后，终于拿出一款震撼心灵的设计，以及一款与时共进的 Apple Pencil。</p><p><img src="https://lh3.googleusercontent.com/-9GgKlE-FBYzf8HtFPF7ospJ2YkRj_GE61LkN9c-SQdw7tpN0KlgdcYJOeMX7MXKd5KeaeO8HaNcqoGY-GJ3Vt8q-iXGN7o4EzSIwXYf_rZyRkFG5atyMBuPc2IyT_YedHW-bzOPjFuGjZfU-6tc-w8beILc8x2W2v32KoJ7ChDhh9f1vBfrzg2r9RFuKSatM2EigA6kr3PwuUw4G6zUI9_JTHtUVEfB9cduu8e8VnymXN_759jxZIdAkyDRPvbB5OW_77-3QkT0Hv887PtF2d-as1wq-5GnQpmaWBi7UKrMZOaa6BBjbUmd5dOuNsIGsTMF-6w0xY_44E6wpo4G2CVzNULfdj0aBIs5huccMsZHHofKSTJxaMhkx_6fMbgeGtcGcTBdzhoPP3bi43SXlB5JbL17MTGVlkrDqA8vPAS596EbxY8LfkyxhrSMXsl0_xFhcyFxFhfa-V63AXTeE4hhmwVvhlWRdx8boOwUeopG53j_aViICFhuSVs4lg-Y1qnCFobPj1I0vWfwa5eJBsc92qFwu-pF1TdN1vYuJ0k3y9QpzRyJnGq1SamI4G3gWOdxqdq0stkTO3_I-rB7EUJ7fmQF91BKHGiH5Ve3kmD4_az8Bil4O0-GnZkHh62Y6O_WDATXXmhcW3Z2dTn3ZPl-jw=w2880-h1440-no" alt="History of iPad"></p><p>新 iPad Pro 的机身背面内置了102 块磁铁，保证了 flat 扁平的这款 Apple Pencil 可牢固吸附在机身上，同时也能给 Apple Pencil 进行无线充电。这个设计优雅，实用，点赞必须。Furthermore, 边框塑性换成了方正的造型，重回 iPhone 5 方正边框的精典设计。从屏幕到外形，从外设到连接性，新 iPad Pro 的所有功能都是朝着高生产力笔记本电脑的 ecosystem 前进。</p><p>今天墨尔本赛马节，全维多利亚州人民在春天的草地上撒野。信主也准备潇洒一把。</p><p><img src="https://lh3.googleusercontent.com/C9wpMgkDnHM2pmWGn8-wfCuhP2jsJ6HwmhyLTibhFD8c0Pf5CXF_NwS9AksFH5VhvtLiJ7QG8Q-b83QuJYutqusXv-as76KBeXwlUt4MW-f-cmtyNM7E2V83QJYm1ex-9laru91QCeGf5AFlH-6zOU6oPHgGluJyPmEP1O6kvrKnwWJswiibH9J-KdKf2L09WnsjUcXo1ehnWJJFz4B6zgv1-4ug8Qr5r7brGAWySd3Ayo7MEBZK7Y7zjfkA2-x61h7m47E_em3kHdIjHaK7tme5s5562Rx1gnWizqqNAy3qj6xr0yGB0O9J-nLU4F3hG6mGJm-YrCTyOIglhIqqE7OyG6MHSvUtk1i4ZBkCCrlpaGBwGsbZSCndnMNTnWhXSpBQ8bpnIS_q42YZAZTm6Efn5qDC0ZuasKMgBKCi8uzu2veziYUtf1ELqIDv77l3kl4uGGcVtI7EMsdffwmIvDRFRw-BLH0URyYmGKIuWc8mkTqDRSyNfzw8UfY5nEVmtPLkmxlX-tp_-m89qhrJqmgkjLaGmmWv5rWlqZYmvDEQBsdkYPE9tmtNG9WCP3YBESdnplefIyt7XjYCqXVxm9HAaExvracWdlnd_QLzK1PKSBHsCAZmeSCOCNho4qEG13FVjWEFu4Ovtk_s5nE5Op1QWA=w3414-h866-no" alt="Apple Pencil 2018"></p><p>登上了苹果网站，发现新 Apple Pencil 提供个人定制激光刻字服务。输入洋文 “<strong>Best there ever will be</strong>“ （后无来者的意思），苹果嫌弃太长。换成国语 “<strong>民族英雄 小平赠</strong>“，苹果又 handle 不了。无奈只好取消 $2,349.00 新 iPad Pro 和 $199.00 新 Apple Pencil 的订单 。</p><p><img src="https://lh3.googleusercontent.com/cZa-Rwanpbf2TwVVqYu6Etw5hO0YVTVpnsSmoE6nr6A3yqd7p37kDdYf7KFuS4blUzwuuuBQfsnRggvcYVaNzhQ6x_pOFxAK7bfNFdV48nRusRaZ2Ei5sbnr-Fc0Sy3Ld6hfo2Xxo0Kql_oYKH2xBbvTAKPmfF69GdhPJwnSj9vBLaN-IFXt0oUOElacsioQDIu7rqjxMzclpQ1_Sex_PjZANufnwYqiXhAlfF0yVBmEVb0Pks7bMDFfgjc_R5894s0Q9YAtivzcb0wV66xT07wplYoo9YktjtGkmdQPv_Xnh17MPBEs9R91SmH08A3FTXBwCMDTKckjm0fqwazOTRqsv1GFlqouwQZkYkt8zU2Xr5ipxFR1qvWXdT07O1NE8mPlf3Zz7XNqZsksiQ1-bAM_BESFmGm7q4J8pNWqnYTmxMtZkqYnlfKL7rBgzFw6fSz8tOWyOrUp9TVJl2QjukjNRS09MsCDDTWnkDZO60wFxc6raSG6lGSCDudHURpr4bogU-nlvvQ5lKxoFLJFRPdulfPof0azKkikfEXqVESh9LPc3zTOL_JPvr46qOpaxrIk-Aefo6ThKS-gU1hMaYdE3PjrorqOeCXx60qiuX1guO3SE-wGij4rh2nDKSfrzePP9805zKILJAYhUOkjIbCDBg=w1628-h1514-no" alt="Free Engraving"></p><p><img src="https://lh3.googleusercontent.com/UfFr9tZkEf3ieUt2k1_29zMBOfiAshIhN6glqlGA0eY1C47UfL1HH58CdrDrUP1IpSfTUkvsQUqFMDIjDina3QDchUcQJRU6yVJOywK8TUYA6urlr_oMvm9UzZ3RxCyMX2VeFUsVVtniud3BL13EZxhn90VVE8L5T3y0JlZ4n7pXTSVhwQ3aYQPd4X0lre_YbsJ_yd0zNNyMwAva05v31dtGrdktZ6W2bg9MHKvt8eaVFnK1aNLTuU0VgvnQN9N9vZAmx25q5_Es_lO7YKIl5IEJvW2joTXPT9pnSBdHc7gzVUgps1XJYiMRCK5FW2zm09yelp-fA6B7hS6xqWXGX7A2kJd4JyX1_IipqSW06aIq5N-csilXxGbrdPo7N9Iz13fd-ZaVjNaaD4lOUYEZc89qTs9fozWppd90cs2rxVso5Ci4AaZ-N3yK5LFmjkPi31D-MRXxUKwSEmaSUl_K4nsV60WJFDfKJ6A4DPWWFeDP8dfRA1br4c3PdrLh0rkT6ZATieTqu85z29v8yJnimNkRDaHcM8nN6h4P96VfGcLneG341N_ZmN2jIFRFXBQ6VYp3aUCgb1HJXTOgwRMdvleGCIqlE6jBXxMH2QFxpBveIUmbh7RxP5_TavCtdQ3eCFRzRDyEjtfEcts0rCg7YLyzdg=w1632-h1516-no" alt="Free Engraving"></p><p>有钱花不出去，郁闷啊 … …</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;最新的苹果发布会是一次团结的大会，求实的大会，胜利的大会。在以苹果总书记库克同志为核心的领导下，Apple Design 拨乱反正，继往开来，重拾经典。&lt;/p&gt;
-&lt;p&gt;Macbook Air 得以继续，Mac Mini 得到重生。iPad Pro 在经过不断的探索、失败后，
       
     
     </summary>
