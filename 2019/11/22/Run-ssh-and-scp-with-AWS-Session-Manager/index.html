@@ -25,11 +25,11 @@
 <p>To elevated <code>SSM_pwr_user</code>, a customised user to allow login EC2 instance, with command:</p>
 <figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">𝜆 useradd -g wheel SSM_pwr_user</span><br><span class="line">𝜆 echo "SSM_pwr_user ALL=(ALL) NOPASSWD:ALL" &gt; /etc/sudoers.d/SSM_pwr_user</span><br></pre></td></tr></table></figure>
 <p><img src="/blog/img/AWS%20System%20Manager%20-%20Run%20a%20command.png" alt="AWS System Manager - Run a command" title="AWS System Manager - Run a command"></p>
+<p>Updated solution if SSM throws error “<strong>Unable to start shell: failed to start pty since RunAs user ssm-user does not exist</strong>“:</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">𝜆 useradd -g wheel ssm-user</span><br><span class="line">𝜆 cd /etc/sudoers.d</span><br><span class="line">𝜆 echo "ssm-user ALL=(ALL) NOPASSWD:ALL" &gt; ssm-agent-users</span><br></pre></td></tr></table></figure>
 <ul>
 <li>Update SSH config file on localhost to proxy commands through the AWS Session Manager for any EC2 instance id</li>
 </ul>
-<p>Updated solution if SSM throws error “Unable to start shell: failed to start pty since RunAs user ssm-user does not exist”:</p>
-<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">𝜆 useradd -g wheel ssm-user</span><br><span class="line">𝜆 cd /etc/sudoers.d</span><br><span class="line">𝜆 echo "ssm-user ALL=(ALL) NOPASSWD:ALL" &gt; ssm-agent-users</span><br></pre></td></tr></table></figure>
 <figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">𝜆 cat .ssh/config</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> SSH over Session Manager</span><br><span class="line">host i-* mi-*</span><br><span class="line">    ProxyCommand sh -c "aws ssm start-session --target %h --document-name AWS-StartSSHSession --parameters 'portNumber=%p'"</span><br></pre></td></tr></table></figure>
 <ul>
 <li>Generate session token</li>
