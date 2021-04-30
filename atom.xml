@@ -6,7 +6,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://terrencemiao.github.io/blog/"/>
-  <updated>2021-04-30T09:31:05.306Z</updated>
+  <updated>2021-04-30T12:53:26.822Z</updated>
   <id>https://terrencemiao.github.io/blog/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Read environment variables of a process in Linux</title>
+    <link href="https://terrencemiao.github.io/blog/2021/04/30/Read-environment-varibles-of-a-process-in-Linux/"/>
+    <id>https://terrencemiao.github.io/blog/2021/04/30/Read-environment-varibles-of-a-process-in-Linux/</id>
+    <published>2021-04-30T12:44:39.000Z</published>
+    <updated>2021-04-30T12:53:26.822Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/proc/[pid]/environ</span><br><span class="line">      This file contains the environment for the process.  The entries</span><br><span class="line">      are separated by null bytes ('\0'), and there may be a null byte</span><br><span class="line">      at the end.</span><br></pre></td></tr></table></figure><p>A simple way is to apply <code>xargs -0 -L1 -a</code> on it:</p><ul><li><code>-0</code> - read null-delimited lines,</li><li><code>-L1</code> - read one line per execution of command</li><li><code>-a</code> - file read lines from file</li></ul><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> ps -aef</span><br><span class="line">10101     3629  3589  0 Apr27 ?        00:00:00 /bin/bash bin/start</span><br><span class="line">10101     3670  3629  0 Apr27 ?        00:00:00 /bin/bash bin/start-tomcat</span><br><span class="line">10101     3671  3670  0 Apr27 ?        00:07:36 /usr/lib/jvm/java-11-amazon-corretto.x86_64/bin/java -Djava.util.logging.config.file=/usr/local/tomcat/conf/</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> cat /proc/3629/environ</span><br><span class="line">PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/binHOSTNAME=27c44e8a5c7cJAVA_HOME=/usr/lib/jvm/java-11-amazon-corretto.x86_64HOME=/usr/local/tomcat</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> xargs -0 -L1 -a /proc/3629/environ</span><br><span class="line">PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin</span><br><span class="line">HOSTNAME=27c44e8a5c7c</span><br><span class="line">JAVA_HOME=/usr/lib/jvm/java-11-amazon-corretto.x86_64</span><br><span class="line">HOME=/usr/local/tomcat</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;figure class=&quot;highlight console&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span cla
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>AWS KMS decrypt for base64 encoded input</title>
@@ -419,27 +440,6 @@
       
       
         &lt;p&gt;&lt;img src=&quot;https://lh3.googleusercontent.com/7WmOU85cMfllK056ZWJQ_ffILt0z3AQTOHhv9WDXmEUuzAePf_XFb8Kk2PvqPmjpJpldKK33fFTMLz49jNsRygrmExaRv
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Bind customised KeyStore,TrustStore and PoolingHttpClientConnectionManager in Apache Camel</title>
-    <link href="https://terrencemiao.github.io/blog/2018/12/03/Bind-customised-KeyStore-TrustStore-and-PoolingHttpClientConnectionManager-in-Apache-Camel/"/>
-    <id>https://terrencemiao.github.io/blog/2018/12/03/Bind-customised-KeyStore-TrustStore-and-PoolingHttpClientConnectionManager-in-Apache-Camel/</id>
-    <published>2018-12-03T07:54:16.000Z</published>
-    <updated>2018-12-03T22:18:36.680Z</updated>
-    
-    <content type="html"><![CDATA[<p>In Apache HTTPClient 4.x, PoolingHttpClientConnectionManager and BasicHttpClientConnectionManager can be used as Connection Managers for HTTP Client. By default, above two Connection Managers load <strong>cacerts</strong> trust store, from $JRE_HOME/lib/security directory, not programmatically specified.</p><p>Since Apache Camel starts supporting HTTP4 Component, camel-http4 is using Apache HTTPClient 4.x. The following is a solution how to customise PoolingHttpClientConnectionManager and SSLContext to use specified KeyStore and TrustStore.</p><script src="https://gist.github.com/TerrenceMiao/fefc0d10359146c3612fde33046b95d0.js"></script><p>In <strong>application.properties</strong> file defined environment specified KeyStore and TrustStore:</p><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">keystore.location=classpath:certificates/client-certs.jks</span><br><span class="line">keystore.password=client123</span><br><span class="line">truststore.location=classpath:certificates/trusted-cacerts.jks</span><br><span class="line">truststore.password=changeit</span><br><span class="line">...</span><br></pre></td></tr></table></figure><p>Without Connection Managers like PoolingHttpClientConnectionManager and BasicHttpClientConnectionManager in Apache HTTPClient 4.x, Apache Camel Route can be written in this way, binding programmatically specified KeyStore and TrustStore.</p><script src="https://gist.github.com/TerrenceMiao/ecdb7cb674887a7f82199ac880987224.js"></script><h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul><li>Apache Camel HTTP4 Component, <em><a href="http://camel.apache.org/http4.html" target="_blank" rel="noopener">http://camel.apache.org/http4.html</a></em></li><li>Java SSL with Multiple KeyStores, <em><a href="http://codyaray.com/2013/04/java-ssl-with-multiple-keystores" target="_blank" rel="noopener">http://codyaray.com/2013/04/java-ssl-with-multiple-keystores</a></em></li><li>Multiple Keystores in Apache Camel/HttpClient, <em><a href="http://codyaray.com/2013/05/multiple-keystores-in-apache-camelhttpclient" target="_blank" rel="noopener">http://codyaray.com/2013/05/multiple-keystores-in-apache-camelhttpclient</a></em></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;In Apache HTTPClient 4.x, PoolingHttpClientConnectionManager and BasicHttpClientConnectionManager can be used as Connection Managers for 
       
     
     </summary>

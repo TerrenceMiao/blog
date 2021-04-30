@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://terrencemiao.github.io/blog/2021/04/30/Read-environment-varibles-of-a-process-in-Linux/</loc>
+    
+    <lastmod>2021-04-30T12:53:26.822Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://terrencemiao.github.io/blog/2021/04/30/AWS-KMS-decrypt-for-base64-encoded-input/</loc>
     
     <lastmod>2021-04-30T09:31:05.306Z</lastmod>
@@ -289,6 +296,13 @@
   </url>
   
   <url>
+    <loc>https://terrencemiao.github.io/blog/2017/09/03/%E7%94%BB%E8%99%BE/</loc>
+    
+    <lastmod>2018-04-28T07:47:12.955Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://terrencemiao.github.io/blog/2017/08/04/%E8%82%A1%E5%B8%82%E6%8A%95%E8%B5%84%E4%B8%89%E8%A6%81%E7%B4%A0/</loc>
     
     <lastmod>2018-04-28T07:47:12.955Z</lastmod>
@@ -297,13 +311,6 @@
   
   <url>
     <loc>https://terrencemiao.github.io/blog/2017/09/23/%E6%B5%85%E8%B0%88%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%95%B0%E5%AD%A6%E4%BF%AE%E5%85%BB/</loc>
-    
-    <lastmod>2018-04-28T07:47:12.955Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2017/09/03/%E7%94%BB%E8%99%BE/</loc>
     
     <lastmod>2018-04-28T07:47:12.955Z</lastmod>
     
@@ -359,14 +366,14 @@
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2017/02/18/The-State-Quadrants-Functional-vs-Object-Oriented/</loc>
+    <loc>https://terrencemiao.github.io/blog/2018/03/11/The-A-I-Revolution-Will-Not-Be-Supervised/</loc>
     
     <lastmod>2018-04-28T07:47:12.952Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2018/03/11/The-A-I-Revolution-Will-Not-Be-Supervised/</loc>
+    <loc>https://terrencemiao.github.io/blog/2017/02/18/The-State-Quadrants-Functional-vs-Object-Oriented/</loc>
     
     <lastmod>2018-04-28T07:47:12.952Z</lastmod>
     
@@ -408,14 +415,14 @@
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2017/09/02/Plato-and-Socrates-%E6%9F%8F%E6%8B%89%E5%9B%BE%E9%BA%A6%E7%A9%97%E9%97%AE%E9%A2%98/</loc>
+    <loc>https://terrencemiao.github.io/blog/2017/02/01/Perfection/</loc>
     
     <lastmod>2018-04-28T07:47:12.950Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2017/02/01/Perfection/</loc>
+    <loc>https://terrencemiao.github.io/blog/2017/09/02/Plato-and-Socrates-%E6%9F%8F%E6%8B%89%E5%9B%BE%E9%BA%A6%E7%A9%97%E9%97%AE%E9%A2%98/</loc>
     
     <lastmod>2018-04-28T07:47:12.950Z</lastmod>
     
@@ -429,7 +436,7 @@
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2017/09/20/Geoffrey-Hinton-interview/</loc>
+    <loc>https://terrencemiao.github.io/blog/2018/02/06/Good-things-come-to-those-who-could-wait-till-the-last/</loc>
     
     <lastmod>2018-04-28T07:47:12.949Z</lastmod>
     
@@ -443,7 +450,7 @@
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2018/02/06/Good-things-come-to-those-who-could-wait-till-the-last/</loc>
+    <loc>https://terrencemiao.github.io/blog/2017/09/20/Geoffrey-Hinton-interview/</loc>
     
     <lastmod>2018-04-28T07:47:12.949Z</lastmod>
     
@@ -499,14 +506,14 @@
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2018/04/17/Always-safe-Always-fun/</loc>
+    <loc>https://terrencemiao.github.io/blog/2018/03/10/AWS-access-key-id-and-secret-access-key/</loc>
     
     <lastmod>2018-04-28T07:47:12.946Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2018/03/10/AWS-access-key-id-and-secret-access-key/</loc>
+    <loc>https://terrencemiao.github.io/blog/2018/04/17/Always-safe-Always-fun/</loc>
     
     <lastmod>2018-04-28T07:47:12.946Z</lastmod>
     
