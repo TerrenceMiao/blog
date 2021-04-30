@@ -66,6 +66,14 @@ To elevated `SSM_pwr_user`, a customised user to allow login EC2 instance, with 
 
 ![AWS System Manager - Run a command](/blog/img/AWS%20System%20Manager%20-%20Run%20a%20command.png "AWS System Manager - Run a command")
 
+Updated solution if SSM throws error "**Unable to start shell: failed to start pty since RunAs user ssm-user does not exist**":
+
+```console
+𝜆 useradd -g wheel ssm-user
+𝜆 cd /etc/sudoers.d
+𝜆 echo "ssm-user ALL=(ALL) NOPASSWD:ALL" > ssm-agent-users
+```
+
 - Update SSH config file on localhost to proxy commands through the AWS Session Manager for any EC2 instance id
 
 ```console
