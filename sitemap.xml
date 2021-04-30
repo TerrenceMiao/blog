@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://terrencemiao.github.io/blog/2019/11/22/Run-ssh-and-scp-with-AWS-Session-Manager/</loc>
+    
+    <lastmod>2021-04-30T09:09:53.223Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://terrencemiao.github.io/blog/2021/03/02/A-Modern-Architecture-Application/</loc>
     
     <lastmod>2021-03-02T23:32:00.200Z</lastmod>
@@ -33,13 +40,6 @@
     <loc>https://terrencemiao.github.io/blog/2020/10/13/AWS-CloudWatch-Metrics-example/</loc>
     
     <lastmod>2020-10-13T12:41:28.873Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2019/11/22/Run-ssh-and-scp-with-AWS-Session-Manager/</loc>
-    
-    <lastmod>2020-03-31T04:27:58.737Z</lastmod>
     
   </url>
   
