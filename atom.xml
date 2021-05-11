@@ -6,7 +6,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://terrencemiao.github.io/blog/"/>
-  <updated>2021-04-30T12:59:31.499Z</updated>
+  <updated>2021-05-11T13:12:28.378Z</updated>
   <id>https://terrencemiao.github.io/blog/</id>
   
   <author>
@@ -17,13 +17,35 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>AWS EC2 CloudFormation templates in subnets</title>
+    <link href="https://terrencemiao.github.io/blog/2021/05/11/AWS-EC2-CloudFormation-templates-in-subnets/"/>
+    <id>https://terrencemiao.github.io/blog/2021/05/11/AWS-EC2-CloudFormation-templates-in-subnets/</id>
+    <published>2021-05-11T13:02:15.000Z</published>
+    <updated>2021-05-11T13:12:28.378Z</updated>
+    
+    <content type="html"><![CDATA[<p>AWS EC2 instance CloudFormation templates in Public Tier and App Tier:</p><script src="https://gist.github.com/TerrenceMiao/58396c567574ed14c39dfc02ce78367f.js"></script>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;AWS EC2 instance CloudFormation templates in Public Tier and App Tier:&lt;/p&gt;
+&lt;script src=&quot;https://gist.github.com/TerrenceMiao/58396c567574
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Read environment variables of a process in Linux</title>
     <link href="https://terrencemiao.github.io/blog/2021/04/30/Read-environment-varibles-of-a-process-in-Linux/"/>
     <id>https://terrencemiao.github.io/blog/2021/04/30/Read-environment-varibles-of-a-process-in-Linux/</id>
     <published>2021-04-30T12:44:39.000Z</published>
     <updated>2021-04-30T12:59:31.499Z</updated>
     
-    <content type="html"><![CDATA[<p>When try to get the content of any /proc/<em>PID</em>/environ file in more readable format, you can:</p><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/proc/[pid]/environ</span><br><span class="line">      This file contains the environment for the process.  The entries</span><br><span class="line">      are separated by null bytes ('\0'), and there may be a null byte</span><br><span class="line">      at the end.</span><br></pre></td></tr></table></figure><p>A simple way is to apply <code>xargs -0 -L1 -a</code> on it:</p><ul><li><code>-0</code> - read null-delimited lines,</li><li><code>-L1</code> - read one line per execution of command</li><li><code>-a</code> - file read lines from file</li></ul><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> ps -aef</span><br><span class="line">10101     3629  3589  0 Apr27 ?        00:00:00 /bin/bash bin/start</span><br><span class="line">10101     3670  3629  0 Apr27 ?        00:00:00 /bin/bash bin/start-tomcat</span><br><span class="line">10101     3671  3670  0 Apr27 ?        00:07:36 /usr/lib/jvm/java-11-amazon-corretto.x86_64/bin/java -Djava.util.logging.config.file=/usr/local/tomcat/conf/</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> cat /proc/3629/environ</span><br><span class="line">PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/binHOSTNAME=27c44e8a5c7cJAVA_HOME=/usr/lib/jvm/java-11-amazon-corretto.x86_64HOME=/usr/local/tomcat</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> xargs -0 -L1 -a /proc/3629/environ</span><br><span class="line">PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin</span><br><span class="line">HOSTNAME=27c44e8a5c7c</span><br><span class="line">JAVA_HOME=/usr/lib/jvm/java-11-amazon-corretto.x86_64</span><br><span class="line">HOME=/usr/local/tomcat</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<p>When try to get the content of any /proc/<em>PID</em>/environ file in more readable format, you can:</p><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/proc/[pid]/environ</span><br><span class="line">      This file contains the environment for the process.  The entries</span><br><span class="line">      are separated by null bytes ('\0'), and there may be a null byte</span><br><span class="line">      at the end.</span><br></pre></td></tr></table></figure><p>A simple way is to apply <code>xargs -0 -L1 -a</code> on it:</p><ul><li><code>-0</code> - read null-delimited lines,</li><li><code>-L1</code> - read one line per execution of command</li><li><code>-a</code> - file read lines from file</li></ul><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> ps -aef</span></span><br><span class="line">10101     3629  3589  0 Apr27 ?        00:00:00 /bin/bash bin/start</span><br><span class="line">10101     3670  3629  0 Apr27 ?        00:00:00 /bin/bash bin/start-tomcat</span><br><span class="line">10101     3671  3670  0 Apr27 ?        00:07:36 /usr/lib/jvm/java-11-amazon-corretto.x86_64/bin/java -Djava.util.logging.config.file=/usr/local/tomcat/conf/</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> cat /proc/3629/environ</span></span><br><span class="line">PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/binHOSTNAME=27c44e8a5c7cJAVA_HOME=/usr/lib/jvm/java-11-amazon-corretto.x86_64HOME=/usr/local/tomcat</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> xargs -0 -L1 -a /proc/3629/environ</span></span><br><span class="line">PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin</span><br><span class="line">HOSTNAME=27c44e8a5c7c</span><br><span class="line">JAVA_HOME=/usr/lib/jvm/java-11-amazon-corretto.x86_64</span><br><span class="line">HOME=/usr/local/tomcat</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
@@ -420,27 +442,6 @@
       
         &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;Download Kafka binary file from &lt;em&gt;&lt;a href=&quot;https://kafka.apache.org/downloads&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://kafka.ap
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>This is how I feel when my code runs without a single bug</title>
-    <link href="https://terrencemiao.github.io/blog/2018/12/07/This-is-how-I-feel-when-my-code-runs-without-a-single-bug/"/>
-    <id>https://terrencemiao.github.io/blog/2018/12/07/This-is-how-I-feel-when-my-code-runs-without-a-single-bug/</id>
-    <published>2018-12-06T21:35:50.000Z</published>
-    <updated>2018-12-06T21:37:47.324Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="https://lh3.googleusercontent.com/7WmOU85cMfllK056ZWJQ_ffILt0z3AQTOHhv9WDXmEUuzAePf_XFb8Kk2PvqPmjpJpldKK33fFTMLz49jNsRygrmExaRvzPZXrbGUHwrCnhig7ll8Acr_zm8mZo-2h_E5IYw_sFDsSafCcfv8NfVc7mnv_Vt6Vm3sPUGsDADaADySvnHw2P-EV935D7N6B9Eb8w9iJV-9mP1rsvjOBwHFTC-shj5LGuxrdDk628b4spTrRqlj-E-poJN0Ja90gjTn2Y_327m9d7YjDcNtU_m8dscEW1atVqshFQGjPffvrzni7BOwrDRL4c5ec4JF88bh6L9v2t_hs9UV84EAQon8ef0lVAdHGMAEHv0ji82n8Hz9v2iJhIVsu-vYBp3z7VJ04C1xQkdCK1Cj1Hjo78p-dCTL4fwnR4T-SZvfjUzvN2sTitZbBp0mMFPshB4TBg1MEDSUovVz2cd1JqR4sSM5ZAx-h4N1CqXhYXUNICRHE9ThYKZ2Oe9Pf27CRnA5mcmJkKHN8BQUM8Q1454lYKk3osfg-hoAPnowQh4bjJV8VfsdiGD5lHeVnj_F9u-ifJo_kX_lCYeyiXFES71m3U4lFzaUWJQiR5QbewKWbjtoMuoxe0mh4VkWCIP8TNh7OCWlAWmAdPexblCKiw9Zy38Bk8Mdg=w460-h266-no" alt="This is how I feel when my code runs without a single bug" title="This is how I feel when my code runs without a single bug"></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;img src=&quot;https://lh3.googleusercontent.com/7WmOU85cMfllK056ZWJQ_ffILt0z3AQTOHhv9WDXmEUuzAePf_XFb8Kk2PvqPmjpJpldKK33fFTMLz49jNsRygrmExaRv
       
     
     </summary>
