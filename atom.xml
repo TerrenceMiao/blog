@@ -6,7 +6,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://terrencemiao.github.io/blog/"/>
-  <updated>2021-05-11T13:12:28.378Z</updated>
+  <updated>2021-06-04T03:49:25.863Z</updated>
   <id>https://terrencemiao.github.io/blog/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Get and read logs from AWS CloudWatch with saw</title>
+    <link href="https://terrencemiao.github.io/blog/2021/06/04/Get-and-read-logs-from-AWS-CloudWatch-with-saw/"/>
+    <id>https://terrencemiao.github.io/blog/2021/06/04/Get-and-read-logs-from-AWS-CloudWatch-with-saw/</id>
+    <published>2021-06-04T03:49:02.000Z</published>
+    <updated>2021-06-04T03:49:25.863Z</updated>
+    
+    <content type="html"><![CDATA[<p>For all the people painfully read logs on AWS CloudWatch console, <a href="https://github.com/TylerBrock/saw" target="_blank" rel="noopener">saw</a> is your friend.</p><p>Get CloudWatch log groups start with <code>paradise-api</code>:</p><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">𝜆 saw groups --profile ap-prod --prefix paradise-api</span><br><span class="line">paradise-api-CloudFormationLogs-mwwmzgYOtbcB</span><br></pre></td></tr></table></figure><p>Get last 2 hours logs for <code>paradise-api</code> from CloudWatch, with <a href="https://github.com/TylerBrock/saw" target="_blank" rel="noopener">saw</a>:</p><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">𝜆 saw get --profile ap-prod --start -2h paradise-api-CloudFormationLogs-mwwmzgYOtbcB --prefix docker | jq .log | sed 's/\\\n"$//; s/^"//'</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;For all the people painfully read logs on AWS CloudWatch console, &lt;a href=&quot;https://github.com/TylerBrock/saw&quot; target=&quot;_blank&quot; rel=&quot;noopen
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>AWS EC2 CloudFormation templates in subnets</title>
@@ -420,28 +441,6 @@
         &lt;p&gt;2018 是一个让人敬畏恐惧“逢八必变”的年份。2018 是过去十年中最糟糕的一年，但也许是未来十年里最好的一年。&lt;/p&gt;
 &lt;p&gt;2018 年过去了，我很怀念它。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;/blog/img/Year%202018%20-%2001.jpg&quot; al
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Step by step run Kafka on Mac</title>
-    <link href="https://terrencemiao.github.io/blog/2018/12/10/Step-by-step-run-Kafka-on-Mac/"/>
-    <id>https://terrencemiao.github.io/blog/2018/12/10/Step-by-step-run-Kafka-on-Mac/</id>
-    <published>2018-12-10T04:45:51.000Z</published>
-    <updated>2018-12-10T05:34:37.165Z</updated>
-    
-    <content type="html"><![CDATA[<ul><li><p>Download Kafka binary file from <em><a href="https://kafka.apache.org/downloads" target="_blank" rel="noopener">https://kafka.apache.org/downloads</a></em> and install it</p></li><li><p>Set up Kafka listen on <strong>PLAINTEXT://localhost:9092</strong></p></li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">terrence@igloo /usr/<span class="built_in">local</span>/kafka</span><br><span class="line">15:51:25 𝜆 diff config/server.properties config/server.properties.orig</span><br><span class="line">31c31</span><br><span class="line">&lt; listeners=PLAINTEXT://localhost:9092</span><br><span class="line">---</span><br><span class="line">&gt; <span class="comment">#listeners=PLAINTEXT://:9092</span></span><br></pre></td></tr></table></figure><ul><li>Start Zookeeper</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">igloo:kafka root<span class="comment"># bin/zookeeper-server-start.sh config/zookeeper.properties</span></span><br></pre></td></tr></table></figure><ul><li>Start Kafka</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">igloo:kafka root<span class="comment"># bin/kafka-server-start.sh config/server.properties</span></span><br></pre></td></tr></table></figure><ul><li>Create a new Kafka topic named “test”</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">igloo:kafka root<span class="comment"># bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test</span></span><br></pre></td></tr></table></figure><ul><li>Initialise Producer in Console</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">terrence@igloo /usr/<span class="built_in">local</span>/kafka_2.12-2.1.0</span><br><span class="line">16:04:19 𝜆 bin/kafka-console-producer.sh --broker-list localhost:9092 --topic <span class="built_in">test</span></span><br><span class="line">&gt;Hello World</span><br><span class="line">&gt;Wow</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure><ul><li>Initialize Consumer in Console to receive the messages</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">terrence@igloo /usr/<span class="built_in">local</span>/kafka_2.12-2.1.0</span><br><span class="line">16:06:11 𝜆 bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic <span class="built_in">test</span> --from-beginning</span><br><span class="line">Hello World</span><br><span class="line">Wow</span><br></pre></td></tr></table></figure><p>Run Kafka Manager, an UI tool for managing Kafka.</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">terrence@igloo ~/bin/kafka-manager-1.3.3.18</span><br><span class="line">16:16:47 𝜆 env ZK_HOSTS=<span class="string">"localhost:2181"</span> bin/kafka-manager</span><br></pre></td></tr></table></figure><p>Then visit <em><a href="http://localhost:9000" target="_blank" rel="noopener">http://localhost:9000</a></em></p><p>Create a Kafka cluster at first:</p><p><img src="/blog/img/Kafka%20Cluster.png" alt="Kafka Cluster" title="Kafka Cluster"></p><p>Visit “test” topic in Kafka cluster:</p><p><img src="/blog/img/Kafka%20Manager.png" alt="Kafka Manager" title="Kafka Manager"></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Download Kafka binary file from &lt;em&gt;&lt;a href=&quot;https://kafka.apache.org/downloads&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://kafka.ap
       
     
     </summary>
