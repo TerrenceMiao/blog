@@ -6,7 +6,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://terrencemiao.github.io/blog/"/>
-  <updated>2021-06-04T03:49:25.863Z</updated>
+  <updated>2021-07-06T05:47:00.397Z</updated>
   <id>https://terrencemiao.github.io/blog/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Export and Import AWS DynamoDB data</title>
+    <link href="https://terrencemiao.github.io/blog/2021/07/06/Export-and-Import-AWS-DynamoDB-data/"/>
+    <id>https://terrencemiao.github.io/blog/2021/07/06/Export-and-Import-AWS-DynamoDB-data/</id>
+    <published>2021-07-06T05:07:34.000Z</published>
+    <updated>2021-07-06T05:47:00.397Z</updated>
+    
+    <content type="html"><![CDATA[<p>A simple, straightforward way export and import AWS DynamoDB table’s data with AWS CLI and a few scripts.</p><p>At first, export all the data from AWS DynamoDB table:</p><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">𝜆 aws --profile production dynamodb scan --table-name tile-event &gt; tile-event-export.json</span><br></pre></td></tr></table></figure><p>Convert a list of items/records (DynamoDB JSON) into individual <strong>PutRequest</strong> JSON with <code>jq</code>.</p><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">𝜆 cat tile-event-export.json | jq '&#123;"Items": [.Items[] | &#123;PutRequest: &#123;Item: .&#125;&#125;]&#125;' &gt; tile-event-import.json</span><br></pre></td></tr></table></figure><p>Transform the data if necessary:</p><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">𝜆 sed 's/tile-images-prod/tile-images-pdev/g' tile-event-import.json &gt; tile-event-import-transformed.json</span><br></pre></td></tr></table></figure><p>Split all requests into <strong>25</strong> requests per file, with <code>jq</code> and <code>awk</code> (Note: There are some restriction with AWS DynamoDB batch-write-item request - The BatchWriteItem operation can contain up to <strong>25</strong> individual PutItem and DeleteItem requests and can write up to 16 MB of data. The maximum size of an individual item is 400 KB.)</p><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">𝜆 cat tile-event-processed.awk</span><br><span class="line"><span class="meta">#</span>!/usr/bin/awk -f</span><br><span class="line"></span><br><span class="line"><span class="meta">NR%</span>25==1 &#123;</span><br><span class="line">  x="tile-event-import-processed-"++i".json";</span><br><span class="line">  print "&#123;" &gt; x</span><br><span class="line">  print "  \"tile-event\": [" &gt; x</span><br><span class="line">&#125;</span><br><span class="line">&#123;</span><br><span class="line">  printf "    %s", $0 &gt; x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">NR%</span>25!=0 &#123;</span><br><span class="line">  print "," &gt; x</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">NR%</span>25==0 &#123;</span><br><span class="line">  print "" &gt; x</span><br><span class="line">  print "  ]" &gt; x</span><br><span class="line">  print "&#125;" &gt; x</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">𝜆 jq -c '.Items[]' tile-event-import-transformed.json | ./tile-event-processed.awk</span><br></pre></td></tr></table></figure><p>Import all <strong>22</strong> processed JSON files into DynamoDB table:</p><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> for f in tile-event-import-processed-&#123;1..22&#125;.json; do \</span><br><span class="line">    echo $f; \</span><br><span class="line">    aws --profile development dynamodb batch-write-item --request-items file://$f; \</span><br><span class="line">  done</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;A simple, straightforward way export and import AWS DynamoDB table’s data with AWS CLI and a few scripts.&lt;/p&gt;
+&lt;p&gt;At first, export all the
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Get and read logs from AWS CloudWatch with saw</title>
@@ -418,29 +440,6 @@
       
       
         &lt;h2 id=&quot;Default-final-modifier&quot;&gt;&lt;a href=&quot;#Default-final-modifier&quot; class=&quot;headerlink&quot; title=&quot;Default final modifier&quot;&gt;&lt;/a&gt;Default final modifi
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Year 2018 in the Rear View Mirror</title>
-    <link href="https://terrencemiao.github.io/blog/2019/01/01/Year-2018-in-the-Rear-View-Mirror/"/>
-    <id>https://terrencemiao.github.io/blog/2019/01/01/Year-2018-in-the-Rear-View-Mirror/</id>
-    <published>2018-12-31T13:46:43.000Z</published>
-    <updated>2018-12-31T13:58:01.466Z</updated>
-    
-    <content type="html"><![CDATA[<p>2018 是一个让人敬畏恐惧“逢八必变”的年份。2018 是过去十年中最糟糕的一年，但也许是未来十年里最好的一年。</p><p>2018 年过去了，我很怀念它。</p><p><img src="/blog/img/Year%202018%20-%2001.jpg" alt="Year 2018 - 01" title="Year 2018 - 01"></p><p>图 1：2018 年是在过去十年中唯一的各项投资都为负增长的一年。</p><p><img src="/blog/img/Year%202018%20-%2002.jpg" alt="Year 2018 - 02" title="Year 2018 - 02"></p><p>图2：美国股市进入下半年一直跌跌不休。但在 Boxing Day 却创造了单日涨幅的纪录。</p><p><img src="/blog/img/Year%202018%20-%2003.jpg" alt="Year 2018 - 03" title="Year 2018 - 03"></p><p>图 3：黎曼 Zeta 函数，用于计算素数分布。2018 年多人声称证明了百年未解决的黎曼猜想，但最终都是闹剧收场。黎曼猜想依然有如最为壮美，巍峨，险峻的奇山，矗立在人类的智力巅峰之上。</p><p><img src="/blog/img/Year%202018%20-%2004.jpg" alt="Year 2018 - 04" title="Year 2018 - 04"></p><p>图 4：The cost of living，city by city。生活有多贵？中国六城市入选全球生活成本最昂贵的 top 25 list.</p><p><img src="/blog/img/Year%202018%20-%2005.jpg" alt="Year 2018 - 05" title="Year 2018 - 05"></p><p>图 5：肯尼亚的 Eliud Kipchoge 在 2018 年柏林马拉松上创造的 2 小时 1 分 39 秒的马拉松世界纪录。人类仍然在试图突破 2 小时完成马拉松的运动极限。</p><p><img src="/blog/img/Year%202018%20-%2006.jpg" alt="Year 2018 - 06" title="Year 2018 - 06"></p><p>图 6：中国·上海</p><p><img src="/blog/img/Year%202018%20-%2007.jpg" alt="Year 2018 - 07" title="Year 2018 - 07"></p><p>图 7：Chinese President Xi Jinping,centre, arrives with Premier Li Keqiang, left, for the opening session of the Chinese People’s Political Consultative Conference in Beijing’s Great Hall of the People on March 3, 2018.</p><p><img src="/blog/img/Year%202018%20-%2008.jpg" alt="Year 2018 - 08" title="Year 2018 - 08"></p><p>图 8：Chinese President Xi Jinping Speech.</p><p><img src="/blog/img/Year%202018%20-%2009.jpg" alt="Year 2018 - 09" title="Year 2018 - 09"></p><p>图 9：在 2018 年 Pantone Colour of the year，Ultra Violet 紫外光后，潘通子给出 2019 年度流行色 Living Coral  珊瑚橙。</p><p><img src="/blog/img/Year%202018%20-%2010.jpg" alt="Year 2018 - 10" title="Year 2018 - 10"></p><p>图 10：2018 年度汉字，由 “穷” 和 “丑” 合体所组成，读音是 “qiou”（音同糗），即又穷又丑的意思。不少网友表示，这字应该念 “wo”（我）。</p><p><img src="/blog/img/Year%202018%20-%2011.jpg" alt="Year 2018 - 11" title="Year 2018 - 11"></p><p>图 11：电影《甲方乙方》的结局。杨立新走到雪地里，抬起头，和每个普通人都一样，要继续面对风雪。屋子里面是红灯笼，亮堂堂的。外面已经是冷色调了。外面就是现实的生活。</p><p>“我很怀念它”，经历越多，这句话带来的感触就越厚重。</p><p>时间，梦想和爱，都是如此。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;2018 是一个让人敬畏恐惧“逢八必变”的年份。2018 是过去十年中最糟糕的一年，但也许是未来十年里最好的一年。&lt;/p&gt;
-&lt;p&gt;2018 年过去了，我很怀念它。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/blog/img/Year%202018%20-%2001.jpg&quot; al
       
     
     </summary>

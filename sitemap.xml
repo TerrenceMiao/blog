@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://terrencemiao.github.io/blog/2021/07/06/Export-and-Import-AWS-DynamoDB-data/</loc>
+    
+    <lastmod>2021-07-06T05:47:00.397Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://terrencemiao.github.io/blog/2021/06/04/Get-and-read-logs-from-AWS-CloudWatch-with-saw/</loc>
     
     <lastmod>2021-06-04T03:49:25.863Z</lastmod>
@@ -310,7 +317,7 @@
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2017/08/04/%E8%82%A1%E5%B8%82%E6%8A%95%E8%B5%84%E4%B8%89%E8%A6%81%E7%B4%A0/</loc>
+    <loc>https://terrencemiao.github.io/blog/2017/09/23/%E6%B5%85%E8%B0%88%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%95%B0%E5%AD%A6%E4%BF%AE%E5%85%BB/</loc>
     
     <lastmod>2018-04-28T07:47:12.955Z</lastmod>
     
@@ -324,7 +331,7 @@
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2017/09/23/%E6%B5%85%E8%B0%88%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%95%B0%E5%AD%A6%E4%BF%AE%E5%85%BB/</loc>
+    <loc>https://terrencemiao.github.io/blog/2017/08/04/%E8%82%A1%E5%B8%82%E6%8A%95%E8%B5%84%E4%B8%89%E8%A6%81%E7%B4%A0/</loc>
     
     <lastmod>2018-04-28T07:47:12.955Z</lastmod>
     
@@ -338,14 +345,14 @@
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2017/09/03/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E8%AF%BB%E4%B9%A6/</loc>
+    <loc>https://terrencemiao.github.io/blog/2017/07/16/%E6%9E%81%E7%AE%80%E4%B9%8B%E9%81%93-The-interface-%E4%BA%BA%E4%B8%8E%E6%9C%BA%E5%99%A8%E7%9A%84%E6%80%9D%E6%83%B3%E4%BA%A4%E6%B5%81/</loc>
     
     <lastmod>2018-04-28T07:47:12.954Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2017/07/16/%E6%9E%81%E7%AE%80%E4%B9%8B%E9%81%93-The-interface-%E4%BA%BA%E4%B8%8E%E6%9C%BA%E5%99%A8%E7%9A%84%E6%80%9D%E6%83%B3%E4%BA%A4%E6%B5%81/</loc>
+    <loc>https://terrencemiao.github.io/blog/2017/09/03/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E8%AF%BB%E4%B9%A6/</loc>
     
     <lastmod>2018-04-28T07:47:12.954Z</lastmod>
     
@@ -422,6 +429,13 @@
   </url>
   
   <url>
+    <loc>https://terrencemiao.github.io/blog/2018/01/12/OnePlus-5T-a-smartphone-full-of-all-the-right-ideas/</loc>
+    
+    <lastmod>2018-04-28T07:47:12.950Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://terrencemiao.github.io/blog/2017/02/01/Perfection/</loc>
     
     <lastmod>2018-04-28T07:47:12.950Z</lastmod>
@@ -443,13 +457,6 @@
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2018/01/12/OnePlus-5T-a-smartphone-full-of-all-the-right-ideas/</loc>
-    
-    <lastmod>2018-04-28T07:47:12.950Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://terrencemiao.github.io/blog/2017/09/20/Geoffrey-Hinton-interview/</loc>
     
     <lastmod>2018-04-28T07:47:12.949Z</lastmod>
@@ -457,14 +464,14 @@
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2018/03/26/House-Prices-Down-Under/</loc>
+    <loc>https://terrencemiao.github.io/blog/2017/03/12/Influence-Without-Authority/</loc>
     
     <lastmod>2018-04-28T07:47:12.949Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2017/03/12/Influence-Without-Authority/</loc>
+    <loc>https://terrencemiao.github.io/blog/2018/03/26/House-Prices-Down-Under/</loc>
     
     <lastmod>2018-04-28T07:47:12.949Z</lastmod>
     
