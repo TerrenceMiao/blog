@@ -6,7 +6,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://terrencemiao.github.io/blog/"/>
-  <updated>2021-07-30T10:52:12.054Z</updated>
+  <updated>2022-05-02T06:50:23.775Z</updated>
   <id>https://terrencemiao.github.io/blog/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Convert JSON to CSV by using jq</title>
+    <link href="https://terrencemiao.github.io/blog/2022/05/02/Convert-JSON-to-CSV-by-using-jq/"/>
+    <id>https://terrencemiao.github.io/blog/2022/05/02/Convert-JSON-to-CSV-by-using-jq/</id>
+    <published>2022-05-02T06:20:52.000Z</published>
+    <updated>2022-05-02T06:50:23.775Z</updated>
+    
+    <content type="html"><![CDATA[<p>Step by step convert exported JSON data from AWS DynamoDB table into CSV, by using <code>jq</code>.</p><p>Export all the data from AWS DynamoDB table at first:</p><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">𝜆 aws --profile production dynamodb scan --table-name tiles &gt; tiles.json</span><br></pre></td></tr></table></figure><p>The exported JSON data looks like:</p><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    "Items": [</span><br><span class="line">        &#123;</span><br><span class="line">            "last_modified_date": &#123;</span><br><span class="line">                "S": "2021-12-09T01:15:25.335516"</span><br><span class="line">            &#125;,</span><br><span class="line">            "valid_from": &#123;</span><br><span class="line">                "S": "2021-12-09T01:00"</span><br><span class="line">            &#125;,</span><br><span class="line">            "created_date": &#123;</span><br><span class="line">                "S": "2021-12-09T01:15:25.334965"</span><br><span class="line">            &#125;,</span><br><span class="line">            "status": &#123;</span><br><span class="line">                "S": "PUBLISHED"</span><br><span class="line">            &#125;,</span><br><span class="line">            "valid_to": &#123;</span><br><span class="line">                "S": "2022-01-31T23:00"</span><br><span class="line">            &#125;,</span><br><span class="line">            "id": &#123;</span><br><span class="line">                "S": "b2c60f43-a81c-4363-a68a-dfe7682182d7"</span><br><span class="line">            &#125;,</span><br><span class="line">            "description": &#123;</span><br><span class="line">                "S": "Hit the road Jack!"</span><br><span class="line">            &#125;,</span><br><span class="line">            "title": &#123;</span><br><span class="line">                "S": "Novated Lease"</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">...</span><br><span class="line">    ],</span><br><span class="line">    "Count": 223,</span><br><span class="line">    "ScannedCount": 223,</span><br><span class="line">    "ConsumedCapacity": null</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>Extract / transform JSON data:</p><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">𝜆 cat tiles.json | jq '[.Items[] | &#123; id: .id.S, title: .title.S, description: .description.S, status: .status.S, valid_from: .valid_from.S, valid_to: .valid_to.S &#125;]' &gt; tiles-extracted.json</span><br><span class="line">[</span><br><span class="line">  &#123;</span><br><span class="line">    "id": "b2c60f43-a81c-4363-a68a-dfe7682182d7",</span><br><span class="line">    "title": "Novated Lease",</span><br><span class="line">    "description": "Hit the road Jack!",</span><br><span class="line">    "status": "PUBLISHED",</span><br><span class="line">    "valid_from": "2021-12-09T01:00",</span><br><span class="line">    "valid_to": "2022-01-31T23:00"</span><br><span class="line">  &#125;,</span><br><span class="line">...</span><br><span class="line">]</span><br></pre></td></tr></table></figure><p>Convert JSON data into CSV:</p><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">𝜆 cat tiles-extracted.json | jq -r '(.[0] | keys_unsorted) as $keys | $keys, map([.[ $keys[] ]])[] | @csv' &gt; tiles.csv</span><br></pre></td></tr></table></figure><h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul><li>How to convert arbitrary simple JSON to CSV using jq, <a href="https://stackoverflow.com/questions/32960857/how-to-convert-arbitrary-simple-json-to-csv-using-jq" target="_blank" rel="noopener">https://stackoverflow.com/questions/32960857/how-to-convert-arbitrary-simple-json-to-csv-using-jq</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Step by step convert exported JSON data from AWS DynamoDB table into CSV, by using &lt;code&gt;jq&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Export all the data from AWS D
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Customise VS Code settings and keybindings with Geddski macros</title>
@@ -416,30 +438,6 @@
       
       
         &lt;p&gt;Try to export items from AWS Test environment DynamoDB tables into Production. A simple Bash SHELL script, with a few commands and AWS CL
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Keep running</title>
-    <link href="https://terrencemiao.github.io/blog/2019/01/11/Keep-running/"/>
-    <id>https://terrencemiao.github.io/blog/2019/01/11/Keep-running/</id>
-    <published>2019-01-11T00:27:56.000Z</published>
-    <updated>2019-01-11T00:42:07.667Z</updated>
-    
-    <content type="html"><![CDATA[<p>许多杰出的人物都是长跑爱好者，比如阿兰·图灵。</p><p>图灵的头衔有很多，传奇性的数学家、逻辑学家、现代计算机之父。但很少人知道他也是一位出色的跑者，甚至差点站上了奥运会的舞台。</p><p>图灵从中学就开始跑步，但直到 30 多岁才正式进行长跑训练。</p><p>跑道上的图灵“大器晚成”，出色的运动天赋丝毫不逊色于他的头脑。</p><p>14 岁那年，他在谢伯恩寄宿高中就读的第一日，由于大罢工，当地的公共交通设施全部停运。图灵没有等到交通恢复，就从南安普敦一口气骑行 96 公里到达位于多塞特郡西北的学校上学，引发全校轰动。</p><p>1931 年，当他进入剑桥国王学院学习时，他曾多次在学校和伊利镇之间进行折返跑，一个来回就差不多 50 公里。</p><p>1947 年，在莱斯特郡拉夫堡（Loughborough）大学体育场举行的英国业余田径协会马拉松锦标赛上，图灵跑出了他在马拉松赛中的个人最好成绩 2 小时 46 分 03 秒，在那场比赛中名列第五。</p><p>在 1948 年伦敦的奥运会马拉松比赛上，当时冠军的成绩是 2 小时 34 分 52 秒。图灵仅比金牌得主慢了 11 分钟。而据英国《泰晤士报》报道，图灵的最好成绩在当年（1947年）足以排名世界前三。</p><p><img src="https://therunnereclectic.files.wordpress.com/2014/11/alan-turing-running.jpg" alt="Alan Turning running" title="Alan Turning running"></p><p>When Alan Turing was asked why he punished himself so much in training. He said “I have such a stressful job that the only way I can get it out of my mind is by running hard; its the only way I can get some release.”</p><p>奥斯卡最佳改编剧本电影《模仿游戏》The Imitation Game 是根据他的传记《Alan Turing: The Enigma》拍摄的。</p><p><img src="https://img01.mgo-images.com/image/thumbnail/v2/content/MMV23F9EE71557457EFE04D2B6E4DBBA320A.jpeg" alt="The Imitation Game" title="The Imitation Game"></p><p><img src="https://static.gamesurf.it/immagini/2014/11272/big/the_imitation_game_584289.jpg" alt="Movie scene: Alan Turning running" title="Movie scene: Alan Turning running"></p><p>苹果公司的商标一度被误认为是源于图灵自杀时咬下的苹果，但该图案的设计师和苹果公司都否认这一说法。</p><p>Stephen Fry said on the BBC show QI XL in 2011 that his friend Steve Jobs said of the Turing tale, “It isn’t true, but God we wish it were!”</p><p>乔布斯被英国广播公司电视节目《QI》主持人史蒂芬·弗莱问到此事时说：“这（LOGO 向图灵致敬）不是真的，但是上帝啊，我们希望它是真的。”</p><p><img src="https://www.fineprintart.com/images/blog/history-of-apple-logo/Apple-Logo-by-Rob-Janoff.svg" alt="&quot;Apple logo&quot;" title="Apple logo"></p><p>Keep running.</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;许多杰出的人物都是长跑爱好者，比如阿兰·图灵。&lt;/p&gt;
-&lt;p&gt;图灵的头衔有很多，传奇性的数学家、逻辑学家、现代计算机之父。但很少人知道他也是一位出色的跑者，甚至差点站上了奥运会的舞台。&lt;/p&gt;
-&lt;p&gt;图灵从中学就开始跑步，但直到 30 多岁才正式进行长跑训练。&lt;/p&gt;
-&lt;p
       
     
     </summary>
