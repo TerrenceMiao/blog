@@ -210,6 +210,8 @@ stack-overflow.log                                                              
 
 Without using `scp`, transferring files directly is not possible with the AWS Session Manager. You should use S3 bucket and the AWS CLI to exchange data.
 
+**NOTE** This approach doesn't require to have a Public IP on EC2 instance.
+
 OKTA
 ----
 
