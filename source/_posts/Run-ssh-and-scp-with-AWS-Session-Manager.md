@@ -90,7 +90,7 @@ host i-* mi-*
 𝜆 date
 Thu 21 Nov 2019 04:33:03 UTC
 
-𝜆 aws sts get-session-token --duration-seconds 129600 --profile sandpit
+𝜆 aws sts get-session-token --duration-seconds 129600 --profile session
 {
     "Credentials": {
         "SecretAccessKey": "I7brpY8XWDWYwwyUdp5PLq7cxpskuMSHyBtPjPNE",
@@ -124,16 +124,21 @@ aws_session_token = FwoGZXIvYXdzENL//////////wEaDKKdWTVmCrwKRiMbOSKCAbkQr ... Yi
 
 Starting session with SessionId: ec2-user-094c34172bdc6fc22
 sh-4.2$ whoami
-ssm-user
+SSM_pwr_user
+```
 
-𝜆 aws ssm send-command --instance-ids "i-e2f189dashfdf65weqfwda2" --document-name "AWS-RunShellScript" --comment "IP config" --parameters commands=ifconfig --output text
+- Run Session Manager commands
+
+
+```console
+𝜆 aws ssm send-command --instance-ids "i-e2f189dashfdf65weqfwda2" --document-name "AWS-RunShellScript" --comment "IP config" --parameters commands=ifconfig --output text --profile session
 COMMAND	39e80533-376e-46fa-bb11-8daf040fe80f	IP config	0	0	AWS-RunShellScript		0	1574377262.9	50	0			1574370062.9		Pending	Pending	1
 CLOUDWATCHOUTPUTCONFIG		False
 INSTANCEIDS	i-e2f189dashfdf65weqfwda2
 NOTIFICATIONCONFIG
 COMMANDS	ifconfig
 
-𝜆 aws ssm list-command-invocations --command-id 39e80533-376e-46fa-bb11-8daf040fe80f --details --profile personal
+𝜆 aws ssm list-command-invocations --command-id 39e80533-376e-46fa-bb11-8daf040fe80f --details --profile session
 {
     "CommandInvocations": [
         {
@@ -183,6 +188,8 @@ COMMANDS	ifconfig
 
 - Test `ssh` command with session token
 
+Copy AWS profile `[session]` credentials content into profile `[default]`.
+
 ```console
 𝜆 ssh -i .ssh/aws-key.pem -l ec2-user i-e2f189dashfdf65weqfwda2
 Last login: Fri Nov 22 00:19:32 2019 from localhost
@@ -201,7 +208,7 @@ https://aws.amazon.com/amazon-linux-2/
 stack-overflow.log                                                                 100%   67KB 437.0KB/s   00:00
 ```
 
-Transferring files directly is not possible with the AWS Session Manager. You should use S3 bucket and the AWS CLI to exchange data. Doing so is not quite the same as using `scp`.
+Without using `scp`, transferring files directly is not possible with the AWS Session Manager. You should use S3 bucket and the AWS CLI to exchange data.
 
 OKTA
 ----
