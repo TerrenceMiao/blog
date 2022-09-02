@@ -6,7 +6,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://terrencemiao.github.io/blog/"/>
-  <updated>2022-09-02T05:34:55.257Z</updated>
+  <updated>2022-09-02T05:49:55.670Z</updated>
   <id>https://terrencemiao.github.io/blog/</id>
   
   <author>
@@ -21,16 +21,19 @@
     <link href="https://terrencemiao.github.io/blog/2022/09/02/GitHub-Actions/"/>
     <id>https://terrencemiao.github.io/blog/2022/09/02/GitHub-Actions/</id>
     <published>2022-09-02T05:33:47.000Z</published>
-    <updated>2022-09-02T05:34:55.257Z</updated>
+    <updated>2022-09-02T05:49:55.670Z</updated>
     
-    <content type="html"><![CDATA[<p>Have you tried GitHub Actions?</p>]]></content>
+    <content type="html"><![CDATA[<p>Have you tried GitHub Actions?</p><ul><li>GitHub Actions</li></ul><p><img src="/blog/img/GitHub%20Actions.png" alt="GitHub Actions" title="GitHub Actions"></p><ul><li>GitHub Actions Workflow</li></ul><p><img src="/blog/img/GitHub%20Actions.png" alt="GitHub Actions Workflow" title="GitHub Actions Workflow"></p>]]></content>
     
     <summary type="html">
     
       
       
         &lt;p&gt;Have you tried GitHub Actions?&lt;/p&gt;
-
+&lt;ul&gt;
+&lt;li&gt;GitHub Actions&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/img/GitHub%20Actions.png&quot; alt=&quot;GitHub Actions&quot; t
       
     
     </summary>
