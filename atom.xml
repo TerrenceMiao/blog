@@ -6,7 +6,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://terrencemiao.github.io/blog/"/>
-  <updated>2022-09-07T03:58:31.876Z</updated>
+  <updated>2022-10-10T02:12:17.469Z</updated>
   <id>https://terrencemiao.github.io/blog/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Geekbench head to head - Mac vs iPad vs Android</title>
+    <link href="https://terrencemiao.github.io/blog/2022/10/10/Geekbench-head-to-head-Mac-vs-iPad-vs-Android/"/>
+    <id>https://terrencemiao.github.io/blog/2022/10/10/Geekbench-head-to-head-Mac-vs-iPad-vs-Android/</id>
+    <published>2022-10-10T01:48:30.000Z</published>
+    <updated>2022-10-10T02:12:17.469Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>Geekbench head to head - Mac vs iPad vs Android:</strong></p><ul><li>10 years old Mac mini Late 2012 (2.6GHz quad-core Intel Core i7 Turbo Boost up to 3.6GHz)</li><li>4 years old MacBook Pro 15-inch Mid 2018 (2.6GHz 6-core Intel Core i7, Turbo Boost up to 4.3GHz)</li><li>4 years old iPad Pro 11” 2018 3rd gen (A12X Bionic 7 nm, 4-core Vortex at 2.5GHz , 4-core Tempest at 1.6GHz)</li><li>1 year old MacBook Pro 16-inch 2021 (Apple Silicon M1 Pro, 10-core CPU at 3.2GHz)</li><li>没满岁的 Android (Snapdragon 8 Gen1, 1 core Cortex-X2 at 3GHz, 3-core Cortex-A710 at 2.5GHz, and 4-core Cortex-A510 at 1.8GHz)</li></ul><p><img src="/blog/img/Geekbench%20head%20to%20head%20-%20Mac%20vs%20iPad%20vs%20Android.png" alt="Geekbench head to head - Mac vs iPad vs Android" title="Geekbench head to head - Mac vs iPad vs Android"></p><p><strong>Conclusion:</strong></p><ol><li>Intel 已经是江河日下，被时代淘汰</li><li>Apple Processors 实在太强。 四年前的处理器还可吊打当前最新的 Snapdragon Processors</li><li>同是 2018 年产品，iPad Pro 把 Intel CPU based 的 MacBook Pro 按在地上碾压</li></ol><p>ARM vs x86 谁是未来，一目了然。</p><p><strong>NOTE</strong></p><p>The Apple M1 chip is built for Macs, and the A15 for phones. They use completely different architectures. The A15 prioritizes battery over performance. The M1 has more firepower for graphics.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;strong&gt;Geekbench head to head - Mac vs iPad vs Android:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;10 years old Mac mini Late 2012 (2.6GHz quad-core Intel Co
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>How to use Web Inspector and debug Safari on iPhone/iPad</title>
@@ -424,28 +447,6 @@
       
       
         &lt;h2 id=&quot;AWS-EKS&quot;&gt;&lt;a href=&quot;#AWS-EKS&quot; class=&quot;headerlink&quot; title=&quot;AWS EKS&quot;&gt;&lt;/a&gt;AWS EKS&lt;/h2&gt;&lt;p&gt;After AWS EKS for Fargate annouced in Re:Invent 20
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Why React?</title>
-    <link href="https://terrencemiao.github.io/blog/2019/12/01/Why-React/"/>
-    <id>https://terrencemiao.github.io/blog/2019/12/01/Why-React/</id>
-    <published>2019-12-01T02:40:56.000Z</published>
-    <updated>2019-12-01T03:27:51.404Z</updated>
-    
-    <content type="html"><![CDATA[<p>A new pedigree of Frontend Development.</p><p>The following are the preferred technical choices for any new projects that do not have a “<strong>hammer whats already there</strong>“ constraint that have been chosen for consistency.</p><h2 id="Programming-Language-TypeScript"><a href="#Programming-Language-TypeScript" class="headerlink" title="Programming Language: TypeScript "></a>Programming Language: TypeScript </h2><p>Alternatives to avoid:</p><ul><li><strong>Raw JS</strong> / <a href="https://babeljs.io/" target="_blank" rel="noopener"><strong>Babel</strong></a>: Types can prevent a significant amount of bugs and provide a great means of documenting code that can be validated by a compiler. Therefore we will not dabble in untyped programming languages for Frontend development.</li><li>Other TypeSafe alternatives:<ul><li><a href="https://dart.dev/" target="_blank" rel="noopener"><strong>Dart</strong></a> / <a href="https://elm-lang.org/" target="_blank" rel="noopener"><strong>Elm</strong></a> / <a href="https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor" target="_blank" rel="noopener"><strong>Blazor</strong></a> - typed compile to JavaScript languages: Browsers operate on JavaScript using a language that is too far removed from JS means people will need to learn two language and fix bugs at two levels.</li><li><a href="https://flow.org/" target="_blank" rel="noopener"><strong>Flow</strong></a> - A facebook alternative to TypeScript. Flow was a decent experiment into JavaScript type safety by the Facebook team, but news from inside Facebook (chats at conferences) is that it is not actively getting maintained. Therefore it should be avoided.</li></ul></li></ul><h2 id="UI-Library-React"><a href="#UI-Library-React" class="headerlink" title="UI Library: React"></a>UI Library: React</h2><p>Alternatives to avoid:</p><ul><li><a href="https://angular.io/" target="_blank" rel="noopener"><strong>Angular</strong></a>: <strong>Angular</strong> goes through significant breaking changes as can be <a href="https://github.com/angular/angular/blob/master/CHANGELOG.md" target="_blank" rel="noopener">witnessed by the changelog</a>. Also <strong>Angular</strong> is a full framework (as opposed to a library), but people rarely use it as a framework as there will be inevitable external dependencies for alternative (even better) community tools e.g. <a href="https://rxjs.dev/" target="_blank" rel="noopener"><strong>rxjs</strong></a> for state, <a href="https://github.com/axios/axios" target="_blank" rel="noopener"><strong>axios</strong></a> for api etc.</li><li><a href="https://vuejs.org/" target="_blank" rel="noopener"><strong>Vue</strong></a>: <strong>Vue</strong> is the third most popular choice. However it not backed by a major enterprise (Facebook for <strong>React</strong>, Google for <strong>Angular</strong>)</li><li><a href="https://svelte.dev/" target="_blank" rel="noopener"><strong>Svelte</strong></a>: Same reasons as <strong>Vue</strong>.</li></ul><h2 id="State-Management-MobX"><a href="#State-Management-MobX" class="headerlink" title="State Management: MobX"></a>State Management: <a href="https://mobx.js.org/" target="_blank" rel="noopener">MobX</a></h2><p>Alternatives to avoid:</p><ul><li><a href="https://redux.js.org/" target="_blank" rel="noopener"><strong>Redux</strong></a>: <strong>Redux</strong> is definitely the more popular choice in the React community. However most people will use it with some additional middleware library e.g. <a href="https://github.com/reduxjs/redux-thunk" target="_blank" rel="noopener">redux-thunk</a> or <a href="https://github.com/redux-saga/redux-saga/" target="_blank" rel="noopener">redux-saga</a> leading to multiple ways of doing Frontend. Also, <strong>Redux</strong> is significantly more verbose (because of always new object creation) and difficult to optimise (because of no internal knowledge of what changed).</li></ul><h2 id="Styles-CSS-in-JS"><a href="#Styles-CSS-in-JS" class="headerlink" title="Styles: CSS in JS"></a>Styles: CSS in JS</h2><p>Prefer <a href="https://github.com/emotion-js/emotion" target="_blank" rel="noopener">Emotion</a> or <a href="https://github.com/typestyle/typestyle" target="_blank" rel="noopener">TypeStyle</a> over others.</p><p>Alternatives to avoid:</p><ul><li>CSS preprocessor (e.g. <a href="https://sass-lang.com/" target="_blank" rel="noopener"><strong>sass</strong></a> / <a href="https://github.com/css-modules/css-modules" target="_blank" rel="noopener"><strong>css-modules</strong></a>). For CSS in JS there is an <a href="https://speakerdeck.com/vjeux/react-css-in-js" target="_blank" rel="noopener">excellent presentation</a> that you should checkout. Key reasons are clear code co-location and management practices for CSS, the same way <strong>React</strong> does it for Html (with JSX).</li></ul><h2 id="End-to-End-Testing-Cypress"><a href="#End-to-End-Testing-Cypress" class="headerlink" title="End to End Testing : Cypress"></a>End to End Testing : Cypress</h2><p><a href="https://www.cypress.io/" target="_blank" rel="noopener"><strong>Cypress</strong></a> for E2E testing.</p><p>Alternatives to avoid:</p><ul><li><a href="https://selenium.dev/" target="_blank" rel="noopener"><strong>Selenium</strong></a> based solutions (e.g. <a href="https://www.protractortest.org/#/" target="_blank" rel="noopener"><strong>Protractor</strong></a> / <a href="https://nightwatchjs.org/" target="_blank" rel="noopener"><strong>Nightwatch</strong></a>). <strong>Selenium</strong> operates over a wire transfer protocol that makes it impossible to provide many of the debugging features provided by <strong>Cypress</strong>. <strong>Cypress</strong> operates in process with the tests making automatic retries with greater flake resistance and a significantly improved debugging experience.</li></ul><h2 id="HTTP-Requests"><a href="#HTTP-Requests" class="headerlink" title="HTTP Requests"></a>HTTP Requests</h2><p>Prefer <a href="https://github.com/axios/axios" target="_blank" rel="noopener"><strong>axios</strong></a> due to is built in TypeScript definitions, great browser support and community guidance.</p><p>Alternatives to avoid:</p><ul><li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API" target="_blank" rel="noopener"><strong>fetch</strong></a>: Needs polyfill and needs explicit calls for json de-serialization.</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;A new pedigree of Frontend Development.&lt;/p&gt;
-&lt;p&gt;The following are the preferred technical choices for any new projects that do not have a 
       
     
     </summary>
