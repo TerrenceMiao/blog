@@ -6,7 +6,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://terrencemiao.github.io/blog/"/>
-  <updated>2022-10-10T02:12:17.469Z</updated>
+  <updated>2022-10-12T12:16:31.499Z</updated>
   <id>https://terrencemiao.github.io/blog/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Remove Image Background</title>
+    <link href="https://terrencemiao.github.io/blog/2022/10/12/Remove-Image-Background/"/>
+    <id>https://terrencemiao.github.io/blog/2022/10/12/Remove-Image-Background/</id>
+    <published>2022-10-12T11:59:54.000Z</published>
+    <updated>2022-10-12T12:16:31.499Z</updated>
+    
+    <content type="html"><![CDATA[<p>Remove backgrounds 100% automatically in 5 seconds with one click. Thanks to remove.bg <em><a href="https://www.remove.bg/" target="_blank" rel="noopener">https://www.remove.bg/</a></em> clever AI.</p><p><img src="/blog/img/Messi%2030.png" alt="Messi" title="Messi"></p><p><img src="/blog/img/小泉今日子.png" alt="小泉今日子" title="小泉今日子"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Remove backgrounds 100% automatically in 5 seconds with one click. Thanks to remove.bg &lt;em&gt;&lt;a href=&quot;https://www.remove.bg/&quot; target=&quot;_blan
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Geekbench head to head - Mac vs iPad vs Android</title>
@@ -426,27 +447,6 @@
       
       
         &lt;h2 id=&quot;AWS-EKS-with-eksctl&quot;&gt;&lt;a href=&quot;#AWS-EKS-with-eksctl&quot; class=&quot;headerlink&quot; title=&quot;AWS EKS, with eksctl&quot;&gt;&lt;/a&gt;AWS EKS, with eksctl&lt;/h2&gt;&lt;p&gt;
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>AWS EKS for Fargate</title>
-    <link href="https://terrencemiao.github.io/blog/2019/12/05/AWS-EKS-with-Fargate/"/>
-    <id>https://terrencemiao.github.io/blog/2019/12/05/AWS-EKS-with-Fargate/</id>
-    <published>2019-12-04T23:26:58.000Z</published>
-    <updated>2019-12-10T23:37:51.737Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="AWS-EKS"><a href="#AWS-EKS" class="headerlink" title="AWS EKS"></a>AWS EKS</h2><p>After AWS EKS for Fargate annouced in Re:Invent 2019 - <a href="https://aws.amazon.com/blogs/aws/amazon-eks-on-aws-fargate-now-generally-available/" target="_blank" rel="noopener">Amazon EKS on AWS Fargate Now Generally Available</a>, I have a quick spin.</p><p>General configuration:</p><p><img src="/blog/img/AWS%20EKS%20on%20Fargate%20-%20Configuration.png" alt="AWS EKS on Fargate - Configuration" title="AWS EKS on Fargate - Configuration"></p><p><img src="/blog/img/AWS%20EKS%20on%20Fargate%20-%20Configuration%20II.png" alt="AWS EKS on Fargate - Configuration" title="AWS EKS on Fargate - Configuration"></p><p>Fargate profile configuration:</p><p><img src="/blog/img/AWS%20EKS%20on%20Fargate%20-%20Profile.png" alt="AWS EKS on Fargate - Profile" title="AWS EKS on Fargate - Profile"></p><p>Fargate roles:</p><p><img src="/blog/img/AWS%20EKS%20on%20Fargate%20-%20Roles.png" alt="AWS EKS on Fargate - Roles" title="AWS EKS on Fargate - Roles"></p><p><code>CustomEKSRole</code> role has <code>AmazonEKSClusterPolicy</code> and <code>AmazonEKSServicePolicy</code>.</p><p><code>CustomEKSFargatePodExecutionRole</code> role has <code>AmazonEKSFargatePodExecutionRolePolicy</code>, and Trust relationships:</p><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  "Version": "2012-10-17",</span><br><span class="line">  "Statement": [</span><br><span class="line">    &#123;</span><br><span class="line">      "Sid": "",</span><br><span class="line">      "Effect": "Allow",</span><br><span class="line">      "Principal": &#123;</span><br><span class="line">        "Service": "eks-fargate-pods.amazonaws.com"</span><br><span class="line">      &#125;,</span><br><span class="line">      "Action": "sts:AssumeRole"</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><code>CustomEKSWorkerNodeRole</code> role has <code>AmazonEKSWorkerNodePolicy</code>, <code>AmazonEKS_CNI_Policy</code>, <code>AmazonEC2ContainerRegistryReadOnly</code>, and Trust relationships:</p><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  "Version": "2012-10-17",</span><br><span class="line">  "Statement": [</span><br><span class="line">    &#123;</span><br><span class="line">      "Effect": "Allow",</span><br><span class="line">      "Principal": &#123;</span><br><span class="line">        "Service": "ec2.amazonaws.com"</span><br><span class="line">      &#125;,</span><br><span class="line">      "Action": "sts:AssumeRole"</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>Namespace for Fargate profile Pod Selectors is <code>default</code>.</p><p>Subnets for Fargate, including private subnets (subnet without Internet Gateway):</p><p><img src="/blog/img/AWS%20EKS%20on%20Fargate%20-%20Subnets.png" alt="AWS EKS on Fargate - Subnets" title="AWS EKS on Fargate - Subnets"></p><h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul><li>Getting Started with AWS Fargate on Amazon EKS, <a href="https://docs.aws.amazon.com/eks/latest/userguide/fargate-getting-started.html" target="_blank" rel="noopener">https://docs.aws.amazon.com/eks/latest/userguide/fargate-getting-started.html</a></li><li>Amazon EKS Worker Node IAM Role, <a href="https://docs.aws.amazon.com/eks/latest/userguide/worker_node_IAM_role.html" target="_blank" rel="noopener">https://docs.aws.amazon.com/eks/latest/userguide/worker_node_IAM_role.html</a></li><li>EKS + Fargate = Extensibility of Kubernetes + Serverless Benefits, <a href="https://itnext.io/eks-fargate-extensibility-of-kubernetes-serverless-benefits-77599ac1763" target="_blank" rel="noopener">https://itnext.io/eks-fargate-extensibility-of-kubernetes-serverless-benefits-77599ac1763</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;AWS-EKS&quot;&gt;&lt;a href=&quot;#AWS-EKS&quot; class=&quot;headerlink&quot; title=&quot;AWS EKS&quot;&gt;&lt;/a&gt;AWS EKS&lt;/h2&gt;&lt;p&gt;After AWS EKS for Fargate annouced in Re:Invent 20
       
     
     </summary>
