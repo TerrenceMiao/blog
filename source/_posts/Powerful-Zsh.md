@@ -52,3 +52,9 @@ Install `Fig` https://fig.io/, an IDE-style autocomplete but for terminal, and c
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && . "$HOME/.fig/shell/zshrc.post.zsh"
 ...
 ```
+
+References
+----------
+
+- How To Make Your Boring Mac Terminal So Much Better, _https://www.youtube.com/watch?v=CF1tMjvHDRA_
+- How To Setup Your Mac Terminal, _https://www.josean.com/posts/terminal-setup_
