@@ -204,10 +204,8 @@ COMMANDS	ifconfig
 
 - Test `ssh` command with session token
 
-Copy AWS profile `[session]` credentials content into profile `[default]`.
-
 ```console
-𝜆 ssh -i .ssh/aws-key.pem -l ec2-user i-e2f189dashfdf65weqfwda2
+𝜆 AWS_PROFILE=session ssh -i .ssh/aws-key.pem -l ec2-user i-e2f189dashfdf65weqfwda2
 Last login: Fri Nov 22 00:19:32 2019 from localhost
 
        __|  __|_  )
@@ -220,7 +218,7 @@ https://aws.amazon.com/amazon-linux-2/
 - Test `scp` command with session token
 
 ```console
-𝜆 scp -i .ssh/aws-key.pem /tmp/stack-overflow.log ec2-user@i-e2f189dashfdf65weqfwda2:/tmp
+𝜆 AWS_PROFILE=session scp -i .ssh/aws-key.pem /tmp/stack-overflow.log ec2-user@i-e2f189dashfdf65weqfwda2:/tmp
 stack-overflow.log                                          100%   67KB 437.0KB/s   00:00
 ```
 
@@ -229,7 +227,7 @@ Without using `scp`, transferring files directly is not possible with the AWS Se
 - Test `ssh` tunnel
 
 ```console
-𝜆 ssh -i .ssh/aws-key.pem -L 443:www.google.com:443 -l ec2-user@i-e2f189dashfdf65weqfwda2
+𝜆 AWS_PROFILE=session ssh -i .ssh/aws-key.pem -L 443:www.google.com:443 -l ec2-user@i-e2f189dashfdf65weqfwda2
 ```
 
 OKTA
