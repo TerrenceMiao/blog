@@ -2,6 +2,7 @@ blog: 部落格
 albums: 相簿
 categories: 分類
 tags: 標籤
+tagcloud: 標籤雲
 archive: 所有文章
 links: 連結
 about: 關於
@@ -23,3 +24,11 @@ contents: 文章目錄
 shareto: 分享至
 reading_before: 正在查看
 reading_after: 下的文章
+search: 搜索
+sitemap: 網站地圖
+footer_rss: 訂閱本站
+contact_author: 聯繫博主
+topped: 置頂
+copyright_author: 原文作者
+copyright_link: 原文鏈接
+copyright_notice: 版權聲明

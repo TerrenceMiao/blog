@@ -2,6 +2,7 @@ blog: 博客
 albums: 相册
 categories: 分类
 tags: 标签
+tagcloud: 标签云
 archive: 归档
 links: 链接
 about: 关于
@@ -23,3 +24,11 @@ contents: 文章目录
 shareto: 分享到
 reading_before: 正在查看
 reading_after: 下的文章
+search: 搜索
+sitemap: 网站地图
+footer_rss: 订阅本站
+contact_author: 联系博主
+topped: 置顶
+copyright_author: 原文作者
+copyright_link: 原文链接
+copyright_notice: 版权声明

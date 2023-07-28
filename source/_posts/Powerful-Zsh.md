@@ -4,7 +4,7 @@ date: 2022-08-02 19:42:06
 tags:
 ---
 
-![Powerful Zsh](/blog/img/Powerful%20Zsh.png "Powerful Zsh")
+![Powerful Zsh](/img/Powerful%20Zsh.png "Powerful Zsh")
 
 First you have `Zsh`, next install `Oh My Zsh` https://ohmyz.sh/
 

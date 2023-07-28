@@ -10,7 +10,7 @@ tags:
 
 经典的 iPhone 5 / 5s
 
-![iPhone 5 / 5s](/blog/img/iPhone%205s%20Gold.jpg "iPhone 5 / 5s")
+![iPhone 5 / 5s](/img/iPhone%205s%20Gold.jpg "iPhone 5 / 5s")
 
 适合单手操作，体重适中，不打滑，有握持感。
 
@@ -20,7 +20,7 @@ tags:
 
 BTW，耳机 maybe 下一个智能产品竞争领域。Headphones 已经成为手机以外第二个人手必备的设备了。
 
-![iPad Mini 2 / 3 / 4](/blog/img/iPad%20Mini%202.jpg "iPad Mini 2 / 3 / 4")
+![iPad Mini 2 / 3 / 4](/img/iPad%20Mini%202.jpg "iPad Mini 2 / 3 / 4")
 
 这是我在 October 23, 2012，the first generation iPad Mini was announced 时写的评论：
 
@@ -34,19 +34,19 @@ iPad Mini 2 使用上 Retina Display. 至今仍然是轻便的不行，仍然流
 
 Why the hell MacBook has removed sleep light / 呼吸灯? Think about it after you have a look Transformers Mac light：
 
-![信仰灯](/blog/img/Apple%20logo%20splash%20color%20paint%20illustration.jpg "信仰灯")
+![信仰灯](/img/Apple%20logo%20splash%20color%20paint%20illustration.jpg "信仰灯")
 
 为甚 turn off 信仰灯，信仰的灯塔？有多少用户会在乎多费那么一点点用电。留下的只是深深的执念，蛋蛋的忧伤？
 
-![MagSafe](/blog/img/MagSafe.png "MagSafe")
+![MagSafe](/img/MagSafe.png "MagSafe")
 
 Magsafe 磁吸充电接口一直被认为是饱含创新和智慧设计。论安全性与便捷性还有什么比 MagSafe 做的更好？
 
-![Mac Mini](/blog/img/Mac%20Mini.jpg "Mac Mini")
+![Mac Mini](/img/Mac%20Mini.jpg "Mac Mini")
 
 Why small is beautiful? 看看 Mac Mini 的结构。
 
-![Mac Mini structure](/blog/img/Mac%20Mini%20structure.png "Mac Mini structure")
+![Mac Mini structure](/img/Mac%20Mini%20structure.png "Mac Mini structure")
 
 能把一个功能完整的 PC 主机，放进如此狭小的空间内，功耗低又安静，除了 brilliant 还能用什么来形容？
 

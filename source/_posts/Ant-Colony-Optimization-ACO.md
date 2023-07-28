@@ -36,7 +36,7 @@ A visual demo of Ant Colony Optimisation written in Javascript (ES6):
 
 Another visual demo of Ant Colony Optimisation:
 
-![Visual demo of Ant Colony Optimisation](/blog/img/Visual%20demo%20of%20Ant%20Colony%20Optimisation.png "Visual demo of Ant Colony Optimisation")
+![Visual demo of Ant Colony Optimisation](/img/Visual%20demo%20of%20Ant%20Colony%20Optimisation.png "Visual demo of Ant Colony Optimisation")
 
 References
 ----------

@@ -17,9 +17,9 @@ Step by step:
 - Now on iOS device, open Safari and go to the website you want to debug
 - On Macbook, open Safari and go to "Develop" menu. You now see your iOS device that has connected with Macbook (if no page opened on iOS device, you see a message saying "No Inspectable Applications")
 
-![Safari Develop menu](/blog/img/Safari Develop.png "Safari Develop menu")
+![Safari Develop menu](/img/Safari Develop.png "Safari Develop menu")
 
 - Click on the website in Safari Develop > iOS device menu, Web Inspector window opened, then you can debug as you used to debug in Safari
 
-![Web Inspector](/blog/img/Web Inspector.png "Web Inspector")
+![Web Inspector](/img/Web Inspector.png "Web Inspector")
 

@@ -8,7 +8,7 @@ tags:
 
 To satisfy Checkstyle setup. In IntelliJ (version 2018.3.2) Preferences | Editor > Code Style > Java, select "Code Generation" tab, check "Make generated parameters final"
 
-![Final Modifier](/blog/img/IntelliJ%20-%20final%20modifier.png "Final Modifier")
+![Final Modifier](/img/IntelliJ%20-%20final%20modifier.png "Final Modifier")
 
 ## javadoc for auto-generated getters and setters
 
@@ -35,7 +35,7 @@ ${name}() {
 }
 ```
 
-![Getter Template](/blog/img/IntelliJ%20-%20Getter%20Template.png "Getter Template")
+![Getter Template](/img/IntelliJ%20-%20Getter%20Template.png "Getter Template")
 
 Create customised Setter Template:
 
@@ -61,8 +61,8 @@ $field.name = $paramName;
 }
 ```
 
-![Setter Template](/blog/img/IntelliJ%20-%20Setter%20Template.png "Setter Template")
+![Setter Template](/img/IntelliJ%20-%20Setter%20Template.png "Setter Template")
 
 Use the customised Getter and Setter templates when automatically generate getters and setters:
 
-![auto-generated getters setters](/blog/img/IntelliJ%20-%20auto-generated%20getters%20setters.png "auto-generated getters setters")
+![auto-generated getters setters](/img/IntelliJ%20-%20auto-generated%20getters%20setters.png "auto-generated getters setters")

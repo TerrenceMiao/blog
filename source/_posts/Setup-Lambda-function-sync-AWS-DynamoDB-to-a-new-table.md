@@ -12,7 +12,7 @@ Now, a DynamoDB table with Consumers Preferences data urgently needs to update:
 - ADD a new attribute
 - SET a value in the new attribute for ALL EXISTING items in DynamoDB's new table
 
-![AWS DynamoDB Table](/blog/img/DynamoDB%20Table.png "AWS DynamoDB Table")
+![AWS DynamoDB Table](/img/DynamoDB%20Table.png "AWS DynamoDB Table")
 
 AWS lambda function plays handy here to migrate data, and sync **newly inserted**, **modified / updated**, **deleted** items between existing and new DynamoDB tables.
 
@@ -68,7 +68,7 @@ Migrate Data
 
 - Create Migrate Data Lambda function
 
-![AWS DynamoDB Lambda Migrate](/blog/img/DynamoDB%20Lambda%20Migrate.png "AWS DynamoDB Lambda Migrate")
+![AWS DynamoDB Lambda Migrate](/img/DynamoDB%20Lambda%20Migrate.png "AWS DynamoDB Lambda Migrate")
 
 Increase Memory and Runtime Timeout _https://docs.aws.amazon.com/lambda/latest/dg/limits.html_ in case of execution pre-maturely ended without finishing the migration. Furthermore, in case of overcharging DynamoDB due to its limits _https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html_ add time delay in Lambda function.
 
@@ -78,7 +78,7 @@ Increase Memory and Runtime Timeout _https://docs.aws.amazon.com/lambda/latest/d
 
 - Add AWS DynamoDB Lambda execution role
 
-![AWS DynamoDB Lambda Execution Role](/blog/img/DynamoDB%20Lambda%20Role.png "AWS DynamoDB Lambda Execution Role")
+![AWS DynamoDB Lambda Execution Role](/img/DynamoDB%20Lambda%20Role.png "AWS DynamoDB Lambda Execution Role")
 
 **userpreferences-ptest-02-migrateRole**
 
@@ -103,15 +103,15 @@ Sync Data
 
 - Enable Stream on the existing DynamoDB table
 
-![AWS DynamoDB Stream Enabled](/blog/img/DynamoDB%20Stream%20Enabled.png "AWS DynamoDB Stream Enabled")
+![AWS DynamoDB Stream Enabled](/img/DynamoDB%20Stream%20Enabled.png "AWS DynamoDB Stream Enabled")
 
 - Add a new trigger for DynamoDB table
 
-![AWS DynamoDB Triggers](/blog/img/DynamoDB%20Triggers.png "AWS DynamoDB Triggers")
+![AWS DynamoDB Triggers](/img/DynamoDB%20Triggers.png "AWS DynamoDB Triggers")
 
 - Create a new Lambda function linked to trigger
 
-![AWS DynamoDB Lambda Sync](/blog/img/DynamoDB%20Lambda%20Sync.png "AWS DynamoDB Lambda Sync")
+![AWS DynamoDB Lambda Sync](/img/DynamoDB%20Lambda%20Sync.png "AWS DynamoDB Lambda Sync")
 
 **sync.js**
 
@@ -121,7 +121,7 @@ Sync Data
 
 AWS Lambda built-in test can test trigger:
 
-![AWS DynamoDB Lambda Test Event](/blog/img/DynamoDB%20Lambda%20Test%20Event.png "AWS DynamoDB Lambda Test Event")
+![AWS DynamoDB Lambda Test Event](/img/DynamoDB%20Lambda%20Test%20Event.png "AWS DynamoDB Lambda Test Event")
 
 <script src="https://gist.github.com/TerrenceMiao/f0c9b24265143d03e23e83787a7a102a.js"></script>
 
@@ -129,7 +129,7 @@ AWS Lambda built-in test can test trigger:
 
 Lambda function log can be found on AWS CloudWatch Log Groups **/aws/lambda/userpreferences-ptest-02-sync**
 
-![AWS DynamoDB CloudWatch Logging](/blog/img/DynamoDB%20CloudWatch%20Logging.png "AWS DynamoDB CloudWatch Logging")
+![AWS DynamoDB CloudWatch Logging](/img/DynamoDB%20CloudWatch%20Logging.png "AWS DynamoDB CloudWatch Logging")
 
 Counter Data
 ------------

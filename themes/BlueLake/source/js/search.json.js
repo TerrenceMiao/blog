@@ -1,6 +1,6 @@
 (function() {
     var keyInput = document.getElementById('search-key'),
-        searchForm = document.getElementById('search-form'),
+        // searchForm = document.getElementById('search-form'),
         searchWrap = document.getElementById('result-wrap'),
         searchMask = document.getElementById('result-mask'),
         searchResult = document.getElementById('search-result'),
@@ -21,7 +21,7 @@
     function loadData(success) {
         if (!searchData) {
             var xhr = new XMLHttpRequest();
-            xhr.open('GET', '/content.json', true);
+            xhr.open('GET', '/blog/content.json', true);
             xhr.onload = function() {
                 if (this.status >= 200 && this.status < 300) {
                     var res = JSON.parse(this.response||this.responseText);
@@ -54,7 +54,7 @@
             html = data.map(function(post) {
                 return tpl(searchTpl, {
                     title: post.title,
-                    path: post.path,
+                    path: 'blog/' + post.path,
                     date: new Date(post.date).toLocaleDateString(),
                     tags: post.tags.map(function(tag) {
                         return '<span>' + tag.name + '</span>';

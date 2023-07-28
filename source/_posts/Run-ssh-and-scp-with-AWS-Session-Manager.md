@@ -49,14 +49,14 @@ NOTE: Need **ROOT** access key pair `ASIANPOWERHOUSEBLAHBLAH` above setup in `se
 
 NOTE: **IAM role** for EC2 instance need to have `AmazonSSMManagedInstanceCore` policy. So create a customised role `CustomAmazonSSMManagedInstanceCore` in AWS IAM including `AmazonSSMManagedInstanceCore` policy, and bind this IAM role with EC2 instance, also with security group and key pair.
 
-![AWS Session Manager - Managed instances](/blog/img/AWS%20Session%20Manager%20-%20Managed%20instances.png "AWS Session Manager - Managed instances")
+![AWS Session Manager - Managed instances](/img/AWS%20Session%20Manager%20-%20Managed%20instances.png "AWS Session Manager - Managed instances")
 
 - Install all the dependencies
   1. latest Systems Manager Agent on your EC2 instance; enabled “**Agent auto update**” under Managed Instances in AWS Systems Manager
   2. latest AWS CLI on localhost
   3. latest Session Manager Plugin on localhost, _https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html_
 
-![AWS Session Manager - Agent auto update](/blog/img/AWS%20Session%20Manager%20-%20Agent%20auto%20update.png "AWS Session Manager - Agent auto update")
+![AWS Session Manager - Agent auto update](/img/AWS%20Session%20Manager%20-%20Agent%20auto%20update.png "AWS Session Manager - Agent auto update")
 
 - Add customised RunAs users via "Run Command"
 
@@ -67,7 +67,7 @@ To elevated `SSM_pwr_user`, a customised user to allow login EC2 instance, with 
 𝜆 echo "SSM_pwr_user ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/SSM_pwr_user
 ```
 
-![AWS System Manager - Run a command](/blog/img/AWS%20System%20Manager%20-%20Run%20a%20command.png "AWS System Manager - Run a command")
+![AWS System Manager - Run a command](/img/AWS%20System%20Manager%20-%20Run%20a%20command.png "AWS System Manager - Run a command")
 
 Updated above solution and add a **DIFFERENT** user `ssm-user`, if SSM throws error "**Unable to start shell: failed to start pty since RunAs user ssm-user does not exist**":
 

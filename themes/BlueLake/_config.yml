@@ -3,7 +3,13 @@
 ##########################
 
 # Theme version
-version: 2.0.1
+version: 3.0.0
+
+# Theme tone
+dark: true # true/false
+favicon: /favicon.png
+banner: "images/background.jpg"
+banner-dark: "images/background.jpg"
 
 # Header
 menu:
@@ -20,112 +26,144 @@ menu:
     directory: atom.xml
     icon: fa-rss
 
-# Sidebar
-widgets:
-  - recent_posts
-  - recent_comments
-  - category
-  - tag
-  - archive
-  #- weibo
-  #- links
-
-# Toc
-toc:
-  enable: true
-  number: false
-
-# Static files
-js: js
-css: css
-
-# Date_formats
-date_formats:
-  archive: "MM月DD日"
-  category: "YYYY/MM/DD"
-  post: "MMM DD, YYYY"
-  tag: "YYYY/MM/DD"
-
-# Extensions
+# RSS & Sitemap plugins
 Plugins:
   hexo-generator-feed
   hexo-generator-sitemap
-  hexo-generator-baidu-sitemap
 
-#Feed Atom
+# Feed Atom
 feed:
   type: atom
   path: atom.xml
   limit: 20
 
-#sitemap
+# Sitemap
 sitemap:
   path: sitemap.xml
-baidusitemap:
-  path: baidusitemap.xml
 
-#Local search
-local_search: true ## Use a javascript-based local search engine, true/false.
-swiftype: ## Your swiftype_key, e.g. m7b11ZrsT8Me7gzApciT
-tinysou: ## Your tinysou_key, e.g. 4ac092ad8d749fdc6293
+# Content
+excerpt_link: Read More
+fancybox: true
+copyright:
+  enable: false # display article copyright information, true/false.
+  content: "Reprinted with permission"
 
-#Cmments
+# Date_formats
+date_formats:
+  post: 'YYYY-MM-DD'
+  idStr: 'YYYYMMDDHHmmss'
+
+# Sidebar
+sidebar: right  # right/left/bottom
+widgets:
+  - recent_posts
+  - tagcloud
+  - category
+  - archive
+  - tag
+  - links
+
+# Widget behavior
+archive_type: 'yearly' # 'yearly','monthly'
+archive_format: 'YYYY' # 'YYYY','YYYY-MM'
+show_count: true
+recent_posts_limits: 5
+
+# Toc
+toc:
+  enable: true
+  list_number: false
+
+# Article share
+share:
+  local_share: false
+  baidu_share: false
+
+# Miscellaneous
+busuanzi: true ## If you want to use Busuanzi page views please set the value to true.
+baidu_analytics:
+google_analytics: 330279473 ## Your Google Analytics tracking id, e.g. UA-42025684-2 / 330279473 (GA4)
+gauges_analytics:
+
+# MathJax support
+mathjax:
+  enable: true  # true/false.
+  cdn: //cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML
+
+# Reward
+reward:
+  enable: false  # true/false 是否开启 打赏功能
+  wechat: '/css/images/wechat-pay.jpg'
+  alipay: '/css/images/alipay-pay.jpg'
+  buttonTxt: '打赏'
+  title: "“感谢你的支持，我会继续努力！”"
+  content: "扫码打赏，感谢支持"
+
+# About page
+about:
+  photo_url: https://avatars2.githubusercontent.com/u/845034 ## Your photo e.g. /themeauthor.jpg
+  items:
+  - label: email
+    url: mailto:SomewhereOverTheRainbow@gmail.com ## Your email with mailto: e.g.  mailto:chaoles@foxmail.com
+    title: SomewhereOverTheRainbow@gmail.com ## Your email e.g.  chaoles@foxmail.com
+  - label: github
+    url: https://github.com/TerrenceMiao ## Your github'url e.g.  https://github.com/chaooo
+    title: Life without passion is like a broken pencil ... pointless ## Your github'name e.g.  chaooo
+# - label: weibo
+#   url: ## Your weibo's url e.g.  http://weibo.com/zhengchaooo
+#   title: ## Your weibo's name e.g.  秋过冬漫长
+
+# Gitalk comment
+gitalk:
+  enable: false
+  owner: ## Your GitHub ID, e.g. username
+  repo: ## The repository to store your comments, make sure you're the repo's owner, e.g. gitalk.github.io
+  client_id: ## GitHub client ID, e.g. 75752dafe7907a897619
+  client_secret: ## GitHub client secret, e.g. ec2fb9054972c891289640354993b662f4cccc50
+  admin: ## Github repo owner and collaborators, only these guys can initialize github issues.
+  language: 'zh-CN' ## Language
+  pagerDirection: last # Comment sorting direction, available values are last and first.
+
+# giteement评论（基于Gitee issues）【！！！慎用，Gitee接口调用时好像有次数限制，导致后面无法调试，若要使用请自行研究】
+giteement:
+  enable: false
+  owner: #'chaoo'  # 你的码云账号英文名
+  repo: #'blog-comments' # 存储评论的仓库的仓库名称(需要在码云仓库创建公开仓库)
+  redirect_uri: #'https://chaoo.gitee.io'   # 应用回调地址(请和配置的第三方应用保持一致)
+  client_id: #4ec96c34e83a4767d762a5a321ae15d9b8456d552c146afda829b815d51abfd2 ## GitHub client ID, e.g. 75752dafe7907a897619
+  client_secret: #d2cf268817c7099b010f4ff7053f79dca3e32105da449318d8ae87f82782d531 ## GitHub client secret, e.g. ec2fb9054972c891289640354993b662f4cccc50
+
+# Valine comment. https://valine.js.org
+valine:
+  enable: false # if you want use valine,please set this value is true
+  appId: # leancloud application app id
+  appKey: # leancloud application app key
+  notify: false # valine mail notify (true/false) https://github.com/xCss/Valine/wiki
+  verify: false # valine verify code (true/false)
+  pageSize: 10 # comment list page size
+  avatar: mm # gravatar style https://valine.js.org/#/avatar
+  lang: zh-cn # i18n: zh-cn/en
+  placeholder: Just go go # valine comment input placeholder(like: Please leave your footprints )
+  guest_info: nick,mail,link #valine comment header info
+
+# Changyan comment. 畅言
+changyan:
+  enable: false
+  appid: ## changyan appid
+  appkey: ## changyan appkey
+
+# Other comments
 comment:
-  duoshuo: #chaooo ## duoshuo_shortname
   disqus: terrencemiao ## disqus_shortname
   livere: ## 来必力(data-uid)
   uyan: ## 友言(uid)
   cloudTie: ## 网易云跟帖(productKey)
-  changyan: ## 畅言需在下方配置两个参数，此处不填。
-    appid: ## 畅言(appid)
-    appkey: ##畅言(appkey)
 
-#Share
-#baidu_share: true ## 百度分享
-JiaThis_share: ##true ##JiaThis分享
-duoshuo_share: #true ##true 多说分享必须和多说评论一起使用。
-addToAny_share: # AddToAny share. Empty list hides. List items are service name at url. For ex: email for '<a href="https://www.addtoany.com/add_to/email?linkurl=...'
-#  - twitter
-#  - baidu
-#  - facebook
-#  - google_plus
-#  - linkedin
-#  - email
-
-# Analytics
-google_analytics: 330279473 ## Your Google Analytics tracking id, e.g. UA-42025684-2 / 330279473 (GA4)
-baidu_analytics: ## Your Baidu Analytics tracking id, e.g. 1006843030519956000
-
-# Miscellaneous
-show_category_count: true ## If you want to show the count of categories in the sidebar widget please set the value to true.
-widgets_on_small_screens: true ## Set to true to enable widgets on small screens.
-busuanzi: true ## If you want to use Busuanzi page views please set the value to true.
-
-# About page
-about:
-  photo_url: https://avatars2.githubusercontent.com/u/845034 ## Your photo e.g. http://obzf7z93c.bkt.clouddn.com/themeauthor.jpg
-  items:
-  - label: email
-    url: mailto:SomewhereOverTheRainbow@gmail.com ## Your email with mailto: e.g.  mailto:zhenggchaoo@gmail.com
-    title: SomewhereOverTheRainbow@gmail.com ## Your email e.g.  zhenggchaoo@gmail.com
-  - label: github
-    url: https://github.com/TerrenceMiao ## Your github'url e.g.  https://github.com/chaooo
-    title: Life without passion is like a broken pencil … ... pointless ## Your github'name e.g.  chaooo
-  - label: weibo
-    url: https://plus.google.com/+TerrenceMiao ## Your weibo's url e.g.  http://weibo.com/zhengchaooo
-    title: Terrence Miao on G+ ## Your weibo's name e.g.  秋过冬漫长
-# - label: twitter
-#   url: 
-#   title:
-# - label: facebook
-#   url:
-#   title:
-
-# Links widget. Empty links will hide widget.
+# Friend Links widget. Empty links will hide widget.
 links:
-  - title: site-name1
-    url: http://www.example1.com/
-  - title: site-name2
-    url: http://www.example2.com/
-  - title: site-name3
-    url: http://www.example3.com/
+  - title: LinkedIn
+    url: https://www.linkedin.com/in/terrencemiao/
+  - title: GitHub
+    url: https://github.com/TerrenceMiao
+  - title: Twitter
+    url: https://twitter.com/TerrenceMiao

@@ -1,12 +1,10 @@
 # BlueLake
 
-[English](README.en.md) | [简体中文](README.md)
-
 一个简洁轻量化的响应式[Hexo](https://hexo.io/)博客主题。
 
-- [点击预览](http://chaoo.oschina.io/)
+- 点击预览[【深色主题】](https://chaooo.github.io/)、[【浅色主题】](https://chaoo.gitee.io/)
 
-[![BlueLake template preview](http://obzf7z93c.bkt.clouddn.com/themeBlueLake.png "BlueLake template preview")](http://chaoo.oschina.io/)
+[![BlueLake template preview](https://chaooo.github.io/2016/12/29/bluelake/BlueLake.jpg)](https://chaooo.github.io/)
 
 ## 安装
 
@@ -14,8 +12,6 @@
 
 ```shell
 $ git clone https://github.com/chaooo/hexo-theme-BlueLake.git themes/BlueLake
-$ npm install hexo-renderer-jade@0.3.0 --save
-$ npm install hexo-renderer-stylus --save
 ```
 ### 启用
 
@@ -23,12 +19,6 @@ $ npm install hexo-renderer-stylus --save
 ```  bash
 theme: BlueLake
 ```
-如果你想生成压缩后的css，在（`hexo/_config.yml`）中添加：
-``` yml
-stylus:
-  compress: true
-```
-
 
 ### 更新
 
@@ -37,16 +27,18 @@ cd themes/BlueLake
 git pull
 ```
 
-## 配置
+## 主题配置
 打开`themes/BlueLake/_config.yml`进行配置。
 
-``` yml
-##########################
-## Site Config Settings ##
-##########################
-
+``` yaml
 # Theme version
-version: 2.0.1
+version: 3.0.0
+
+# Theme tone
+dark: true # true/false
+favicon: /favicon.png
+banner: "images/banner.jpg"
+banner-dark: "images/banner-dark.jpg"
 
 # Header
 menu:
@@ -63,91 +55,133 @@ menu:
     directory: atom.xml
     icon: fa-rss
 
+# RSS & Sitemap plugins
+Plugins:
+  hexo-generator-feed
+  hexo-generator-sitemap
+
+# Sitemap
+sitemap:
+  path: sitemap.xml
+
+# Content
+excerpt_link: Read More
+fancybox: true
+copyright:
+  enable: true # display article copyright information, true/false.
+  content: "转载请注明出处."
+
+# Date_formats
+date_formats:
+  post: "YYYY年MM月DD日"
+
 # Sidebar
+sidebar: right  # right/left/bottom
 widgets:
   - recent_posts
+  - tagcloud
   - category
-  - tag
   - archive
-  #- weibo
+  - tag
   - links
+
+# Widget behavior
+archive_type: 'yearly'   # defalut 'monthly'
+archive_format: 'YYYY年MM月'
+show_count: true
+recent_posts_limits: 5
 
 # Toc
 toc:
   enable: true
-  number: false
+  list_number: false
 
-# Static files
-js: js
-css: css
+# Article share
+share:
+  local_share: true
+  baidu_share: false
 
-# Extensions
-Plugins:
-  hexo-generator-feed
-  hexo-generator-sitemap
-  hexo-generator-baidu-sitemap
+# Miscellaneous
+busuanzi: true ## If you want to use Busuanzi page views please set the value to true.
+baidu_analytics:
+google_analytics:
+gauges_analytics:
 
-#Feed Atom
-feed:
-  type: atom
-  path: atom.xml
-  limit: 20
+# MathJax support
+mathjax:
+  enable: false  # true/false.
+  cdn: //cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML
 
-#sitemap
-sitemap:
-  path: sitemap.xml
-baidusitemap:
-  path: baidusitemap.xml
+# Reward
+reward:
+  enable: false  # true/false 是否开启 打赏功能
+  wechat: '/css/images/wechat-pay.jpg'
+  alipay: '/css/images/alipay-pay.jpg'
+  buttonTxt: '打赏'
+  title: "“感谢你的支持，我会继续努力！”"
+  content: "扫码打赏，感谢支持"
 
-#Local search
-local_search: true ## Use a javascript-based local search engine, true/false.
+# About page
+about:
+  photo_url: '/themeauthor.jpg' ## Your photo e.g. /themeauthor.jpg
+  items:
+  - label: email
+    url: 'mailto:chaoles@foxmail.com'  ## Your email with mailto: e.g.  mailto:chaoles@foxmail.com
+    title: 'chaoles@foxmail.com' ## Your email e.g.  chaoles@foxmail.com
+  - label: github
+    url: 'https://github.com/chaooo' ## Your github'url e.g.  https://github.com/chaooo
+    title: 'chaooo' ## Your github'name e.g.  chaooo
+  - label: weibo
+    url: 'http://weibo.com/zhengchaooo' ## Your weibo's url e.g.  http://weibo.com/zhengchaooo
+    title: '秋过冬漫长' ## Your weibo's name e.g.  秋过冬漫长
 
-#Cmments
+# Gitalk comment
+gitalk:
+  enable: false
+  owner: ## Your GitHub ID, e.g. username
+  repo: ## The repository to store your comments, make sure you're the repo's owner, e.g. gitalk.github.io
+  client_id: ## GitHub client ID, e.g. 75752dafe7907a897619
+  client_secret: ## GitHub client secret, e.g. ec2fb9054972c891289640354993b662f4cccc50
+  admin: ## Github repo owner and collaborators, only these guys can initialize github issues.
+  language: 'zh-CN' ## Language
+  pagerDirection: last # Comment sorting direction, available values are last and first.
+
+# giteement评论（基于Gitee issues）【！！！慎用，Gitee接口调用时好像有次数限制，导致后面无法调试，若要使用请自行研究】
+giteement:
+  enable: false
+  owner: #'chaoo'  # 你的码云账号英文名
+  repo: #'blog-comments' # 存储评论的仓库的仓库名称(需要在码云仓库创建公开仓库)
+  redirect_uri: #'https://chaoo.gitee.io'   # 应用回调地址(请和配置的第三方应用保持一致)
+  client_id: #4ec96c34e83a4767d762a5a321ae15d9b8456d552c146afda829b815d51abfd2 ## GitHub client ID, e.g. 75752dafe7907a897619
+  client_secret: #d2cf268817c7099b010f4ff7053f79dca3e32105da449318d8ae87f82782d531 ## GitHub client secret, e.g. ec2fb9054972c891289640354993b662f4cccc50
+
+# Valine comment. https://valine.js.org
+valine:
+  enable: true # if you want use valine,please set this value is true
+  appId: vLPzzKBu42xSePsXQ9SMFMnu-gzGzoHsz # leancloud application app id
+  appKey: SXT5mro1fOk42Qd9iF4lqApa # leancloud application app key
+  notify: false # valine mail notify (true/false) https://github.com/xCss/Valine/wiki
+  verify: false # valine verify code (true/false)
+  pageSize: 10 # comment list page size
+  avatar: mm # gravatar style https://valine.js.org/#/avatar
+  lang: zh-cn # i18n: zh-cn/en
+  placeholder: Just go go # valine comment input placeholder(like: Please leave your footprints )
+  guest_info: nick,mail,link #valine comment header info
+
+# Changyan comment. 畅言
+changyan:
+  enable: false
+  appid: ## changyan appid
+  appkey: ## changyan appkey
+
+# Other comments
 comment:
-  duoshuo: #chaooo ## duoshuo_shortname
   disqus: ## disqus_shortname
   livere: ## 来必力(data-uid)
   uyan: ## 友言(uid)
   cloudTie: ## 网易云跟帖(productKey)
-  changyan: ## 畅言需在下方配置两个参数，此处不填。
-    appid: ## 畅言(appid)
-    appkey: ##畅言(appkey)
 
-#Share
-baidu_share: true ## 百度分享
-JiaThis_share: ##true ##JiaThis分享
-duoshuo_share: #true ##true 多说分享必须和多说评论一起使用。
-
-# Analytics
-google_analytics: ## Your Google Analytics tracking id, e.g. UA-42025684-2
-baidu_analytics: ## Your Baidu Analytics tracking id, e.g. 1006843030519956000
-
-# Miscellaneous
-show_category_count: true ## If you want to show the count of categories in the sidebar widget please set the value to true.
-widgets_on_small_screens: true ## Set to true to enable widgets on small screens.
-busuanzi: true ## If you want to use Busuanzi page views please set the value to true.
-
-# About page
-about:
-  photo_url: ## Your photo e.g. http://obzf7z93c.bkt.clouddn.com/themeauthor.jpg
-  items:
-  - label: email
-    url: ## Your email with mailto: e.g.  mailto:zhenggchaoo@gmail.com
-    title: ## Your email e.g.  zhenggchaoo@gmail.com
-  - label: github
-    url: ## Your github'url e.g.  https://github.com/chaooo
-    title: ## Your github'name e.g.  chaooo
-  - label: weibo
-    url: ## Your weibo's url e.g.  http://weibo.com/zhengchaooo
-    title: ## Your weibo's name e.g.  秋过冬漫长
-  - label: twitter
-    url:
-    title:
-  - label: facebook
-    url:
-    title:
-
-# Friend link
+# Friend Links widget. Empty links will hide widget.
 links:
   - title: site-name1
     url: http://www.example1.com/
@@ -157,56 +191,43 @@ links:
     url: http://www.example3.com/
 ```
 
-- **version** - 用于自动刷新CDN上的静态文件。
-- **menu** - 导航菜单。
-- **widgets** - 侧边栏中的窗口小部件。
-- **Toc** - 文章目录
-- **Static files** - 静态文件目录，以方便CDN使用。
-- **Local search**
-- self_search - 默认本地JS搜索.
-- **Cmments**
-- duoshuo - 若使用[多说评论](http://duoshuo.com)，注册多说后在这填写short_name(用于评论与分享)。
-- disqus - 若使用[Disqus评论](https://disqus.com)，注册Disqus后在这填写short_name。
-- livere- 若使用[来必力评论](https://livere.com)，注册来必力,获得data-uid。
-- uyan - 若使用[友言评论](http://www.uyan.cc/)，注册友言,获得uid。
-- cloudTie - 若使用[网易云跟帖评论](https://gentie.163.com/info.html)，注册网易云跟帖,获得productKey。
-- changyan - 若使用[畅言评论](http://changyan.kuaizhan.com)，注册畅言，获得appid，appkey。
-- **About page** - 关于我页面(hexo new page 'about')。
-- **links** - 友情链接。
-- **Miscellaneous**
-- show_category_count - 是否在侧边栏分类中显示类别的数量（true/false）.
-- widgets_on_small_screens - 小屏幕下侧边栏在底部显示.
-- busuanzi - 用[Busuanzi](http://busuanzi.ibruce.info)来统计网站访问量.
-- google_analytics - [Google Analytics](https://www.google.com/analytics/) tracking ID。
-- baIDu_analytics - [Baidu Analytics](http://tongji.baidu.com) tracking ID。
+- `version` - 用于自动刷新CDN上的静态文件。
+- `dark` - 深色/浅色 切换。
+- `favicon` - 浏览器标签页图标
+- `banner/banner-dark`：背景图
+- `menu` - 导航菜单。
+- `Plugins` - 需要安装的（网站地图）插件
+- `sitemap` - 网站地图文件路径
+- `excerpt_link` - 阅读更多按钮文本
+- `fancybox` - 图片查看器
+- `copyright` - 文章版权信息
+- `date_formats` - 日期格式
+- `sidebar` - 侧边栏位置
+- `widgets` - 侧边栏中的窗口小部件。
+- `archive_type` - 侧边栏归档显示方式(yearly/monthly)
+- `archive_format` - 侧边栏归档显示日期格式
+- `show_count` - 侧边栏是否显示计数
+- `recent_posts_limits` - 侧边栏最新文章显示条数
+- `Toc` - 文章目录
+- `share` - 分享
+- `reward` - 打赏功能.
+- `about` - 关于我页面配置
+- `gitalk` - Gitalk评论配置
+- `valine` - Valine评论配置
+- `changyan` - 畅言评论配置
+- `comment`- 其他评论配置
+- `links` - 友情链接
 
-## 特征
 
-#### 站点图标
-您可以准备一张ico格式并命名为** favicon.ico **，请将其放入hexo目录的`source`文件夹，建议大小：32px * 32px。
+## 站点配置
 
-您可以为苹果设备添加网站徽标，请将名为** apple-touch-icon.png **的图像放入hexo目录的“source”文件夹中，建议大小为：114px * 114px。
-
-#### 添加站点关键字
-请在hexo目录的“hexo/_config.yml”中添加`keywords`字段，如：
-```YAML
-# Site
-title: Hexo
-subtitle: 副标题
-description: 网站简要描述,如：Charles·Zheng's blog.
-keywords: 网站关键字, key, key1, key2, key3
-author: Charles
-language: zh-CN
-```
-
-#### 设置阅读全文
+### 设置阅读全文
 您可以在文章的 front-matter 中添加 description，并提供文章摘录，或在文章中使用‘‘`<!--more-->`’’手动进行截断（Hexo推荐的方式）。
 
-#### 自定义page页面
+### 自定义page页面
 在`source`文件夹中创建文件夹`index.md`来添加页面，并在`index.md`的`front-matter'中添加`layout：page`。
-Create folders inlcuding `index.md` in `source` folder to add pages, and add a `layout: page` in `front-matter` of `index.md`.
 
-#### About页面
+### About页面
 此主题默认page页面是关于我页面的布局，生成一个关于我页面：
 ``` shell
 $ hexo new page 'about'
@@ -215,47 +236,25 @@ $ hexo new page 'about'
 ```YAML
 # About page
 about:
-  photo_url: ## Your photo e.g. http://obzf7z93c.bkt.clouddn.com/themeauthor.jpg
+  photo_url: '/themeauthor.jpg' ## Your photo e.g. /themeauthor.jpg
   items:
   - label: email
-    icon: fa-email
-    url: ## Your email with mailto: e.g.  mailto:zhenggchaoo@gmail.com
-    title: ## Your email e.g.  zhenggchaoo@gmail.com
+    url: 'mailto:chaoles@foxmail.com'  ## Your email with mailto: e.g.  mailto:chaoles@foxmail.com
+    title: 'chaoles@foxmail.com' ## Your email e.g.  chaoles@foxmail.com
   - label: github
-    icon: fa-github
-    url: ## Your github'url e.g.  https://github.com/chaooo
-    title: ## Your github'name e.g.  chaooo
+    url: 'https://github.com/chaooo' ## Your github'url e.g.  https://github.com/chaooo
+    title: 'chaooo' ## Your github'name e.g.  chaooo
   - label: weibo
-    icon: fa-weibo
-    url: ## Your weibo's url e.g.  http://weibo.com/zhengchaooo
-    title: ## Your weibo's name e.g.  秋过冬漫长
-  - label: twitter
-    icon: fa-twitter
-    url:
-    title:
-  - label: facebook
-    icon: fa-facebook
-    url:
-    title:
-```
-[点击预览About页面](http://chaoo.oschina.io/about/)
-
-#### 代码语法高亮
-请在hexo目录的“hexo/_config.yml”中设置“highlight”选项，如下所示：
-```YAML
-highlight:
-  enable: true
-  auto_detect: true
-  line_number: true
-  tab_replace:
+    url: 'http://weibo.com/zhengchaooo' ## Your weibo's url e.g.  http://weibo.com/zhengchaooo
+    title: '秋过冬漫长' ## Your weibo's name e.g.  秋过冬漫长
 ```
 
-#### 本地搜索
+### 本地搜索
 如果要使用本地站点搜索，您必须安装插件[hexo-generator-json-content](https://github.com/alexbruno/hexo-generator-json-content)来创建JSON搜索文件 ，然后将配置添加到`hexo/_config.yml`：
 ```shell
-$ npm install hexo-generator-json-content@2.2.0 --save
+$ npm install hexo-generator-json-content --save
 ```
-然后在`hexo/_config.yml`添加配置：
+然后在`hexo/_config.yml(站点根配置，非主题配置)`添加配置：
 ```YAML
 jsonContent:
   meta: false
@@ -277,12 +276,19 @@ jsonContent:
     tags: true
 ```
 
-#### 语言
+### 语言
 该主题目前有七种语言：简体中文（zh-CN），繁体中文（zh-TW），英语（en），法语（fr-FR），德语（de-DE），韩语 （ko）,西班牙语（es-ES）,欢迎修改主题并翻译成其他语言。
+
+
+## 更多配置
+更多详细配置请移步：
+- [BlueLake博客主题的详细配置https://chaooo.github.io/2016/12/29/bluelake.html](https://chaooo.github.io/2016/12/29/bluelake.html)
+- 或[BlueLake博客主题的详细配置https://chaoo.gitee.io/2016/12/29/bluelake.html](https://chaoo.gitee.io/2016/12/29/bluelake.html)
+
 
 ## Solutions
 - 检查您当前的hexo的根目录，是否包含`source /`，`themes /`等。
-- 如果你在使用这个主题有任何问题，请随时打开一个[issue](https://github.com/chaooo/hexo-theme-BlueLake/issues)，或者给我发邮件[zhenggchaoo@gmail.com](zhenggchaoo@gmail.com)。
+- 如果你在使用这个主题有任何问题，请随时打开一个[issue](https://github.com/chaooo/hexo-theme-BlueLake/issues)，或者给我发邮件[chaoles@foxmail.com](chaoles@foxmail.com)。
 
 ## 浏览器支持
 ![Imgur](http://i.imgur.com/iO9L5ty.png)

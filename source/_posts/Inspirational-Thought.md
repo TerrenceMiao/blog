@@ -6,4 +6,4 @@ tags:
 
 Inspirational Thought from Jeff Bezos.
 
-![Inspirational Thought](/blog/img/Inspirational%20Thought.png "Inspirational Thought")
+![Inspirational Thought](/img/Inspirational%20Thought.png "Inspirational Thought")

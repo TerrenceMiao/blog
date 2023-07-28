@@ -9,7 +9,7 @@ AWS CloudWatch Metrics
 
 The interface of Metrics in AWS CloudWatch console:
 
-![AWS CloudWatch - Metrics](/blog/img/AWS%20CloudWatch%20-%20Metrics.png "AWS CloudWatch - Metrics")
+![AWS CloudWatch - Metrics](/img/AWS%20CloudWatch%20-%20Metrics.png "AWS CloudWatch - Metrics")
 
 The URL:
 

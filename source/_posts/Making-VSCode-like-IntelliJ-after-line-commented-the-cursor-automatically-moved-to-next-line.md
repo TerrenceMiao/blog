@@ -10,7 +10,7 @@ Want to make VSCode key bindings as closed as IntelliJ key bindings like.
 
 Firstly, install VSCode extension **macros**.
 
-![macros](/blog/img/macros%20extension.png "macros")
+![macros](/img/macros%20extension.png "macros")
 
 Open Code -> Preferences -> Settings. Add following configuration into **User Settings**.
 
@@ -23,7 +23,7 @@ Open Code -> Preferences -> Settings. Add following configuration into **User Se
     }
 ```
 
-![User Settings](/blog/img/User%20Settings.png "User Settings")
+![User Settings](/img/User%20Settings.png "User Settings")
 
 Open Code -> Preferences -> Keyboard Shortcuts. Add following configuration into **keybindings.json** file.
 
@@ -38,8 +38,8 @@ Open Code -> Preferences -> Keyboard Shortcuts. Add following configuration into
 ]
 ```
 
-![keybindings.json](/blog/img/keybindings%20json.png "keybindings.json")
+![keybindings.json](/img/keybindings%20json.png "keybindings.json")
 
 That's newly added Toggle Line Comment looks like after the change:
 
-![Toggle Line Comment](/blog/img/Toggle%20Line%20Comment.png "Toggle Line Comment")
+![Toggle Line Comment](/img/Toggle%20Line%20Comment.png "Toggle Line Comment")

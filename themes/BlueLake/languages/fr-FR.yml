@@ -1,7 +1,9 @@
+# Le français（法语）
 blog: Blog
 albums: Albums
 categories: Catégories
 tags: Tags
+tagcloud: Nuage de tag
 archive: Archive
 links: Liens
 about: À propos
@@ -22,3 +24,11 @@ belongsto: Catégorisé dans
 contents: Contenus
 shareto: Partager
 reading_label: Reading articles in
+search: Recherche
+sitemap: Plan du site
+footer_rss: Abonnez-vous à ce site
+contact_author: Contacter le blogueur
+topped: Garni
+copyright_author: Auteur original
+copyright_link: Lien original
+copyright_notice: Déclaration de droit d'auteur

@@ -49,11 +49,11 @@ Socrates then said, “You’ve got the truth of LIFE”
 
 对于某个固定的 k，如果最大的麦穗出现在了第 i 个位置（k < i ≤ n），要想让他有幸正好被选中，就必须得满足前 i - 1 个麦穗中的最好的麦穗在前 k 个麦穗里，这有 k / (i - 1) 的可能。考虑所有可能的 i，我们便得到了前 k 个麦穗作为参考，能选中最大麦穗的总概率 P(k)：
 
-![Wheat Paradox](/blog/img/Wheat%20paradox%201.gif "Wheat Paradox")
+![Wheat Paradox](/img/Wheat%20paradox%201.gif "Wheat Paradox")
 
 设 k / n = x，并且假设 n 充分大，则上述公式可以改为：
 　　
-![Wheat Paradox](/blog/img/Wheat%20paradox%202.gif "Wheat Paradox")
+![Wheat Paradox](/img/Wheat%20paradox%202.gif "Wheat Paradox")
 
 对 x·ln(x) 求导，并令这个导数为 0，可以解出 x 的最优值，它就是欧拉研究的神秘常数的倒数 1 / e.
 

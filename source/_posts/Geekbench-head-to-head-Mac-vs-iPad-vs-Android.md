@@ -12,7 +12,7 @@ tags:
 - 1 year old MacBook Pro 16-inch 2021 (Apple Silicon M1 Pro, 10-core CPU at 3.2GHz)
 - 没满岁的 Android (Snapdragon 8 Gen1, 1 core Cortex-X2 at 3GHz, 3-core Cortex-A710 at 2.5GHz, and 4-core Cortex-A510 at 1.8GHz)
 
-![Geekbench head to head - Mac vs iPad vs Android](/blog/img/Geekbench%20head%20to%20head%20-%20Mac%20vs%20iPad%20vs%20Android.png "Geekbench head to head - Mac vs iPad vs Android")
+![Geekbench head to head - Mac vs iPad vs Android](/img/Geekbench%20head%20to%20head%20-%20Mac%20vs%20iPad%20vs%20Android.png "Geekbench head to head - Mac vs iPad vs Android")
 
 **Conclusion:**
 

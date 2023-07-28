@@ -8,8 +8,8 @@ Have you tried GitHub Actions?
 
 - GitHub Actions
 
-![GitHub Actions](/blog/img/GitHub%20Actions.png "GitHub Actions")
+![GitHub Actions](/img/GitHub%20Actions.png "GitHub Actions")
 
 - GitHub Actions Workflow
 
-![GitHub Actions Workflow](/blog/img/GitHub%20Actions%20Workflow.png "GitHub Actions Workflow")
+![GitHub Actions Workflow](/img/GitHub%20Actions%20Workflow.png "GitHub Actions Workflow")

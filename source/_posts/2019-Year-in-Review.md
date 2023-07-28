@@ -6,7 +6,7 @@ tags:
 
 2019 年是过去十年中最差的一年，但或许会是未来十年中最好的一年。
 
-![Year 2019 - 01](/blog/img/Year%202019%20-%2001.jpg "Year 2019 - 01")
+![Year 2019 - 01](/img/Year%202019%20-%2001.jpg "Year 2019 - 01")
 
 图 1：这不是传说，这是 reality.
 
@@ -26,19 +26,19 @@ tags:
 
 让中国股民怀念的牛市，都像是怀念的初恋一样，那消散已久的牛味仿佛做了一场春梦般的美妙。
 
-![Year 2019 - 02](/blog/img/Year%202019%20-%2002.jpg "Year 2019 - 02")
+![Year 2019 - 02](/img/Year%202019%20-%2002.jpg "Year 2019 - 02")
 
 图 2：Hayne's Report.
 
 2 月 The Royal Commission into Misconduct in the Banking, Superannuation and Financial Services Industry Final Report, lead by Keith Hayne published. 导致土澳经济支柱产业四大银行中三个的 CEO 先后在今年中被迫辞职。
 
-![Year 2019 - 03](/blog/img/Year%202019%20-%2003.jpg "Year 2019 - 03")
+![Year 2019 - 03](/img/Year%202019%20-%2003.jpg "Year 2019 - 03")
 
 图 3：超乎想像的宇宙。
 
 4 月，人类有史以来获得的首张黑洞照片。位于处女座中的 M87 的超大质量黑洞距离我们大约 5500 万光年。其质量之大约合 66 亿个太阳。
 
-![Year 2019 - 04](/blog/img/Year%202019%20-%2004.jpg "Year 2019 - 04")
+![Year 2019 - 04](/img/Year%202019%20-%2004.jpg "Year 2019 - 04")
 
 图 4：I believe in miracles.
 
@@ -60,7 +60,7 @@ Wasn’t it Labor shadow treasurer Mr. Chris Bowen who said "if you do t like us
 
 Well, Mr. Bowen, thank you for your invitation!
 
-![Year 2019 - 05](/blog/img/Year%202019%20-%2005.jpg "Year 2019 - 05")
+![Year 2019 - 05](/img/Year%202019%20-%2005.jpg "Year 2019 - 05")
 
 图 5：Eluid Kipchoge.
 
@@ -68,7 +68,7 @@ Well, Mr. Bowen, thank you for your invitation!
 
 **1 小时 59 分 40 秒** In perspective, 想象一下，Eluid Kipchoge just runs every 100 meters in 17s, for two hours. 17 frigging seconds!
 
-![Year 2019 - 06](/blog/img/Year%202019%20-%2006.jpg "Year 2019 - 06")
+![Year 2019 - 06](/img/Year%202019%20-%2006.jpg "Year 2019 - 06")
 
 图 6：Reserve Bank Australia cuts interest rates to historic low.
 
@@ -78,7 +78,7 @@ Central bank is literally behind the curve. More ominously, it’s an indication
 
 政府债，企业债，个人债，大量的负债，超过了借款者自身偿还能力而引发的债务危机，金融海啸。先财务困境，再经济由不稳定转至崩溃，中产变成破产，从而造成社会的大动荡。
 
-![Year 2019 - 07](/blog/img/Year%202019%20-%2007.jpg "Year 2019 - 07")
+![Year 2019 - 07](/img/Year%202019%20-%2007.jpg "Year 2019 - 07")
 
 图 7：Dow 28000.
 

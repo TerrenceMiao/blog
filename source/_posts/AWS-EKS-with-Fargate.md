@@ -11,17 +11,17 @@ After AWS EKS for Fargate annouced in Re:Invent 2019 - [Amazon EKS on AWS Fargat
 
 General configuration:
 
-![AWS EKS on Fargate - Configuration](/blog/img/AWS%20EKS%20on%20Fargate%20-%20Configuration.png "AWS EKS on Fargate - Configuration")
+![AWS EKS on Fargate - Configuration](/img/AWS%20EKS%20on%20Fargate%20-%20Configuration.png "AWS EKS on Fargate - Configuration")
 
-![AWS EKS on Fargate - Configuration](/blog/img/AWS%20EKS%20on%20Fargate%20-%20Configuration%20II.png "AWS EKS on Fargate - Configuration")
+![AWS EKS on Fargate - Configuration](/img/AWS%20EKS%20on%20Fargate%20-%20Configuration%20II.png "AWS EKS on Fargate - Configuration")
 
 Fargate profile configuration:
 
-![AWS EKS on Fargate - Profile](/blog/img/AWS%20EKS%20on%20Fargate%20-%20Profile.png "AWS EKS on Fargate - Profile")
+![AWS EKS on Fargate - Profile](/img/AWS%20EKS%20on%20Fargate%20-%20Profile.png "AWS EKS on Fargate - Profile")
 
 Fargate roles:
 
-![AWS EKS on Fargate - Roles](/blog/img/AWS%20EKS%20on%20Fargate%20-%20Roles.png "AWS EKS on Fargate - Roles")
+![AWS EKS on Fargate - Roles](/img/AWS%20EKS%20on%20Fargate%20-%20Roles.png "AWS EKS on Fargate - Roles")
 
 `CustomEKSRole` role has `AmazonEKSClusterPolicy` and `AmazonEKSServicePolicy`.
 
@@ -64,7 +64,7 @@ Namespace for Fargate profile Pod Selectors is `default`.
 
 Subnets for Fargate, including private subnets (subnet without Internet Gateway):
 
-![AWS EKS on Fargate - Subnets](/blog/img/AWS%20EKS%20on%20Fargate%20-%20Subnets.png "AWS EKS on Fargate - Subnets")
+![AWS EKS on Fargate - Subnets](/img/AWS%20EKS%20on%20Fargate%20-%20Subnets.png "AWS EKS on Fargate - Subnets")
 
 References
 ----------

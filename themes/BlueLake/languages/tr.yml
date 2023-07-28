@@ -1,7 +1,9 @@
+# Türk dili（土耳其语）
 blog: Günce
 albums: Albümler
 categories: Sınıflandırmalar
 tags: Etiketler
+tagcloud: Etiket Bulutu
 archive: Kayıtlar
 links: Bağlantılar
 about: Hakkında
@@ -23,4 +25,10 @@ contents: İçerik
 shareto: Paylaş
 reading_label: Listelenen
 search: Arama
-baidusitemap: Baidu Site Haritası
+sitemap: Site Haritası
+footer_rss: Bu siteye abone ol
+contact_author: Blogcu ile iletişim kurun
+topped: pinned
+copyright_author: Orijinal yazar
+copyright_link: Orijinal bağlantı
+copyright_notice: Telif hakkı beyanı

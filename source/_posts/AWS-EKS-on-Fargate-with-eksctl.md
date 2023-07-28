@@ -39,7 +39,7 @@ Create EKS cluster:
 [✔]  EKS cluster "sandpit" in "us-east-2" region is ready
 ```
 
-![AWS EKS on Fargate, with eksctl - Cluster](/blog/img/AWS%20EKS%20on%20Fargate,%20with%20eksctl%20-%20Cluster.png "AWS EKS on Fargate, with eksctl - Cluster")
+![AWS EKS on Fargate, with eksctl - Cluster](/img/AWS%20EKS%20on%20Fargate,%20with%20eksctl%20-%20Cluster.png "AWS EKS on Fargate, with eksctl - Cluster")
 
 Create and add EKS mansged node group:
 
@@ -163,11 +163,11 @@ Visit URL _http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services
 
 Choose Token, paste the token output from the previous command into the Token field, and choose SIGN IN.
 
-![AWS EKS on Fargate, with eksctl - Nodes](/blog/img/AWS%20EKS%20on%20Fargate,%20with%20eksctl%20-%20Nodes.png "AWS EKS on Fargate, with eksctl - Nodes")
+![AWS EKS on Fargate, with eksctl - Nodes](/img/AWS%20EKS%20on%20Fargate,%20with%20eksctl%20-%20Nodes.png "AWS EKS on Fargate, with eksctl - Nodes")
 
 With AWS managed nodes, on Node EC2 Instance:
 
-![AWS EKS on Fargate, with eksctl - EC2 Instance](/blog/img/AWS%20EKS%20on%20Fargate,%20with%20eksctl%20-%20EC2%20Instance.png "AWS EKS on Fargate, with eksctl - EC2 Instance")
+![AWS EKS on Fargate, with eksctl - EC2 Instance](/img/AWS%20EKS%20on%20Fargate,%20with%20eksctl%20-%20EC2%20Instance.png "AWS EKS on Fargate, with eksctl - EC2 Instance")
 
 First Docker application
 ------------------------
@@ -298,7 +298,7 @@ kubernetes-dashboard   kubernetes-dashboard        ClusterIP   10.100.75.0      
 
 Run `kubectl proxy` and connect to `react-typscript` application on URL: http://localhost:8001/api/v1/namespaces/default/services/http:react-typescript:3000/proxy/
 
-![AWS EKS on Fargate, with eksctl - React Typescript](/blog/img/AWS%20EKS%20on%20Fargate,%20with%20eksctl%20-%20React%20Typescript.png "AWS EKS on Fargate, with eksctl - React Typescript")
+![AWS EKS on Fargate, with eksctl - React Typescript](/img/AWS%20EKS%20on%20Fargate,%20with%20eksctl%20-%20React%20Typescript.png "AWS EKS on Fargate, with eksctl - React Typescript")
 
 References
 ----------
