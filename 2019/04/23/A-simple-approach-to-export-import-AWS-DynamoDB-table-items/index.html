@@ -1,19 +1,161 @@
-<!DOCTYPE html><html lang="en"><head><meta name="generator" content="Hexo 3.9.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="Veni, vidi, vici"><title>A simple approach to export / import AWS DynamoDB table items | Terrence Miao's Adventures</title><link rel="stylesheet" type="text/css" href="//fonts.neworld.org/css?family=Source+Code+Pro"><link rel="stylesheet" type="text/css" href="/blog/css/style.css?v=2.0.1"><link rel="stylesheet" type="text/css" href="/blog/css/highlight.css?v=2.0.1"><link rel="Shortcut Icon" href="/blog/favicon.ico"><link rel="bookmark" href="/blog/favicon.ico"><link rel="apple-touch-icon" href="/blog/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/blog/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/blog/atom.xml"><script async src="//www.googletagmanager.com/gtag/js?id=G-ZKVNY325MW"></script><script>window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-ZKVNY325MW');</script><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
-     google_ad_client: "ca-pub-7274218747178099",
-     enable_page_level_ads: true
-});
-</script></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">A simple approach to export / import AWS DynamoDB table items</h1><a id="logo" href="/blog/.">Terrence Miao's Adventures</a><p class="description">A journey of a thousand miles begins with a single step</p></div><div id="nav-menu"><a href="/blog/." class="current"><i class="fa fa-home"> Home</i></a><a href="/blog/archives/"><i class="fa fa-archive"> Archive</i></a><a href="/blog/about/"><i class="fa fa-user"> About</i></a><a href="/blog/atom.xml"><i class="fa fa-rss"> RSS</i></a></div><div id="search-form"><div id="result-mask" class="hide"></div><label><input id="search-key" type="text" autocomplete="off" placeholder="Arama"></label><div id="result-wrap" class="hide"><div id="search-result"></div></div><div class="hide"><template id="search-tpl"><div class="item"><a href="/{path}" title="{title}"><div class="title">{title}</div><div class="time">{date}</div><div class="tags">{tags}</div></a></div></template></div></div></div><div id="layout" class="layout-g"><div class="layout-l"><div class="content_container"><div class="post"><h1 class="post-title">A simple approach to export / import AWS DynamoDB table items</h1><div class="post-meta"><a href="/blog/2019/04/23/A-simple-approach-to-export-import-AWS-DynamoDB-table-items/#comments" class="comment-count"><i data-disqus-identifier="2019/04/23/A-simple-approach-to-export-import-AWS-DynamoDB-table-items/" class="disqus-comment-count"></i>Guestbook</a><p><span class="date">Apr 23, 2019</span><span><i id="busuanzi_container_page_pv"><i id="busuanzi_value_page_pv"></i><i>Hits</i></i></span></p></div><div class="post-content"><p>Try to export items from AWS Test environment DynamoDB tables into Production. A simple Bash SHELL script, with a few commands and AWS CLI could do the work.</p>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=330279473"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '330279473');
+</script>
+<!-- End Google Analytics -->
+
+  
+  <title>A simple approach to export / import AWS DynamoDB table items | Terrence Miao&#39;s Adventures</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+    <meta name="description" content="Veni, vidi, vici">
+  
+  
+  
+    <link rel="alternate" href="/blog/atom.xml" title="Terrence Miao's Adventures" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/blog/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/blog/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.min.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">Terrence Miao&#39;s Adventures</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/blog/" id="subtitle">A journey of a thousand miles begins with a single step</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/blog/."><i class="fa fa-home"></i> Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives/"><i class="fa fa-archive"></i> Archive</a>
+        
+          <a class="main-nav-link" href="/blog/about/"><i class="fa fa-user"></i> About</a>
+        
+          <a class="main-nav-link" href="/blog/atom.xml"><i class="fa fa-rss"></i> RSS</a>
+        
+      </nav>
+    </div>
+    <div id="search-form">
+      <div id="result-mask" class="hide"></div>
+      <label><input id="search-key" type="text" autocomplete="off" placeholder="search"></label>
+      <div id="result-wrap" class="hide">
+        <div id="search-result"></div>
+      </div>
+      <div class="hide">
+        <template id="search-tpl">
+          <div class="item">
+            <a href="/{path}" title="{title}">
+              <div class="title">{title}</div>
+              <div class="time">{date}</div>
+              <div class="tags">{tags}</div>
+            </a>
+          </div>
+        </template>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-A-simple-approach-to-export-import-AWS-DynamoDB-table-items" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      A simple approach to export / import AWS DynamoDB table items
+    </h1>
+  
+
+
+      </header>
+    
+    <div class="article-meta">
+      
+      <span class="article-date">
+  <i class="fa fa-date"></i>
+  <time class="dt-published" datetime="2019-04-23T08:59:29.000Z" itemprop="datePublished">2019-04-23</time>
+</span>
+      
+      
+        <span class="article-views">
+  <i class="fa fa-views"></i>
+  <i id="busuanzi_container_page_pv">
+      <i id="busuanzi_value_page_pv"></i>
+  </i>
+</span>
+
+      
+      
+<a href="/blog/2019/04/23/A-simple-approach-to-export-import-AWS-DynamoDB-table-items/#comments" class="article-comment-link">
+  
+    
+    
+      <i class="disqus-comment-count" data-disqus-identifier="/blog/2019/04/23/A-simple-approach-to-export-import-AWS-DynamoDB-table-items/"></i>
+    
+    
+    
+    
+  
+  <i class="fa fa-commt"></i>
+  Guestbook
+</a>
+
+
+    </div>
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>Try to export items from AWS Test environment DynamoDB tables into Production. A simple Bash SHELL script, with a few commands and AWS CLI could do the work.</p>
 <ul>
 <li>In AWS DynamoDB console, export selected items into .csv file like this:</li>
 </ul>
-<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">𝜆 cat dws-tile-publisher-ptest-tile.csv</span><br><span class="line">"id (S)","available_to (SS)","benefit_type (S)","category_id (S)","created_date (S)","created_user (S)","description (S)","image_bucket (S)","image_key (S)","last_modified_date (S)","last_modified_user (S)","status (S)","sub_category_id (S)","title (S)","valid_from (S)","valid_to (S)","claim_url (S)","discount_code (S)"</span><br><span class="line">"950c529b-d6ae-472b-b44a-510ec201c167","&#123; ""0b1b9ed4-e171-4eaf-9d20-1a870ab7cc7c"", ""2df9daf4-da50-4ff9-9322-969d02c178f4"", ""b6fdcdc7-ffe6-4007-ae56-f5ab545768ec"", ""bc1c7285-ac47-4d06-b4c6-6f3780cbfb3f"" &#125; ","DISCOUNT","8d27fb2d-c5f8-487a-a869-2ffd0e476eb6","2019-04-23T01:02:18.123","Angelo.Woods@test.npe.paradise.org","Testing descriptions","dws-tile-images-ptest","Samsung-Galaxy-10-Leak.jpg","2019-04-23T01:02:18.125","Angelo.Woods@test.npe.paradise.org","ARCHIVED","6936a6ed-fa97-4439-9129-c43e288011b3","Samsung Galaxy 10","2019-03-24T01:00","2021-02-25T23:00","http://www.google.com",</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">"095cc9b4-fd64-4479-8817-0b35b8ddcbc2","&#123; ""0b1b9ed4-e171-4eaf-9d20-1a870ab7cc7c"", ""2df9daf4-da50-4ff9-9322-969d02c178f4"", ""b6fdcdc7-ffe6-4007-ae56-f5ab545768ec"", ""bc1c7285-ac47-4d06-b4c6-6f3780cbfb3f"" &#125; ","DISCOUNT","1f028ecb-4115-4378-b00e-3fcd4cbdf54d","2019-04-23T03:50:31.226","Angelo.Woods@test.npe.paradise.org","&lt;div&gt;Employees now have access to an exclusive member offers portal through the Samsung Employee Purchase program. Get up to 35% off the RRP across a wide range of products including mobile phones, tablets, televisions, refrigerators, washing machines, monitors and more.&lt;/div&gt;&lt;div&gt;&lt;br /&gt;&lt;/div&gt;&lt;div&gt;&lt;br /&gt;&lt;br /&gt;&lt;/div&gt;","dws-tile-images-ptest","samsung.jpg","2019-04-23T03:50:31.228","Angelo.Woods@test.npe.paradise.org","PUBLISHED","ce07c19b-dd87-4890-9ad3-6acfe0998496","Samsung","2019-04-17T01:00","2025-01-01T23:00","https://shop.samsung.com/au/multistore/auepp/austpost_au/","Simply go to link provided to access the site. Browse our categories, add your products to cart and checkout. Happy Shopping! "</span><br></pre></td></tr></table></figure>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">𝜆 cat dws-tile-publisher-ptest-tile.csv</span><br><span class="line">&quot;id (S)&quot;,&quot;available_to (SS)&quot;,&quot;benefit_type (S)&quot;,&quot;category_id (S)&quot;,&quot;created_date (S)&quot;,&quot;created_user (S)&quot;,&quot;description (S)&quot;,&quot;image_bucket (S)&quot;,&quot;image_key (S)&quot;,&quot;last_modified_date (S)&quot;,&quot;last_modified_user (S)&quot;,&quot;status (S)&quot;,&quot;sub_category_id (S)&quot;,&quot;title (S)&quot;,&quot;valid_from (S)&quot;,&quot;valid_to (S)&quot;,&quot;claim_url (S)&quot;,&quot;discount_code (S)&quot;</span><br><span class="line">&quot;950c529b-d6ae-472b-b44a-510ec201c167&quot;,&quot;&#123; &quot;&quot;0b1b9ed4-e171-4eaf-9d20-1a870ab7cc7c&quot;&quot;, &quot;&quot;2df9daf4-da50-4ff9-9322-969d02c178f4&quot;&quot;, &quot;&quot;b6fdcdc7-ffe6-4007-ae56-f5ab545768ec&quot;&quot;, &quot;&quot;bc1c7285-ac47-4d06-b4c6-6f3780cbfb3f&quot;&quot; &#125; &quot;,&quot;DISCOUNT&quot;,&quot;8d27fb2d-c5f8-487a-a869-2ffd0e476eb6&quot;,&quot;2019-04-23T01:02:18.123&quot;,&quot;Angelo.Woods@test.npe.paradise.org&quot;,&quot;Testing descriptions&quot;,&quot;dws-tile-images-ptest&quot;,&quot;Samsung-Galaxy-10-Leak.jpg&quot;,&quot;2019-04-23T01:02:18.125&quot;,&quot;Angelo.Woods@test.npe.paradise.org&quot;,&quot;ARCHIVED&quot;,&quot;6936a6ed-fa97-4439-9129-c43e288011b3&quot;,&quot;Samsung Galaxy 10&quot;,&quot;2019-03-24T01:00&quot;,&quot;2021-02-25T23:00&quot;,&quot;http://www.google.com&quot;,</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">&quot;095cc9b4-fd64-4479-8817-0b35b8ddcbc2&quot;,&quot;&#123; &quot;&quot;0b1b9ed4-e171-4eaf-9d20-1a870ab7cc7c&quot;&quot;, &quot;&quot;2df9daf4-da50-4ff9-9322-969d02c178f4&quot;&quot;, &quot;&quot;b6fdcdc7-ffe6-4007-ae56-f5ab545768ec&quot;&quot;, &quot;&quot;bc1c7285-ac47-4d06-b4c6-6f3780cbfb3f&quot;&quot; &#125; &quot;,&quot;DISCOUNT&quot;,&quot;1f028ecb-4115-4378-b00e-3fcd4cbdf54d&quot;,&quot;2019-04-23T03:50:31.226&quot;,&quot;Angelo.Woods@test.npe.paradise.org&quot;,&quot;&lt;div&gt;Employees now have access to an exclusive member offers portal through the Samsung Employee Purchase program. Get up to 35% off the RRP across a wide range of products including mobile phones, tablets, televisions, refrigerators, washing machines, monitors and more.&lt;/div&gt;&lt;div&gt;&lt;br /&gt;&lt;/div&gt;&lt;div&gt;&lt;br /&gt;&lt;br /&gt;&lt;/div&gt;&quot;,&quot;dws-tile-images-ptest&quot;,&quot;samsung.jpg&quot;,&quot;2019-04-23T03:50:31.228&quot;,&quot;Angelo.Woods@test.npe.paradise.org&quot;,&quot;PUBLISHED&quot;,&quot;ce07c19b-dd87-4890-9ad3-6acfe0998496&quot;,&quot;Samsung&quot;,&quot;2019-04-17T01:00&quot;,&quot;2025-01-01T23:00&quot;,&quot;https://shop.samsung.com/au/multistore/auepp/austpost_au/&quot;,&quot;Simply go to link provided to access the site. Browse our categories, add your products to cart and checkout. Happy Shopping! &quot;</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>Generate a key:value hashtable used later. Key is “id” column, value is “image_key” colomn:</li>
 </ul>
-<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">𝜆 awk -F"\",\"" '&#123;print $1 ":" $9 "\""&#125;' dws-tile-publisher-test-tile.csv | sed 's/jpg/json/' | sed 's/png/json/' | sed -n '1d;p'</span><br><span class="line">"950c529b-d6ae-472b-b44a-510ec201c167:Samsung-Galaxy-10-Leak.json"</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">"095cc9b4-fd64-4479-8817-0b35b8ddcbc2:samsung.json"</span><br></pre></td></tr></table></figure>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">𝜆 awk -F&quot;\&quot;,\&quot;&quot; &#x27;&#123;print $1 &quot;:&quot; $9 &quot;\&quot;&quot;&#125;&#x27; dws-tile-publisher-test-tile.csv | sed &#x27;s/jpg/json/&#x27; | sed &#x27;s/png/json/&#x27; | sed -n &#x27;1d;p&#x27;</span><br><span class="line">&quot;950c529b-d6ae-472b-b44a-510ec201c167:Samsung-Galaxy-10-Leak.json&quot;</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">&quot;095cc9b4-fd64-4479-8817-0b35b8ddcbc2:samsung.json&quot;</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>Run the bash script and retrieve item from AWS DyanmoDB table, tranform it and output into a JSON file for import into AWS Production production table:</li>
 </ul>
@@ -22,22 +164,268 @@ gtag('config', 'G-ZKVNY325MW');</script><script async src="//pagead2.googlesyndi
 <ul>
 <li>A generated JSON file looks like this:</li>
 </ul>
-<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">𝜆 cat Samsung-Galaxy-10-Leak.json</span><br><span class="line">&#123;</span><br><span class="line">    "status": &#123;</span><br><span class="line">        "S": "PUBLISHED"</span><br><span class="line">    &#125;,</span><br><span class="line">    "valid_from": &#123;</span><br><span class="line">        "S": "2019-03-24T01:00"</span><br><span class="line">    &#125;,</span><br><span class="line">    "sub_category_id": &#123;</span><br><span class="line">        "S": "6936a6ed-fa97-4439-9129-c43e288011b3"</span><br><span class="line">    &#125;,</span><br><span class="line">    "description": &#123;</span><br><span class="line">        "S": "Testing descriptions"</span><br><span class="line">    &#125;,</span><br><span class="line">    "image_key": &#123;</span><br><span class="line">        "S": "Samsung-Galaxy-10-Leak.jpg"</span><br><span class="line">    &#125;,</span><br><span class="line">    "claim_url": &#123;</span><br><span class="line">        "S": "http://www.google.com"</span><br><span class="line">    &#125;,</span><br><span class="line">    "last_modified_date": &#123;</span><br><span class="line">        "S": "2019-04-23T01:02:18.125"</span><br><span class="line">    &#125;,</span><br><span class="line">    "valid_to": &#123;</span><br><span class="line">        "S": "2021-02-25T23:00"</span><br><span class="line">    &#125;,</span><br><span class="line">    "created_user": &#123;</span><br><span class="line">        "S": "Noel.French@paradise.org"</span><br><span class="line">    &#125;,</span><br><span class="line">    "benefit_type": &#123;</span><br><span class="line">        "S": "DISCOUNT"</span><br><span class="line">    &#125;,</span><br><span class="line">    "last_modified_user": &#123;</span><br><span class="line">        "S": "Noel.French@paradise.org"</span><br><span class="line">    &#125;,</span><br><span class="line">    "created_date": &#123;</span><br><span class="line">        "S": "2019-04-23T01:02:18.123"</span><br><span class="line">    &#125;,</span><br><span class="line">    "title": &#123;</span><br><span class="line">        "S": "Samsung Galaxy 10"</span><br><span class="line">    &#125;,</span><br><span class="line">    "category_id": &#123;</span><br><span class="line">        "S": "8d27fb2d-c5f8-487a-a869-2ffd0e476eb6"</span><br><span class="line">    &#125;,</span><br><span class="line">    "image_bucket": &#123;</span><br><span class="line">        "S": "dws-tile-images-prod"</span><br><span class="line">    &#125;,</span><br><span class="line">    "id": &#123;</span><br><span class="line">        "S": "950c529b-d6ae-472b-b44a-510ec201c167"</span><br><span class="line">    &#125;,</span><br><span class="line">    "available_to": &#123;</span><br><span class="line">        "SS": [</span><br><span class="line">            "0b1b9ed4-e171-4eaf-9d20-1a870ab7cc7c",</span><br><span class="line">            "2df9daf4-da50-4ff9-9322-969d02c178f4",</span><br><span class="line">            "b6fdcdc7-ffe6-4007-ae56-f5ab545768ec",</span><br><span class="line">            "bc1c7285-ac47-4d06-b4c6-6f3780cbfb3f"</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">𝜆 cat Samsung-Galaxy-10-Leak.json</span><br><span class="line">&#123;</span><br><span class="line">    &quot;status&quot;: &#123;</span><br><span class="line">        &quot;S&quot;: &quot;PUBLISHED&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;valid_from&quot;: &#123;</span><br><span class="line">        &quot;S&quot;: &quot;2019-03-24T01:00&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;sub_category_id&quot;: &#123;</span><br><span class="line">        &quot;S&quot;: &quot;6936a6ed-fa97-4439-9129-c43e288011b3&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;description&quot;: &#123;</span><br><span class="line">        &quot;S&quot;: &quot;Testing descriptions&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;image_key&quot;: &#123;</span><br><span class="line">        &quot;S&quot;: &quot;Samsung-Galaxy-10-Leak.jpg&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;claim_url&quot;: &#123;</span><br><span class="line">        &quot;S&quot;: &quot;http://www.google.com&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;last_modified_date&quot;: &#123;</span><br><span class="line">        &quot;S&quot;: &quot;2019-04-23T01:02:18.125&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;valid_to&quot;: &#123;</span><br><span class="line">        &quot;S&quot;: &quot;2021-02-25T23:00&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;created_user&quot;: &#123;</span><br><span class="line">        &quot;S&quot;: &quot;Noel.French@paradise.org&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;benefit_type&quot;: &#123;</span><br><span class="line">        &quot;S&quot;: &quot;DISCOUNT&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;last_modified_user&quot;: &#123;</span><br><span class="line">        &quot;S&quot;: &quot;Noel.French@paradise.org&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;created_date&quot;: &#123;</span><br><span class="line">        &quot;S&quot;: &quot;2019-04-23T01:02:18.123&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;title&quot;: &#123;</span><br><span class="line">        &quot;S&quot;: &quot;Samsung Galaxy 10&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;category_id&quot;: &#123;</span><br><span class="line">        &quot;S&quot;: &quot;8d27fb2d-c5f8-487a-a869-2ffd0e476eb6&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;image_bucket&quot;: &#123;</span><br><span class="line">        &quot;S&quot;: &quot;dws-tile-images-prod&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;id&quot;: &#123;</span><br><span class="line">        &quot;S&quot;: &quot;950c529b-d6ae-472b-b44a-510ec201c167&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;available_to&quot;: &#123;</span><br><span class="line">        &quot;SS&quot;: [</span><br><span class="line">            &quot;0b1b9ed4-e171-4eaf-9d20-1a870ab7cc7c&quot;,</span><br><span class="line">            &quot;2df9daf4-da50-4ff9-9322-969d02c178f4&quot;,</span><br><span class="line">            &quot;b6fdcdc7-ffe6-4007-ae56-f5ab545768ec&quot;,</span><br><span class="line">            &quot;bc1c7285-ac47-4d06-b4c6-6f3780cbfb3f&quot;</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>Now run the bash script and import JSON file into AWS Production DynamoDB table:</li>
 </ul>
 <script src="https://gist.github.com/TerrenceMiao/c61f7721fe9721d7f6983cce821e7929.js"></script>
-</div><div class="tags"></div><div class="post-share"></div><div class="post-nav"><a href="/blog/2019/11/22/Run-ssh-and-scp-with-AWS-Session-Manager/" class="pre">Run ssh and scp with AWS Session Manager</a><a href="/blog/2019/01/11/Keep-running/" class="next">Keep running</a></div><div id="comments"><div id="disqus_thread"></div></div></div></div></div><div class="layout-r"><div id="sidebar"><div class="search-pla"></div><div id="toc" class="widget"><div class="widget-title"><i class="fa fa-fei">Contents</i></div></div><div class="widget"><div class="widget-title"><i class="fa fa-xie"> Recent</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/blog/2022/10/12/Remove-Image-Background/">Remove Image Background</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2022/10/10/Geekbench-head-to-head-Mac-vs-iPad-vs-Android/">Geekbench head to head - Mac vs iPad vs Android</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2022/09/07/How-to-use-Web-Inspector-and-debug-Safari-on-iPhone-iPad/">How to use Web Inspector and debug Safari on iPhone/iPad</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2022/09/02/GitHub-Actions/">GitHub Actions</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2022/08/02/Powerful-Zsh/">Powerful Zsh</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2022/05/02/Convert-JSON-to-CSV-by-using-jq/">Convert JSON to CSV by using jq</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2021/07/30/Customise-VS-Code-settings-and-keybindings-with-Geddski-macros/">Customise VS Code settings and keybindings with Geddski macros</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2021/07/06/Export-and-Import-AWS-DynamoDB-data/">Export and Import AWS DynamoDB data</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2021/06/04/Get-and-read-logs-from-AWS-CloudWatch-with-saw/">Get and read logs from AWS CloudWatch with saw</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2021/05/11/AWS-EC2-CloudFormation-templates-in-subnets/">AWS EC2 CloudFormation templates in subnets</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-commt"> Recent Comments</i></div></div><div class="widget"><div class="widget-title"><i class="fa fa-biao"> Tags</i></div><div class="tagcloud"></div></div><div class="widget"><div class="widget-title"><i class="fa fa-archive"> Archive</i></div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/09/">September 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/08/">August 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/01/">January 2017</a></li></ul></div></div></div></div><a id="totop" href="#top"></a><div id="footer"><div class="footer-info"><p><a href="/blog/baidusitemap.xml">Baidu Site Haritası</a> |  <a href="/blog/atom.xml">RSS</a> |  <a href="/blog/about/">About</a></p><p>本站总访问量：<i id="busuanzi_container_site_pv"><i id="busuanzi_value_site_pv"></i></i>次</p><p><span> Copyright &copy;<a href="/blog/." rel="nofollow">Terrence Miao.</a></span><span> Theme by<a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake.</a></span><span> Count by<a href="http://busuanzi.ibruce.info/"> busuanzi.</a></span><span> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a></span></p></div></div></div><script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-ga('create','330279473','auto');ga('send','pageview');
-</script><script type="text/javascript" src="/blog/js/search.json.js?v=2.0.1"></script><script type="text/javascript" src="/blog/js/toctotop.js?v=2.0.1" async></script><script>var disqus_shortname = 'terrencemiao';
-var disqus_identifier = '2019/04/23/A-simple-approach-to-export-import-AWS-DynamoDB-table-items/';
-var disqus_title = 'A simple approach to export / import AWS DynamoDB table items';
-var disqus_url = 'https://terrencemiao.github.io/blog/2019/04/23/A-simple-approach-to-export-import-AWS-DynamoDB-table-items/';
-(function() {
-  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-})();</script><script id="dsq-count-scr" src="//terrencemiao.disqus.com/count.js" async></script><script type="text/javascript" src="//terrencemiao.disqus.com/recent_comments_widget.js?num_items=5&amp;hide_avatars=1&amp;avatar_size=32&amp;excerpt_length=20&amp;hide_mods=1"></script></body></html>
+
+        
+            <div id="toc-article">
+                
+  <div class="widget-wrap" id="toc-wrap">
+    <h3 class="widget-title"><i class="fa fa-toc"></i> Contents</h3>
+    <div class="widget">
+      
+    </div>
+  </div>
+
+
+            </div>
+        
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div class="article-tag-wrap">
+          
+
+          
+          
+
+
+        </div>
+      
+      
+        
+<nav id="article-nav">
+  
+    <a href="/blog/2019/01/11/Keep-running/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">older</strong>
+      <div class="article-nav-title">
+        
+          Keep running
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2019/11/22/Run-ssh-and-scp-with-AWS-Session-Manager/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">newer</strong>
+      <div class="article-nav-title">
+        
+          Run ssh and scp with AWS Session Manager
+        
+      </div>
+    </a>
+  
+</nav>
+
+      
+      
+        
+
+
+
+  <div id="comments"><div id="disqus_thread"></div></div>
+
+
+
+
+
+
+      
+    </footer>
+  </div>
+</article>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title"><i class="fa fa-posts"></i> Recent</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2022/10/12/Remove-Image-Background/">Remove Image Background</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2022/10/10/Geekbench-head-to-head-Mac-vs-iPad-vs-Android/">Geekbench head to head - Mac vs iPad vs Android</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2022/09/07/How-to-use-Web-Inspector-and-debug-Safari-on-iPhone-iPad/">How to use Web Inspector and debug Safari on iPhone/iPad</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2022/09/02/GitHub-Actions/">GitHub Actions</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2022/08/02/Powerful-Zsh/">Powerful Zsh</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+  
+    
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title"><i class="fa fa-archive"></i> Archive</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/">2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/">2021</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/">2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/">2019</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/">2017</a><span class="archive-list-count">25</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title"><i class="fa fa-link"></i> Blogroll</h3>
+    <div class="widget">
+      <ul>
+      
+        <li>
+          <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/terrencemiao/">LinkedIn</a>
+        </li>
+      
+        <li>
+          <a target="_blank" rel="noopener" href="https://github.com/TerrenceMiao">GitHub</a>
+        </li>
+      
+        <li>
+          <a target="_blank" rel="noopener" href="https://twitter.com/TerrenceMiao">Twitter</a>
+        </li>
+      
+      </ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+        
+      </div>
+      <a id="totop" href="#top"></a>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      <p>
+        <a href="/blog/sitemap.xml">Site Map</a>
+        <span> | </span><a href="/blog/atom.xml">Subscribe to this site</a>
+        <span> | </span><a href="/blog/about/">Contact the blogger</a>
+      </p>
+      
+        <p>
+          <i class="fa fa-visitors"></i>
+          <i id="busuanzi_container_site_uv"><i id="busuanzi_value_site_uv"></i></i>
+          ，
+          <i class="fa fa-views"></i>
+          <i id="busuanzi_container_site_pv"><i id="busuanzi_value_site_pv"></i></i>
+        </p>
+      
+      <p>
+        <span>Copyright &copy; 2023 Terrence Miao.</span>
+        <span>Theme by <a href="https://github.com/chaooo/hexo-theme-BlueLake/" target="_blank">BlueLake.</a></span>
+        <span>Powered by <a href="https://hexo.io/" target="_blank">Hexo.</a></span>
+      </p>
+    </div>
+  </div>
+</footer>
+
+    </div>
+  </div>
+  
+<script src="/blog/js/jquery-3.4.1.min.js"></script>
+
+
+<script src="/blog/js/search.json.js"></script>
+
+
+  
+<script src="/blog/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/blog/js/script.js"></script>
+
+
+
+
+
+
+  
+<script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+
+  
+
+  
+    <script>
+      var disqus_shortname = 'terrencemiao';
+      
+        var disqus_url = 'https://terrencemiao.github.io/blog/2019/04/23/A-simple-approach-to-export-import-AWS-DynamoDB-table-items/';
+      
+      (function(){
+        var dsq = document.createElement('script');
+        dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+
+
+
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+  <script src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML" async type="text/javascript"></script>
+
+</body>
+</html>

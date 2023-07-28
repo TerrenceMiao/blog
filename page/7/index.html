@@ -1,13 +1,1151 @@
-<!DOCTYPE html><html lang="en"><head><meta name="generator" content="Hexo 3.9.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="Veni, vidi, vici"><title>Terrence Miao's Adventures | A journey of a thousand miles begins with a single step</title><link rel="stylesheet" type="text/css" href="//fonts.neworld.org/css?family=Source+Code+Pro"><link rel="stylesheet" type="text/css" href="/blog/css/style.css?v=2.0.1"><link rel="stylesheet" type="text/css" href="/blog/css/highlight.css?v=2.0.1"><link rel="Shortcut Icon" href="/blog/favicon.ico"><link rel="bookmark" href="/blog/favicon.ico"><link rel="apple-touch-icon" href="/blog/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/blog/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/blog/atom.xml"><script async src="//www.googletagmanager.com/gtag/js?id=G-ZKVNY325MW"></script><script>window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-ZKVNY325MW');</script><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
-     google_ad_client: "ca-pub-7274218747178099",
-     enable_page_level_ads: true
-});
-</script></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Terrence Miao's Adventures</h1><a id="logo" href="/blog/.">Terrence Miao's Adventures</a><p class="description">A journey of a thousand miles begins with a single step</p></div><div id="nav-menu"><a href="/blog/." class="current"><i class="fa fa-home"> Home</i></a><a href="/blog/archives/"><i class="fa fa-archive"> Archive</i></a><a href="/blog/about/"><i class="fa fa-user"> About</i></a><a href="/blog/atom.xml"><i class="fa fa-rss"> RSS</i></a></div><div id="search-form"><div id="result-mask" class="hide"></div><label><input id="search-key" type="text" autocomplete="off" placeholder="Arama"></label><div id="result-wrap" class="hide"><div id="search-result"></div></div><div class="hide"><template id="search-tpl"><div class="item"><a href="/{path}" title="{title}"><div class="title">{title}</div><div class="time">{date}</div><div class="tags">{tags}</div></a></div></template></div></div></div><div id="layout" class="layout-g"><div class="layout-l"><div class="content_container"><div class="post"><h2 class="post-title"><a href="/blog/2017/09/23/浅谈程序员的数学修养/">浅谈程序员的数学修养</a></h2><div class="post-meta"><p><span class="date">2017-09-23</span></p></div><div class="post-content"><p>可能有很多朋友在网上看过 Google 公司早几年的招聘广告，它的第一题如下了:</p></div><p class="readmore"><a href="/blog/2017/09/23/浅谈程序员的数学修养/">Read More</a></p></div><div class="post"><h2 class="post-title"><a href="/blog/2017/09/20/Geoffrey-Hinton-interview/">Geoffrey Hinton interview</a></h2><div class="post-meta"><p><span class="date">2017-09-20</span></p></div><div class="post-content"><h2 id="About-this-course"><a href="#About-this-course" class="headerlink" title="About this course"></a>About this course</h2><p>If you want to break into cutting-edge AI, this course will help you do so. Deep learning engineers are highly sought after, and mastering deep learning will give you numerous new career opportunities.</p></div><p class="readmore"><a href="/blog/2017/09/20/Geoffrey-Hinton-interview/">Read More</a></p></div><div class="post"><h2 class="post-title"><a href="/blog/2017/09/03/画虾/">画虾</a></h2><div class="post-meta"><p><span class="date">2017-09-03</span></p></div><div class="post-content"><p>今购得一画，甚喜。</p></div><p class="readmore"><a href="/blog/2017/09/03/画虾/">Read More</a></p></div><div class="post"><h2 class="post-title"><a href="/blog/2017/09/03/为什么要读书/">为什么要读书</a></h2><div class="post-meta"><p><span class="date">2017-09-03</span></p></div><div class="post-content"><p><img src="/blog/img/Maiden%201.jpg" alt="Maiden" title="Maiden"></p></div><p class="readmore"><a href="/blog/2017/09/03/为什么要读书/">Read More</a></p></div><div class="post"><h2 class="post-title"><a href="/blog/2017/09/03/C10k-C10M-Challenge/">C10k / C10M Challenge</a></h2><div class="post-meta"><p><span class="date">2017-09-03</span></p></div><div class="post-content"><p>C10k / C10M Challenge 挑战</p></div><p class="readmore"><a href="/blog/2017/09/03/C10k-C10M-Challenge/">Read More</a></p></div><div class="post"><h2 class="post-title"><a href="/blog/2017/09/02/Plato-and-Socrates-柏拉图麦穗问题/">Plato and Socrates - 柏拉图麦穗问题</a></h2><div class="post-meta"><p><span class="date">2017-09-02</span></p></div><div class="post-content"><p><img src="https://lh3.googleusercontent.com/vyuQIzcEupI0S5rfz_Y7ICSGtzBsFL-Fx-v4HSOxC4o0s_hPgEJMhzeBrvBPDAnAsMmuARodnz6YoodekBIv89Clrwf51_-IWzOsedmLbWuY3h1Ld3oThDAWG2UpSZaxa8F-WTpVQ2MCS3oijN7zS27f35GtcaEuBpOh9nfh5rVdVpcrMY-2Djl7hvUoj1Ia948Qf-2OQAurrRffdB2ZcDLSmrUhUlpZ8LjALmpKz-OYjhAnUgqlpFbQQ0rqzswtElY6bIQ9RSG_NyKJDKwUkN9J6r-k4lu27c1UcfPzJchsQIwgnpPO6islX538EVqyAS4Skg-cjyRdsRL3mdQN7bSLY-qk0GBmYnLEfNeEJg7orCeWBKaN_p_4suLv_X5wHZu36fSEAB5Y3bMnlfUv0QkyANOa-8O0tD_bvFOhAJh-iYh3q3hSnHGgH96qjqcuqBwBitUQaZMmigxCv_HCWAV0tFaqgOEBrKnAckaeSipxkqccR98WkChAEqLvtRN83zOKA1tHhuju4q63AMlqsqWpbYnBmpoHDf-4HAiLYr26GpJ6FR7nMlnq2g4deBgiqw0T3UuwZ0-UXY6uk_i4GuZuKfbdYI-PC2m3BhRYskgyD-U0UFDBPg=w1281-h933-no" alt="The meaning of Love, Marriage and Life" title="The meaning of Love, Marriage and Life"></p></div><p class="readmore"><a href="/blog/2017/09/02/Plato-and-Socrates-柏拉图麦穗问题/">Read More</a></p></div><div class="post"><h2 class="post-title"><a href="/blog/2017/08/17/Why-functional-programming/">Why Functional Programming?</a></h2><div class="post-meta"><p><span class="date">2017-08-17</span></p></div><div class="post-content"><p><img src="https://lh3.googleusercontent.com/FXZ-mN3B3uKCrN4aazrmNfvxCeNHCibi0FZ4Fp6c2xoQQlUQZtQS7Jzm6iQVizb17iA8ydDQ8vW3c4QLv5bfuh4kZE2b_HW5VK48m3Gan4B1VbzOkcJ_mEu8Bb7oo7dheTWrk2olKoax3UVS5Zh3QVehiquSVWZfTMeiH7AHuL5F_MqnwE7__fgEezNZxzyHCA7ZKY3SF82CYciTyw3Yb_FaE4I88lXICm-wyYrmhXgtB36VamFsEFeiZHvLwWnJGxaBWPYqyC4Yz2_Q2jnM3_3LVYbb5aLRbAikJpkXkE7td58BlcBBqwZz0tQMCpcwJeWjAGviZu3sv7Hiz9m_EIk2dSCq2VhVaouiD9mW8lCTvHOh9rAQJhxGYCCsf92uoNyN1rXMdEfN2zkk0HnGcEVGraMD8-ZRfvPTH5v1CuoLBIcnLy7eRAIewlPXSBtkGyQB-Qjt3cQ3tiAoR8XOs5bxo4IumjCCBgInj-67eJZiymGysNJ1JkA4U_c4LQlxO9xKDRLEf56OVevEs4rncS2dUeYt5lg4bUsE-ihF8Pa9h0_YmQURg2hJU7KRtK_kk4ON5YLXmip7ITOnbB2sUVVLWr7UysRpTqfAwIfTwBHVPkjzDR748A=w402-h284-no" alt="Why Functional Programming?" title="Why Functional Programming?"></p></div><p class="readmore"><a href="/blog/2017/08/17/Why-functional-programming/">Read More</a></p></div><div class="post"><h2 class="post-title"><a href="/blog/2017/08/04/股市投资三要素/">股市投资三要素</a></h2><div class="post-meta"><p><span class="date">2017-08-04</span></p></div><div class="post-content"><ol></ol></div><p class="readmore"><a href="/blog/2017/08/04/股市投资三要素/">Read More</a></p></div><div class="post"><h2 class="post-title"><a href="/blog/2017/08/02/Customisation-of-Filco-Majestouch-2-Mechanical-Keyboard/">Customisation of Filco Majestouch 2 Mechanical Keyboard</a></h2><div class="post-meta"><p><span class="date">2017-08-02</span></p></div><div class="post-content"><p>A Filco Majestouch 2 Tenkeyless Mechanical Keyboard, with Cherry Brown switches. It has been replaced with GMK Honeywell keycaps from Originative Co. (<a href="https://originative.co/products/honeywell" target="_blank" rel="noopener">https://originative.co/products/honeywell</a>) soon after it bought.</p></div><p class="readmore"><a href="/blog/2017/08/02/Customisation-of-Filco-Majestouch-2-Mechanical-Keyboard/">Read More</a></p></div><div class="post"><h2 class="post-title"><a href="/blog/2017/07/16/极简之道-The-interface-人与机器的思想交流/">极简之道 - The interface 人与机器的思想交流</a></h2><div class="post-meta"><p><span class="date">2017-07-16</span></p></div><div class="post-content"><h2 id="Why-60"><a href="#Why-60" class="headerlink" title="Why 60%?"></a>Why 60%?</h2><p><img src="https://lh3.googleusercontent.com/TQlam4iqzr05qFMP5f3Zd_LkgDiCujghqexz3pohIH7Ylx3SaTM806ZVYO2Fywdir6ckVUyMsIWxLh30nTTFNn16nnjjSMftiLubQ4m4kTx9UgZyKAxLMAbKmL9J9Sr2FvsjIJ94VsYBZdcYI17qJEI_uj5DOoXgp8iRymR2O4e_cSFFD9mCzshNjjYp0KLESBe_5d-3oRyE4CCr8qsmQhxX6F_GVO4I_F8aI373V2mckKK9AyNKlgTnqkEhdi6i4VG5_RRqtl9ePaljdmeI6lxr19gkGeAt24Iq14OV0vNryNncMh61Jvw_60RhVVsLltRQYSHIY4ZQPNALV3E6J0dGYlH-cPqJ2eOp4TorkwNriP3lc0PEIb4pP8LKBodrAVPl9zChIkz_eIc30PDWhMjBB_PWm_gv1LN_ncpU1tsBegVmnjwUsOQHBStb90iL-RFxkDBvADYaBVxsQ2KJS5eUa0nvyYa6vLhZ1hKckn7OIt4-NjTMYuBcmE1kreNzKWUOmYcHjLmmPYGDtrZ_CPMocbixftwwccMVMFiwREvS5NaI9wiQ7anAXgaiyVmwVb29962ayTaRHHN3DsbxSF7b4iShAESrznQn6UvQJj-Bn0WBw2pEo13eT-EIqkYypwVdZzcFrVCvX6gfAbASxChkfi-G0r9Jc5sQqNqB268bVxQ=w790-h514-no" alt="Why 60%" title="Why 60%"></p></div><p class="readmore"><a href="/blog/2017/07/16/极简之道-The-interface-人与机器的思想交流/">Read More</a></p></div><nav class="page-navigator"><a class="extend prev" rel="prev" href="/blog/page/6/">Previous</a><a class="page-number" href="/blog/">1</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/5/">5</a><a class="page-number" href="/blog/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/blog/page/8/">8</a><a class="page-number" href="/blog/page/9/">9</a><a class="extend next" rel="next" href="/blog/page/8/">Next</a></nav></div></div><div class="layout-r"><div id="sidebar"><div class="search-pla"></div><div class="widget"><div class="widget-title"><i class="fa fa-xie"> Recent</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/blog/2022/10/12/Remove-Image-Background/">Remove Image Background</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2022/10/10/Geekbench-head-to-head-Mac-vs-iPad-vs-Android/">Geekbench head to head - Mac vs iPad vs Android</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2022/09/07/How-to-use-Web-Inspector-and-debug-Safari-on-iPhone-iPad/">How to use Web Inspector and debug Safari on iPhone/iPad</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2022/09/02/GitHub-Actions/">GitHub Actions</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2022/08/02/Powerful-Zsh/">Powerful Zsh</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2022/05/02/Convert-JSON-to-CSV-by-using-jq/">Convert JSON to CSV by using jq</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2021/07/30/Customise-VS-Code-settings-and-keybindings-with-Geddski-macros/">Customise VS Code settings and keybindings with Geddski macros</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2021/07/06/Export-and-Import-AWS-DynamoDB-data/">Export and Import AWS DynamoDB data</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2021/06/04/Get-and-read-logs-from-AWS-CloudWatch-with-saw/">Get and read logs from AWS CloudWatch with saw</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2021/05/11/AWS-EC2-CloudFormation-templates-in-subnets/">AWS EC2 CloudFormation templates in subnets</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-commt"> Recent Comments</i></div></div><div class="widget"><div class="widget-title"><i class="fa fa-biao"> Tags</i></div><div class="tagcloud"></div></div><div class="widget"><div class="widget-title"><i class="fa fa-archive"> Archive</i></div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/09/">September 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/08/">August 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/01/">January 2017</a></li></ul></div></div></div></div><a id="totop" href="#top"></a><div id="footer"><div class="footer-info"><p><a href="/blog/baidusitemap.xml">Baidu Site Haritası</a> |  <a href="/blog/atom.xml">RSS</a> |  <a href="/blog/about/">About</a></p><p>本站总访问量：<i id="busuanzi_container_site_pv"><i id="busuanzi_value_site_pv"></i></i>次</p><p><span> Copyright &copy;<a href="/blog/." rel="nofollow">Terrence Miao.</a></span><span> Theme by<a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake.</a></span><span> Count by<a href="http://busuanzi.ibruce.info/"> busuanzi.</a></span><span> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a></span></p></div></div></div><script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-ga('create','330279473','auto');ga('send','pageview');
-</script><script type="text/javascript" src="/blog/js/search.json.js?v=2.0.1"></script><script type="text/javascript" src="/blog/js/totop.js?v=2.0.1" async></script></body></html>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=330279473"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '330279473');
+</script>
+<!-- End Google Analytics -->
+
+  
+  <title>Terrence Miao&#39;s Adventures</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+    <meta name="description" content="Veni, vidi, vici">
+  
+  
+  
+    <link rel="alternate" href="/blog/atom.xml" title="Terrence Miao's Adventures" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/blog/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/blog/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.min.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">Terrence Miao&#39;s Adventures</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/blog/" id="subtitle">A journey of a thousand miles begins with a single step</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/blog/."><i class="fa fa-home"></i> Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives/"><i class="fa fa-archive"></i> Archive</a>
+        
+          <a class="main-nav-link" href="/blog/about/"><i class="fa fa-user"></i> About</a>
+        
+          <a class="main-nav-link" href="/blog/atom.xml"><i class="fa fa-rss"></i> RSS</a>
+        
+      </nav>
+    </div>
+    <div id="search-form">
+      <div id="result-mask" class="hide"></div>
+      <label><input id="search-key" type="text" autocomplete="off" placeholder="search"></label>
+      <div id="result-wrap" class="hide">
+        <div id="search-result"></div>
+      </div>
+      <div class="hide">
+        <template id="search-tpl">
+          <div class="item">
+            <a href="/{path}" title="{title}">
+              <div class="title">{title}</div>
+              <div class="time">{date}</div>
+              <div class="tags">{tags}</div>
+            </a>
+          </div>
+        </template>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  <article id="post-浅谈程序员的数学修养" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog/2017/09/23/%E6%B5%85%E8%B0%88%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%95%B0%E5%AD%A6%E4%BF%AE%E5%85%BB/">浅谈程序员的数学修养</a>
+    </h1>
+  
+
+
+      </header>
+    
+    <div class="article-meta">
+      
+      <span class="article-date">
+  <i class="fa fa-date"></i>
+  <time class="dt-published" datetime="2017-09-23T13:46:22.000Z" itemprop="datePublished">2017-09-23</time>
+</span>
+      
+      
+      
+<a href="/blog/2017/09/23/%E6%B5%85%E8%B0%88%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%95%B0%E5%AD%A6%E4%BF%AE%E5%85%BB/#comments" class="article-comment-link">
+  
+  <i class="fa fa-commt"></i>
+  Guestbook
+</a>
+
+
+    </div>
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>可能有很多朋友在网上看过 Google 公司早几年的招聘广告，它的第一题如下了:</p>
+<pre><code>&#123;first 10-digit prime found in consecutive digits e&#125;.com
+</code></pre>
+<p>e 中出现的连续的第一个10个数字组成的质数。</p>
+<p>据说当时这个试题在美国很多地铁的出站口都有大幅广告，只要正确解答了这道题，在浏览器的地址栏中输入这个答案，就可以进入下一轮的测试，整个测试过程如同一个数学迷宫，直到你成为 Google 的一员。</p>
+<p>又如 Intel 某年的一道面试题目:</p>
+<pre><code>巴拿赫病故于 1945年8月31日。他的出生年份恰好是他在世时某年年龄的平方。
+问:他是哪年出生的? 这道看似很简单的数学问题，你能不能能快地解答呢?
+</code></pre>
+<p>下面则是一道世界第一大软件公司微软的招聘测试题:</p>
+<pre><code>中间只隔一个数字的两个素数被称为素数对，比如 5 和 7，17 和 19，证明素数对之间的数字总能被 6 整除
+(假设这两个素数都大于 6)，现在证明没有由三个素数组成的素数对。
+</code></pre>
+<p>这样的试题还有很多很多，这些题目乍初看上去都是一些数学问题。但是世界上一些著名的公司都把它们用于招聘测试，可见它们对新员工数学基础的重视。数学试题与应用程序试题是许多大型软件公司面试中指向性最明显的一类试题，这些试题就是考察应聘者的数学能力与计算机能力。某咨询公司的一名高级顾问曾说: 微软是一家电脑软件公司，当然要求其员工有一定的计算机和数学能力，面试中自然就会考察这类能力。微软的面试题目就考察了应聘人员对基础知识的掌握程度、对基础知识的应用能力，甚至暗含了对计算机基本原理的考察。所以，这样的面试题目的确很“毒辣”，足以筛选到合适的人。</p>
+<p>四川大学数学学院的曹广福教授曾说过: “一个大学生将来的作为与他的数学修养有很大的关系”。</p>
+<p>大学计算机专业学生都有感触，计算机专业课程中最难的几门课程莫过于离散数学、编译原理、数据结构，当然像组合数学、密码学、计算机图形学等课程也令许多人学起来相当吃力，很多自认为数据库学得很好的学生在范式、函数依赖、传递依赖等数学性比较强的概念面前感到力不从心，这些都是因为数学基础或者说数学知识的缺乏所造成的。数学是计算机的基础，这也是为什么考计算机专业研究生数学都采用最难试题 (数学一) 的原因，当然这也能促使一些新的交叉学科如数学与应用软件、信息与计算科学专业等飞速发展。</p>
+<p>许多天才程序员本身就是数学尖子，众所周知，Bill Gates 的数学成绩一直都很棒，他甚至曾经期望当一名数学教授，他的母校 — 湖滨中学的数学系主任弗雷福·赖特曾这样谈起过他的学生: “他能用一种最简单的方法来解决某个代数或计算机问题，他可以用数学的方法来找到一条处理问题的捷径，我教了这么多年的书，没见过像他这样天分的数学奇才。他甚至可以和我工作过多年的那些优秀数学家媲美。当然，比尔也各方面表现得都很优秀，不仅仅是数学，他的知识面非常广泛，数学仅是他众多特长之一。”</p>
+<p>影响一代中国程序人的金山软件股份有限公司董事长求伯君当年高考数学成绩满分进一步说明了问题。很多数学基础很好的人，一旦熟悉了某种计算机语言，他可以很快地理解一些算法的精髓，使之能够运用自如，并可能写出时间与空间复杂度都有明显改善的算法。</p>
+<p>程序设计当中解决的相当一部分问题都会涉及各种各样的科学计算，这需要程序员具有什么样的基础呢? 实际问题转换为程序，要经过一个对问题抽象的过程，建立起完善的数学模型，只有这样，我们才能建立一个设计良好的程序。从中我们不难看出数学在程序设计领域的重要性。算法与计算理论是计算机程序设计领域的灵魂所在，是发挥程序设计者严谨，敏锐思维的有效工具，任何的程序设计语言都试图将之发挥得淋漓尽致。程序员需要一定的数学修养，不但是编程本身的需要，同时也是培养逻辑思维以及严谨的编程作风的需要。数学可以锻炼我们的思维能力，可以帮助我们解决现实中的问题。可以帮助我们更高的学习哲学。为什么经常有人对一些科学计算程序一筹莫展，他可以读懂每一行代码，但是却无法预测程序的预测结果，甚至对程序的结构与功能也一知半解，给他一个稍微复杂点的数学公式，他可能就不知道怎么把它变成计算机程序。很多程序员还停留在做做简单的 MIS，设计一下 MDI，写写简单的 Class 或用 SQL 语句实现查询等基础的编程工作上，对于一些需要用到数学知识的编程工作就避而远之，当然实现一个累加程序或者一个税率的换算程序还是很容易的，因为它们并不需要什么高深的数学知识。</p>
+<p>一名有过 10 多年开发经验的老程序员曾说过: “所有程序的本质就是逻辑。技术你已经较好地掌握了，但只有完成逻辑能力的提高，你才能成为一名职业程序员。打一个比方吧，你会十八般武艺，刀枪棍棒都很精通，但就是力气不够，所以永远都上不了战场，这个力气对程序员而言就是逻辑能力 (其本质是一个人的数学修养，注意，不是数学知识)。”</p>
+<p>程序员的数学修养不是一朝一夕就可以培养的。数学修养与数学知识不一样，修养需要一个长期的过程，而知识的学习可能只是一段短暂的时间。下面是一些我个人对于程序员如何提高与培养自己的数学修养的基本看法。</p>
+<p>首先，应该意识到数学修养的重要性。作为一个优秀的程序员，一定的数学修养是十分重要也是必要的。数学是自然科学的基础，计算机科学实际上是数学的一个分支。计算机理论其实是很多数学知识的融合，软件工程需要图论，密码学需要数论，软件测试需要组合数学，计算机程序的编制更需要很多的数学知识，如集合论、排队论、离散数学、统计学，当然还有微积分。计算机科学一个最大的特征是信息与知识更新速度很快，随着数学知识与计算机理论的进一步结合，数据挖掘、模式识别、神经网络等分支科学得到了迅速发展，控制论、模糊数学、耗散理论、分形科学都促进了计算机软件理论、信息管理技术的发展。严格的说，一个数学基础不扎实的程序不能算一个合格的程序员，很多介绍计算机算法的书籍本身也就是数学知识的应用与计算机实现手册。</p>
+<p>其次，自身数学知识的积累，培养自己的空间思维能力和逻辑判断能力。数学是一门分支众多的学科，我们无法在短暂的一生中学会所有的数学知识，像泛函理论、混沌理论以及一些非线性数学问题不是三五几天就可以掌握的。数学修养的培养并不在与数学知识的多少，但要求程序员有良好的数学学习能力，能够很快地把一些数学知识和自己正在解决的问题联系起来，很多理学大师虽然不是数学出身，但是他们对数学有很强的理解能力和敏锐的观察力，于是一系列新的学科诞生了，如计算化学、计算生物学、生物信息学、化学信息学、计算物理学，计算材料学等等。数学是自然学科的基础，计算机技术作为理论与实践的结合，更需要把数学的一些精髓融入其中。从计算机的诞生来看它就是在数学的基础上产生的，最简单的 0、1 进制就是一个古老的数学问题。程序设计作为一项创造性很强的职业，它需要程序员有一定的数学修养，也具有一定的数学知识的积累，可以更好地把一些数学原理与思想应用于实际的编程工作中去。学无止境，不断的学习是提高修养的必经之路。</p>
+<p>第三，多在实践中运用数学。有些高等学校开设了一门这样的课程 —《数学建模》。我在大学时期也曾学过，这是一门内容很丰富的课程。它把很多相关的学科与数学都联系在一起，通过很多数学模型来解决实际的生产生活问题，很多问题的解决需要计算机程序来实现。我在大学和研究生阶段都参加过数学建模竞赛，获得了不少的经验，同时也进一步提高了自己的数学修养。实际上，现在的程序设计从某些角度来看就是一个数学建模的过程，模型的好坏关系到系统的成败，现在数学建模的思想已经用于计算机的许多相关学科中，不单只是计算机程序设计与算法分析。应该知道，数学是一门需要在实践中展示其魅力的科学，而计算机程序也是为帮助解决实际问题而编制的，因此，应该尽量使它们结合起来，在这个方面，计算机密码学是我认为运用数学知识最深最广泛的，每一个好的加密算法后面都有一个数学理论的支持，如椭圆曲线、背包问题、素数理论等。作为一名优秀的程序员，应该在实际工作中根据需要灵活运用数学知识，培养一定的数学建模能力，善于归纳总结，慢慢使自己的数学知识更加全面，数学修养得到进一步提高。</p>
+<p>第四，程序员培养制度与教学的改革。许多程序员培养体制存在很多缺陷，一开始就要求学员能够快速精通某种语言，以语言为中心，对算法的核心思想与相关的数学知识都一笔带过，讲得很少，这造成很多程序员成为背程序的机器，这样不利于程序员自身的快速成长，也不利于程序员解决新问题。我在长期的程序员培训与计算机教学工作采用了一些与传统方式不一致的方法，收到了一定的效果。很多初学程序的人往往写程序时有时候会有思维中断，或者对一些稍难的程序觉得无法下手，我采用了一些课前解决数学小问题的方法来激励大家的学习兴趣，这些小问题不单单是脑筋急转弯，其中不少是很有代表意义的数学思考题。通过数学问题来做编程的热身运动，让学员在数学试题中激发自己的思维能力，记得有位专家曾经说过，经常做做数学题目会使自己变聪明，很长时间不去接触数学问题会使自己思维迟钝。通过一些经典的数学问题来培养学员的思维的严谨性和跳跃性。很多人可能不以为然，其实有些看似简单的问题并不一定能够快速给出答案，大脑也是在不断的运用中变更加灵活的。不信吗? 大家有兴趣可以做做下面这道题目，看看能不能在1分钟之内想到答案，这只是一道小学数学课后习题。很多人认为自己的数学基础很好，但是据说这道题目 90% 以上的人不能在一个小时内给出正确答案。试试，如果你觉得我说的是错的。</p>
+<pre><code>证明: AB + AC &gt; DB + DC (D 为三角形 ABC 的一个内点)
+</code></pre>
+<p>最后，多学多问，多看好书，看经典。我在这里向大家推荐两部可能大家已经很熟悉的经典的计算机算法教材，它们中间很多内容其实就是数学知识的介绍。</p>
+<p>第一部是《算法导论》，英文名称: Introduction to Algorithms，作者: Thomas H. Cormen ，Charles E. Leiserson ，Ronald L. Rivest ，Clifford Stein。本书的主要作者来自麻省理工大学计算机，作者之一 Ronald L. Rivest 由于其在公开秘钥密码算法 RSA 上的贡献获得了图灵奖。这本书目前是算法的标准教材，美国许多名校的计算机系都使用它，国内有些院校也将本书作为算法课程的教材。另外许多专业人员也经常引用它。本书基本包含了所有的经典算法，程序全部由伪代码实现，这更增添了本书的通用性，使得利用各种程序设计语言进行程序开发的程序员都可以作为参考。语言方面通俗，很适合作为算法教材和自学算法之用。</p>
+<p>另一部是很多人都应该知道的 Donald E. Knuth 所著《计算机程序设计艺术》，英文名称: The Art of Computer Programming。 Donald E. Knuth 人生最辉煌的时刻在斯坦福大学计算机系渡过，美国计算机协会图灵奖的获得者，是本领域内当之无愧的泰斗。有戏言称搞计算机程序设计的不认识 Knuth 就等于搞物理的不知道爱因斯坦，搞数学的不知道欧拉，搞化学的不知道道尔顿。被简称为 TAOCP 的这本巨著内容博大精深，几乎涵盖了计算机程序设计算法与理论最重要的内容。现在发行的只有三卷，分别为基础运算法则，半数值算法，以及排序和搜索 (在写本文之际，第四卷已经出来了，我也在第一时间抢购了一本)。本书结合大量数学知识，分析不同应用领域中的各种算法，研究算法的复杂性，即算法的时间、空间效率，探讨各种适用算法等，其理论和实践价值得到了全世界计算机工作者的公认。书中引入的许多术语、得到的许多结论都变成了计算机领域的标准术语和被广泛引用的结果。另外，作者对有关领域的科学发展史也有深入研究，因此本书介绍众多研究成果的同时，也对其历史渊源和发展过程做了很好的介绍，这种特色在全球科学著作中是不多见的。至于本书的价值我觉得 Bill Gates 先生的话足以说明问题: “如果你认为你是一名真正优秀的程序员读 Knuth 的《计算机程序设计艺术》，如果你能读懂整套书的话，请给我发一份你的简历”。作者数学方面的功底造就了本书严谨的风格，虽然本书不是用当今流行的程序设计语言描述的，但这丝毫不损伤它 “程序设计史诗” 的地位。道理很简单，它内涵的设计思想是永远不会过时的。除非英语实在有困难，否则建议读者选用英文版。我个人就是阅读的该书的英文版，虽然花了不少 money 和时间，但是收获颇丰，值得。</p>
+<p>总之，要想成为一名有潜力有发展前途的程序员，或者想成为程序员中的佼佼者，你一定要培养良好的数学修养。切记: 对于一名能够灵活自如编写各种程序的人，</p>
+<p>数学是程序的灵魂。</p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
+<li><a target="_blank" rel="noopener" href="http://www.cs.xmu.edu.cn/cs/node/213">http://www.cs.xmu.edu.cn/cs/node/213</a></li>
+</ul>
+
+        
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div class="article-tag-wrap">
+          
+
+          
+          
+
+
+        </div>
+      
+      
+      
+    </footer>
+  </div>
+</article>
+
+
+  <article id="post-Geoffrey-Hinton-interview" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog/2017/09/20/Geoffrey-Hinton-interview/">Geoffrey Hinton interview</a>
+    </h1>
+  
+
+
+      </header>
+    
+    <div class="article-meta">
+      
+      <span class="article-date">
+  <i class="fa fa-date"></i>
+  <time class="dt-published" datetime="2017-09-20T13:29:03.000Z" itemprop="datePublished">2017-09-20</time>
+</span>
+      
+      
+      
+<a href="/blog/2017/09/20/Geoffrey-Hinton-interview/#comments" class="article-comment-link">
+  
+  <i class="fa fa-commt"></i>
+  Guestbook
+</a>
+
+
+    </div>
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="About-this-course"><a href="#About-this-course" class="headerlink" title="About this course"></a>About this course</h2><p>If you want to break into cutting-edge AI, this course will help you do so. Deep learning engineers are highly sought after, and mastering deep learning will give you numerous new career opportunities.</p>
+<p>Deep learning is also a new “superpower” that will let you build AI systems that just were not possible a few years ago. In this course, you will learn the foundations of deep learning. When you finish this class, you will:</p>
+<ul>
+<li>Understand the major technology trends driving Deep Learning</li>
+<li>Be able to build, train and apply fully connected deep neural networks</li>
+<li>Know how to implement efficient (vectorized) neural networks</li>
+<li>Understand the key parameters in a neural network’s architecture</li>
+</ul>
+<p>This course also teaches you how Deep Learning actually works, rather than presenting only a cursory or surface-level description. So after completing it, you will be able to apply deep learning to a your own applications.</p>
+<p>If you are looking for a job in AI, after this course you will also be able to answer basic interview questions. This is the first course of the Deep Learning Specialization.</p>
+<h2 id="Lecture-transcript"><a href="#Lecture-transcript" class="headerlink" title="Lecture transcript"></a>Lecture transcript</h2><p>As part of this course by deeplearning.ai, hope to not just teach you the technical ideas in deep learning, but also introduce you to some of the people, some of the heroes in deep learning.</p>
+<p>The people that invented so many of these ideas that you learn about in this course or in this specialization. In these videos, I hope to also ask these leaders of deep learning to give you career advice for how you can break into deep learning, for how you can do research or find a job in deep learning.</p>
+<p>As the first of this interview series, I am delighted to present to you an interview with <strong>Geoffrey Hinton</strong>.</p>
+<p><em>AN: I think that at this point you more than anyone else on this planet has invented so many of the ideas behind deep learning. And a lot of people have been calling you the godfather of deep learning. Although it was not until we were chatting a few minutes ago, until I realized you think I’m the first one to call you that, which I’m quite happy to have done. But what I want to ask is, many people know you as a legend, I want to ask about your personal story behind the legend. So how did you get involved in, going way back, how did you get involved in AI and machine learning and neural networks?</em></p>
+<p>So when I was at high school, I had a classmate who was always better than me at everything, he was a brilliant mathematician. And he came into school one day and said, did you know the brain uses holograms? And I guess that was about 1966, and I said, sort of what’s a hologram? And he explained that in a hologram you can chop off half of it, and you still get the whole picture. And that memories in the brain might be distributed over the whole brain. And so I guess he’d read about Lashley’s experiments, where you chop off bits of a rat’s brain and discover that it’s very hard to find one bit where it stores one particular memory. So that’s what first got me interested in how does the brain store memories.</p>
+<p>And then when I went to university, I started off studying physiology and physics. I think when I was at Cambridge, I was the only undergraduate doing physiology and physics. And then I gave up on that and tried to do philosophy, because I thought that might give me more insight. But that seemed to me actually lacking in ways of distinguishing when they said something false. And so then I switched to psychology. And in psychology they had very, very simple theories, and it seemed to me it was sort of hopelessly inadequate to explaining what the brain was doing. So then I took some time off and became a carpenter. And then I decided that I’d try AI, and went of to Edinburgh, to study AI with Langer Higgins. And he had done very nice work on neural networks, and he’d just given up on neural networks, and been very impressed by Winograd’s thesis. So when I arrived he thought I was kind of doing this old fashioned stuff, and I ought to start on symbolic AI. And we had a lot of fights about that, but I just kept on doing what I believed in.</p>
+<p><em>AN: And then what?</em></p>
+<p>I eventually got a PhD in AI, and then I couldn’t get a job in Britain. But I saw this very nice advertisement for Sloan Fellowships in California, and I managed to get one of those. And I went to California, and everything was different there. So in Britain, neural nets was regarded as kind of silly, and in California, Don Norman and David Rumelhart were very open to ideas about neural nets. It was the first time I’d been somewhere where thinking about how the brain works, and thinking about how that might relate to psychology, was seen as a very positive thing. And it was a lot of fun there, in particular collaborating with David Rumelhart was great.</p>
+<p><em>AN: I see, great. So this was when you were at UCSD, and you and Rumelhart around what, 1982, wound up writing the seminal back prop paper, right?</em></p>
+<p>Actually, it was more complicated than that.</p>
+<p>In, I think, early 1982, David Rumelhart and me, and Ron Williams, between us developed the back prop algorithm, it was mainly David Rumelhart’s idea. We discovered later that many other people had invented it. David Parker had invented, it probably after us, but before we’d published. Paul Werbos had published it already quite a few years earlier, but nobody paid it much attention. And there were other people who’d developed very similar algorithms, it’s not clear what’s meant by back prop. But using the chain rule to get derivatives was not a novel idea.</p>
+<p><em>AN: I see, why do you think it was your paper that helped so much the community latch on to back prop? It feels like your paper marked an infection in the acceptance of this algorithm, whoever accepted it.</em></p>
+<p>So we managed to get a paper into Nature in 1986. And I did quite a lot of political work to get the paper accepted. I figured out that one of the referees was probably going to be Stuart Sutherland, who was a well known psychologist in Britain. And I went to talk to him for a long time, and explained to him exactly what was going on. And he was very impressed by the fact that we showed that <strong>back prop could learn representations for words. And you could look at those representations, which are little vectors, and you could understand the meaning of the individual features</strong>. So we actually trained it on little triples of words about family trees, like Mary has mother Victoria. And you’d give it the first two words, and it would have to predict the last word. And after you trained it, you could see all sorts of features in the representations of the individual words. Like the nationality of the person there, what generation they were, which branch of the family tree they were in, and so on. That was what made Stuart Sutherland really impressed with it, and I think that’s why the paper got accepted.</p>
+<p><em>AN: Very early <strong>word embeddings</strong>, and you’re already seeing learned features of semantic meanings emerge from the training algorithm.</em></p>
+<p>Yes, <strong>so from a psychologist’s point of view, what was interesting was it unified two completely different strands of ideas about what knowledge was like. So there was the old psychologist’s view that a concept is just a big bundle of features, and there’s lots of evidence for that. And then there was the AI view of the time, which is a formal structurist view. Which was that a concept is how it relates to other concepts. And to capture a concept, you’d have to do something like a graph structure or maybe a semantic net. And what this back propagation example showed was, you could give it the information that would go into a graph structure, or in this case a family tree. And it could convert that information into features in such a way that it could then use the features to derive new consistent information, ie generalize. But the crucial thing was this to and fro between the graphical representation or the tree structured representation of the family tree, and a representation of the people as big feature vectors. And in fact that from the graph-like representation you could get feature vectors. And from the feature vectors, you could get more of the graph-like representation</strong>.</p>
+<p><em>AN: So this is 1986?</em></p>
+<p>In the early 90s, Bengio showed that you can actually take real data, you could take English text, and apply the same techniques there, and get embeddings for real words from English text, and that impressed people a lot.</p>
+<p><em>AN: I guess recently we’ve been talking a lot about how fast computers like GPUs and supercomputers that’s driving deep learning. I didn’t realize that back between 1986 and the early 90’s, it sounds like between you and Bengio there was already the beginnings of this trend.</em></p>
+<p>Yes, it was a huge advance. In 1986, I was using a list machine which was less than a tenth of a mega flop. And by about 1993 or thereabouts, people were seeing ten mega flops. So there was a factor of 100, and that’s the point at which is was easy to use, because computers were just getting faster.</p>
+<p><em>AN: Over the past several decades, you’ve invented so many pieces of neural networks and deep learning. I’m actually curious, of all of the things you’ve invented, which of the ones you’re still most excited about today?</em></p>
+<p>So I think the most beautiful one is the work I do with Terry Sejnowski on <strong>Boltzmann machines</strong>. So we discovered there was this really, really <strong>simple learning algorithm that applied to great big density connected nets where you could only see a few of the nodes. So it would learn hidden representations and it was a very simple algorithm. And it looked like the kind of thing you should be able to get in a brain because each synapse only needed to know about the behavior of the two neurons it was directly connected to. And the information that was propagated was the same. There were two different phases, which we called wake and sleep. But in the two different phases, you’re propagating information in just the same way. Where as in something like back propagation, there’s a forward pass and a backward pass, and they work differently. They’re sending different kinds of signals</strong>. So I think that’s the most beautiful thing.</p>
+<p>And for many years it looked just like a curiosity, because it looked like it was much too slow. But then later on, I got rid of a little bit of the beauty, and it started letting me settle down and just use one iteration, in a somewhat simpler net. And that gave <strong>restricted Boltzmann machines</strong>, which actually worked effectively in practice. So in the Netflix competition, for example, restricted Boltzmann machines were one of the ingredients of the winning entry.</p>
+<p><em>AN: And in fact, a lot of the recent resurgence of neural net and deep learning, starting about 2007, was the restricted Boltzmann machine, and <strong>de-restricted Boltzmann machine</strong> work that you and your lab did.</em></p>
+<p>Yes so that’s another of the pieces of work I’m very happy with, the idea of that you could <strong>train your restricted Boltzmann machine, which just had one layer of hidden features and you could learn one layer of feature. And then you could treat those features as data and do it again, and then you could treat the new features you learned as data and do it again, as many times</strong> as you liked. So that was nice, it worked in practice. And then UY Tay realized that <strong>the whole thing could be treated as a single model, but it was a weird kind of model. It was a model where at the top you had a restricted Boltzmann machine, but below that you had a Sigmoid belief net which was something that invented many years early. So it was a directed model and what we’d managed to come up with by training these restricted Boltzmann machines was an efficient way of doing inferences in Sigmoid belief nets</strong>. So, around that time, there were people doing neural nets, who would use densely connected nets, but didn’t have any good ways of doing probabilistic imprints in them. And you had people doing graphical models, unlike my children, who could do inference properly, but only in sparsely connected nets. And what we managed to show was the way of learning these <strong>deep belief nets so that there’s an approximate form of inference that’s very fast, it’s just hands in a single forward pass and that was a very beautiful result. And you could guarantee that each time you learn that extra layer of features there was a band, each time you learned a new layer, you got a new band, and the new band was always better than the old band</strong>.</p>
+<p><em>AN: The variational bands, showing as you add layers. Yes, I remember that video.</em></p>
+<p>So that was the second thing that I was really excited about. And I guess the third thing was the work I did with on variational methods. It turns out people in statistics had done similar work earlier, but we didn’t know about that. So we managed to <strong>make EN work a whole lot better by showing you didn’t need to do a perfect E step. You could do an approximate E step. And EN was a big algorithm in statistics. And we’d showed a big generalization of it</strong>.</p>
+<p>And in particular, in 1993, I guess, with Van Camp. I did a paper, with I think, <strong>the first variational Bayes paper, where we showed that you could actually do a version of Bayesian learning that was far more tractable, by approximating the true posterior with a guessing. And you could do that in neural net</strong>. And I was very excited by that.</p>
+<p><em>AN: I see. Wow, right. Yep, I think I remember all of these papers. You and Hinton, approximate paper, spent many hours reading over that. And I think some of the algorithms you use today, or some of the algorithms that lots of people use almost every day, are what, things like dropouts, or I guess activations came from your group?</em></p>
+<p>Yes and no. So other people have thought about <strong>rectified linear units. And we actually did some work with restricted Boltzmann machines showing that a ReLU was almost exactly equivalent to a whole stack of logistic units. And that’s one of the things that helped ReLUs catch on</strong>.</p>
+<p><em>AN: I was really curious about that. The value paper had a lot of math showing that this function can be approximated with this really complicated formula. Did you do that math so your paper would get accepted into an academic conference, or did all that math really influence the development of max of 0 and x?</em></p>
+<p>That was one of the cases where actually the math was important to the development of the idea. So I knew about rectified linear units, obviously, and I knew about logistic units. And because of the work on Boltzmann machines, all of the basic work was done using logistic units. And so the question was, could <strong>the learning algorithm work in something with rectified linear units? And by showing the rectified linear units were almost exactly equivalent to a stack of logistic units</strong>, we showed that all the math would go through.</p>
+<p><em>AN： I see. And it provided the inspiration for today, tons of people use ReLU and it just works without without necessarily needing to understand the same motivation.</em></p>
+<p>Yeah, one thing I noticed later when I went to Google. I guess in 2014, I gave a talk at Google about <strong>using ReLUs and initializing with the identity matrix. because the nice thing about ReLUs is that if you keep replicating the hidden layers and you initialize with the identity, it just copies the pattern in the layer below. And so I was showing that you could train networks with 300 hidden layers and you could train them really efficiently if you initialize with their identity</strong>. But I didn’t pursue that any further and I really regret not pursuing that. We published one paper with showing you could initialize an active showing you could initialize recurringness like that. But I should have pursued it further because Later on these residual networks is really that kind of thing.</p>
+<p><em>AN: Over the years I’ve heard you talk a lot about the brain. I’ve heard you talk about relationship being back prop and the brain. What are your current thoughts on that?</em></p>
+<p>I’m actually working on a paper on that right now. I guess my main thought is this. If it turns out the back prop is a really good algorithm for doing learning. Then for sure evolution could’ve figured out how to prevent it. I mean you have cells that could turn into either eyeballs or teeth. Now, if cells can do that, they can for sure implement back propagation and presumably this huge selective pressure for it. So I think the neuroscientist idea that it doesn’t look plausible is just silly. There may be some subtle implementation of it. And I think <strong>the brain probably has something that may not be exactly be back propagation, but it’s quite close to it</strong>. And over the years, I’ve come up with a number of ideas about how this might work. So in 1987, working with Jay McClelland, I came up with <strong>the recirculation algorithm, where the idea is you send information round a loop. And you try to make it so that things don’t change as information goes around this loop. So the simplest version would be you have input units and hidden units, and you send information from the input to the hidden and then back to the input, and then back to the hidden and then back to the input and so on. And what you want, you want to train an auto-encoder, but you want to train it without having to do back propagation. So you just train it to try and get rid of all variation in the activities. So the idea is that the learning rule for synapse is change the weighting proportion to the pre-synaptic input and in proportion to the rate of change at the post synaptic input. But in recirculation, you’re trying to make the post synaptic input, you’re trying to make the old one be good and the new one be bad, so you’re changing in that direction</strong>.</p>
+<p>We invented this algorithm before neuroscientists come up with spike-timing-dependent plasticity. <strong>Spike-timing-dependent plasticity is actually the same algorithm but the other way round, where the new thing is good and the old thing is bad in the learning rule. So you’re changing the weighting proportions to the preset outlook activity times the new person outlook activity minus the old one</strong>. Later on I realized in 2007, that if you <strong>took a stack of Restricted Boltzmann machines and you trained it up. After it was trained, you then had exactly the right conditions for implementing back propagation by just trying to reconstruct. If you looked at the reconstruction era, that reconstruction era would actually tell you the derivative of the discriminative performance</strong>. And at the first deep learning workshop at in 2007, I gave a talk about that. That was almost completely ignored. Later on, Yoshua Bengio, took up the idea and that’s actually done quite a lot of more work on that. And I’ve been doing more work on it myself. And I think this idea that if you have a stack of auto-encoders, then you can <strong>get derivatives by sending activity backwards and locate reconstructionaires</strong>, is a really interesting idea and may well be how the brain does it.</p>
+<p><em>AN: One other topic that I know you follow about and that I hear you’re still working on is how to deal with <strong>multiple time skills in deep learning</strong>? So, can you share your thoughts on that?</em></p>
+<p>Yes, so actually, that goes back to my first years of graduate student. The first talk I ever gave was about using what I called <strong>fast weights. So weights that adapt rapidly, but decay rapidly. And therefore can hold short term memory</strong>. And I showed in a very simple system in 1973 that you could do <strong>true recursion with those weights</strong>. And what I mean by <strong>true recursion is that the neurons that is used in representing things get re-used for representing things in the recursive core. And the weights that is used for actually knowledge get re-used in the recursive core. And so that leads the question of when you pop out your recursive core, how do you remember what it was you were in the middle of doing? Where’s that memory? because you used the neurons for the recursive core. And the answer is you can put that memory into fast weights, and you can recover the activities neurons from those fast weights</strong>.</p>
+<p>And more recently working with Jimmy Ba, we actually got a paper in it by using fast weights for recursion like that. I see. So that was quite a big gap. The first model was unpublished in 1973 and then Jimmy Ba’s model was in 2015, I think, or 2016. So it’s about 40 years later.</p>
+<p><em>AN: And, I guess, one other idea of quite a few years now, over five years, I think is capsules, where are you with that?</em></p>
+<p>Okay, so I’m back to the state I’m used to being in. Which is I have this idea I really believe in and nobody else believes it. And I submit papers about it and they would get rejected. But I really believe in this idea and I’m just going to keep pushing it. So it hinges on, there’s a couple of key ideas. One is about how you <strong>represent multi dimensional entities, and you can represent multi-dimensional entities by just a little backdoor activities. As long as you know there’s any one of them. So the idea is in each region of the image, you’ll assume there’s at most, one of the particular kind of feature. And then you’ll use a bunch of neurons, and their activities will represent the different aspects to that feature, like within that region exactly what are its x and y coordinates? What orientation is it at? How fast is it moving? What color is it? How bright is it? And stuff like that. So you can use a whole bunch of neurons to represent different dimensions of the same thing. Provided there’s only one of them. That’s a very different way of doing representation from what we’re normally used to in neuronettes. Normally in neuronettes, we just have a great big layer, and all the units go off and do whatever they do. But you don’t think of bundling them up into little groups that represent different coordinates of the same thing</strong>. So I think we should beat this extra structure. And then the other idea that goes with that.</p>
+<p><em>AN: So this means in the truth of the representation, you partition the representation to different subsets, to represent, right, rather than</em></p>
+<p>I call each of those <strong>subsets a capsule</strong>. And the idea is <strong>a capsule is able to represent an instance of a feature, but only one. And it represents all the different properties of that feature. It’s a feature that has a lot of properties as opposed to a normal neuron and a normal neuronette, which has just one scale of property</strong>.</p>
+<p>And then what you can do if you’ve got that, is you can do something that normal neuronettes are very bad at, which is you can do what I call <strong>routine by agreement</strong>. So let’s suppose you want to do segmentation and you have something that might be a mouth and something else that might be a nose. And you want to know if you should put them together to make one thing. So the idea should have a capsule for a mouth that has the parameters of the mouth. And you have a capsule for a nose that has the parameters of the nose. And then to decipher whether to put them together or not, you get each of them to vote for what the parameters should be for a face. Now if the mouth and the nose are in the right spacial relationship, they will agree. So when you get two captures at one level voting for the same set of parameters at the next level up, you can assume they’re probably right, because agreement in a high dimensional space is very unlikely. <strong>And that’s a very different way of doing filtering, than what we normally use in neural nets. So I think this routing by agreement is going to be crucial for getting neural nets to generalize much better from limited data. I think it’d be very good at getting the changes in viewpoint, very good at doing segmentation. And I’m hoping it will be much more statistically efficient than what we currently do in neural nets. Which is, if you want to deal with changes in viewpoint, you just give it a whole bunch of changes in view point and training on them all</strong>.</p>
+<p><em>AN: I see, right, so rather than <strong>FIFO learning</strong>, supervised learning, you can learn this in some different way.</em></p>
+<p>Well, I still plan to do it with supervised learning, but <strong>the mechanics of the forward paths are very different. It’s not a pure forward path in the sense that there’s little bits of iteration going on, where you think you found a mouth and you think you found a nose. And use a little bit of iteration to decide whether they should really go together to make a face. And you can do back props from that iteration. So you can try and do it a little discriminatively</strong>, and we’re working on that now at my group in Toronto. So I now have a little Google team in Toronto, part of the Brain team. That’s what I’m excited about right now.</p>
+<p><em>AN: I see, great, yeah. Look forward to that paper when that comes out. You worked in deep learning for several decades. I’m actually really curious, how has your thinking, your understanding of AI changed over these years?</em></p>
+<p>So I guess a lot of my intellectual history has been around back propagation, and how to use back propagation, how to make use of its power. So to begin with, in the mid 80s, we were using it for <strong>discriminative learning</strong> and it was working well. I then decided, by the early 90s, that actually most human learning was going to be unsupervised learning. And I got much more interested in unsupervised learning, and that’s when I worked on things like the Wegstein algorithm.</p>
+<p><em>AN: And your comments at that time really influenced my thinking as well. So when I was leading Google Brain, our first project spent a lot of work in unsupervised learning because of your influence.</em></p>
+<p>Right, and I may have misled you. Because in the long run, I think unsupervised learning is going to be absolutely crucial. But you have to sort of face reality. And what’s worked over the last ten years or so is supervised learning. <strong>Discriminative training, where you have labels, or you’re trying to predict the next thing in the series, so that acts as the label</strong>. And that’s worked incredibly well.</p>
+<p>I still believe that unsupervised learning is going to be crucial, and things will work incredibly much better than they do now when we get that working properly, but we haven’t yet.</p>
+<p><em>AN: Yeah, I think many of the senior people in deep learning, including myself, remain very excited about it. It’s just none of us really have almost any idea how to do it yet. Maybe you do, I don’t feel like I do.</em></p>
+<p><strong>Variational altering code is where you use the reparameterization tricks</strong>. Seemed to me like a really nice idea. And <strong>generative adversarial nets also seemed to me to be a really nice idea. I think generative adversarial nets are one of the sort of biggest ideas in deep learning that’s really new. I’m hoping I can make capsules that successful, but right now generative adversarial nets, I think, have been a big breakthrough</strong>.</p>
+<p><em>AN: What happened to sparsity and slow features, which were two of the other principles for building unsupervised models?</em></p>
+<p>I was never as big on sparsity as you were, buddy. But slow features, I think, is a mistake. You shouldn’t say slow. The basic idea is right, but you shouldn’t go for features that don’t change, you should <strong>go for features that change in predictable ways. So here’s a sort of basic principle about how you model anything. You take your measurements, and you’re applying nonlinear transformations to your measurements until you get to a representation as a state vector in which the action is linear. So you don’t just pretend it’s linear like you do with common filters. But you actually find a transformation from the observables to the underlying variables where linear operations, like matrix multipliers on the underlying variables</strong>, will do the work.</p>
+<p>So for example, <strong>if you want to change viewpoints. If you want to produce the image from another viewpoint, what you should do is go from the pixels to coordinates. And once you got to the coordinate representation, which is a kind of thing I’m hoping captures will find. You can then do a matrix multiplier to change viewpoint, and then you can map it back to pixels</strong>.</p>
+<p><em>AN: Right, that’s why you did all that.</em></p>
+<p>I think that’s a very, very general principle.</p>
+<p><em>AN: That’s why you did all that work on face synthesis, right? Where you take a face and compress it to very low dimensional vector, and so you can fiddle with that and get back other faces.</em></p>
+<p>I had a student who worked on that, I didn’t do much work on that myself.</p>
+<p><em>AN: Now I’m sure you still get asked all the time, if someone wants to break into deep learning, what should they do? So what advice would you have? I’m sure you’ve given a lot of advice to people in one on one settings, but for the global audience of people watching this video. What advice would you have for them to get into deep learning?</em></p>
+<p>Okay, so my advice is sort of read the literature, but don’t read too much of it. So this is advice I got from my advisor, which is very unlike what most people say. Most people say you should spend several years reading the literature and then you should start working on your own ideas. And that may be true for some researchers, but for creative researchers I think what you want to do is read a little bit of the literature. And notice something that you think everybody is doing wrong, I’m contrary in that sense. You look at it and it just doesn’t feel right. And then figure out how to do it right. And then when people tell you, that’s no good, just keep at it. And I have a very good principle for helping people keep at it, which is either your intuitions are good or they’re not. If your intuitions are good, you should follow them and you’ll eventually be successful. If your intuitions are not good, it doesn’t matter what you do.</p>
+<p><em>AN: Inspiring advice, might as well go for it.</em></p>
+<p>You might as well trust your intuitions. There’s no point not trusting them.</p>
+<p><em>AN: I usually advise people to not just read, but replicate published papers. And maybe that puts a natural limiter on how many you could do, because replicating results is pretty time consuming.</em></p>
+<p>Yes, it’s true that when you’re trying to replicate a published you discover all over little tricks necessary to make it work.</p>
+<p>The other advice I have is, never stop programming. Because if you give a student something to do, if they’re botching, they’ll come back and say, it didn’t work. And the reason it didn’t work would be some little decision they made, that they didn’t realize is crucial. And if you give it to a good student, like UY Tay for example. You can give him anything and he’ll come back and say, it worked. I remember doing this once, and I said, but wait a minute UY. Since we last talked, I realized it couldn’t possibly work for the following reason. And said, yeah, I realized that right away, so I assumed you didn’t mean that.</p>
+<p><em>AN: I see, yeah, that’s great, yeah. Let’s see, any other advice for people that want to break into AI and deep learning?</em></p>
+<p>I think that’s basically, read enough so you start developing intuitions. And then, trust your intuitions and go for it, don’t be too worried if everybody else says it’s nonsense.</p>
+<p><em>AN: And I guess there’s no way to know if others are right or wrong when they say it’s nonsense, but you just have to go for it, and then find out.</em></p>
+<p>Right, but there is one thing, which is, if you think it’s a really good idea, and other people tell you it’s complete nonsense, then you know you’re really on to something. So one example of that is when and I first came up with <strong>variational methods</strong>. I sent mail explaining it to a former student of mine called Peter Brown, who knew a lot about. And he showed it to people who worked with him, called the brothers, they were twins, I think. And he then told me later what they said, and they said, either this guy’s drunk, or he’s just stupid, so they really, really thought it was nonsense. Now, it could have been partly the way I explained it, because I explained it in intuitive terms. But when you have what you think is a good idea and other people think is complete rubbish, that’s the sign of a really good idea.</p>
+<p><em>AN: I see, and research topics, new grad students should work on capsules and maybe unsupervised learning, any other?</em></p>
+<p>One good piece of advice for new grad students is, see if you can find an advisor who has beliefs similar to yours. Because if you work on stuff that your advisor feels deeply about, you’ll get a lot of good advice and time from your advisor. If you work on stuff your advisor’s not interested in, all you’ll get is, you get some advice, but it won’t be nearly so useful.</p>
+<p><em>AN: I see, and last one on advice for learners, how do you feel about people entering a PhD program? Versus joining a top company, or a top research group?</em></p>
+<p>Yeah, it’s complicated, I think right now, what’s happening is, there aren’t enough academics trained in deep learning to educate all the people that we need educated in universities. There just isn’t the faculty bandwidth there, but I think that’s going to be temporary. I think what’s happened is, most departments have been very slow to understand the kind of revolution that’s going on. I kind of agree with you, that it’s not quite a second industrial revolution, but it’s something on nearly that scale. And there’s a huge sea change going on, basically because our relationship to computers has changed. Instead of programming them, we now show them, and they figure it out. That’s a completely different way of using computers, and computer science departments are built around the idea of programming computers. And they don’t understand that sort of, this showing computers is going to be as big as programming computers. Except they don’t understand that half the people in the department should be people who get computers to do things by showing them. So my department refuses to acknowledge that it should have lots and lots of people doing this. They think they got a couple, maybe a few more, but not too many. And in that situation, you have to remind the big companies to do quite a lot of the training. So Google is now training people, we call brain residence, I suspect the universities will eventually catch up.</p>
+<p><em>AN: In fact, maybe a lot of students have figured this out. A lot of top 50 programs, over half of the applicants are actually wanting to work on showing, rather than programming.</em></p>
+<p>Yeah, cool,</p>
+<p><em>AN: yeah, in fact, to give credit where it’s due, whereas <strong>a deep learning AI is creating a deep learning specialization</strong>. As far as I know, their first deep learning MOOC was actually yours taught on Coursera, back in 2012, as well. And somewhat strangely, that’s when you first published the RMS algorithm, which also is a rough.</em></p>
+<p>Right, yes, well, as you know, that was because you invited me to do the MOOC. And then when I was very dubious about doing, you kept pushing me to do it, so it was very good that I did, although it was a lot of work.</p>
+<p><em>AN: Yes, and thank you for doing that, I remember you complaining to me, how much work it was. And you staying out late at night, but I think many, many learners have benefited for your first MOOC, so I’m very grateful to you for it, so, over the years, I’ve seen you embroiled in debates about paradigms for AI, and whether there’s been a paradigm shift for AI. What are your, can you share your thoughts on that?</em></p>
+<p>Yes, happily, so I think that in the early days, <strong>back in the 50s, people like von Neumann and didn’t believe in symbolic AI, they were far more inspired by the brain. Unfortunately, they both died much too young, and their voice wasn’t heard. And in the early days of AI, people were completely convinced that the representations you need for intelligence were symbolic expressions of some kind. Sort of cleaned up logic, where you could do nomeratonic things, and not quite logic, but something like logic, and that the essence of intelligence was reasoning. What’s happened now is, there’s a completely different view, which is that what a thought is, is just a great big vector of neural activity, so contrast that with a thought being a symbolic expression. And I think the people who thought that thoughts were symbolic expressions just made a huge mistake. What comes in is a string of words, and what comes out is a string of words. And because of that, strings of words are the obvious way to represent things. So they thought what must be in between was a string of words, or something like a string of words. And I think what’s in between is nothing like a string of words. I think the idea that thoughts must be in some kind of language is as silly as the idea that understanding the layout of a spatial scene must be in pixels, pixels come in. And if we could, if we had a dot matrix printer attached to us, then pixels would come out, but what’s in between isn’t pixels. And so I think thoughts are just these great big vectors, and that big vectors have causal powers. They cause other big vectors, and that’s utterly unlike the standard AI view that thoughts are symbolic expressions</strong>.</p>
+<p><em>AN: I see, good, I guess AI is certainly coming round to this new point of view these days.</em></p>
+<p>Some of it, I think a lot of people in <strong>AI still think thoughts have to be symbolic expressions</strong>.</p>
+<p><em>AN: Thank you very much for doing this interview. It was fascinating to hear how deep learning has evolved over the years, as well as how you’re still helping drive it into the future, so thank you, Jeff.</em></p>
+<p>Well, thank you for giving me this opportunity.</p>
+<p><em>AN: Thank you.</em></p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li>Geoffrey Hinton interview, <a target="_blank" rel="noopener" href="https://www.coursera.org/learn/neural-networks-deep-learning/lecture/dcm5r/geoffrey-hinton-interview">https://www.coursera.org/learn/neural-networks-deep-learning/lecture/dcm5r/geoffrey-hinton-interview</a></li>
+</ul>
+
+        
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div class="article-tag-wrap">
+          
+
+          
+          
+
+
+        </div>
+      
+      
+      
+    </footer>
+  </div>
+</article>
+
+
+  <article id="post-画虾" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog/2017/09/03/%E7%94%BB%E8%99%BE/">画虾</a>
+    </h1>
+  
+
+
+      </header>
+    
+    <div class="article-meta">
+      
+      <span class="article-date">
+  <i class="fa fa-date"></i>
+  <time class="dt-published" datetime="2017-09-03T06:31:32.000Z" itemprop="datePublished">2017-09-03</time>
+</span>
+      
+      
+      
+<a href="/blog/2017/09/03/%E7%94%BB%E8%99%BE/#comments" class="article-comment-link">
+  
+  <i class="fa fa-commt"></i>
+  Guestbook
+</a>
+
+
+    </div>
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>今购得一画，甚喜。</p>
+<p>构图严谨而不失大气，疏密有致且遥相呼应，笔墨灵动犹如活物跃然纸上。齐白石三字字迹遒劲有力，却又透露出儿童般的天真烂漫。</p>
+<p>字，画相应得章，疏可走马密不透风，装裱更是别具一格，边上圆点疏密一致，深色背景与浅色画面相互映衬。</p>
+<p>实为难得佳作，并经砖家鉴定真迹无疑。</p>
+<p><img src="/blog/img/Shrimp.jpg" alt="画虾" title="画虾"></p>
+<p>此画还有一神奇之处，若放笼屉蒸 10 分钟，画面生彩，触觉肌理，意境更佳。</p>
+
+        
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div class="article-tag-wrap">
+          
+
+          
+          
+
+
+        </div>
+      
+      
+      
+    </footer>
+  </div>
+</article>
+
+
+  <article id="post-为什么要读书" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog/2017/09/03/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E8%AF%BB%E4%B9%A6/">为什么要读书</a>
+    </h1>
+  
+
+
+      </header>
+    
+    <div class="article-meta">
+      
+      <span class="article-date">
+  <i class="fa fa-date"></i>
+  <time class="dt-published" datetime="2017-09-03T06:09:19.000Z" itemprop="datePublished">2017-09-03</time>
+</span>
+      
+      
+      
+<a href="/blog/2017/09/03/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E8%AF%BB%E4%B9%A6/#comments" class="article-comment-link">
+  
+  <i class="fa fa-commt"></i>
+  Guestbook
+</a>
+
+
+    </div>
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="/blog/img/Maiden%201.jpg" alt="Maiden" title="Maiden"></p>
+<p>父子二人饮茶，儿问：“为什么要我读书？”</p>
+<p>父答：“我这么跟你说吧！你读了书，喝这茶时就会说：‘此茶汤色澄红透亮，气味幽香如兰，口感饱满纯正，圆润如诗，回味甘醇，齿颊留芳，韵味十足，顿觉如梦似幻，仿佛天上人间，真乃茶中极品！’”</p>
+<p>而如果你没有读书，你就会说：：“‘卧操！这茶不赖’”</p>
+<p><img src="/blog/img/Maiden%202.jpg" alt="Maiden" title="Maiden"></p>
+<p>近日对《中国诗词大会》上瘾，于是思考人为什么要读书？又如何用好的词语来描述心情和感受呢？</p>
+<p>有人曾提出这样一个问题：大部分读过的书最后都会忘掉，那读书的意义何在？这是我见过最好的回答：“小的时候我吃了很多东西，其中的大部分我已记不清是什么，但我知道，他们已经成了我现在的骨和肉”。读书，也是如此。它在不知不觉中就已经影响了你的思想，你的言行，你的形象。</p>
+<p>1，当你开心的时候<br>你可以说：<br>春风得意马蹄疾<br>一日看尽长安花</p>
+<p>而不是只会说：<br>哈哈, 哈哈, 哈哈, 哈哈, 哈哈哈</p>
+<p>2，当你伤心的时候<br>你可以说：<br>问君能有几多愁，<br>恰似一江春水向东流</p>
+<p>而不是只会说：<br>我的心好痛</p>
+<p>3，当你看到帅哥时<br>你可以说：<br>陌上人如玉<br>公子世无双</p>
+<p>而不是只会说：<br>我靠，好帅！<br>我靠靠靠，太帅了</p>
+<p>4，当你看到美女时<br>你可以说：<br>北方有佳人，绝世而独立</p>
+<p>而不是只会说：<br>我去，她好美<br>我去，她真美</p>
+<p>5，当你遇见渣男时<br>你可以说：<br>遇人不淑 ，识人不善</p>
+<p>而不是只会说：<br>瞎了老子的狗眼</p>
+<p>6，当你向一个人表达爱意时<br>你可以说：<br>山有木兮木有枝<br>心悦君兮君不知</p>
+<p>而不是只会说：<br>我喜欢你，天荒地老，海枯石烂</p>
+<p>7，当你思念一个人的时候<br>你可以说：<br>衣带渐宽终不悔<br>为伊消得人憔悴</p>
+<p>而不是只会说：<br>我想死你啦</p>
+<p>8，当你失恋的时候<br>你可以说：<br>人生若只如初见<br>何事秋风悲画扇<br>等闲变却故人心<br>却道故人心易变</p>
+<p>而不是只会千万遍的呼喊：<br>蓝瘦，香菇</p>
+<p>9，结婚的时候<br>你可以说：<br>春宵一刻值千金<br>花有清香月有阴</p>
+<p>而不是只会说：<br>嘿嘿, 嘿嘿, 嘿嘿嘿</p>
+<p>10，分手的时候<br>你可以说：<br>相濡以沫<br>不如相忘于江湖</p>
+<p>而不是只会说：<br>我们不合适</p>
+<p>11，看见大漠戈壁的时候<br>你可以说：<br>大漠孤烟直，长河落日圆</p>
+<p>而不是只会说：<br>唉呀妈呀，这全都是沙子</p>
+<p>12，看见夕阳余晖的时候<br>你可以说：<br>落霞与孤鹜齐飞<br>秋水共长天一色</p>
+<p>而不是只会说：<br>卧槽<br>这么多鸟<br>真好看<br>真他妈太好看了</p>
+
+        
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div class="article-tag-wrap">
+          
+
+          
+          
+
+
+        </div>
+      
+      
+      
+    </footer>
+  </div>
+</article>
+
+
+  <article id="post-C10k-C10M-Challenge" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog/2017/09/03/C10k-C10M-Challenge/">C10k / C10M Challenge</a>
+    </h1>
+  
+
+
+      </header>
+    
+    <div class="article-meta">
+      
+      <span class="article-date">
+  <i class="fa fa-date"></i>
+  <time class="dt-published" datetime="2017-09-03T04:38:45.000Z" itemprop="datePublished">2017-09-03</time>
+</span>
+      
+      
+      
+<a href="/blog/2017/09/03/C10k-C10M-Challenge/#comments" class="article-comment-link">
+  
+  <i class="fa fa-commt"></i>
+  Guestbook
+</a>
+
+
+    </div>
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>C10k &#x2F; C10M Challenge 挑战</p>
+<h2 id="History"><a href="#History" class="headerlink" title="History"></a>History</h2><p>The term was coined in 1999 by Dan Kegel, citing the Simtel FTP host, cdrom.com, serving 10,000 clients at once over 1 gigabit per second Ethernet in that year. The term has since been used for the general issue of large number of clients, with similar numeronyms for larger number of connections, most recently C10M in the 2010s.</p>
+<p>By the early 2010s millions of connections on a single commodity 1U server became possible: over 2 million connections (WhatsApp, 24 cores, using Erlang on FreeBSD), 10–12 million connections (MigratoryData, 12 cores, using Java on Linux).</p>
+<p>C10k（concurrently handling 10k connections）是一个在 1999 年被提出来的技术挑战，如何在一颗 1GHz CPU，2G 内存，1Gbps 网络环境下，让单台服务器同时为 1 万个客户端提供 FTP 服务。而到了 2010 年后，随着硬件技术的发展，这个问题被延伸为 C10M，即如何利用 8 核心 CPU，64G 内存，在 10Gbps 的网络上保持 1000 万并发连接，或是每秒钟处理 100 万的连接。（两种类型的计算机资源在各自的时代都约为 1200 美元）。</p>
+<p>C10k &#x2F; C10M 问题则是从技术角度出发挑战软硬件极限。C10k &#x2F; C10M 问题得解，成本问题和效率问题迎刃而解。</p>
+<p><img src="https://wiki.linuxfoundation.org/images/1/1c/Network_data_flow_through_kernel.png" alt="Network data flow through kernel" title="Network data flow through kernel"></p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li>C10k problem, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/C10k_problem">https://en.wikipedia.org/wiki/C10k_problem</a></li>
+<li>The C10K problem, <a target="_blank" rel="noopener" href="http://www.kegel.com/c10k.html">http://www.kegel.com/c10k.html</a></li>
+<li>The Secret To 10 Million Concurrent Connections - The Kernel Is The Problem Not The Solution, <a target="_blank" rel="noopener" href="http://highscalability.com/blog/2013/5/13/the-secret-to-10-million-concurrent-connections-the-kernel-i.html">http://highscalability.com/blog/2013/5/13/the-secret-to-10-million-concurrent-connections-the-kernel-i.html</a></li>
+<li>Inside NGINX: How We Designed for Performance &amp; Scale, <a target="_blank" rel="noopener" href="https://www.nginx.com/blog/inside-nginx-how-we-designed-for-performance-scale/">https://www.nginx.com/blog/inside-nginx-how-we-designed-for-performance-scale/</a></li>
+<li>架构师实践日｜从C10K到C10M高性能网络的探索与实践, <a target="_blank" rel="noopener" href="http://blog.qiniu.com/archives/4941">http://blog.qiniu.com/archives/4941</a></li>
+</ul>
+
+        
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div class="article-tag-wrap">
+          
+
+          
+          
+
+
+        </div>
+      
+      
+      
+    </footer>
+  </div>
+</article>
+
+
+  <article id="post-Plato-and-Socrates-柏拉图麦穗问题" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog/2017/09/02/Plato-and-Socrates-%E6%9F%8F%E6%8B%89%E5%9B%BE%E9%BA%A6%E7%A9%97%E9%97%AE%E9%A2%98/">Plato and Socrates - 柏拉图麦穗问题</a>
+    </h1>
+  
+
+
+      </header>
+    
+    <div class="article-meta">
+      
+      <span class="article-date">
+  <i class="fa fa-date"></i>
+  <time class="dt-published" datetime="2017-09-02T03:58:00.000Z" itemprop="datePublished">2017-09-02</time>
+</span>
+      
+      
+      
+<a href="/blog/2017/09/02/Plato-and-Socrates-%E6%9F%8F%E6%8B%89%E5%9B%BE%E9%BA%A6%E7%A9%97%E9%97%AE%E9%A2%98/#comments" class="article-comment-link">
+  
+  <i class="fa fa-commt"></i>
+  Guestbook
+</a>
+
+
+    </div>
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="https://lh3.googleusercontent.com/vyuQIzcEupI0S5rfz_Y7ICSGtzBsFL-Fx-v4HSOxC4o0s_hPgEJMhzeBrvBPDAnAsMmuARodnz6YoodekBIv89Clrwf51_-IWzOsedmLbWuY3h1Ld3oThDAWG2UpSZaxa8F-WTpVQ2MCS3oijN7zS27f35GtcaEuBpOh9nfh5rVdVpcrMY-2Djl7hvUoj1Ia948Qf-2OQAurrRffdB2ZcDLSmrUhUlpZ8LjALmpKz-OYjhAnUgqlpFbQQ0rqzswtElY6bIQ9RSG_NyKJDKwUkN9J6r-k4lu27c1UcfPzJchsQIwgnpPO6islX538EVqyAS4Skg-cjyRdsRL3mdQN7bSLY-qk0GBmYnLEfNeEJg7orCeWBKaN_p_4suLv_X5wHZu36fSEAB5Y3bMnlfUv0QkyANOa-8O0tD_bvFOhAJh-iYh3q3hSnHGgH96qjqcuqBwBitUQaZMmigxCv_HCWAV0tFaqgOEBrKnAckaeSipxkqccR98WkChAEqLvtRN83zOKA1tHhuju4q63AMlqsqWpbYnBmpoHDf-4HAiLYr26GpJ6FR7nMlnq2g4deBgiqw0T3UuwZ0-UXY6uk_i4GuZuKfbdYI-PC2m3BhRYskgyD-U0UFDBPg=w1281-h933-no" alt="The meaning of Love, Marriage and Life" title="The meaning of Love, Marriage and Life"></p>
+<p>One day, Plato asked his teacher Socrates, “What is love? How can I find it?” Socrates answered, “There is a vast wheat field in front. Walk forward without turning back, and pick only one stalk. If you find the most magnificent stalk, then you have found love.” Plato walked forward, and before long, he returned with empty hands, having picked nothing. His teacher asked, “Why did you not pick any stalk?” Plato answered, “Because I could only pick once, and yet I could not turn back. I did find the most magnificent stalk, but did not know if there were any better ones ahead, so I did not pick it. As I walked further, the stalks that I saw were not as good as the earlier one, so! I did not pick any in the end.”</p>
+<p>Socrates then said, “And that is LOVE.”</p>
+<p>On another day, Plato asked Socrates: “What is marriage? How can I find it?” His teacher answered, “There is a thriving forest in front. Walk forward without turning back, and chop down only one tree. If you find the tallest tree, then you have found marriage”. Plato walked forward, and before long, He returned with a tree. The tree was not bad but it was not tall, either. It was only an ordinary tree, not the best but just a good tree. His teacher asked, “Why did you chop down such an ordinary tree?” Plato answered, “Based on my previous experience, I had walked through the field, but returned with empty hands. This time, I saw this tree, and I felt that it was the first good tree I had seen, so I chopped it down and brought it back. I did not want to miss the chance.”</p>
+<p>Socrates then said, “And that is MARRIAGE.</p>
+<p>On another day, Plato asked his teacher, “What is life?” Socrates asked him to go to the forest again, allowed back and forth as well, and pluck the most beautiful flower. Plato walked forward. However he hadn’t come back for 3 days. His teacher went to find him. When he saw Plato’s camping in the forest, he asked:” Have you found the most beautiful flower?” Plato pointed a flower near to his camp and answered, “This is the most beautiful flower!” “Why didn’t you take it out?”  Socrates asked.  “Because if I pick it, it would be drooping. Even though I didn’t pick, it would die in a couple of days for sure. So I had been living by its side while it was blooming. When it’s drooped, I was up to find another one. This is the second most beautiful flower I have found!”</p>
+<p>Socrates then said, “You’ve got the truth of LIFE”</p>
+<p>“Love” is the most beautiful thing to happen to a person, it’s an opportunity you don’t realize its worth when you have it but only when it’s gone like the field of stalks.</p>
+<p>“Marriage” is like the tree you chopped, it’s a compromise; you pick the first best thing you see and learn to live a happy life with it. Having an affair is alluring. It’s like lightning - bright but disappeared so quickly that you cannot catch up with and keep it.</p>
+<p>“Life” is to follow and enjoy the every beautiful moment of living. That’s why you should enjoy your life wherever you live.</p>
+<p>有一天，古希腊哲学家柏拉图问他的老师苏格拉底什么是爱情，他的老师就叫他先到麦田里，摘一棵全麦田里最大最金黄的的麦穗。期间只能摘一次，并且只可以向前走，不能回头。柏拉图于是照着老师的说话做。结果，他两手空空的走出麦田。老师问他为什么摘不到，他说：“因为只能摘一次，又不能走回头路，其间即使见到一棵又大又金黄的，因为不知前面是否有更好，所以没有摘；走到前面时，又发觉总不及之前见到的好，原来麦田里最大最金黄的麦穗，早就错过了；于是，我什么也没摘到。”</p>
+<p>苏格拉底说：“这就是爱情。”</p>
+<p>之后又有一天，柏拉图问他的老师什么是婚姻，他的老师就叫他先到树林里，砍下一棵全树林最大最茂盛、最适合放在家作圣诞树的树。其间同样只能摘一次，以及同样只可以向前走，不能回头。柏拉图于是照着老师的说话做。今次，他带了一棵普普通通，不是很茂盛，亦不算太差的树回来。老师问他，怎么带这棵普普通通的树回来。他说：“有了上一次经验，当我走到大半路程，已经感到累了却还两手空空时，我觉得虽然树林里还有很多树，但这棵树还是挺不错的，便砍下来，免得最后又什么也带不出来。”</p>
+<p>苏格拉底说：“这就是婚姻。”</p>
+<p>又有一天柏拉图又问老师苏格拉底什么是生活，苏格拉底还是叫他到树林走一次。要求是随便走，在途中要取一支最好看的花。柏拉图有了以前的教训又充满信心地出去过了三天三夜，他也没有回来。苏格拉底只好走进树林里去找他，最后发现柏拉图已在树林里安营扎寨。苏格拉底问他：“你找着最好看的花么？” 柏拉图指着边上的一朵花说：“这就是最好看的花。” 苏格拉底问：“为什么不把它带出去呢？” 柏拉图回答老师： “我如果把它摘下来，它马上就枯萎。即使我不摘它，它也迟早会枯。所以我就在它还盛开的时候，住在它边上。等它凋谢的时候，再找下一朵。这已经是我找着的第二朵最好看的花了。”</p>
+<p>苏格拉底说： “你已经懂得生活的真谛了。”</p>
+<p>爱情给人经历和回忆，之后，婚姻靠的是明智的决定和好好的把握，经过了这些考验，到最后才会明白生活是一种珍惜和守护。</p>
+<h2 id="柏拉图麦穗问题的数学解答"><a href="#柏拉图麦穗问题的数学解答" class="headerlink" title="柏拉图麦穗问题的数学解答"></a>柏拉图麦穗问题的数学解答</h2><p>　　<br>现在我们用数学的角度来讨论这个问题。</p>
+<p>假设我们碰到的麦穗有 n 个，我们用这样的策略来选麦穗，前 k 个，记住一个最大的麦穗记为 d（可能是重量，也可能是体积），然后 k + 1 个开始，只要大于 d 的，就选择，否则就不选择。</p>
+<p>对于某个固定的 k，如果最大的麦穗出现在了第 i 个位置（k &lt; i ≤ n），要想让他有幸正好被选中，就必须得满足前 i - 1 个麦穗中的最好的麦穗在前 k 个麦穗里，这有 k &#x2F; (i - 1) 的可能。考虑所有可能的 i，我们便得到了前 k 个麦穗作为参考，能选中最大麦穗的总概率 P(k)：</p>
+<p><img src="/blog/img/Wheat%20paradox%201.gif" alt="Wheat Paradox" title="Wheat Paradox"></p>
+<p>设 k &#x2F; n &#x3D; x，并且假设 n 充分大，则上述公式可以改为：<br>　　<br><img src="/blog/img/Wheat%20paradox%202.gif" alt="Wheat Paradox" title="Wheat Paradox"></p>
+<p>对 x·ln(x) 求导，并令这个导数为 0，可以解出 x 的最优值，它就是欧拉研究的神秘常数的倒数 1 &#x2F; e.</p>
+<p>所以 k &#x3D; n &#x2F; e.<br>　　<br>如果你想摘取最大的麦穗，假设有 n 个麦穗，你应该先将前 n &#x2F; e 个麦穗作为参考，然后再 k + 1 个麦穗开始选择比前面 k 个最大的麦穗即可。</p>
+<p>e &#x3D; 2.718281828459</p>
+<p>1 &#x2F; e &#x3D; 0.36787944117144</p>
+<h2 id="其他例子"><a href="#其他例子" class="headerlink" title="其他例子"></a>其他例子</h2><p>一、一楼到十楼的每层电梯门口都放着一颗钻石，钻石大小不一。你乘坐电梯从一楼到十楼，每层楼电梯门都会打开一次，只能拿一次钻石，问怎样才能拿到最大的一颗。</p>
+<p>首先，这个题目说的，并不能完全拿到最大的钻石。但可以保证拿到最大钻石的概率最大。10 &#x2F; e &#x3D; 3.67，向上取整得 4。前四层皆不取，只记下最大的。后面遇到的，只要比前面最大的还大，取之即可。</p>
+<p>二、秘书问题。在机率及博弈论上，秘书问题（类似名称有相亲问题、止步问题、见好就收问题、苏丹的嫁妆问题、挑剔的求婚者问题等) 内容是这样的：</p>
+<p>要聘请一名秘书，有 n 人来面试。每次面试一人，面试过后便要即时决定聘不聘他，如果当时决定不聘他，他便不会回来。面试时总能清楚了解求职者的适合程度，并能和之前的每个人作比较。问凭什么策略，才使选得到最适合担任秘书的人的机率最大？</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li>麦穗理论，又名“秘书问题” (1&#x2F;e 处为最优分割点), <a target="_blank" rel="noopener" href="http://geek.csdn.net/news/detail/231497">http://geek.csdn.net/news/detail/231497</a></li>
+</ul>
+
+        
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div class="article-tag-wrap">
+          
+
+          
+          
+
+
+        </div>
+      
+      
+      
+    </footer>
+  </div>
+</article>
+
+
+  <article id="post-Why-functional-programming" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog/2017/08/17/Why-functional-programming/">Why Functional Programming?</a>
+    </h1>
+  
+
+
+      </header>
+    
+    <div class="article-meta">
+      
+      <span class="article-date">
+  <i class="fa fa-date"></i>
+  <time class="dt-published" datetime="2017-08-17T13:15:35.000Z" itemprop="datePublished">2017-08-17</time>
+</span>
+      
+      
+      
+<a href="/blog/2017/08/17/Why-functional-programming/#comments" class="article-comment-link">
+  
+  <i class="fa fa-commt"></i>
+  Guestbook
+</a>
+
+
+    </div>
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="https://lh3.googleusercontent.com/FXZ-mN3B3uKCrN4aazrmNfvxCeNHCibi0FZ4Fp6c2xoQQlUQZtQS7Jzm6iQVizb17iA8ydDQ8vW3c4QLv5bfuh4kZE2b_HW5VK48m3Gan4B1VbzOkcJ_mEu8Bb7oo7dheTWrk2olKoax3UVS5Zh3QVehiquSVWZfTMeiH7AHuL5F_MqnwE7__fgEezNZxzyHCA7ZKY3SF82CYciTyw3Yb_FaE4I88lXICm-wyYrmhXgtB36VamFsEFeiZHvLwWnJGxaBWPYqyC4Yz2_Q2jnM3_3LVYbb5aLRbAikJpkXkE7td58BlcBBqwZz0tQMCpcwJeWjAGviZu3sv7Hiz9m_EIk2dSCq2VhVaouiD9mW8lCTvHOh9rAQJhxGYCCsf92uoNyN1rXMdEfN2zkk0HnGcEVGraMD8-ZRfvPTH5v1CuoLBIcnLy7eRAIewlPXSBtkGyQB-Qjt3cQ3tiAoR8XOs5bxo4IumjCCBgInj-67eJZiymGysNJ1JkA4U_c4LQlxO9xKDRLEf56OVevEs4rncS2dUeYt5lg4bUsE-ihF8Pa9h0_YmQURg2hJU7KRtK_kk4ON5YLXmip7ITOnbB2sUVVLWr7UysRpTqfAwIfTwBHVPkjzDR748A=w402-h284-no" alt="Why Functional Programming?" title="Why Functional Programming?"></p>
+<h2 id="Why-Static-Type"><a href="#Why-Static-Type" class="headerlink" title="Why Static Type?"></a>Why Static Type?</h2><ul>
+<li>性能 - 方法调用速度更快，因为不需要在运行时才来判断调用的是哪个方法。</li>
+<li>可靠性 - 编译器验证了程序的正确性，因而运行时崩溃的概率更低。</li>
+<li>可维护性 - 陌生代码更容易维护，因为你可以看到代码中用到的对象的类型。</li>
+<li>工具支持 - 静态类型使 IDE 能提供可靠的重构、精确的代码补全以及其他特性。</li>
+</ul>
+<h2 id="Benefit-of-Functional-Programming"><a href="#Benefit-of-Functional-Programming" class="headerlink" title="Benefit of Functional Programming"></a>Benefit of Functional Programming</h2><ul>
+<li>头等函数 - 把函数（一小段行为）当作值使用，可以用变量保存它，把它当作参数传递，或者当作其他函数的返回值。</li>
+<li>不可变性 - 使用不可变对象，这保证了它们的状态在其创建之后不能再变化。</li>
+<li>无副作用 - 使用的是纯函数。此类函数在输入相同时会产生同样的结果，并且不会修改其他对象的状态，也不会和外面的世界交互。</li>
+</ul>
+<p><img src="https://lh3.googleusercontent.com/0zedjH2HXa0X9-ycI4v4_TkXaSI1gpRi792Ns1jQRY1iClfFMqtQ23gxP90wbhB-U8YosTXcNwXFWA-M7HRp9Uc9scHkNW_CaMoojShIIZ9DhescUF83ctzVEacIJKsG5aFLuGDJbhSqsXOTFVacsrsGph4UVNOB7hmR8_bSjX9VSS1dDAmXJnUQgWr-zPBuIx9Bygx2yAMZDZeZoIgp3MJa2e_rOCowuKGCqtLRtqckh_F_UoeUm8QzJFx989QRF1my42oJ6Su5-i5YBEDYjtuJuhDZzr9-wKZUvCwBKGgXw5u5hHKvQLq6otLywNmFaZ451s_dVq-87rWBog3-WndY46hjOJT6LkO5nNZBukD9SCl6bmgCOsXHvLlcFBSP6oD_ME9E2yV9M76NpNfJ-rUL-x5IuVeAtEABZ-Ybj2kOsNwy5_o8_MkK3ZDoYQ76jRH5p8f-zf8tUlY2hmaIG0kSzmHGjCJiVFuKQiJzmVjNIcCQbI2NsXZ83mC4tZ-fyizu0MswpAhK5o0Ov56eUjDoGI7ub4X58v_YgC_x6_YIYzPyCyqNljhIH0OPHzrC1L_R3zwXsqZCvzaCrAZ6srVmBCE9SSMf0BgCR3-LozUuhk3A3vTPvw=w500-h315-no" alt="Moving Parts" title="Moving Parts"></p>
+<ul>
+<li>简洁</li>
+</ul>
+<p>函数式风格的代码 比相应的命令式风格的代码更优雅、更简练，因为把函数当作值可以让你获得更强大的抽象能力，从而避免重复代码。</p>
+<p>假设你有两段类似的代码，实现相似的任务但具体细节略有不同，可以轻易地将这段逻辑中公共的部分提取到一个函数中，并将其他不同的部分作为参数传递给它。这些参数本身也是函数，但你可以使用一种简洁的语法来表示这些匿名函数，被称作 lambda 表达式。</p>
+<ul>
+<li>多线程安全</li>
+</ul>
+<p>多线程程序中最大的错误来源之一就是，在没有采用适当同步机制的情况下，在不同的线程上修改同一份数据。如果你使用的是不可变数据结构和纯函数，就能保证这样不安全的修改根本不会发生，也就不需要考虑为其设计复杂的同步方案。</p>
+<ul>
+<li>测试更加容易</li>
+</ul>
+<p>没有副作用的函数可以独立地进行测试，因为不需要写大量的设置代码来构造它们所依赖的整个环境。</p>
+<p>Functional programming, views a program as a mathematical function which is evaluated to produce a result value. That function may call upon nested functions, which in turn may call upon more nested functions. A nested function evaluates to produce a result. From there, that result is passed on to the enclosing function, which uses the nested function values to calculate its own return value. To enable functions to easily pass data to and from other functions, functional programming languages typically define data structures in the most generic possible way, as a collection of (any) things. They also allow functions to be passed to other functions as if they were data parameters. A function in this paradigm is not allowed to produce any side effects such as modifying a global variable that maintains state information. Instead, it is only allowed to receive parameters and perform some operations on them in order to produce its return value. Executing a functional program involves evaluating the outermost function, which in turn causes evaluation of all the nested functions, recursively down to the most basic functions that have no nested functions.</p>
+<p>Why is functional programming a big deal?</p>
+<ul>
+<li>Clarity</li>
+</ul>
+<p>Programming without side effects creates code that is easier to follow - a function is completely described by what goes in and what comes out. A function that produces the right answer today will produce the right answer tomorrow. This creates code that is easier to debug, easier to test, and easier to re-use.</p>
+<ul>
+<li>Brevity</li>
+</ul>
+<p>In functional languages, data is implicitly passed from a nested function to its parent function, via a general-purpose collection data type. This makes functional programs much more compact than those of other paradigms, which require substantial “housekeeping” code to pass data from one function to the next.</p>
+<ul>
+<li>Efficiency</li>
+</ul>
+<p>Because functions do not have side effects, operations can be re-ordered or performed in parallel in order to optimize performance, or can be skipped entirely if their result is not used by any other function.</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li>Kotlin 初体验：主要特征与应用, <a target="_blank" rel="noopener" href="http://geek.csdn.net/news/detail/231497">http://geek.csdn.net/news/detail/231497</a></li>
+<li>The Rise and Fall of Scala, <a target="_blank" rel="noopener" href="https://dzone.com/articles/the-rise-and-fall-of-scala">https://dzone.com/articles/the-rise-and-fall-of-scala</a></li>
+</ul>
+
+        
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div class="article-tag-wrap">
+          
+
+          
+          
+
+
+        </div>
+      
+      
+      
+    </footer>
+  </div>
+</article>
+
+
+  <article id="post-股市投资三要素" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog/2017/08/04/%E8%82%A1%E5%B8%82%E6%8A%95%E8%B5%84%E4%B8%89%E8%A6%81%E7%B4%A0/">股市投资三要素</a>
+    </h1>
+  
+
+
+      </header>
+    
+    <div class="article-meta">
+      
+      <span class="article-date">
+  <i class="fa fa-date"></i>
+  <time class="dt-published" datetime="2017-08-04T12:16:44.000Z" itemprop="datePublished">2017-08-04</time>
+</span>
+      
+      
+      
+<a href="/blog/2017/08/04/%E8%82%A1%E5%B8%82%E6%8A%95%E8%B5%84%E4%B8%89%E8%A6%81%E7%B4%A0/#comments" class="article-comment-link">
+  
+  <i class="fa fa-commt"></i>
+  Guestbook
+</a>
+
+
+    </div>
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>不要借钱投资</li>
+<li>只买有长期投资价值的公司</li>
+<li>不要用短期的钱去买长线的股票</li>
+</ol>
+
+        
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div class="article-tag-wrap">
+          
+
+          
+          
+
+
+        </div>
+      
+      
+      
+    </footer>
+  </div>
+</article>
+
+
+  <article id="post-Customisation-of-Filco-Majestouch-2-Mechanical-Keyboard" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog/2017/08/02/Customisation-of-Filco-Majestouch-2-Mechanical-Keyboard/">Customisation of Filco Majestouch 2 Mechanical Keyboard</a>
+    </h1>
+  
+
+
+      </header>
+    
+    <div class="article-meta">
+      
+      <span class="article-date">
+  <i class="fa fa-date"></i>
+  <time class="dt-published" datetime="2017-08-01T16:29:45.000Z" itemprop="datePublished">2017-08-02</time>
+</span>
+      
+      
+      
+<a href="/blog/2017/08/02/Customisation-of-Filco-Majestouch-2-Mechanical-Keyboard/#comments" class="article-comment-link">
+  
+  <i class="fa fa-commt"></i>
+  Guestbook
+</a>
+
+
+    </div>
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>A Filco Majestouch 2 Tenkeyless Mechanical Keyboard, with Cherry Brown switches. It has been replaced with GMK Honeywell keycaps from Originative Co. (<a target="_blank" rel="noopener" href="https://originative.co/products/honeywell">https://originative.co/products/honeywell</a>) soon after it bought.</p>
+<p><img src="https://lh3.googleusercontent.com/TLRLHuGlG8vY58FzEMmn0IBcjTq0I5TGSioChxSS2GanH_-ijRytd-SNG4bafHzt-fLCTvPOnntQUUeb6tCWiXKpnlFC_e1yD42TepbV1O0VFoXC09I3gDp5ENi5MyoB3Thgu3b_ZKEZ8jp5-rJ4skmiFVBhYMsxdcccPpXHmhbUlOfXIx7BnbHH6LlNEoxenBkqwQM0ZgXvETYR2PVFAeQQ1E_UUG3mKbWKiv7oTVPaJ-IEpo_vb5Xt1T13Niud1Eb7RWHnF8FxtcP5dv4PSbCUMA7nCVcp6FSXVOzGcA9sixKfRzYQrNg-fER3qETry-Sr2QwSuu-VB6Msm6Dm0mupf-YgfOCNC_dYTCJMdcBErN9NXr1dXFR2ZCnYQvvWOiHo7wzHY6QWGBwv2bszTDeMn-PaJXXxfNx2IQnDAA6-mNreeyWYRNkKjHrqW_qwWkgtdf-c-vb9bUX-w3cknGuzoBdWrATlpnJ-V6YGj9pv1qGG0GPPvhwwsQRQjlrZF5zZ-B8BHpW1jQiH18UhvPxJrBgZcTMYV99AlfudAZRGY0PVvJhj-Gkjzg_1GSh8IUB6-6r2hA5T3NCJWSkLb1RaHOCrkEnGV__qiT30Exq6Xz-Zc9BeVnExmxCBXNmk3wJHNaBGo5AXLuEm0JGGVXSkvIeoEX266TcJhJsZ8DFwhVs=w1278-h865-no" alt="GMK Honeywell" title="GMK Honeywell"></p>
+<p><img src="https://lh3.googleusercontent.com/WTBYH9NGRxc3A7pauIvTcWly3sSdtoJgo2Sn67L3dL5o7_5R4E9_hGrlD0_JDF4dBwrR8rhGT8TYHOuN81C0920coFwfbn8HUl4R3VbNZoHX0fmaJaijWdy0W1cq3BWAsYXs2OmFjMwSmzO4wolXFyDD0wYyoahQoS_nsZzVrssk86iXtlpir75pBIEGKhR-OPAUTOOIj-iztnsAqQ_bIC9k9e1nrmAUqe_S9FhezafRIMuWUzmd1JdR2F8P6XdSc_zHeo1ApEovpo3fYOVCmlFzXsSkwiHIFWC89txhR6PJKUzPSag4XBCSq0JDmGk9T37Ma7SbQKMqo0kDlo6-Vc2JjQvWFhcu-prcFDCivRAhTBwQNUrfCntRmlDkZIQgPgdxUKbsrn3RrpYES-SIabbrciRmBt6XAqDAkT7fBp4LPA0nK0qxkEUbbEVG2H1GItc40nHaWNe1iGh0_uuXARiCW8Q4URlto1nTc6wSY50WUtzYZ3TUVJi3S0v8qhXHiau-ZfN5f8vimeFaV6hhmoyGVbydttIwMdgbpdyHchF8D8yLgroVP6gf1jMjIyF6tOF60Rn1MO-5mIJvsLL_Aj1lZIcfFOOltCpSzQez8TykV2gtQP7JyDfdxZCDO41PxDvUEPp_xY7yU9Qo6rvl3gEZEdGhBvs1UjM2sTJUED2dRQ4=w1278-h959-no" alt="GMK Honeywell keycaps, made in Germany" title="GMK Honeywell keycaps, made in Germany"></p>
+<p>Replace Filco Majestouch 2’s with GMK Honeywell keycaps.</p>
+<p><img src="https://lh3.googleusercontent.com/ydrRuFDMu5itcFJ6hS2D5MCkcGQIkd7tb1BTAEmHNc5Csf_iDfWf020hOqgkNU_KtQRVtbdwN1hwOfmYxK4lMN6PJsFUo51I_FU31Fghkx9BAf4Xa7c3MDGmhsIvO306Cm608q3ZIQvajEvLeWqsFCKnhzrOva86Mkx8Y-q-Rv9ZSibG0whukCDz4ONt1jegt6fBu-DkVjZLXq_yvRTnch1UzXJ97ErMhzlduXnVyVW4a1Q78SRAu2A6JB9QOlwKeZgzIwo-ARI4t8f7uJvkWuZK3K-E9jnYti6VjJSTpOKcvqfO4zXiz4gbTgo3wM3bq959-aBrElnUSNvohX3WYFMWa0DbqLMd-rST0tbgnN1DiVeW7u0w3efDuMu068xDi_OoEu3UPDPICzNkB-pDGFe2QC0Jr9NsLXiM5NLhbrfk02T_tQwnSIQLrnJFWLxULBM5cmQ5Fq6kkneSK0vy7Z_9lKyw4185382dLDGcRI48zk7up5ROzo70_AhBO_03xip6TFxovqUI7ict8bzIoN2fkBncMTzq-qsDFqI6yEp3zMM84qeiwc8RQz1ALuBGQeLJv2haK_tuQzHbFOtnh31WNw8XwoTeIlGKe1PI9763bZU8XxLy6Tw21lKJpk7kQ4Nm_kpl4sd-6jREFQ1qVc3oXRX0pU84zFKUumgPV-8at8M=w1278-h959-no" alt="Replace with GMK Honeywell keycaps" title="Replace with GMK Honeywell keycaps"></p>
+<p><img src="https://lh3.googleusercontent.com/lVgVLKocqpwtm00AdGfyNSTdHwVlRFOLHXuEhzPgGC8XCU915Pzk2MtwLSVWYKV_2y8fq2JMGl23YkulKGUPQZy6n4Q43BSciuO2tYkAhFJWDD6FCZndLhdQeljLvSxriP13xb7L2u21mVKy6qeBa0RSTXi6WnDJUgw_Y46Ga4uetXayKkckAogI7ZuOHnn-7wqPqRadunyqWpX_DT7Qnx1GVec3Mk9LrfpmuUqVMqw7UVUQttoWTc477rqz35JQXLG7vd7AzD5ITVA90oN9iz_GJP5M82SogEaAUDQTSMvYOysWE5Q4cvMDrYWE3o7Otub-vd0gqD0S-pdhftCsGvRpEJpPVmoCN87vlmxMQWtZuxG11HqEuk1AzHxrBX3AsiQdb-vUPBtD4mQffgxxglio7K011m4KbH0_kK5h33Va06sGvicIGHRzQ3dfIYAmbifZTbEeuYHW3soRCckUh37S7G0lhHXnAw_rioWWyKrquw0MGLSb7EzceRovICu3BMWkZuhOv4HEnm_a4f1c4cPpqUmz39D1Qh7ERDCVSL5scv79fFHc-U43bwGfCFRncIrULWBJI8Zz161R5eK1_tpuu307HfLssxW3tNh_0vSBnNS97ztjZ26HudCWWRFCvJKzZ0e7I8FZsgFiCL7c8IqYHpu0T3KkKyqBI7nvSjIX2H0=w1278-h959-no" alt="Replace with GMK Honeywell keycaps" title="Replace with GMK Honeywell keycaps"></p>
+<p><img src="https://lh3.googleusercontent.com/7cd7fcw7mmFr7T0ORi11JTsIWykO6HsaC_l0rm19wt3yCjnP9gZVPW-FFakyH6vqDLnyzV4ZT3cp4RY-uUaJNBJWTwD0cqLIqDKtDGd5Z9Ag-oEwJeGQg7nVhKFOzgv8KILpeG6FvDyIl5Ydw-7Jrq6FOpy39d3Fg-Pye1urDt6y0K_cWs4H-jyFx_evWo69uf3zdPHmwm1YEUonkTjcvALD9Rkec1T5Po6Xt2mLNaORDMYldGBPJ1fkz9k1Kg5be-kvyyyEXGWWHHU_jaP-z37T2RYomrJf0j75YQMXT5X-wSBGQ5feYcQJU76SoD0p7G-K12NjY9dUayUVcHF3LL0dY-xp2-Afc2j8LgfxsOL83KN9LUEBsPAWeU-MT0HZT4KP7rig9RctujcP538BaIQlQPI6J92lnfsgh14FqBGyC2IRf-K1hWvVAUzr-BUoNICgXGoyPgrJQqknRppzPIgX5o6J8nTg-8LUhNf4DOFVV-R2tcQye5TGqD8uf7oc1RMuene_KitK2F5c-nmAxDbcogy09eNxzstAhiSfOQTaYYhsg_WfZjWjmXqU4wXwC-hpsvoDWHBzgGPifdwOIhwDTvqI1owa0wAOd84rb_QzDco_kDZE3QYp-dYQJPt0r9FaRv3IfNutV5xojJhUgKeZKwjTbAYZXqqUptbrSovTWAc=w1278-h959-no" alt="Replace with GMK Honeywell keycaps" title="Replace with GMK Honeywell keycaps"></p>
+<p><img src="https://lh3.googleusercontent.com/NT2iSDzE2lLMTHxJW_8kfEPfziYgPKa8oeUWmjgD0cdlkease2qQYM37pdAVvCnTiLTX-anqt8VdaDhFZDUxStjRKZ2yO46DvQIFDMEAozwhnPwQthew2R2Pg3DqFzvOTi1FTYe_kXR4PbH5wzTM6tNMP4oNVzlHvjboP6FCVYBugE3wkRVOuKiphZoTkJP39EA8gLz2xsSszhRuz4sGaFKf8ae7yFWqZYzgqh3jXTo7ZPARU4qM0hDjgn8wbBKAE3pca14-pEUwkYQUjsSt79iObBDi3aKR_5ryDQuY-008RTX5FhFnDIhChs1XX1rGFnn46Rpy8h66w5WD8cvXWGtIYj4QTKjyuA_lfLQodN5G0mmUrwSGk7NFwB3b_4eF-gsYrQGppf3SPwY-C5_Rp4rRwqOnHIipvKnnpGavbkaLsQWkYH0n7jCZmceo15xSiWfDP9-izaqMWLbZ4FebevT7bAKwzg-ejVUjzY01jw5-ppVV7hpjR49oFUlzCrDAb7UsEOlKezImANenV8cVxjvAfVDFFwTdLIm3UDSP9JR3zvQd7u9Sfq3t2tFg-HxSlFnsbK0cy5wfs8Mus4SIJQjmJ5CSOxc-eez8hmf--RJeAS8YhuGu3mzt3WgVptVCS35NO5yAhhGx8DZxseodNsa_wIeFTPjmBjl-J6T_pJhiffg=w1278-h959-no" alt="Replace with GMK Honeywell keycaps" title="Replace with GMK Honeywell keycaps"></p>
+<p><img src="https://lh3.googleusercontent.com/TVuEszvt2ZVEF7-FZAGangDBAowQd4ATEqnjiHoPPoc-bxyrX0DyqugjHANAD-Va7k_phP3A6rC1jE944Yf36sfQnSTYsx0X-i5lUbG1aFhQ0AuZVpIHvOnM1s3T6s7OX8MysxNVssSWw9qWFV3hzqpuc91klpwWK-kXgAbv9YmLPX-87ONirUJw6dMowLmvxQO6WdU7Zm6g3FShOy0EHzfEbEYXGpv4UXJE70flT75mmERIWJnyON55L3bdWdMSqMIuOgLCqpGymegKCxmwozUR5f3le-NXAWTxoGRxM2b7TCkFFxnKMU58DyiH0h8Sq5yalik5XHvI5WTW0wHH0zFOnZtwkJi7wEFHoNepf80EZVXwR-AzNAEvm4dWuH7QwJHXByFDXcEv--XFdDZ8BNO1bbo2ucq3gU0OPCIsenmHFU6euIho7hyN0wfRzrqQMXk7uh4zxjXFxuPv5AoqaWa5_NUzhyx2Ao5ncNlcLu6Nmr8QxLKQnDXNx_BBHg2nUBdvmMbGcUrwHcISdd8ZXBTUDRioYAG3JGFkzCdtdl8y1N2npKhjz-gYq6XHs1_M0Uc9aglcU9ZCPAVmF6kMZkLnnJX1Fn3PMDsroqbinFMs9gWx9nlTuDPGY9Lsk5_NCowdaYDb90XmzMiX4fZmW-qBTXaBeBx5tsmOLRShjA8Nw58=w1278-h959-no" alt="Replace with GMK Honeywell keycaps" title="Replace with GMK Honeywell keycaps"></p>
+<p>After joined Massdrop Lambo 80% Anodized Aluminum Case for Filco 87 TKL campaign (<a target="_blank" rel="noopener" href="https://www.massdrop.com/buy/lambo-80-anodized-aluminum-case-for-filco-87-tkl">https://www.massdrop.com/buy/lambo-80-anodized-aluminum-case-for-filco-87-tkl</a>)</p>
+<p><img src="https://massdrop-s3.imgix.net/product-images/lambo-80-anodized-aluminum-case-for-filco-87-tkl/MD-35958_20170403154830_c95a0b1b68f3a418.jpg" alt="Lambo 80% Anodized Aluminum Case for Filco 87 TKL" title="Lambo 80% Anodized Aluminum Case for Filco 87 TKL"></p>
+<p>After a few months waiting, case delivered in, shipped from USA.</p>
+<p><img src="https://lh3.googleusercontent.com/5YO8qon5PvKPjasBBx53kxS5yTW-EVCr0b8E-E7ylZ2PBB7raYozH1llbn9Xy6uk9heaC6W-mn5Nnfdh3fsFc5CN1efc7ZZdnU-3H5o-g6b7egl_pc3J4dn5GLVHaG-iwsKWj-gfvmYebntgeKu_9QD5LRHyAJfVnjW2qylhAqt0BRtVf_IgNOelRzcj-hRXrskgzBMFdwHSYVeSQ6rgoiLCI8ZZWunB_awf_rrRPrwY_rXo4McC9F00Hd654AjUGeKY0UcIYCjebTjxMGpcLPrNWOI7iG64958mQ4pk2kvDvxT3JLjXxAmEtVnOnbwgB3QOYQErSLzfaHabAzj1PsoMfHnfmN5R_VS5pykKXkjOQa0cVki_33D1vfjcr5EhKfE7DnuFqavTgaznUJywZlymcpgGxr0lAYAQZ6chRLxA4H1hQjK4PWz7XJhysRJznDMfm17PhCDWuG_obOU76b2-U3EQWXFTNOIrH6O0SAOjxEbg5HJ9xwx8Xwp9htSlbn4O-aJiVT54KYwjLmtfKwP9_BhQKbh1YbR4uCPuhlkDj2twFG2dh-Np_v32OS4g7sTFYp9yYDZQ-rHvaAz9G2w04CPqu6FJq5fipIaHXvzyWa6z-8KZ_BG-90vpztjUNvUUOUvwbCqAvOKqQ0-nRuvSIq8E833CuDPSoZ8g3yggQ94=w1278-h959-no" alt="Lambo 80% Anodized Aluminum Case" title="Lambo 80% Anodized Aluminum Case"></p>
+<p><img src="https://lh3.googleusercontent.com/UVF-VqgVZBTfun4yJ7cDgd8nCRqe6zEDqIJ4pogh9usNX__LdXffvOT1g-PhXuWC3Ol-sQwiN7XjnThzrkbtL13BqoM_bej6T1Um8sqs-4xj8KFgYOIzyorPJS4eLnyzly7bsWwvg03vBrVHWCDYHRM5B2Db2rm1GP2TwyoPhej2eQjdOJOKmH4PzJDnZ3zoZjfSLO6212JVEbsdEdHOyhsJCJtaz09FWFQFwNLnNOM4thAqbYX9RJV4UUwz24iUEubuOxbXHTzkoEAr_MFgUSKzKy0_NTqePgRqi2iTO2AqKfGBFJSonA-iFeMYogYO6FRkl1p5widdJdT_mZWjQ4O1ZSrmDWkKt4ufUqN1eMa-C90KKV7Jyve5gj02jRi7kAfu014eZz4Sgx6A5-BMb8p9n-EHMXa-KlMEaTf4UPZstgyHmLC8pySJscCFyLsIUGgbmK5qqPGpWMzDk_KEI9RSpCAFpWGqgXlQvBzOmmdqGS3mrRwegquDEvtXj1t3uC-8T-94nSnN6-Cvw-NF5M0GgZuzUE8o4xffgLaHG3F0A9uCaDCvIDzb_zY4csBG60urJzopr4Pjd7lttqNRZ03tvn935P0-5dEpJnoGEdAb6oNF51mRq46l7ilGoSzkJmb1PDV8yptlSoY9ogj4beCZ-er-liECM964vD6Npk3uI2w=w1278-h959-no" alt="Lambo 80% Anodized Aluminum Case" title="Lambo 80% Anodized Aluminum Case"></p>
+<p>Get hands warmed up and dirty.</p>
+<p><img src="https://lh3.googleusercontent.com/FYLFrTOjMIFq-KB9iCpQOvDDDvulBj7HPRIEgvSCTFSQun9GJrpQX9N19zQdoXjMOqOvOTuOgmdgQoo3dsSwgCOkBt3w-NCgLSi5QbOpNdKqfLNkDDcAlOYYYbQASJu3qxK6Xy0_-y8A14_TDqDuIVVarz_ldcFtGhf-EqUSmkPNxhWYhi_LoQnZu1kKHd8VUSDrmNObi173kTFQk_uFR37pIm2VJ3MTZjGNef8VHnNk0XCdM586xqC7wukTeRvz1lK7FhpvWJt3Mkg6-apANo3ABaYs_jsS7jFBQQtf5gOM_cJpn_jzxcoLlTmLRl_TZCBjGjtPMovmZSv8qoYvTpz5iLbAhVRuRdFJLFVdHDIKpestwRLq5HRkupJLSwD2j3HUQkplq-fDERlc_qK0BEB0B0Zg9qNVTWKUXk9TloH-xYDAhq4cTWNTzrgkReSAtwcbjohkvuzyK1yjsbMDDpcr8bzg_eF_VQBqOEA56H9m-VvVmDI_DMuHDpq-rZi4RHerHETVOkClkKqICOWuYtIjeEaPh3Uq7YbggizJndNu4beGSMakCR1wL7Dmmd3wa8Uy2fY4nzZR4YJ2eXbCxdcNVbZwAsZPGbfLg9HF8BaC9D5b9SNueVk8GDhAX1KZOZ2W1YRJopGInBDMQAOqu1V9ZTezOcuoekSw32tIT-leokE=w1080-h1440-no" alt="Replace the case" title="Replace the case"></p>
+<p><img src="https://lh3.googleusercontent.com/W0P_lyrdmF1g0fvZfPjeh71x96rRm5GBhFjnuBVGvgSqthjZvWFTSWwIN1RXpMjQdOmwwYLxFWQkF78nS2TnGr-V3x8MsZYYX1WTSeUb01jRzXcn8u9m3UKTfnBl0gRIigJv8i2VIWPmDoim2fYbEjzDsCe3r7rRbKuiObLAASB6owPrYcrwrTedYIbpev9KUc7xaDqR8rCWXz6b-Wa0QapbwWplUOyk2hb57N2CYFwNpUVmBWMzTk4hNzplST4HnuMX33f2NKIl4HxaQSYXK5KVNOP2Szt2VgLDkqBRqVwKrgsZWt4CTG5m9nxnTZdQSAGJaGiMX-wV3CGFNtD1jeHPR82vtIcbVPRK-HH8B6B_5abeVNA9DGnNmpVoGkzVA714DG2f5ryQh_IdlBeyix1EXEmo6fVT75HhBOfAU7mIBDBkMMgxptsJh22UYTFJ2jgwOV0WpuCcmIKz0E21iMgJz8moVzKMAqb1KS-t9CxXFUqOgHH2CU7nrvfxGj_gw7rUTXKS0xLkf_yNlfzvXAxjsj9ZKeygjs47yKJlXtuNB9kbPbSPM3y6oCWQGyAXQ-DoSrcpOmHLGin7b3QYiK4X1CVyWMA3WuW0EgaNZKh-_kkorPwcYFhEKYfgvROoT3kDPLKJWO6P4f04MCQoLBE_VT2tMSzYZ3FpcOqnYa7Lo_c=w1080-h1440-no" alt="Replace the case" title="Replace the case"></p>
+<p><img src="https://lh3.googleusercontent.com/xRFwTCZ8kNzBnqoz3FBMMBCPrHOobu04K6ybQdOIOwyAB0a7b0Kvz9o8hQZQNGVv6sYUXzDZZDma7qov-yB89H1Bi58kLcNTiTZk1cqjScy6TN4v_mwEqSX0jDHUsA4JY3x3egkY_jMj_F6mtnJR3haPggA9ktVZ7ZURI_q51ZW04h31WMQTBkVIjwjhX4YlwjQNNL4ww4_ID4G7MGtzWn5HO3dERlqjymSx2E2B0SXuRlgapLr5cYwruFx80ltOe3obr_L6NKrGXgwYRKg0UyW9zI5UxonaN7cljB6VoAquxeCxCVZpC22K0wfBurxXpt5JwYhp_jKx4qG6cIkTGniOUQDdJ_ky1rT0Odzgmom9XgxidAgMCZeHnIpXECJbOgJbQV_oirz_jslXiIiBJyBjrsxCSm2vx27-YPxm3LDO-LX8SX7q1RUE3zhS-dUY60dP0Bo5h_AIoW1opTMqInQhXD7Ct30uSPcVn5nJooH6mx4FmLtgUeJ7WhGR9p4-xCzWJ5MVUQo0SuqYG7tizkhQiSTBlHybvW5poSZu-jjaE8HLes5ULEtjFt-EJkIbmoQNk2rByHs9CzF7y1-4m5d2nr8lc9eVFOBxzzSE-aXflNb1PqJqFmNKsiRsPRitbiLwFlh93aCi8A93vtg0MBDjJMoUhY06_Fz7r2ZJFSPRbck=w1278-h959-no" alt="Replace the case" title="Replace the case"></p>
+<p><img src="https://lh3.googleusercontent.com/wF_BtVVYZ2yNdsIIJKiY7lRXH8tYFLHjt9RkJWEItGTErVey5UJIeMOO_3lOb4rcj6YZ6IkmrEllFk1v8AYVxy-OouUzWrnIoVOryX2MjLM4CLvomcbUruZRotIgoiW78AnCAztCTPtU7K7z-iyH0hB5IV6W5YWbJcOBHX0_yTZXZtyoDw_eV7pRNAGfuP6K45ikxQX3n3dvYOj5OChWrXIlG0gAqo4H62E0DgywNnKXCw91eckQJKIMnaBi8_5W-czHd9i2UkGpu3MoTqA5Axhkr-joePWvkmphBjc249H-uRMcmj7M_TzJJIFSHhIfK15qljy4koOqGjja1pXuzzvrUverJbEH9PYhkt2kFFGZi0ak9RlaqSb6BRA_us4Je4czlwoBVdt1sFFmYjYoQCBowelP0aQkqqz9Cy_-5v67DTte5qWi4qNy9INJqO3H8LzBjsKxVsOL_xGqjDQfNi468d_ybbTW40Uq62ZWnDPw-Eg6oCWxCaqSpSm6ZZczjK7MB3g1ccMgawzK_eMleMVn44vWcZcj48U1jOOKdutjTY3fdtc94qXj-YC-VoJieVuNVfvTqGNDHyA3o5vwr-0CS3AASyXbcLFQb-VkP-hi-hos3tjllrFloT23Vlsdqaqj8l20fNl6X_Zr2Shq_B_CYv2Uwz2ZVeiRZwRnm-WxBWo=w1278-h959-no" alt="Replace the case" title="Replace the case"></p>
+<p><img src="https://lh3.googleusercontent.com/L6YWhxyzt8TctWN2rQrWbMD7tILje-aopVzdU1borli7pkp321WQ8COJPs0L8YGiDHl0Fou8l-gP1Rif1el6-at63hidzuSDb-kc-kI143HaezN4u31e_E9UchBKCfi2iqWyosZnDCailP3eDtSy5FD9JgXjojCF115Q7Qasn_-jLJJC9gh_g9w2BsZJX_emNUa4_s7m35F-ihH_A03Usb0kHjd55LLoIlKmG3qD8FA4V7S1yK553MZ6OHDXKSzPkFa335pygOtq3uvQoqeC_sSNq-DOvzN8hdQTTEuIgSoiC5U1U3dOwOZ_jPCsqLPOaZ_NQd44yLVt2mJUZWk9Ahnce5ZqsveI66iRLFXGLBg28r2HNsW4NvZmPEvylggOyDkH4p4PRNCICld9L0LffHUWpxLEbF8r_AICsu5XtkW7F3WGVCVpjwInsAhuawpIe81luUVaq1H0oIAgtzKPeVN4kLUDczF0xM9wqw4EyvEWnIIA7HjSGPwe0tR7CB9-pYhr46g06TPI0YCy2cDcXpv56gmQ9H4wCf5Ntak9S9BaRWUm84BBcR7vXEo-nYFFP9LxBTT3yFTkH1Ibx2g7bRRtwPdXyx5jnYjvn8D9h_Ws-mGbJJ-FiFCQ5qlt0zY3Wrm-Pd2oBu7gQceucjToQh1O9x0NPrvDXx_woCP99sQWHnw=w1278-h959-no" alt="Replace the case" title="Replace the case"></p>
+<p>Now, show time.</p>
+<p><img src="https://lh3.googleusercontent.com/E-I9D_HnhVJKzynvjAewREVJDdVzNjerUZT_T-KKPndczU1JH_QsWU-K5GkklnLua9VxPt4h4qy2iIgB37HqQTG6l3f9CLNVI-udRhR2gbPVSq1wwgSor21Jbju3BLLbJ32xRGDB2jYANcoYQG8q1HFYTVs7WDJ9oCXv6AoO6TxNa5ru3AXsbBhmsYAjDYs0txQHyvf4A-T--Ec6rURNsv--jhi0yLXA8IdtP1YTj4pHViG5T6viDTifAyOwn8hL5CNlLKeC2oj5XRD7DwBIUwVdR1-urRiK61PAsahQnqhSw2tFFuuT2422mZ3uViifNExqqpd4Haw9CrRzVC1XfiYGQVNzDl_VK_OdCeTETx2wnsmVVPqdCXSMMzBeTiVvONIlcTR64tY1ZAC3RLu7oD0ZTD-5nBl1wcqZYfhfsbtG0Pz1L2qRlBKjaxz0HOyBUfFIL2IZNdNWoyTVwlBp-jqdiRrTz7QbE2XXPWTyDMFru0QTbEZGjPYuxYWugaMRijTCDytPGL-61mom678KHpbo8BYLEUdAMlSK1SkljBx2TpTG0e_RpCVvtKpvAH0W19p7t9xdtr4S8y-650QhAuD_fHpQcsUpLn192d6Wi-vfg-WCrVg7sBDjqSva9HRyPgd0WmnIXmUp0855TLvFPKHNsS3Afy_3ti7rfBDzHIc8CJ8=w1278-h959-no" alt="Show time" title="Show time"></p>
+<p><img src="https://lh3.googleusercontent.com/y4782urV8rHOe9C7RoaALV9be2IzOfK72cCwSg6y1UoxFkexUt5SyvPsvSQ0_v0u5oVC_HtXyd27hR4qELPbZ-NrWrRmNoj5_JbTfTgHbSBrF4m1cTmpVJgs_3VUfYSQYGbXDNkPLZMO8W4H6vh_oR5dqRICMVDIxImqxegD2k4UOfhj4-zmYdEu172voq6a3oCOuhdjL5MzNp01hlIZBHp9swcjg03PtT4hjZSA7nqgOEldmZ_5R0p6mBtxM7vBNClvHTPYH2q9Bv7VfWUtzSyfdotRTCIoj9KKd6RGFjaVT2tYo6YNpTOMHdy_rG27IIXXqZiM_a9jn4aKTvzZZz3P7AsW_iIP4nwJd0dlL5xpsReHVFYYk0eFpzEoC2_j2_NNc9qVmrKM4VI-yYY9QIbg1zAU2GKjBiHHxlh5dLpH4jeYsyAiUz1YbBl858E-3SxByVZxKVkBESOWmJS8UvKLWu3LJrm8cUSOqxF-SoruzZTa7MXyl34LPrd3CVts3Ov2ETY7TSz02ZVfUAQjZNRL5PCYrIZj2onTOndaxJp7Asnjlga8FsCR4aHcMzndjwRbeQ9N7TX-scs0HnMf2hxvXznuwR3EIphozkaGGRKlVEv12xM2puMoNyLnnZ1RjbE09lKuYyY61eFR9fOnZJCnfLbzRmfmRoOZSIceOgnbDmY=w1278-h959-no" alt="Show time" title="Show time"></p>
+<p><img src="https://lh3.googleusercontent.com/MNruDco4O45eoHgP2Ks1tzFMYH4zHpEttd2mfjHq-wNlIA7lwLpPWKq1cvcj8UZw6hIb2B9kMbD-hn6KcwnIjGM8w8bTGjS8DPvZka6FK7k2leFF8u7AgZzoIM1hui0zTzpDf-UsFWRW1NXBz3hVRFpsp5hJgNjD_hYjt4Er7bTKHo6e98FlHsYu4NRwQBkDmsagqmhH-0dEs-LprSnKPOoccfAjVxxTHWQvxoTeAOqvG2mojGqeOHPyx3eHS51WanfVYYJDGZzKj5GG9HyutLgvF5UkAJi1exuwAq5u7WQl2RXORa-VZQYlde0RwPLnGnck7CwbUch_3EKvzn0Tpae_N2V77bdh8BHBuAY8g23yQECwdWQzzlIo5J1snNdl5_KaeVG0NgvrHCSG4pwD5N8myxaHLBVed9cldb613Gc5YiUBa8-8CgOdVRd_iGoJ8Gx-98a44UDXbHN3aacbSMr5E6AwwYfGXwH_OaQh8YlYdDhczqst5ZQx5ur8vRDYu6UpLCLqyvAmP_4GGeCHfKvuJJwvB6QQ9xTgrt9EVCkxdKttVHt7DzWKsW6tOcuKyCd2jwO1MFdtAAxWk-Rl33J_NY-NeFDC9oyeGD-1VEI38CfFAJhInnFy8TXM_whLCDtUtG7rFiX2DO0ObXrb2-z4-6F41gFsb-v_5N8wQl5J2QQ=w1080-h1440-no" alt="Show time" title="Show time"></p>
+<p><img src="https://lh3.googleusercontent.com/THz1sRL_3gBMP8IsDFn83e5eiJ11FYp_bii2NS2isAu0ZktrEb5k7GRS-2d5wTUem6x4O4hsUhxM2_h_hkbfcWdZhmzUcvMxCFlAwu6TyHUp3lCgvLmfNMsTcoSUI3Hv7zCcgY-ZhRIjcqf2_xgyTkOedB48KQOASfEd3E1xGJQKY01Pv4FcbzdYR07Gfi1gvWiXcQrX2xdRV-yYhg1IDjYwATDmI2JeV_ACMkSY9D9MKFt0N5hfjg6GbyakfRPoHFRqSQZ-EgbkERWL5GiDdCMI3FoAhGOkCr1BHbRmlL6T5rehuQMp6HKOvCGXwd19GYnWGxU9j8xWJ6lnyP1ms987J_57RqqdBKEE1GxYiPTIEC3bKDqsEI15c1F_sH83GVSjf9B83_YTyAA0WpPBaXtj21z6ABdKC8e1r_ogh2vQ9f8kqUcUqho6GN-u293_7di5Mu5Flp25Z9ovU4ueOD9mPQgX0HTAtEYqYzpegq_N1esByewAH1gPS5S4t6IHiC1l41sEi2sA5Argfuo50_PIq7ETAo72ekD5G3c9fbSRqAD1R4OEdrkxyuCvV4F3deC0q6uUKLEvp85SMb4tqKtomjyL3cBY4LuXQ363BKl5ICTZhJiuQKFA0OcVeGf17sO37Wb6aJqrUtf-NT2VyggjBnvlDz4Oo7uidtLuJqcMNso=w1080-h1440-no" alt="Show time" title="Show time"></p>
+<p><img src="https://lh3.googleusercontent.com/YI26G1FqzbdTLeDIJQInTCh97WpJxNwt4e6QlrOmRTpvgokKjI3IxVYYOBP1PiTWK_9pb9_CM2vZqQm4yOLYHrlVlnm9yHFboQuBrZugJ9eDfiT6nhYhGLpan-eLugmsBS2p72Iwfi1anCP3tpDtyG7dBOj_0zUwov-CHfsbo0IXqblm-A9m1BMMmmdWMJPAdEVQUjTj52ekWfhvrsR_Qmoih7z0QhegOd9t4ENnWv6nw3ozR1zsJG0DeVPYprYHmSvd-BJ5d4s2DZqB5gOIcI60kX0JnHb9yijxKWJPjyiUs8hmnDdR67CUsKuQRaNBjpkFvY5V6J29YrOpP4DgPDtOjRQXoErbhR1Nyjk2LjpS9IbflCNXDDm5-3KXivVyaGUDX4gHz2CPLs96Hhwp02UM6ung6cy7n8Yd7VwfqYRwwUZY77eEcqA-sz6ES-cMK21I52tgw8n5wCOqY2ndYjbbs-oujpb_OUwwlO0kMDUOXF0GSVXuBGiHVVeCx2hBUSbFf02qioE4Njg6W45l8tCZnU1b63W0b24mzb0f7eU5Sy0xKHtcmKs7HzzXjjuHA7q6wo_1Y_YxTHYJNpmxz2GEB30mYL4THFEh23LqNpRxNTrPYoRxcCaWcOoGa3hVSKKhJ-FSjU-_GQl8xiD7oDw5QM7wi-aCk1QhfFhaXemx5Bg=w1080-h1440-no" alt="Show time" title="Show time"></p>
+<p><img src="https://lh3.googleusercontent.com/Yxrps8QGiKhTdriYbiT_A2Ba2gFpiGRb_QoRG6pm3pb29af-hmIlI7kvE6m1Jaw-x_m4Gw7Vo6jJDHb2aXUOuIJnazic846D_Zkcc6lNnFGZnyNXBSHQESzN6ssaEwN56QScGjShieARQD8cFawZkoM-_p8xpKNZCiQrqpPPAB-r5TnPlbQTYaDF3Uf0YtBuLLFwMfZhU19wXiuIN60N8JO53iPR1q_uh5Lv7U4SRQ_0I0mvd_4nyGxxJhqrh5esUEc0XFq0WArXkHqJhQoihCqSWWOGedmV_GTxCqRpemCARR5Y-SGoGRWaP-BbI07ivGSrxtIH-0jS3UTD4qZJywcRRt_kAhuxipSWSj8z0sU014pRiMmog4MwQwRewvEAiRoxACa2PtGU40CkEi2MutLYqkVuqbVISCZ8fFP6cqzTik7CWbd8tOU42qeNr89s8Wn05fdfIN2iX9Nr2TDTfoZfLwJt1YuVHq4kEZ1bjZhjfHy2ubvrUXpeQJlPrn2xajayD2zLZWHAVmUyKTT1xcy7vzqzLqimvChe15IrF5fOrQ-mn66_5BUbLRjovSM_Yt7SnB5qpMIoySMCRVV1AYFX0qFh9fMmUneo3cuC1RXKr6vN6-I5neUG83yUb8pS6CZuP-YKw8kMJsYvKHJisOmz8B4KcdclSaiokUwDtYlgJME=w1080-h1440-no" alt="Show time" title="Show time"></p>
+<p><img src="https://lh3.googleusercontent.com/h1ZeOj69fJ3OVXsk12iDt6pBzxwJhwzhIXgwp03dbYEdBWvXjYn281T9GdrXZkrpDkDBQqtacB0XxaL-uz5k8UtHe4f2KuLUR-Qn9Lu-2_Uq5r4BmB1Cx4EqahD9sIA8BxYgERWimUsRYA4-ngROmal1ytwBdtpu0g2EVG-4v78vcAqIFXMlIwjuAqcKc8aq9R5kD1wBfqTbWyfLJ46T3b_ClrRMQb29m5pK-u8Edp_YqdfYnEX3RvOTRz1Rlm428-LPOPupTwVA_SPSlUJJHOCx48H17Ib4YVs_C_iWYXEuQfAssWnLZURm89yW1a90VgSdYCzw6-qLvnif3YggJupXk4wi1IhGBELoMhrNMcd2kLKMpR-ARkPwLAfmObDd0qVdG6P9EFoNHiq-j_oaDPRrM0Ozt1Wa7u8tXTJvgu1RsdK9zEmTnC9heBIoE_EGZ1l38ODBsO2JRCDDSkrLgOxZLPd6MmUs8Bw2yoTtVIXHQDkE2OEQliukAKuvf7XwxtFvvqmnF59kZq1mY80KKpTjPih7ypHXBtSNoBw_sz80dw_fYgPclYaZ7GN8RkAXvBvS-mjRERJJwvzqTaABiJJlU3hJ-vcj8LnrfK9mygnjWsWBAGSzx4Q-pg=w1278-h959-no" alt="Show time" title="Show time"></p>
+
+        
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div class="article-tag-wrap">
+          
+
+          
+          
+
+
+        </div>
+      
+      
+      
+    </footer>
+  </div>
+</article>
+
+
+  <article id="post-极简之道-The-interface-人与机器的思想交流" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog/2017/07/16/%E6%9E%81%E7%AE%80%E4%B9%8B%E9%81%93-The-interface-%E4%BA%BA%E4%B8%8E%E6%9C%BA%E5%99%A8%E7%9A%84%E6%80%9D%E6%83%B3%E4%BA%A4%E6%B5%81/">极简之道 - The interface 人与机器的思想交流</a>
+    </h1>
+  
+
+
+      </header>
+    
+    <div class="article-meta">
+      
+      <span class="article-date">
+  <i class="fa fa-date"></i>
+  <time class="dt-published" datetime="2017-07-16T07:50:43.000Z" itemprop="datePublished">2017-07-16</time>
+</span>
+      
+      
+      
+<a href="/blog/2017/07/16/%E6%9E%81%E7%AE%80%E4%B9%8B%E9%81%93-The-interface-%E4%BA%BA%E4%B8%8E%E6%9C%BA%E5%99%A8%E7%9A%84%E6%80%9D%E6%83%B3%E4%BA%A4%E6%B5%81/#comments" class="article-comment-link">
+  
+  <i class="fa fa-commt"></i>
+  Guestbook
+</a>
+
+
+    </div>
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="Why-60"><a href="#Why-60" class="headerlink" title="Why 60%?"></a>Why 60%?</h2><p><img src="https://lh3.googleusercontent.com/TQlam4iqzr05qFMP5f3Zd_LkgDiCujghqexz3pohIH7Ylx3SaTM806ZVYO2Fywdir6ckVUyMsIWxLh30nTTFNn16nnjjSMftiLubQ4m4kTx9UgZyKAxLMAbKmL9J9Sr2FvsjIJ94VsYBZdcYI17qJEI_uj5DOoXgp8iRymR2O4e_cSFFD9mCzshNjjYp0KLESBe_5d-3oRyE4CCr8qsmQhxX6F_GVO4I_F8aI373V2mckKK9AyNKlgTnqkEhdi6i4VG5_RRqtl9ePaljdmeI6lxr19gkGeAt24Iq14OV0vNryNncMh61Jvw_60RhVVsLltRQYSHIY4ZQPNALV3E6J0dGYlH-cPqJ2eOp4TorkwNriP3lc0PEIb4pP8LKBodrAVPl9zChIkz_eIc30PDWhMjBB_PWm_gv1LN_ncpU1tsBegVmnjwUsOQHBStb90iL-RFxkDBvADYaBVxsQ2KJS5eUa0nvyYa6vLhZ1hKckn7OIt4-NjTMYuBcmE1kreNzKWUOmYcHjLmmPYGDtrZ_CPMocbixftwwccMVMFiwREvS5NaI9wiQ7anAXgaiyVmwVb29962ayTaRHHN3DsbxSF7b4iShAESrznQn6UvQJj-Bn0WBw2pEo13eT-EIqkYypwVdZzcFrVCvX6gfAbASxChkfi-G0r9Jc5sQqNqB268bVxQ=w790-h514-no" alt="Why 60%" title="Why 60%"></p>
+<p><img src="https://lh3.googleusercontent.com/_C2q4gcTuJNw7qclbSrOHRNPFKiGM1EnSQa59I_E4Gh_1u4YcIAXYfcBd4vok5TnblXy8Jen1de8UC5K6rhRkGrRM5cRXkw-yiVqc7SOABSJozf4VClYXhQzGQSPgKNdVNFKFNTXs2i21E87h9UKRqUvFtxPTtCzNNgvk3cKORc0m09bCQiQnTCgC8eRG5q2Xor0PbNHxLuOLAyCCkyx6N-62--6psCoSPpBGU9hNsCVmDnfNwrCFHfxUqQrGjAI7vj-S0dpgdbCBlDouEJexRjwTvG4srrB7z7BB0oBU7CGJ_LzQwQt-E1NNOCXpo9buAkJVrUigqjoyKoOVQSEiunrn2leKp_10joXI91Q2UFiOGDmW0LZg2X6_H8OtAvYd7RL5Fb9DE8y1cVGvIXHtbSyngvde5f8RkPqG-HBRSYqwgIZv7tw9Z86jRW3AP6pbo-kYKDAUebmBMJfcCtEdCK_KdoBy30yqkZFEokHzngYguDRvdE5TGzKl-Zm3-xchTGpGOSkdHXBcLp-Z-UY_X2FNc9S-FeX43aPcaCYcqCsg6xg42dof-qxkO77mNiXLcCM7oBp1DDq_9nu8FxD5JoFdy_h4IX5i_M5RVqLrfDgQfx4AN63xzxkeVH0w0wfU4Odw-T_kijx4SbhMfJK_nWwXoTkaTC3BnYbT1dLuie-H2c=w790-h524-no" alt="Why 60%" title="Why 60%"></p>
+<p><img src="https://lh3.googleusercontent.com/BOWCmw8PuYWVEI2DbkH8k4Q1a9Y0w34EnWyjUeaSioWscGUFl_5Jcu2LpexiVRpJHll0C2yftxKq6NwOkX-_iakKGX66CNymK0_hrziWGOLmXk4-M96uF8J2FGueJY0P_I7oAlKIfABXkWI6RrzBjjR6hvwcUgyjEME38ajyTwsT56RVVO5M2tOjOoTRbY5hFFbcEAMco098i1a8-QhTBJ3SPClIOrQsY_WSER7OyesdwW4sHSVBGVHfNpcxxQaxl1HinHkuOZ40k_8cV4P8l-0En8Qsdtk02hGSqnuUESbSCIvL7i2IzBO3bPUBWh9-5XYnYT5pAQMgcfR3s9CCYt3htjD5thTwXnvVP8QekZ8yzdKCgVt5dbHtfMpE70e5-4yYBqFd1h-HiZIpJlRHKwXR7h-lV-5zes1xKhz4oHpItS8qiKCAsLT2mIhHLYTAqrP10Hh7p220B9_EiOQoXGWjiDQLjHZGaJD2I5xovrid3_hMfgyQlcBb_yeN5QrdsmtQGyEFCqyTfUtfyXfcpxAVs3_ClwZ78IAUpLntedPRhqYpa_x978uX9PtZRBbZwFXRyulCr6naX0qeGPcYdjIehwckHQ0JjtdMdFMkKh3GeTjCDUS5ovS4lG7eaDkUSXpLjSdiGepR0sDkEj96juNN5aZ-_RmpUdueGDFRCfYAafg=w421-h287-no" alt="Why 60%" title="Why 60%"></p>
+<p><img src="https://lh3.googleusercontent.com/__6RBVF1r5hrwMEoCoeq-zjqiRKOHWV1qMkhyZdKsUfFd_vDcbUCWEhm0yXH5bs_Ldsaiv1pTZ4eLvTNpriMAy4jAwmCbLgL4yprWLNMVtmd8lD-boDckXFDw2fHKGmqx4jD_DBLgjs7OqdSOj7mcFgoMMk9qAQDGQCUNTyQTG1zZtSDOThxGwRoV-RcKC7qCuilnr34sDwrGOpKI8M5eUcQb9Pa0ssKHnsheeMcYuqyEEyYMfCe28U6_OEmzsRdce6H3fDdx2VO4jzNmsuEfiY1XFt_0BHvUVvw-Am2h1pT5DW_iVbkN0NQ_pTcnRh8Zk0ZqnUWBKcoqaNXxMBfAyXabSPZhNPW_A5wKbOnJS2VCV5XGO4wo4Q2rQX_xg33p9KWdUVeB96gXyMzGkdqODBiLISlCCcejmxIaVSifEPSS1XWDVvdFdS1Dz3U6UCmSGAHwo2oiC-BYFUp4_ZzWHhx9i7lAwcwu3hdIAobJlECQNGWIWFiW-x5kDt6XfhQBZJnm5ZNtaxuJ_cSsgxw32ZuPq9KeuMFdc_7yoYmIpMMj7RRxT2wP4e8DjL-moZN3CTEOwCY2RHbOaAvP4SK15m920c3JnXo2JKeNwM47xi5A7HIimooiWOKhkhT45OMq90guPhM1NG1ZK1NXjoaIyepTzpEKF-J1c-iDDjD03OMtTc=w750-h504-no" alt="Why 60%" title="Why 60%"></p>
+<h2 id="GH60"><a href="#GH60" class="headerlink" title="GH60"></a>GH60</h2><p><img src="http://blog.komar.be/wp-content/uploads/2013/02/ttt1.jpg" alt="GH60" title="GH60"></p>
+<p>GH60 可编程键盘 (<a target="_blank" rel="noopener" href="http://blog.komar.be/projects/gh60-programmable-keyboard/">http://blog.komar.be/projects/gh60-programmable-keyboard/</a>), it’s Poker 2 键盘的 rip-off。开放式公板设计。电路板中国制造。三周前，在 AliExpress (<a target="_blank" rel="noopener" href="https://www.aliexpress.com/item/Customized-DIY-GH60-Case-Shell-PCB-Plate-Switches-LED-Kit-60-Mechanical-Keyboard-Satan-Poker2-GH/32651474350.html">https://www.aliexpress.com/item/Customized-DIY-GH60-Case-Shell-PCB-Plate-Switches-LED-Kit-60-Mechanical-Keyboard-Satan-Poker2-GH/32651474350.html</a>) 下的订单。</p>
+<h2 id="Cherry-MX-Switch"><a href="#Cherry-MX-Switch" class="headerlink" title="Cherry MX Switch"></a>Cherry MX Switch</h2><p><img src="https://img.purch.com/o/aHR0cDovL21lZGlhLmJlc3RvZm1pY3JvLmNvbS9ZL04vMjkxNTUxL29yaWdpbmFsL2FuaW1hdGlvbl9jaGVycnlfbXhfYnJvd24uZ2lm" alt="Cherry MX Brown Switch" title="Cherry MX Brown Switch"></p>
+<p>德国 Cherry 工厂的茶轴。敲起键盘来极有段落，层次感。</p>
+<h2 id="iQunix-Lambo"><a href="#iQunix-Lambo" class="headerlink" title="iQunix Lambo"></a>iQunix Lambo</h2><p><img src="https://ae01.alicdn.com/aetfs/bao/uploaded/i2/134583372/TB2EZ.CipXXXXbmXpXXXXXXXXXX_!!134583372.jpg" alt="iQunix Lambo 60%" title="iQunix Lambo 60%"></p>
+<p>拆掉原装的塑料键盘壳。换装 iQunix Lambo (<a target="_blank" rel="noopener" href="https://www.aliexpress.com/item/Iqunix-lambo-60-mechanical-keyboard-anode-alumina-shell-base-gh60-poker2/32677061753.html">https://www.aliexpress.com/item/Iqunix-lambo-60-mechanical-keyboard-anode-alumina-shell-base-gh60-poker2/32677061753.html</a>) 铝制外壳。</p>
+<h2 id="GMK-3Run-Keycap-Set"><a href="#GMK-3Run-Keycap-Set" class="headerlink" title="GMK 3Run Keycap Set"></a>GMK 3Run Keycap Set</h2><p><img src="https://lh3.googleusercontent.com/z2KseMMpuwDi99YfmnM4_e2-DoRToMLQEyg7meR5EvSoMMtdYj-J-0BR-5hEhArBsC_WdspvqY1Bu7xpnJfJN6rnkdUJfbwTxqJyC_frmBIt1edzQnBsSmi-XR1GPJYA8UjzP6UL9hfDAW360-5ckorC-1_nEyMPk0S_zzgKZHP3IOABbbyuZisFF6hsHQ0mFYKnmZmOM8w3cuIb3SE8XSoPtJocl3WvsITwn8TXloMtZjZJ1YzAeu2Pb4rHhjVWvDdxXx9_GsaMp2yTD24IevzxdKRI5to0sNIGc6jNgmVRhGiqEBolB5AppSplHBDo-GZRUz3z9WNRPzkq3rYMhI98FPB8DlT3i7uMLGbVu-xCyMxqgjpe-r4DNp8nEq4O6fGBxumFaFTBkJz9wuNLguQrQN2AthdWCmSyvdDPeuybQAioJ_FDfRNzpsd61BMnjJgT4qQc1jzP0S6GB5fXMf3PRgLLGqXMngneQbGYlDd1U_7PSeEarrGV6bRVXWlST9NmIxSgMxi1w_qOmFk4Wkeu-adIdgMw1munUseuSdfjrhESJZ7TVuXrx2xy42jnvWlinWnL4K0yP1FiUSugRIgmoWS5OhIBhRzbqZcU5NHkCGHHfa7heJqsnI1ARo6rz6IfiUc1yuwC17H4cOmZEAUHLsyn4eUUB_cJUrLcNJCagQU=w955-h637-no" alt="GMK 3Run Keycap Set" title="GMK 3Run Keycap Set"></p>
+<p>最后再装上德国 GMK 工厂造的 3Run ABS keycaps 后 (<a target="_blank" rel="noopener" href="https://www.massdrop.com/buy/gmk-3run-keycap-set">https://www.massdrop.com/buy/gmk-3run-keycap-set</a>) ，一个拥有自己 signature，体现个性，品味的机械键盘诞生了。</p>
+<h2 id="极简之道-Simplicity"><a href="#极简之道-Simplicity" class="headerlink" title="极简之道 &#x2F; Simplicity"></a>极简之道 &#x2F; Simplicity</h2><p><img src="https://lh3.googleusercontent.com/puM2f6anotMc4v7yU6j1T1IoCj6Y5x9QmdJhuM5l-UxaqviNzxvoAavOrxWvK7vh0MsPQWvyWhqZI-m04Om5vrwKAkYj7Cg5Apn3f9-zVBmYMABjVhJimuzi_hJ9y7lJiPBYIMjrQEcjY-qv-i7SHeOkRkWkOCAYwvoQvaqOgJSouoXlocISISq7SCyFSKz5iASLgcVdxjeqULee36z7hdhUX81LPBCgOA1OEN_ezpdqaiDtiPBlsKzCBTOf864JGD-4duYWsspP3yMwKYEkvRUvTbCLqgma7JTA9lhVXiiKRjWEWBN4x2NelL-s7l9ddX5TtIGtWayPyHbq2hKmAtKyNd4DSwrC-sA5TI4ISFa8F7C-QQf0XHjx6FJy-d2wcb2C2sCB2opLDPCvhrpbkKXrmEVNxIrFqq879oTf7gqoxe3YXjdgrVcZZm1D7V9YnDzeTaLaUL-s2VIqvXHx4S6jZupxbn2ctGYWYZWX6HEuZNVaRkPIXqTJaqTzT3pUzQAiF_W8uYxWUzKC1i4PJaD_MWk0YJTOZ-4AnIqX2uTdjLJPYpRD9YkcVO98wGPogFDqgzUmmx8utpR1YUd_hDVOL6i2_1AMDLuE7kR56uAXoVkOs-o5xUnaXqxZsOlsaaO-iCcUNXelpFlh0Pyb5vYYdASuEQp3J4dzn0TXMSJEeJo=w1277-h958-no"></p>
+<p><img src="https://lh3.googleusercontent.com/VJIBcmLP2uYiXrX8yy7KCiYAE-KGstUxxv2_rHVBVHJnFLadH-6SpNhHcKzhRByn8_hZK0NBWU3-5Fj5UTdFx_NRzLK-If2dOJGuasV1Kro1zL4VoHR-I2Gi9ChtE5PWHqoXyN3MVKiyi-z_uLanLz5Dvvvuo4MAnxwyxBZO9ek31Q9sj0mUR-JSAy5GIqOJmzYmxIgzSGaqMLuVywO7OgGPKMr-xGvu0l-dCuCnmUcUTU3eSFcsW40RmUTyPp5z9948jcl76ouIXoHTsSo5ASNgh28LNJSuiK3KLfgtMbvWuWI9DJhHe6PoKIUQSKmCHaR0nfsT9V8EAycEEw030y7bjJErouZ2eJV8b4f7onGVV-1dy_H34Ycy2JUQu88BwKEs9oEqZcIWQdES3goafLZWx87in0P6osWKUdkD6UPZsw52P9Z6BJUMTuTRXYGMRp9K02qE_CgbEvUdSjT75GiRLqG1AdCjBVbXDidu5tJsltN_RIqUzP-FOw093CmKoDX9k2SO-oJo4YtRYMr1IGTghSn7h0mlP_3FE_L6ybA0ujkpaM5SXvTkMfrgnQG1uj_1l4mYYdfFFRPNReH5jdosWh6qfxcLSpJDeMOymQ3RbJLbf3aowFoyMdzAGh-2x9QxWckokYRGkPgIsZ7q-k3qmBKT4UXBOhGYaPdXnTQRWU4=w1277-h958-no"></p>
+<p><img src="https://lh3.googleusercontent.com/qfawuxyv1WA3Dt8PLS0DtdJQrb_dMFtgJVhGravqq_JWwTB_kfpLEhQLp6WpGL0VYJgs3gxD_mMBTLlcLWCEFK1LpRZa7Ltk5lV_cUv9XILacALNznAh7lP2K24hfqqz4RR5UUaK_CttWifP53FkqxTM2M_9gaNQ3pBj_IHFIDpXo43yEfpFJ7j577UoOyt_KBfCDLH0H9ormOV6mxxRKRr-VbWgsixhjf7Ar5y9R5V0DnjUtsFhweolPT0b1bI4GKvgZKOK543MNB0MmhRis9dQgfcV9IhzmId1TJfBCYNsPB21czy8qd-TG2ymrBF02feIhnlQk_UcfffRgkNq8qfpInrBWq5de9myWJAdfIypWfBvFeSnRvM8j0YwCrdTKG1zN6uJOn7TejozkpiR4Cz532NkMNYacdH-wEZgbP571aExScRMVw1eUkVoo8U2FXrDE3fhBRaTJ1ERkuKQpsoDGRASeg8Z75PhXyrTSKK8egwCbogATlfwtYR7uSzRpWqSTz1knwGNkB9P6Da9MDE3SK6_hPbsamHeAZL4ZHQReWGfpGRic4JebGdYIrGlbVxRTcqiZV085jLb1NW68mjY88mWgQIVId4IDdfuetKd_d9VjT3i1GA9kGPljBEddUSuHfqmBgiO6LLSJ9o_wowQfcrX3ixNTS7QEALAmlznNCY=w1277-h958-no"></p>
+<p><img src="https://lh3.googleusercontent.com/u5qGAsP8PoZoVIOMF89ZtDhN1Gpi4ueGptlDjrQxFhax3MsAkDbW86u0eFz10wZnBc67MnolgZxGmP8ehiKZg1CMCNMbpCnuXKDC1rvf6TsS_n1ikEx1yfZfR1oStUkqvXyhN_xLf6dRoPU0y_gaP3uVMfunevgk43De-CZ3oBEMLeCEeuLUBS7m3CnGoKFjpYNnPI3j0Be4ychIYc4foN40tZ2oKdvOce6VKio4o-wXJjrdXs5FCP-dujwVr8YrCamESBm_CDRWBxO2aUoSicVqNB_9MErBpjthf1COTimS8YRf53XUwjlZ7ToAjD_GBqdpsqyoPzCiUsfRttIQXqxvOGPQiCa07FzDYevrMf9sWb1dcgcAll9ZQCpvT_3POaFoqGYVyNo3gEe0lHpI-R2EWPwHsh_u2dvV_NWvVmEknltlRVJPK8aPlwWjEneINj66HhVPMj8MPWQtilhBa0fQRe1vEsawEoNw6sPbEpn8XUTj7__UUYr6BPzKD3LW5NB7rLRj-ALc0Z-HaoWxZYhM6IFewJJuPbFW0MjMT6jgiUGkwpWM8vdGr7NrkMwQMw4EKFidxGfLz4p6OrDStNT2lYBuwGQXg9btOeeW3LitpficSKDUsYH1Nh2Sg-g4k-zGfYrtsFjeZLXXxryYqvqvLpjVBsYofxXERhju1f_Y-mM=w1277-h958-no"></p>
+<p><img src="https://lh3.googleusercontent.com/gWjyLLOcKBEx1eKoaOG84ILHqBMyX501TFdxmPDey4UDedWRiJxV3zV721k_McvVRdk4hgpxNOc42V0MZHmuu3KkeaDkLRM7YW1IdYx1AzVefX336dTa4mb_YfZ4jVCeS_znVcKnWtPn067hcgry2I1w4v6dkG9CikusefVHWN_yWzBZew4wXQzXMQEHxVjUaAWypsATGb7VwRoDPnPcaWtpUQvxhSQYecNaHXIXQubb9M_u1Cjj_ifNiUTFghwpx9QU7ciEZrKMaCYzrX-H9GaALPdbc85ddALUW6E-X7Rcv0ZRWIcXWDXT_2SMB6Sz9Kv5CB_B0wDBsdiVsYQLE65XnFS7T-ocoKKNspR2u7kZ17X_Yrb7nozfppwIxx1ApTW3xBCOXRgtJfGPTe3BiCJQeT_kyeUZxyIXLYQz9mq7klD7po1wpKVJ0ZOLfWCOuODN7bF4bOQT3wM2hPr5L8LES133E6dY4a1roVPrKu6fBarZkZf9lcanCJqmZD_Osu0tHV1itOncRUqOpRIY1GDwnCdYmrelDeo9DiF3VKgE-G4noxcOUfHEmLi0hm1lhaTxlYsWb8G_8VZV4XrMwajtuIxtN7FAt5M17KB2p_-mCPewp3LDuSFMXJlk6vb5kOqR8AilfxkzJ0QuEM8YU7UyHgycDEOyzYFVi3fvZL49OIo=w1277-h958-no"></p>
+<p><img src="https://lh3.googleusercontent.com/-hBcfRK5c1TBiW4wEPAvJzKqcN_8lLojPX6siTnTc2CDw3djYV7mWTaemoM8T3WysAZ1lTDEu_Wgl9_23KGwSJXcmYarldtbVx9QT3Raf2-VPJCC72DBFp-FC0AVE4KCGwzeXfzY8f5sedHirlspSR37vpm6Ak2sAErdKUhnhupxXYFi4hkTrOiTZ-hZCuOVH-FyfWMLUFsnXbf5xG70ECbb0U5GvIdSaZWGuh5IiKlsaFmskuM9XT4BY4t9bbDy-A4L_ndD8yKB3qfcYI6gTUGTVoXSF6O_wFJeRXwbWvG8hOdjbyqanl0OOXGVC4jIuqPk8tqFjeV5qGpIvn2W0hEMPKgOJKtmoVlhmnJ2o4YP443iRH3igBWTjMHXp6buOBEoTkJ6oclHpyIL-SYVzelw19W7pAHIOH7JQiBw2A0IL-AgCOKdtgzjxuXkAeg-wqIR-n8J92wyDKnWeKQP9TDyoNjwNJ2s-6QoJCGHDb-i3x0YqLOTquK8E6sHIxSPzupH3q2C9W10r1r9a3o5n-pbRBJ0-1Iv8FgfXw3h6IOYifqM8jUe5z26NAM9Oayi8RjyRB8hoAzIvUaMpfEKI5ZHpp2XAvGpgPVFY4jMndDmnlAZb1Kgg3YepeMCmC_L0w_Gq-CAbb4ejXColBenG5z5BljrEJJngTFGKFL0k4_7JM8=w1277-h958-no"></p>
+<p><img src="https://lh3.googleusercontent.com/FDViCI5MSS4y5dYxSz_ukhkbgqF0Qr3gzHgn9JK2ZQrdubx_fp6XO6uO7AMFd5UBoj3DbwweWjdQw5G2TPQsCnwAMddTtT1cSf10w0CRFjrtzhoJ3-l7IrBBb-UbmNXdgOiskZ0coHr15aVI0EXYL0ek_nBWprdiBzAUN9M2DCCVgcyk4Dyuq_OeT5WLO-GubNsTE5aK44W7Fjq4KO-k5aP45t9s1UUf9KF6mpvcJG-OqeMfTT1BuAqJlkt5zmzaM5YZVb5oVMMuKnHZO6heQSLEZomolCAs4s3AvwDbIEOfLQQVggEI5zJt7yxI5qm05Kk7VNsEPFxZoF1z_THPKUcpgZDdbia51V5aTdP_b7ezeIO2fBuL_Kwnrm-Bh6iLUTytvhmk67zeG8MIVlWd6nGp9ip6FhnEXTyhOBAnTEmwAf1gPCKWClAOitxm-veaQO8JEu2Ahji9P3RmwQjkdUI-FSuDKlU67kDugrFrXZe_waMKpb8VQZLQa8AHR12dTS0uHdXYGaFSrwZ-44bVg22XvOZKAfQDNWE8Ut7mgjZnBw2_bWv6oxjvqKGk_LxMgCkjc_l-wOmvBoQADnBEuiliaxnAYEoOPMTYMKIg1CqaH3bCc9Ivdme6jICYshsuZl-dYBo3VTeS0AEQHcChZtzSm6-WHibbcFxG4JokBZAhe0Y=w1277-h958-no"></p>
+<p><img src="https://lh3.googleusercontent.com/qMemNHw8Jo1xtKH9diICwVXGgM5NXL7BweSi1dMFG_kqWCr4mHlHBvBV20cuctdwXul0jTkTcmCJ9YMdJAKXBvVs6zFPiZRaahHV_gnTTZ_5gdEpboZ0ATxXFgsM0u_JDrcH9thFGoQsVNJ5LgMr61Ga8hq6wq8VHVkuT1R3wCTyvXHBvLTaN7SeCond1KQrdXTUOmftf9HQ_tivf8pIwj6jkbTvuvoSbEfDMh18BYC6c3NEyxpkYWLaEic1x9Aoa3DDi2GdIfLluxxqjFCsAuz98X90ATg0tOMSFO043znFrlTNc_fKMzT4W_HtSAitbCFqBZwfrkn9A8T5xVXd9U2h71FwQy59_jYx-LVjF0azZe-Izq4cUvfIJBT8Vx2Kzr2_DHfNwgUIOAQX0f1gB7Lz7g0cul0Pc1JJxfPVRHOEL6nNHsIZG521EoE3e8W3PpOJWDkT_51qwGnl1uaHccaSDRcSRICk0vI3HtAepB_tMdK6bEnTC7niqa0QeLYgN-r6GDrpwR29fDK5dzeKlpBACxX_Wnreg2LuJ62IGSP4jBDeOv9Ul9P2YqwLByCXK6Rygrt4Zo2v_i9x8ejP4rQUdQInuR3Q0oTGjEGqidCelXc-UEOBaV7-IaBLMQyPlMHj0PmPGJBPzfj-CLhxUHj0kc6GiEl6XoRiNXNe4yoDVNo=w1277-h958-no"></p>
+<p><img src="https://lh3.googleusercontent.com/6pT73Tue9tBfih9iNbmg2zzWWbo83J69TNyubYjEcONgWSRSiZlwIcPU_1hDZuzGHwVkMatno_Dfzm1PkmRRjJeLjVAkj3YBV9k94q7iqtJhzFX3nyrEUeIm3xHSjlglAutU4H2eqg96zXpbaKRB3hudBeYfQg5xabxGjdBYLnnW356JjgZalCF8Co6VgdMxx-fn87hrjtQyrcvNZNKMyPsoAR45pFwg9vYXmzbZfI3Npsn21RbiNL1b2bWXR19pjwTUdKLy_OHspa3E9UOIs-CqCq_i0R_Jt04PSk_OtH6fh4yb6f1-DgBOw1dO947fGvGTQnZmQ8b1Dz4ZZAfL2EvvA2FdwgGTreu_s-AqzTfaaZGdAubpGGgHEGrVI5_Lg3DEEFNPOQLy2k5nDnh_DqEM7iA4vIyKjZsQGDAlSmm3XncsC_Xos6jAgQbSoV-GZ3nNKCkdC6BS-zPLl1E3rJyZRftE44v4_jTm5UFxynfA-ieL8Z28BCQWcyhlhoOBQutIQ8pMh6Nrw-vjQ9QvshnWZmcnEvZTEAFGu4EeYSWqh1sc22OeO1LqMtN1sGMXlsPH_3EwRrquC7J29Yj4mwiC6_S0oIJ8_mHiJuP1meysm5JhI9tZBaqtLs518CsgAZkSpZaXiY8T4Hdxc0sQHKYWEkVHMrplU0mE458EpJLqouY=w1277-h958-no"></p>
+<p><img src="https://lh3.googleusercontent.com/0D0iL3dso6fSIuwOs_E0gl-quOh5FMFors3ZM3EoF-wF0CLxI4ub8D_orGJDy0ywrg7yCA4XjaMJ_Oz7tgji7_GZB-Dsbob8M-QAOG72d5qrLi_Ib7pShxHzjspjnxDm6DJdryazALCJP8AlwWUQB6ihi5LPkVmHpdrQA8ybVcwROXDVPTTHtoBzrf8A4_ppFJfKPbhulyCHs5BIlYwhXhkBTCMaP07HFgefpvWvTYb64SHnJwIUBg1HdrRR4atIGfJ3Ks7jrMxG21HphIHzMAONcrf6FgNshILakLdXGIvmoMgOYGo_rk8_7sl7ZTWYA8nPs5PIhzegI1EpXEMfGiJXdpT3JvYkxl37od3gNFIOC8hjLhXtyYQYUZMVh95ksLBVtOEyxotzY0SAplGDD8xID7BazRPoCKSt8ciME7_4VwvojQ2kmPHlkg0sEoHETTyoeuVoNSnWG-QY4yeVzqI4n4ipR2EuzQ5BRMaewJbF4eLjmzDWg5uwnPYkLy6y1apqbX-bp4Wjd3QTTktwaoQhNMLeH4C7g9PYScjgBqVCgfk7V6Y7ppdqvXGuVUgq9q7eS4VAoAjHoS3uttq05y4ElSJp6xiprcUaFlu3a6gMEDq83Q4P_4mP2Eo1qFW2T08Sh14ktMO82EXzVBRuq53LPk7Tt82jx2ehfYgcfpIvaro=w1277-h958-no"></p>
+<p><img src="https://lh3.googleusercontent.com/s66nC_88sg1z5RdQ_Rryt-Jcct48wGyu2m-hyfZjlyMJACZ4S1re-L4AriqDra1rq6SD5naR_i96C3WMJhkvPevQSO0Lcm5c3NbW6OtC5Ik25AXZgNuYKqyvcECDfWZipQUEgdwQQ8KoDD6tmPV2NQ-1wWNw-D2VKeiTYLIS-7i7wQJY0iBgoFW8segLpJGPrT5s01PRf_LX081ZR6KqAUiSe8MEECRdhqPRFmMTfDbVvorkODB0BGVcIRmqCywTmnfLHwvn4d9i67nWbWXP-1w-e7qpAoeJ6phrAwChhPx0I6rrDolO5V0n4oC4c2OygraYbwmx3b3c91HEKuvV888_3oIV6AZ-mKjICMGHrj_4YeewQESG-kqkEu9Bm4Nh66Er3l6M6LP5M8LtcpKBSMjl6GQs5VG1_uXWqte21_DYUwf5gkxhljJeJjMql9e6qSnNVtjd33wk--i2MuYCOfkVJhbyoGUie66crbygrB-r1F2pByFWw5zxK_E0q4ieMTH5VAO4Z74nS6E3RRfzwvMg_4lwzvT1eXF-x5xsyKKPoy9r2TdELWi9PAxT-7KdNJ5J4htD4tajseCSrEp32lbpH0lDwwJxh6CKFg4JlvG7XHqNMN248ay5dY-HXJ1IkIkzdoJM1EWs5Oys38xw5_M9W4JrFXZMf2vS0yn1l95dq-c=w1008-h1343-no"></p>
+<p><img src="https://lh3.googleusercontent.com/DnoX9LEFUOuTAhDw3TTJymhW4c3XzksQwbw7edOxL2kW5fQ7STSaVXC2w3GRViycvQR8Z50wc17KqGNkIJjmuX-8TU92ZQiFDEq5b339pua5lqoLaXOsK5wUY2dvWf3iBlHiREgmpxZLKwpm3d5JU6zW8Rno-oz-t-URCh4WPiEcjZv_wLbDDtjSfQAu1AjxGPpNAjF1s4zTIq7tIxrvJW2RZQRVQF_jeZAWB0OxCvPKsNftl1Xw7D3BPlrPw2suqOYErnmHDGE4T11Md9y9dg9hlUrNbkI2YiLgEnLZ4qEukYDOZVQUokb3j_6ZK6ufzuu7jyAQMJCCCcl9pYjYCnuL_AJR-q_KL07BszFoWLWKspqSyISJFkURZcaK0tPo2vdbTgkvqFS5w7yCL530a0BMJdu4HAgIE5oH7ov8W2oSupbl-hd5JscTjb6-d_LfdBEnvlR4A5uqfDbkTXzrdQMjH5vtq6yu1i9XLfVLRs7CjHGwXW0WRbXlmehU7fa4Bmb9ciSLKwRh7hh9SitLa5yWSoWaYZGozvARSs73QHK76theZkaSJaJuQdTkDoU3jKK8MMm7f8m_SvXG-xSxPfoRr-39wRvyWu4M2p7LD2kUTqwFmzByb003nppxDtE3MX07fNRPnVLb47xfPm3tyq0RyekUXQihrwqYlgUJUTqguro=w1277-h958-no"></p>
+
+        
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div class="article-tag-wrap">
+          
+
+          
+          
+
+
+        </div>
+      
+      
+      
+    </footer>
+  </div>
+</article>
+
+
+
+    <nav id="page-nav">
+
+<a class="extend prev" rel="prev" href="/blog/page/6/">Previous</a><a class="page-number" href="/blog/">1</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/5/">5</a><a class="page-number" href="/blog/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/blog/page/8/">8</a><a class="page-number" href="/blog/page/9/">9</a><a class="extend next" rel="next" href="/blog/page/8/">Next</a>
+</nav>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title"><i class="fa fa-posts"></i> Recent</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2022/10/12/Remove-Image-Background/">Remove Image Background</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2022/10/10/Geekbench-head-to-head-Mac-vs-iPad-vs-Android/">Geekbench head to head - Mac vs iPad vs Android</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2022/09/07/How-to-use-Web-Inspector-and-debug-Safari-on-iPhone-iPad/">How to use Web Inspector and debug Safari on iPhone/iPad</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2022/09/02/GitHub-Actions/">GitHub Actions</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2022/08/02/Powerful-Zsh/">Powerful Zsh</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+  
+    
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title"><i class="fa fa-archive"></i> Archive</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/">2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/">2021</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/">2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/">2019</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/">2017</a><span class="archive-list-count">25</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title"><i class="fa fa-link"></i> Blogroll</h3>
+    <div class="widget">
+      <ul>
+      
+        <li>
+          <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/terrencemiao/">LinkedIn</a>
+        </li>
+      
+        <li>
+          <a target="_blank" rel="noopener" href="https://github.com/TerrenceMiao">GitHub</a>
+        </li>
+      
+        <li>
+          <a target="_blank" rel="noopener" href="https://twitter.com/TerrenceMiao">Twitter</a>
+        </li>
+      
+      </ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+        
+      </div>
+      <a id="totop" href="#top"></a>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      <p>
+        <a href="/blog/sitemap.xml">Site Map</a>
+        <span> | </span><a href="/blog/atom.xml">Subscribe to this site</a>
+        <span> | </span><a href="/blog/about/">Contact the blogger</a>
+      </p>
+      
+        <p>
+          <i class="fa fa-visitors"></i>
+          <i id="busuanzi_container_site_uv"><i id="busuanzi_value_site_uv"></i></i>
+          ，
+          <i class="fa fa-views"></i>
+          <i id="busuanzi_container_site_pv"><i id="busuanzi_value_site_pv"></i></i>
+        </p>
+      
+      <p>
+        <span>Copyright &copy; 2023 Terrence Miao.</span>
+        <span>Theme by <a href="https://github.com/chaooo/hexo-theme-BlueLake/" target="_blank">BlueLake.</a></span>
+        <span>Powered by <a href="https://hexo.io/" target="_blank">Hexo.</a></span>
+      </p>
+    </div>
+  </div>
+</footer>
+
+    </div>
+  </div>
+  
+<script src="/blog/js/jquery-3.4.1.min.js"></script>
+
+
+<script src="/blog/js/search.json.js"></script>
+
+
+  
+<script src="/blog/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/blog/js/script.js"></script>
+
+
+
+
+
+
+  
+<script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+  
+
+
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+  <script src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML" async type="text/javascript"></script>
+
+</body>
+</html>
