@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://terrencemiao.github.io/blog/2023/07/29/Mac-and-iPad-and-Android-Benchmark-Ceiling/</loc>
+    
+    <lastmod>2023-07-29</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://terrencemiao.github.io/blog/2023/07/29/Micro-Frontends/</loc>
     
     <lastmod>2023-07-29</lastmod>
