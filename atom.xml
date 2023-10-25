@@ -6,7 +6,7 @@
   <link href="https://terrencemiao.github.io/blog/atom.xml" rel="self"/>
   
   <link href="https://terrencemiao.github.io/blog/"/>
-  <updated>2023-10-25T11:08:32.044Z</updated>
+  <updated>2023-10-25T11:33:30.832Z</updated>
   <id>https://terrencemiao.github.io/blog/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Setup Socks/Socks5 proxy and git repo via proxy</title>
+    <link href="https://terrencemiao.github.io/blog/2023/10/25/Setup-Socks-Socks5-proxy-and-git-repo-via-proxy/"/>
+    <id>https://terrencemiao.github.io/blog/2023/10/25/Setup-Socks-Socks5-proxy-and-git-repo-via-proxy/</id>
+    <published>2023-10-25T11:23:53.000Z</published>
+    <updated>2023-10-25T11:33:30.832Z</updated>
+    
+    <content type="html"><![CDATA[<p>Host <code>ranger.local</code> has VPN connection which is granted with git repository.</p><ul><li>Setup Socks&#x2F;Socks5 proxy</li></ul><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-copy-id -i id_rsa.pub miaot@ranger.local</span><br><span class="line"></span><br><span class="line">$ ssh -D 3128 miaot@ranger.local</span><br></pre></td></tr></table></figure><ul><li>Configure <code>git</code> with Sock&#x2F;Socks5 proxy</li></ul><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ git config http.proxy &#x27;socks5://localhost:3128&#x27;</span><br><span class="line"></span><br><span class="line">$ cat .git/config</span><br><span class="line">[user]</span><br><span class="line">name = Terrence Miao</span><br><span class="line">email = terrence.miao@paradise.net</span><br><span class="line">    signingkey = EBCEB936</span><br><span class="line">[http]</span><br><span class="line">proxy = socks5://localhost:3128</span><br></pre></td></tr></table></figure><p>Then can access git repository via proxy both on command line and in UI client.</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Host &lt;code&gt;ranger.local&lt;/code&gt; has VPN connection which is granted with git repository.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Setup Socks&amp;#x2F;Socks5 proxy&lt;/li&gt;
+&lt;</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Setup ssh ProxyCommand/proxyJump on multiple jump hosts</title>
@@ -406,26 +429,6 @@
       
       
     <summary type="html">&lt;p&gt;Consider a full development and deployment cycle, and the potential risks involved during the different stages in CDP (CI &amp;#x2F; Continuo</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>AWS CloudWatch Metrics Example</title>
-    <link href="https://terrencemiao.github.io/blog/2020/10/13/AWS-CloudWatch-Metrics-example/"/>
-    <id>https://terrencemiao.github.io/blog/2020/10/13/AWS-CloudWatch-Metrics-example/</id>
-    <published>2020-10-13T12:29:39.000Z</published>
-    <updated>2023-10-25T10:54:29.324Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="AWS-CloudWatch-Metrics"><a href="#AWS-CloudWatch-Metrics" class="headerlink" title="AWS CloudWatch Metrics"></a>AWS CloudWatch Metrics</h2><p>The interface of Metrics in AWS CloudWatch console:</p><p><img src="/blog/img/AWS%20CloudWatch%20-%20Metrics.png" alt="AWS CloudWatch - Metrics" title="AWS CloudWatch - Metrics"></p><p>The URL:</p><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://ap-southeast-2.console.aws.amazon.com/cloudwatch/home?region=ap-southeast-2#metricsV2:graph=~(metrics~(~(~&#x27;AWS*2fRoute53Resolver~&#x27;InboundQueryVolume)~(~&#x27;.~&#x27;OutboundQueryVolume))~view~&#x27;timeSeries~stacked~false~region~&#x27;ap-southeast-2~stat~&#x27;Sum~period~86400~start~&#x27;-P28D~end~&#x27;P0D);query=~&#x27;*7bAWS*2fRoute53Resolver*7d</span><br></pre></td></tr></table></figure><p>Metrics source:</p><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;metrics&quot;: [</span><br><span class="line">        [ &quot;AWS/Route53Resolver&quot;, &quot;InboundQueryVolume&quot; ],</span><br><span class="line">        [ &quot;.&quot;, &quot;OutboundQueryVolume&quot; ]</span><br><span class="line">    ],</span><br><span class="line">    &quot;view&quot;: &quot;timeSeries&quot;,</span><br><span class="line">    &quot;stacked&quot;: false,</span><br><span class="line">    &quot;region&quot;: &quot;ap-southeast-2&quot;,</span><br><span class="line">    &quot;stat&quot;: &quot;Sum&quot;,</span><br><span class="line">    &quot;period&quot;: 86400,</span><br><span class="line">    &quot;title&quot;: &quot;Test&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;AWS-CloudWatch-Metrics&quot;&gt;&lt;a href=&quot;#AWS-CloudWatch-Metrics&quot; class=&quot;headerlink&quot; title=&quot;AWS CloudWatch Metrics&quot;&gt;&lt;/a&gt;AWS CloudWatch Metri</summary>
       
     
     
