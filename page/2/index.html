@@ -97,6 +97,78 @@
 
       <div class="outer">
         <section id="main">
+  <article id="post-Export-and-Import-AWS-DynamoDB-data" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog/2021/07/06/Export-and-Import-AWS-DynamoDB-data/">Export and Import AWS DynamoDB data</a>
+    </h1>
+  
+
+
+      </header>
+    
+    <div class="article-meta">
+      
+      <span class="article-date">
+  <i class="fa fa-date"></i>
+  <time class="dt-published" datetime="2021-07-06T05:07:34.000Z" itemprop="datePublished">2021-07-06</time>
+</span>
+      
+      
+      
+<a href="/blog/2021/07/06/Export-and-Import-AWS-DynamoDB-data/#comments" class="article-comment-link">
+  
+  <i class="fa fa-commt"></i>
+  Guestbook
+</a>
+
+
+    </div>
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>A simple, straightforward way export and import AWS DynamoDB table’s data with AWS CLI and a few scripts.</p>
+<p>At first, export all the data from AWS DynamoDB table:</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">𝜆 aws --profile production dynamodb scan --table-name tile-event &gt; tile-event-export.json</span><br></pre></td></tr></table></figure>
+
+<p>Convert a list of items&#x2F;records (DynamoDB JSON) into individual <strong>PutRequest</strong> JSON with <code>jq</code>.</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">𝜆 cat tile-event-export.json | jq &#x27;&#123;&quot;Items&quot;: [.Items[] | &#123;PutRequest: &#123;Item: .&#125;&#125;]&#125;&#x27; &gt; tile-event-import.json</span><br></pre></td></tr></table></figure>
+
+<p>Transform the data if necessary:</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">𝜆 sed &#x27;s/tile-images-prod/tile-images-pdev/g&#x27; tile-event-import.json &gt; tile-event-import-transformed.json</span><br></pre></td></tr></table></figure>
+
+<p>Split all requests into <strong>25</strong> requests per file, with <code>jq</code> and <code>awk</code> (Note: There are some restriction with AWS DynamoDB batch-write-item request - The BatchWriteItem operation can contain up to <strong>25</strong> individual PutItem and DeleteItem requests and can write up to 16 MB of data. The maximum size of an individual item is 400 KB.)</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">𝜆 cat tile-event-processed.awk</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/usr/bin/awk -f</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">NR%</span><span class="language-bash">25==1 &#123;</span></span><br><span class="line">  x=&quot;tile-event-import-processed-&quot;++i&quot;.json&quot;;</span><br><span class="line">  print &quot;&#123;&quot; &gt; x</span><br><span class="line">  print &quot;  \&quot;tile-event\&quot;: [&quot; &gt; x</span><br><span class="line">&#125;</span><br><span class="line">&#123;</span><br><span class="line">  printf &quot;    %s&quot;, $0 &gt; x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta prompt_">NR%</span><span class="language-bash">25!=0 &#123;</span></span><br><span class="line">  print &quot;,&quot; &gt; x</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta prompt_">NR%</span><span class="language-bash">25==0 &#123;</span></span><br><span class="line">  print &quot;&quot; &gt; x</span><br><span class="line">  print &quot;  ]&quot; &gt; x</span><br><span class="line">  print &quot;&#125;&quot; &gt; x</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">𝜆 jq -c &#x27;.Items[]&#x27; tile-event-import-transformed.json | ./tile-event-processed.awk</span><br></pre></td></tr></table></figure>
+
+<p>Import all <strong>22</strong> processed JSON files into DynamoDB table:</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="keyword">for</span> f <span class="keyword">in</span> tile-event-import-processed-&#123;1..22&#125;.json; <span class="keyword">do</span> \</span></span><br><span class="line"><span class="language-bash">    <span class="built_in">echo</span> <span class="variable">$f</span>; \</span></span><br><span class="line"><span class="language-bash">    aws --profile development dynamodb batch-write-item --request-items file://<span class="variable">$f</span>; \</span></span><br><span class="line"><span class="language-bash">  <span class="keyword">done</span></span></span><br></pre></td></tr></table></figure>
+
+        
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div class="article-tag-wrap">
+          
+
+          
+          
+
+
+        </div>
+      
+      
+      
+    </footer>
+  </div>
+</article>
+
+
   <article id="post-Get-and-read-logs-from-AWS-CloudWatch-with-saw" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-inner">
     
@@ -971,88 +1043,6 @@
 </article>
 
 
-  <article id="post-Creating-AWS-Lambda-with-AWS-SAM" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/blog/2020/02/14/Creating-AWS-Lambda-with-AWS-SAM/">Creating AWS Lambda with AWS SAM</a>
-    </h1>
-  
-
-
-      </header>
-    
-    <div class="article-meta">
-      
-      <span class="article-date">
-  <i class="fa fa-date"></i>
-  <time class="dt-published" datetime="2020-02-14T01:12:06.000Z" itemprop="datePublished">2020-02-14</time>
-</span>
-      
-      
-      
-<a href="/blog/2020/02/14/Creating-AWS-Lambda-with-AWS-SAM/#comments" class="article-comment-link">
-  
-  <i class="fa fa-commt"></i>
-  Guestbook
-</a>
-
-
-    </div>
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>This is a simple Lambda with REST API and SNS enabled. Firstly, have a look the Nodejs script:</p>
-<script src="https://gist.github.com/TerrenceMiao/7d60e5c79f9b93c362bb9a5ff40f67c3.js"></script>
-
-<p>AWS SAM template yaml file:</p>
-<script src="https://gist.github.com/TerrenceMiao/3512439f22c427e70db8cadc5cc83846.js"></script>
-
-<p>Generate AWS CloudFormation yaml file and package &#x2F; zip &#x2F; create an artefact (need to create AWS S3 bucket <code>hello-world-tub</code> in advance):</p>
-<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">𝜆 sam package --profile personal --template-file template.yml --output-template-file cloudFormation.yml --s3-bucket hello-sam-tub</span><br><span class="line">Uploading to 7431f83ac979bfccc26980049807e595  1461 / 1461.0  (100.00%)</span><br><span class="line"></span><br><span class="line">Successfully packaged artifacts and wrote output template to file cloudFormation.yml.</span><br><span class="line">Execute the following command to deploy the packaged template</span><br><span class="line">sam deploy --template-file /Users/terrence/Projects/hello-sam/cloudFormation.yml --stack-name &lt;YOUR STACK NAME&gt;</span><br></pre></td></tr></table></figure>
-
-<p>Can also create artefact file with <code>zip</code> command, and upload zip file into AWS S3 bucket:</p>
-<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">𝜆 zip hello-sam.zip README.md index.js template.yml</span><br></pre></td></tr></table></figure>
-
-<p>What AWS CloudFormation yaml file looks like:</p>
-<script src="https://gist.github.com/TerrenceMiao/a0ffabc5e118b78dfb21b5cee814e44c.js"></script>
-
-<p>Deploy application’s AWS CloudFormation stack with AWS SAM command:</p>
-<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">𝜆 sam deploy --profile personal --template-file cloudFormation.yml --stack-name hello-sam --capabilities CAPABILITY_IAM</span><br><span class="line"></span><br><span class="line">	Deploying with following values</span><br><span class="line">	===============================</span><br><span class="line">	Stack name                 : hello-sam</span><br><span class="line">	Region                     : None</span><br><span class="line">	Confirm changeset          : False</span><br><span class="line">	Deployment s3 bucket       : None</span><br><span class="line">	Capabilities               : [&quot;CAPABILITY_IAM&quot;]</span><br><span class="line">	Parameter overrides        : &#123;&#125;</span><br><span class="line"></span><br><span class="line">Initiating deployment</span><br><span class="line">=====================</span><br><span class="line"></span><br><span class="line">Waiting for changeset to be created..</span><br><span class="line"></span><br><span class="line">CloudFormation stack changeset</span><br><span class="line">---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span><br><span class="line">Operation                                                                                     LogicalResourceId                                                                             ResourceType</span><br><span class="line">---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span><br><span class="line">+ Add                                                                                         HelloWorldFunctionHelloWorldApiPermissionProd                                                 AWS::Lambda::Permission</span><br><span class="line">+ Add                                                                                         HelloWorldFunctionRole                                                                        AWS::IAM::Role</span><br><span class="line">+ Add                                                                                         HelloWorldFunction                                                                            AWS::Lambda::Function</span><br><span class="line">+ Add                                                                                         HelloWorldTopic                                                                               AWS::SNS::Topic</span><br><span class="line">+ Add                                                                                         ServerlessRestApiDeployment79454cea13                                                         AWS::ApiGateway::Deployment</span><br><span class="line">+ Add                                                                                         ServerlessRestApiProdStage                                                                    AWS::ApiGateway::Stage</span><br><span class="line">+ Add                                                                                         ServerlessRestApi                                                                             AWS::ApiGateway::RestApi</span><br><span class="line">---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">Changeset created successfully. arn:aws:cloudformation:ap-southeast-2:123456789012:changeSet/samcli-deploy1581737165/48e53ff2-1b50-45d8-bbfd-97652f20d967</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2020-02-15 14:26:10 - Waiting for stack create/update to complete</span><br><span class="line"></span><br><span class="line">CloudFormation events from changeset</span><br><span class="line">-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span><br><span class="line">ResourceStatus                                                        ResourceType                                                          LogicalResourceId                                                     ResourceStatusReason</span><br><span class="line">-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span><br><span class="line">CREATE_IN_PROGRESS                                                    AWS::SNS::Topic                                                       HelloWorldTopic                                                       Resource creation Initiated</span><br><span class="line">CREATE_COMPLETE                                                       AWS::SNS::Topic                                                       HelloWorldTopic                                                       -</span><br><span class="line">CREATE_IN_PROGRESS                                                    AWS::IAM::Role                                                        HelloWorldFunctionRole                                                Resource creation Initiated</span><br><span class="line">CREATE_COMPLETE                                                       AWS::IAM::Role                                                        HelloWorldFunctionRole                                                -</span><br><span class="line">CREATE_IN_PROGRESS                                                    AWS::Lambda::Function                                                 HelloWorldFunction                                                    Resource creation Initiated</span><br><span class="line">CREATE_COMPLETE                                                       AWS::Lambda::Function                                                 HelloWorldFunction                                                    -</span><br><span class="line">CREATE_IN_PROGRESS                                                    AWS::ApiGateway::RestApi                                              ServerlessRestApi                                                     Resource creation Initiated</span><br><span class="line">CREATE_COMPLETE                                                       AWS::ApiGateway::RestApi                                              ServerlessRestApi                                                     -</span><br><span class="line">CREATE_IN_PROGRESS                                                    AWS::Lambda::Permission                                               HelloWorldFunctionHelloWorldApiPermissionProd                         Resource creation Initiated</span><br><span class="line">CREATE_IN_PROGRESS                                                    AWS::ApiGateway::Deployment                                           ServerlessRestApiDeployment79454cea13                                 Resource creation Initiated</span><br><span class="line">CREATE_COMPLETE                                                       AWS::ApiGateway::Deployment                                           ServerlessRestApiDeployment79454cea13                                 -</span><br><span class="line">CREATE_IN_PROGRESS                                                    AWS::ApiGateway::Stage                                                ServerlessRestApiProdStage                                            Resource creation Initiated</span><br><span class="line">CREATE_COMPLETE                                                       AWS::ApiGateway::Stage                                                ServerlessRestApiProdStage                                            -</span><br><span class="line">CREATE_COMPLETE                                                       AWS::Lambda::Permission                                               HelloWorldFunctionHelloWorldApiPermissionProd                         -</span><br><span class="line">CREATE_COMPLETE                                                       AWS::CloudFormation::Stack                                            hello-sam                                                             -</span><br><span class="line">-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">Successfully created/updated stack - hello-sam in None</span><br></pre></td></tr></table></figure>
-
-<p>NOTE: The <code>--capabilities CAPABILITY_IAM</code> option is necessary to authorise your stack to create IAM roles, which SAM applications do by default.</p>
-<p>After application deployed, user subscribes notification will receive email titled - <strong>AWS Notification - Subscription Confirmation</strong> After confirmation, user will receive an email every time API is invoked.</p>
-<p>Now log on AWS Console, have a look the resources this Lambda application used in CloudFormation, S3 Bucket, Lambda, IAM, SNS, CloudWatch, API Gateway.</p>
-<p>After this Lambda application successfully deployed into AWS, you will receive an email asking whether you want to subscribe the SNS topic. You can also unsubscribe the SNS topic. You can manually test Lambda function in AWS Console.</p>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li>Creating AWS Lambda Applications With SAM by <strong>Daniel Weibel</strong>, <em><a target="_blank" rel="noopener" href="https://itnext.io/creating-aws-lambda-applications-with-sam-dd13258c16dd">https://itnext.io/creating-aws-lambda-applications-with-sam-dd13258c16dd</a></em></li>
-</ul>
-
-        
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <div class="article-tag-wrap">
-          
-
-          
-          
-
-
-        </div>
-      
-      
-      
-    </footer>
-  </div>
-</article>
-
-
 
     <nav id="page-nav">
 
@@ -1071,6 +1061,10 @@
       <ul>
         
           <li>
+            <a href="/blog/2023/10/25/Setup-ssh-ProxyCommand-proxyJump-on-multiple-jump-hosts/">Setup ssh ProxyCommand/proxyJump on multiple jump hosts</a>
+          </li>
+        
+          <li>
             <a href="/blog/2023/07/29/Mac-and-iPad-and-Android-Benchmark-Ceiling/">Mac and iPad and Android Benchmark Ceiling</a>
           </li>
         
@@ -1084,10 +1078,6 @@
         
           <li>
             <a href="/blog/2022/10/10/Geekbench-head-to-head-Mac-vs-iPad-vs-Android/">Geekbench head to head - Mac vs iPad vs Android</a>
-          </li>
-        
-          <li>
-            <a href="/blog/2022/09/07/How-to-use-Web-Inspector-and-debug-Safari-on-iPhone-iPad/">How to use Web Inspector and debug Safari on iPhone/iPad</a>
           </li>
         
       </ul>
@@ -1105,7 +1095,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title"><i class="fa fa-archive"></i> Archive</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2023/">2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/">2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/">2021</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/">2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/">2019</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/">2017</a><span class="archive-list-count">25</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2023/">2023</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/">2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/">2021</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/">2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/">2019</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/">2017</a><span class="archive-list-count">25</span></li></ul>
     </div>
   </div>
 
