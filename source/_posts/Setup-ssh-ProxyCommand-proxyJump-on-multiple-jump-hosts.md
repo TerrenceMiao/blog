@@ -4,6 +4,20 @@ date: 2023-10-25 22:04:00
 tags:
 ---
 
+**NOTE:** Some SSH Server doesn't allow **public key authentication**. Then `sshpass` is a friend here for you.
+
+Install `sshpass` in MacOS:
+
+```shell
+$ brew install esolitos/ipa/sshpass
+```
+
+Test `sshpass`:
+
+```
+$ ssh -oProxyCommand="sshpass -f ~/.ssh/windows.passwd ssh -W %h:%p jumphost" -l darling jumphost-npe.paradise.net
+```
+
 Setup `.ssh/config` file:
 
 ```
@@ -11,16 +25,21 @@ Setup `.ssh/config` file:
 Host *
  ServerAliveInterval 15
 
-Host jumphost
-    Hostname ranger.local
+Host jumphost.mac
+    Hostname mac.local
     IdentityFile ~/.ssh/id_rsa
-    User miaot
+    User darling
+
+Host jumphost.windows
+    Hostname windows.local
+    IdentityFile ~/.ssh/id_rsa
+    User darling
 
 Host jumphost-npe
     Hostname jumphost-npe.paradise.net
-    User miaot
+    User darling
     IdentityFile ~/.ssh/id_rsa
-    ProxyCommand ssh -W %h:%p jumphost
+    ProxyCommand sshpass -f ~/.ssh/windows.passwd ssh -W %h:%p jumphost.windows
     IdentitiesOnly yes
     StrictHostKeyChecking no
     UserKnownHostsFile=/dev/null
@@ -44,9 +63,9 @@ Host ip-10-214-*.ap-southeast-2.compute.internal
 
 Host jumphost-prod
     HostName jumphost-prod.paradise.net
-    User miaot
+    User darling
     IdentityFile ~/.ssh/id_rsa.prod
-    ProxyCommand ssh -W %h:%p jumphost
+    ProxyCommand sshpass -f ~/.ssh/windows.passwd ssh -W %h:%p jumphost.windows
     IdentitiesOnly yes
     StrictHostKeyChecking no
     UserKnownHostsFile=/dev/null
