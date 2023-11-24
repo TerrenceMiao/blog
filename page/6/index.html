@@ -97,6 +97,64 @@
 
       <div class="outer">
         <section id="main">
+  <article id="post-The-Evolution-of-Communication" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog/2018/05/12/The-Evolution-of-Communication/">The Evolution of Communication</a>
+    </h1>
+  
+
+
+      </header>
+    
+    <div class="article-meta">
+      
+      <span class="article-date">
+  <i class="fa fa-date"></i>
+  <time class="dt-published" datetime="2018-05-12T09:00:19.000Z" itemprop="datePublished">2018-05-12</time>
+</span>
+      
+      
+      
+<a href="/blog/2018/05/12/The-Evolution-of-Communication/#comments" class="article-comment-link">
+  
+  <i class="fa fa-commt"></i>
+  Guestbook
+</a>
+
+
+    </div>
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="https://lh3.googleusercontent.com/YzTa0oT6aF3aVswjpNEfQuo0VVY9eItB39kLPCxZcnIc_X-lyU6Ycio3Ijrucs7TOsLP0bWc8qLnsRHG5BNqmw0g791jyb1s_NCQx3pSFcXkBDWx4dHdAzxsoxWqytORH9Io1CeYFAQOWkxuLkgGCiCsMffW0oxibHz99BlxVE5ni2h7GpyWfs9tmo6hTp1DCBG3raBkNq7_bGtKYGYT3Zhu2iNY7KJJ_YorXUKRLVkysDQAnydHjKuFCZDl_wIt5orYpchlF_-hMrGDWc1mm-SboGhnHQ4T1dlMU2-6cDftqIh1gQyxpUpU6kFTtCsFYYceBPIZlEfJWWn521iclYhG6ntrVEJbbWOH3pTw_E3zjTtJ2HSGNe60wHY4VI6BQyitfUAvAuwehO8rFHGJk6GKO8POvA79BXV_L4gi_354_sxW-I3TSLG_F8gXbiRDpLYf0swJlU6UVkz0NRKBuJD32dYj1evE0bWWUkDaUJqPV9ywWkxpQJ0AmIi2F21O5o1N5yVHaFdNLVfTBySAqpFaCi2v39JfeTdl7Ofc-K8BOKHZk2fNnV1mT4RwJMTRPKfKf7ZV_r8X_yVJmSqtuXC5gz-WCgRe2ksl7NBW=w700-h374-no" alt="The Evolution of Communication" title="The Evolution of Communication"></p>
+
+        
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div class="article-tag-wrap">
+          
+
+          
+          
+
+
+        </div>
+      
+      
+      
+    </footer>
+  </div>
+</article>
+
+
   <article id="post-Serenity-powered-by-Simple-Design" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-inner">
     
@@ -681,76 +739,6 @@
 </article>
 
 
-  <article id="post-AWS-access-key-id-and-secret-access-key" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/blog/2018/03/10/AWS-access-key-id-and-secret-access-key/">AWS access key id and secret access key</a>
-    </h1>
-  
-
-
-      </header>
-    
-    <div class="article-meta">
-      
-      <span class="article-date">
-  <i class="fa fa-date"></i>
-  <time class="dt-published" datetime="2018-03-09T23:28:06.000Z" itemprop="datePublished">2018-03-10</time>
-</span>
-      
-      
-      
-<a href="/blog/2018/03/10/AWS-access-key-id-and-secret-access-key/#comments" class="article-comment-link">
-  
-  <i class="fa fa-commt"></i>
-  Guestbook
-</a>
-
-
-    </div>
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>There are some secret of AWS credentials, i.e., its Access Key ID and Secret Access Key, which let you connect AWS services withouth authentication.</p>
-<p>In a quintessential project environment, you have dev, test, prod environment setup in AWS. Your local AWS_PROFILE is something like this so you can switch to different targeting end services while run your application on localhost:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">𝜆 <span class="built_in">cat</span> ~/.aws/credentials</span><br><span class="line">[default]</span><br><span class="line">aws_access_key_id=dev-aws_access_key_id</span><br><span class="line">aws_secret_access_key=dev-aws_secret_access_key</span><br><span class="line"></span><br><span class="line">[dev]</span><br><span class="line">aws_access_key_id=dev-aws_access_key_id</span><br><span class="line">aws_secret_access_key=dev-aws_secret_access_key</span><br><span class="line"></span><br><span class="line">[<span class="built_in">test</span>]</span><br><span class="line">aws_access_key_id=test-aws_access_key_id</span><br><span class="line">aws_secret_access_key=test-aws_secret_access_key</span><br><span class="line"></span><br><span class="line">[prod]</span><br><span class="line">aws_access_key_id=prod-aws_access_key_id</span><br><span class="line">aws_secret_access_key=prod-aws_secret_access_key</span><br></pre></td></tr></table></figure>
-
-<p>When test Jest client in Test environment, a AWS ElasticSearch client library, error thrown:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">2018-02-27 15:18:19 INFO  org.paradise.search.routes.ElasticSearchRoute  - Body: io.searchbox.core.Index@4804b850[uri=orders/order/4SMK1UmbtqIAAAFhmYAFt9V7,method=PUT] message: searchIndexRoute - updating search index</span><br><span class="line">2018-02-27 15:18:19 INFO  org.apache.camel.processor.interceptor.Tracer  - &gt;&gt;&gt; (searchIndexRoute) org.paradise.search.routes.ElasticSearchRoute$$Lambda<span class="variable">$137</span>/819330075@119b837 --&gt; org.paradise.search.routes.ElasticSearchRoute$$Lambda<span class="variable">$138</span>/2035788375@2acacdf &lt;&lt;&lt; <span class="string">Pattern:InOnly, BodyType:io.searchbox.core.Index</span></span><br><span class="line"><span class="string">2018-02-27 15:18:19 ERROR org.paradise.search.routes.ElasticSearchRoute  - Error while updating search index. 403 Forbidden &#123;&quot;Message&quot;:&quot;User: arn:aws:iam::123456789012:user/svcbamboo is not authorized to perform: es:ESHttpPut on resource: paradise-esv5-test-esd&quot;&#125; at &#x27;orders/order/4SMK1UmbtqIAAAFhmYAFt9V7&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<p>It turns out that WRONG Dev AWS_PROFILE applied in Test environment.</p>
-<p>Replacing “aws_access_key_id” and “aws_secret_access_key” from the default profile with “aws_access_key_id” and “aws_secret_access_key” from test profile:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">𝜆 <span class="built_in">cat</span> ~/.aws/credentials</span><br><span class="line">[default]</span><br><span class="line">aws_access_key_id=test-aws_access_key_id</span><br><span class="line">aws_secret_access_key=test-aws_secret_access_key</span><br><span class="line"></span><br><span class="line">[dev]</span><br><span class="line">aws_access_key_id=dev-aws_access_key_id</span><br><span class="line">aws_secret_access_key=dev-aws_secret_access_key</span><br><span class="line"></span><br><span class="line">[<span class="built_in">test</span>]</span><br><span class="line">aws_access_key_id=test-aws_access_key_id</span><br><span class="line">aws_secret_access_key=test-aws_secret_access_key</span><br><span class="line"></span><br><span class="line">[prod]</span><br><span class="line">aws_access_key_id=prod-aws_access_key_id</span><br><span class="line">aws_secret_access_key=prod-aws_secret_access_key</span><br></pre></td></tr></table></figure>
-
-<p>Rerun the test and in log:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">2018-02-27 15:23:54 INFO  org.paradise.search.routes.ElasticSearchRoute  - Body: io.searchbox.core.Index@62b18125[uri=orders/order/RVwK1UIBXmoAAAFhdJkFo9WA,method=PUT] message: searchIndexRoute - updating search index</span><br><span class="line">2018-02-27 15:23:54 INFO  org.apache.camel.processor.interceptor.Tracer  - &gt;&gt;&gt; (searchIndexRoute) org.paradise.search.routes.ElasticSearchRoute$$Lambda<span class="variable">$137</span>/1716909005@a809a62 --&gt; org.paradise.search.routes.ElasticSearchRoute$$Lambda<span class="variable">$138</span>/612681832@4b2713b1 &lt;&lt;&lt; <span class="string">Pattern:InOnly, BodyType:io.searchbox.core.Index</span></span><br><span class="line"><span class="string">2018-02-27 15:23:55 INFO  org.paradise.search.routes.ElasticSearchRoute  - Finished updating search index at &#x27;orders/order/RVwK1UIBXmoAAAFhdJkFo9WA&#x27;.</span></span><br></pre></td></tr></table></figure>
-
-        
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <div class="article-tag-wrap">
-          
-
-          
-          
-
-
-        </div>
-      
-      
-      
-    </footer>
-  </div>
-</article>
-
-
 
     <nav id="page-nav">
 
@@ -769,6 +757,10 @@
       <ul>
         
           <li>
+            <a href="/blog/2023/11/24/OpenSSH-Server-for-Windows/">OpenSSH Server for Windows</a>
+          </li>
+        
+          <li>
             <a href="/blog/2023/10/25/Setup-Socks-Socks5-proxy-and-git-repo-via-proxy/">Setup Socks/Socks5 proxy and git repo via proxy</a>
           </li>
         
@@ -782,10 +774,6 @@
         
           <li>
             <a href="/blog/2023/07/29/Micro-Frontends/">Micro Frontends</a>
-          </li>
-        
-          <li>
-            <a href="/blog/2022/10/12/Remove-Image-Background/">Remove Image Background</a>
           </li>
         
       </ul>
@@ -803,7 +791,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title"><i class="fa fa-archive"></i> Archive</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2023/">2023</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/">2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/">2021</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/">2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/">2019</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/">2017</a><span class="archive-list-count">25</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2023/">2023</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/">2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/">2021</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/">2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/">2019</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/">2017</a><span class="archive-list-count">25</span></li></ul>
     </div>
   </div>
 
