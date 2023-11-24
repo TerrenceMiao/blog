@@ -146,16 +146,19 @@
     </div>
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>Host <code>ranger.local</code> has VPN connection which is granted with git repository.</p>
+        <p>Host <code>windows.local</code> has VPN connection which is granted with git repository.</p>
 <ul>
 <li>Setup Socks&#x2F;Socks5 proxy</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-copy-id -i id_rsa.pub miaot@ranger.local</span><br><span class="line"></span><br><span class="line">$ ssh -D 3128 miaot@ranger.local</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">ssh-copy-id -i id_rsa.pub darling@windows.local</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">ssh -D 3128 darling@windows.local</span></span><br></pre></td></tr></table></figure>
+
+<p>If <code>PasswordAuthentication</code> is enforced, and <code>pubilc key authentication</code> in SSH Server is not supported, try:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sshpass -f ~/.ssh/windows.passwd ssh -D 3128 darling@windows.local</span></span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>Configure <code>git</code> with Sock&#x2F;Socks5 proxy</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ git config http.proxy &#x27;socks5://localhost:3128&#x27;</span><br><span class="line"></span><br><span class="line">$ cat .git/config</span><br><span class="line">[user]</span><br><span class="line">	name = Terrence Miao</span><br><span class="line">	email = terrence.miao@paradise.net</span><br><span class="line">    signingkey = EBCEB936</span><br><span class="line">[http]</span><br><span class="line">	proxy = socks5://localhost:3128</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git config http.proxy <span class="string">&#x27;socks5://localhost:3128&#x27;</span></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cat</span> .git/config</span></span><br><span class="line">[user]</span><br><span class="line">	name = Terrence Miao</span><br><span class="line">	email = terrence.miao@paradise.net</span><br><span class="line">	signingkey = EBCEB936</span><br><span class="line">[http]</span><br><span class="line">	proxy = socks5://localhost:3128</span><br></pre></td></tr></table></figure>
 
 <p>Then can access git repository via proxy both on command line and in UI client.</p>
 
