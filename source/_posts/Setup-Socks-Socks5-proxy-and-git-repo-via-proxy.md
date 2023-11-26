@@ -12,13 +12,18 @@ Host `windows.local` has VPN connection which is granted with git repository.
 ```shell
 $ ssh-copy-id -i id_rsa.pub darling@windows.local
 
-$ ssh -D 3128 darling@windows.local
+$ ssh -D 3128 -q -C -N -f darling@windows.local
 ```
+
+- -q: quiet mode, don’t output anything locally
+- -C: compress data in the tunnel, save bandwidth
+- -N: do not execute remote commands, useful for just forwarding ports
+- -f: keep it running in the background
 
 If `PasswordAuthentication` is enforced, and `pubilc key authentication` in SSH Server is not supported, try:
 
 ```shell
-$ sshpass -f ~/.ssh/windows.passwd ssh -D 3128 darling@windows.local
+$ sshpass -f ~/.ssh/windows.passwd ssh -D 3128 -q -C -N -f darling@windows.local
 ```
 
 - Configure `git` with Sock/Socks5 proxy
