@@ -223,10 +223,16 @@
 <ul>
 <li>Setup Socks&#x2F;Socks5 proxy</li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">ssh-copy-id -i id_rsa.pub darling@windows.local</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">ssh -D 3128 darling@windows.local</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">ssh-copy-id -i id_rsa.pub darling@windows.local</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">ssh -D 3128 -q -C -N -f darling@windows.local</span></span><br></pre></td></tr></table></figure>
 
+<ul>
+<li>-q: quiet mode, don’t output anything locally</li>
+<li>-C: compress data in the tunnel, save bandwidth</li>
+<li>-N: do not execute remote commands, useful for just forwarding ports</li>
+<li>-f: keep it running in the background</li>
+</ul>
 <p>If <code>PasswordAuthentication</code> is enforced, and <code>pubilc key authentication</code> in SSH Server is not supported, try:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sshpass -f ~/.ssh/windows.passwd ssh -D 3128 darling@windows.local</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sshpass -f ~/.ssh/windows.passwd ssh -D 3128 -q -C -N -f darling@windows.local</span></span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>Configure <code>git</code> with Sock&#x2F;Socks5 proxy</li>
