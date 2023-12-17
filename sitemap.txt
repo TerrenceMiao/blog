@@ -1,7 +1,8 @@
+https://terrencemiao.github.io/blog/2023/12/17/Upscayl-AI-Image-Upscaler/
 https://terrencemiao.github.io/blog/2023/10/25/Setup-Socks-Socks5-proxy-and-git-repo-via-proxy/
 https://terrencemiao.github.io/blog/2023/11/24/OpenSSH-Server-for-Windows/
 https://terrencemiao.github.io/blog/2023/10/25/Setup-ssh-ProxyCommand-proxyJump-on-multiple-jump-hosts/
-https://terrencemiao.github.io/blog/2018/12/31/Year-2018-in-the-Rear-View-Mirror/
+https://terrencemiao.github.io/blog/2019/01/01/Year-2018-in-the-Rear-View-Mirror/
 https://terrencemiao.github.io/blog/2017/09/03/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E8%AF%BB%E4%B9%A6/
 https://terrencemiao.github.io/blog/2017/09/03/%E7%94%BB%E8%99%BE/
 https://terrencemiao.github.io/blog/2022/10/12/Remove-Image-Background/
