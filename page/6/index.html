@@ -97,6 +97,80 @@
 
       <div class="outer">
         <section id="main">
+  <article id="post-Setup-and-run-DEVHINTS-IO-cheatsheets-on-localhost" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog/2018/06/08/Setup-and-run-DEVHINTS-IO-cheatsheets-on-localhost/">Setup and run DEVHINTS.IO cheatsheets on localhost</a>
+    </h1>
+  
+
+
+      </header>
+    
+    <div class="article-meta">
+      
+      <span class="article-date">
+  <i class="fa fa-date"></i>
+  <time class="dt-published" datetime="2018-06-08T07:32:39.000Z" itemprop="datePublished">2018-06-08</time>
+</span>
+      
+      
+      
+<a href="/blog/2018/06/08/Setup-and-run-DEVHINTS-IO-cheatsheets-on-localhost/#comments" class="article-comment-link">
+  
+  <i class="fa fa-commt"></i>
+  Guestbook
+</a>
+
+
+    </div>
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>This is a static website based on Jekyll framework <a target="_blank" rel="noopener" href="https://jekyllrb.com/">https://jekyllrb.com/</a>. Need install Jekyll and .</p>
+<p>Login as user “root” due to write permission required into <strong>&#x2F;Library&#x2F;Ruby&#x2F;Gems</strong> directory. Install <strong>bundler</strong> and <strong>Jekyll</strong> at first:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">igloo:cheatsheets root<span class="comment"># gem install bundler jekyll</span></span><br></pre></td></tr></table></figure>
+
+<p>Then install all this application dependent libraries:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">igloo:cheatsheets root<span class="comment"># bundler install</span></span><br></pre></td></tr></table></figure>
+
+<p>Start up Jekyll website on localhost, with user “terrence” this time:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">terrence@igloo ~/Projects/cheatsheets (master ☡=)</span><br><span class="line">17:28:56 𝜆 bundle <span class="built_in">exec</span> jekyll serve --incremental</span><br><span class="line">Configuration file: /Users/terrence/Projects/cheatsheets/_config.yml</span><br><span class="line">            Source: /Users/terrence/Projects/cheatsheets</span><br><span class="line">       Destination: /Users/terrence/Projects/cheatsheets/_site</span><br><span class="line"> Incremental build: enabled</span><br><span class="line">      Generating...</span><br><span class="line">DEPRECATION WARNING on line 83, column 12 of /Users/terrence/Projects/cheatsheets/_sass/vendor/modularscale/_modularscale.scss:</span><br><span class="line">Unescaped multiline strings are deprecated and will be removed <span class="keyword">in</span> a future version of Sass.</span><br><span class="line">To include a newline <span class="keyword">in</span> a string, use <span class="string">&quot;\a&quot;</span> or <span class="string">&quot;\a &quot;</span> as <span class="keyword">in</span> CSS.</span><br><span class="line"></span><br><span class="line">                    <span class="keyword">done</span> <span class="keyword">in</span> 3.163 seconds.</span><br><span class="line"> Auto-regeneration: enabled <span class="keyword">for</span> <span class="string">&#x27;/Users/terrence/Projects/cheatsheets&#x27;</span></span><br><span class="line">    Server address: http://127.0.0.1:4000</span><br><span class="line">  Server running... press ctrl-c to stop.</span><br></pre></td></tr></table></figure>
+
+<p>Go to URL: <a target="_blank" rel="noopener" href="http://127.0.0.1:4000/">http://127.0.0.1:4000</a> start searching and using cheatsheets in localhost environment:</p>
+<p><img src="https://ph-files.imgix.net/9585bd9a-5b33-4c1d-bda2-f285fbd5f9ae" alt="DEVHINTS.IO - cheatsheets" title="DEVHINTS.IO - cheatsheets"></p>
+<p><img src="https://ph-files.imgix.net/a04245b3-65d1-4e27-b6ce-45216f479063" alt="DEVHINTS.IO - cheatsheets" title="DEVHINTS.IO - cheatsheets"></p>
+<p>To generate static web content ONLY:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">terrence@igloo ~/Projects/cheatsheets (master ☡=)</span><br><span class="line">17:28:56 𝜆 bundle <span class="built_in">exec</span> jekyll build</span><br><span class="line">Configuration file: /Users/terrence/Projects/cheatsheets/_config.yml</span><br><span class="line">            Source: /Users/terrence/Projects/cheatsheets</span><br><span class="line">       Destination: ../terrencemiao.github.io/cheatsheets</span><br><span class="line"> Incremental build: disabled. Enable with --incremental</span><br><span class="line">      Generating...</span><br><span class="line">DEPRECATION WARNING on line 83, column 12 of /Users/terrence/Projects/cheatsheets/_sass/vendor/modularscale/_modularscale.scss:</span><br><span class="line">Unescaped multiline strings are deprecated and will be removed <span class="keyword">in</span> a future version of Sass.</span><br><span class="line">To include a newline <span class="keyword">in</span> a string, use <span class="string">&quot;\a&quot;</span> or <span class="string">&quot;\a &quot;</span> as <span class="keyword">in</span> CSS.</span><br><span class="line"></span><br><span class="line">                    <span class="keyword">done</span> <span class="keyword">in</span> 43.269 seconds.</span><br><span class="line"> Auto-regeneration: disabled. Use --watch to <span class="built_in">enable</span>.</span><br></pre></td></tr></table></figure>
+
+<p>Then can upload published website content from ..&#x2F;terrencemiao.github.io&#x2F;cheatsheets directory to <a href="https://terrencemiao.github.io/">https://terrencemiao.github.io</a>.</p>
+
+        
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div class="article-tag-wrap">
+          
+
+          
+          
+
+
+        </div>
+      
+      
+      
+    </footer>
+  </div>
+</article>
+
+
   <article id="post-The-Evolution-of-Mobile-Phones" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-inner">
     
@@ -665,69 +739,10 @@
 </article>
 
 
-  <article id="post-The-A-I-Revolution-Will-Not-Be-Supervised" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/blog/2018/03/11/The-A-I-Revolution-Will-Not-Be-Supervised/">The A.I. Revolution Will Not Be Supervised</a>
-    </h1>
-  
-
-
-      </header>
-    
-    <div class="article-meta">
-      
-      <span class="article-date">
-  <i class="fa fa-date"></i>
-  <time class="dt-published" datetime="2018-03-11T09:22:21.000Z" itemprop="datePublished">2018-03-11</time>
-</span>
-      
-      
-      
-<a href="/blog/2018/03/11/The-A-I-Revolution-Will-Not-Be-Supervised/#comments" class="article-comment-link">
-  
-  <i class="fa fa-commt"></i>
-  Guestbook
-</a>
-
-
-    </div>
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p><strong>“The A.I. Revolution Will Not Be Supervised.”</strong></p>
-<p><em>- Yann LeCun</em></p>
-
-        
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <div class="article-tag-wrap">
-          
-
-          
-          
-
-
-        </div>
-      
-      
-      
-    </footer>
-  </div>
-</article>
-
-
 
     <nav id="page-nav">
 
-<a class="extend prev" rel="prev" href="/blog/page/5/">Previous</a><a class="page-number" href="/blog/">1</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/4/">4</a><a class="page-number" href="/blog/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/blog/page/7/">7</a><a class="page-number" href="/blog/page/8/">8</a><a class="page-number" href="/blog/page/9/">9</a><a class="extend next" rel="next" href="/blog/page/7/">Next</a>
+<a class="extend prev" rel="prev" href="/blog/page/5/">Previous</a><a class="page-number" href="/blog/">1</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/4/">4</a><a class="page-number" href="/blog/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/blog/page/7/">7</a><a class="page-number" href="/blog/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/10/">10</a><a class="extend next" rel="next" href="/blog/page/7/">Next</a>
 </nav>
 
 
@@ -740,6 +755,10 @@
     <h3 class="widget-title"><i class="fa fa-posts"></i> Recent</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/blog/2024/04/26/Step-by-step-root-OnePlus-5T/">Step by step root OnePlus 5T</a>
+          </li>
         
           <li>
             <a href="/blog/2023/12/17/Upscayl-AI-Image-Upscaler/">Upscayl - AI Image Upscaler</a>
@@ -757,10 +776,6 @@
             <a href="/blog/2023/10/25/Setup-ssh-ProxyCommand-proxyJump-on-multiple-jump-hosts/">Setup ssh ProxyCommand/proxyJump on multiple jump hosts</a>
           </li>
         
-          <li>
-            <a href="/blog/2023/07/29/Mac-and-iPad-and-Android-Benchmark-Ceiling/">Mac and iPad and Android Benchmark Ceiling</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -776,7 +791,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title"><i class="fa fa-archive"></i> Archive</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2023/">2023</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/">2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/">2021</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/">2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/">2019</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/">2017</a><span class="archive-list-count">25</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2024/">2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2023/">2023</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/">2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/">2021</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/">2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/">2019</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/">2017</a><span class="archive-list-count">25</span></li></ul>
     </div>
   </div>
 
@@ -832,7 +847,7 @@
         </p>
       
       <p>
-        <span>Copyright &copy; 2023 Terrence Miao.</span>
+        <span>Copyright &copy; 2024 Terrence Miao.</span>
         <span>Theme by <a href="https://github.com/chaooo/hexo-theme-BlueLake/" target="_blank">BlueLake.</a></span>
         <span>Powered by <a href="https://hexo.io/" target="_blank">Hexo.</a></span>
       </p>
