@@ -6,7 +6,7 @@
   <link href="https://terrencemiao.github.io/blog/atom.xml" rel="self"/>
   
   <link href="https://terrencemiao.github.io/blog/"/>
-  <updated>2024-04-26T12:48:52.964Z</updated>
+  <updated>2024-05-03T12:09:33.497Z</updated>
   <id>https://terrencemiao.github.io/blog/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>How to team network (link aggregation) in Windows 11</title>
+    <link href="https://terrencemiao.github.io/blog/2024/05/03/How-to-team-network-link-aggregation-in-Windows-11/"/>
+    <id>https://terrencemiao.github.io/blog/2024/05/03/How-to-team-network-link-aggregation-in-Windows-11/</id>
+    <published>2024-05-03T11:40:36.000Z</published>
+    <updated>2024-05-03T12:09:33.497Z</updated>
+    
+    <content type="html"><![CDATA[<p>Intel Ethernet Converged Network Adapter X710, with two 10Gbps ports. This allows to team the two ports together for link aggregation.</p><ul><li>Install Optional Features <code>Server Manager</code> in Windows 11</li></ul><p><img src="/blog/img/Network%20Team%20-%20Server%20Manager.png" alt="Server Manager" title="Server Manager"></p><ul><li>Open and run Windows Powershell as administrator, then run:</li></ul><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">PS</span> C:\&gt; <span class="built_in">New-NetSwitchTeam</span> <span class="literal">-Name</span> <span class="string">&quot;NIC-Team&quot;</span> <span class="literal">-TeamMembers</span> <span class="string">&quot;X701-1&quot;</span>,<span class="string">&quot;X701-2&quot;</span></span><br></pre></td></tr></table></figure><p><img src="/blog/img/Network%20Team%20-%20Connections.png" alt="Network Connections" title="Network Connections"></p><p>A new network interface created, with combined speed <em><strong>20Gbps</strong></em>.</p><p><img src="/blog/img/Network%20Team%20-%20Status.png" alt="Network Status" title="Network Status"></p><p>To remove network team, run:</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">PS</span> C:\&gt; <span class="built_in">Remove-NetSwitchTeam</span> <span class="literal">-Name</span> <span class="string">&quot;NIC-Team&quot;</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Intel Ethernet Converged Network Adapter X710, with two 10Gbps ports. This allows to team the two ports together for link aggregation.&lt;/p</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Step by step root OnePlus 5T</title>
@@ -411,26 +431,6 @@
       
     <summary type="html">&lt;p&gt;With AWS CLI version 2:&lt;/p&gt;
 &lt;figure class=&quot;highlight console&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span cla</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>A Modern Architecture Application</title>
-    <link href="https://terrencemiao.github.io/blog/2021/03/02/A-Modern-Architecture-Application/"/>
-    <id>https://terrencemiao.github.io/blog/2021/03/02/A-Modern-Architecture-Application/</id>
-    <published>2021-03-02T05:55:13.000Z</published>
-    <updated>2021-03-02T23:32:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>RAD (Rapid Application Development) of a Serverless application “Notification Service” on modern technologies, e.g. <code>AWS CDK</code> &amp; <code>SAM</code>, <code>AWS Step Functions</code>, <code>TypeScript</code>, <code>VS Code</code>, Open API Top Down Design and Test Driven Development, in order to rapidly build a prototype, or a POC, verify and test some technologies and approaches.</p><p>Request Handler &#x3D;&gt; Step Functions (orchestration for Lambda functions, represents a single centralized executable business process, outsources low level operations like <strong>retry</strong> &#x2F; <strong>exception catch and handle</strong>. Another choice is SNS) &#x3D;&gt; Service Providers</p><p>Have experienced of <code>Terraform</code>, <code>Serverless</code>, <code>AWS SAM</code> … now this time based on code over configuration principle, what you get is flexibility, predictability and more control. You focus on code you tell the tools what steps it has to complete directly. At the end of day, it is a simple matter of separation of concerns and single responsibility principle.</p><p>• <code>VS Code</code> for API Spec editing</p><p>• <code>Postman</code> API, Environment and Mock server, for QA team, then switch to real service in DEV&#x2F;TEST environment</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">𝜆 npm run openapi</span><br></pre></td></tr></table></figure><p>• <code>openapi-generator</code> generates model classes; <code>typescript-json-validator</code> generates JSON Schema and validator</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">𝜆 openapi-generator generate -g typescript-node -i Notification\ API\ openapi.json -o Notification\ API\ generated</span><br><span class="line">𝜆 npx typescript-json-validator notificationRequest.ts NotificationRequest</span><br></pre></td></tr></table></figure><p>• Onboard on Kong &#x2F; API Manager, <em><a href="https://konghq.com/kong/">https://konghq.com/kong/</a></em></p><p>• <code>CDK</code>, is based on CloudFormation but abstract layer on the top of it. It can generates CloudFormation template file <code>template.yaml</code></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">𝜆 cdk synth --no-staging &gt; template.yaml</span><br></pre></td></tr></table></figure><p>• Demo of local run and debug lambda, with background TSC watch process</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">𝜆 npm run watch</span><br><span class="line"></span><br><span class="line">𝜆 sam local invoke RequestNotification9F9F3C31 -e samples/api-gateway-notification-event.json</span><br><span class="line">𝜆 sam local invoke RequestNotification9F9F3C31 -e samples/api-gateway-notification-event.json -d 5858</span><br></pre></td></tr></table></figure><p>Data validation to make data integrity unbreachable will take a lot time.</p><p><code>ajv</code> framework and performance benchmark, <em><a href="https://github.com/ebdrup/json-schema-benchmark">https://github.com/ebdrup/json-schema-benchmark</a></em></p><p>• Code lint with <code>eslint</code> and <code>prettier</code> and automatically correction</p><p>• Code commit rule enforcement</p><p>• Change code and deploy AWS stack by <code>CDK</code></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">𝜆 cdk deploy --require-approval never --profile dev-cicd</span><br></pre></td></tr></table></figure><p>• Behavior Driven Test Framework Jest, <em><a href="https://github.com/facebook/jest">https://github.com/facebook/jest</a></em>, 2x &#x2F; 3x faster than Karma, with code coverage, easy mocking</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">𝜆 npm t</span><br></pre></td></tr></table></figure><p>• Automatically generate application changelog and release notes</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">𝜆 npm run release:minor</span><br></pre></td></tr></table></figure><p>• Automatically generate application document</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">𝜆 npm run docs</span><br></pre></td></tr></table></figure><p>• AWS resources created by <code>CDK</code></p><p>• Not Mono Repo app, which multiple projects all under one giant Repo</p><p>• ONE <code>AWS Layers</code> put all dependent NPM libs and shared code into; size of Lambda functions, readability</p><p>• <code>AWS EventBridge</code> tro trigger and send event to Request Handler, for scheduling task</p><p>• Health Check, with Service Monitoring Dashboard, verify dependencies at the endpoints, keep Lambda warming up</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">𝜆 curl https://c81234xdae8w1a9.execute-api.ap-southeast-2.amazonaws.com/health</span><br></pre></td></tr></table></figure><p>Cloud computing and Serverless architecture let developers in fast lane for Application Development. Right now, there are so many low hanging fruit to pick up.</p><p>As developers, we should not always think about our comfort zone, we need to think about people who take over your work, think about BAU team to support the application. The codebase is not about you, but about the value that your code brings to others, and the organization that you work for.</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;RAD (Rapid Application Development) of a Serverless application “Notification Service” on modern technologies, e.g. &lt;code&gt;AWS CDK&lt;/code&gt; </summary>
       
     
     
