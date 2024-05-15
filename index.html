@@ -139,11 +139,12 @@
 <ul>
 <li>Open and run Windows Powershell as administrator, then run:</li>
 </ul>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">PS</span> C:\&gt; <span class="built_in">New-NetSwitchTeam</span> <span class="literal">-Name</span> <span class="string">&quot;NIC-Team&quot;</span> <span class="literal">-TeamMembers</span> <span class="string">&quot;X701-1&quot;</span>,<span class="string">&quot;X701-2&quot;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">PS</span> C:\&gt; <span class="built_in">New-NetSwitchTeam</span> <span class="literal">-Name</span> <span class="string">&quot;NIC-Team&quot;</span> <span class="literal">-TeamMembers</span> <span class="string">&quot;X710-1&quot;</span>,<span class="string">&quot;X710-2&quot;</span></span><br></pre></td></tr></table></figure>
 
 <p><img src="/blog/img/Network%20Team%20-%20Connections.png" alt="Network Connections" title="Network Connections"></p>
 <p>A new network interface created, with combined speed <em><strong>20Gbps</strong></em>.</p>
 <p><img src="/blog/img/Network%20Team%20-%20Status.png" alt="Network Status" title="Network Status"></p>
+<p><img src="/blog/img/Network%20Team%20-%20Details.png" alt="Network Details" title="Network Details"></p>
 <p>To remove network team, run:</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">PS</span> C:\&gt; <span class="built_in">Remove-NetSwitchTeam</span> <span class="literal">-Name</span> <span class="string">&quot;NIC-Team&quot;</span></span><br></pre></td></tr></table></figure>
         
