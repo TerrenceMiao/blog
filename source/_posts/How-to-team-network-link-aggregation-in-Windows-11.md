@@ -13,7 +13,7 @@ Intel Ethernet Converged Network Adapter X710, with two 10Gbps ports. This allow
 - Open and run Windows Powershell as administrator, then run:
 
 ```powershell
-PS C:\> New-NetSwitchTeam -Name "NIC-Team" -TeamMembers "X701-1","X701-2"
+PS C:\> New-NetSwitchTeam -Name "NIC-Team" -TeamMembers "X710-1","X710-2"
 ```
 
 ![Network Connections](/img/Network%20Team%20-%20Connections.png "Network Connections")
@@ -21,6 +21,8 @@ PS C:\> New-NetSwitchTeam -Name "NIC-Team" -TeamMembers "X701-1","X701-2"
 A new network interface created, with combined speed _**20Gbps**_.
 
 ![Network Status](/img/Network%20Team%20-%20Status.png "Network Status")
+
+![Network Details](/img/Network%20Team%20-%20Details.png "Network Details")
 
 To remove network team, run:
 
