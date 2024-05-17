@@ -15,7 +15,7 @@
 <!-- End Google Analytics -->
 
   
-  <title>Assumptions and Conditional Test execution, ignoring in JUnit | Terrence Miao&#39;s Adventures</title>
+  <title>How to enable SMB Multichannel in Windows 11 | Terrence Miao&#39;s Adventures</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   
     <meta name="description" content="Veni, vidi, vici">
@@ -96,7 +96,7 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-Assumptions-and-Conditional-Test-execution-ignoring-in-JUnit" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-How-to-enable-SMB-Multichannel-in-Windows-11" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-inner">
     
     
@@ -104,7 +104,7 @@
         
   
     <h1 class="p-name article-title" itemprop="headline name">
-      Assumptions and Conditional Test execution, ignoring in JUnit
+      How to enable SMB Multichannel in Windows 11
     </h1>
   
 
@@ -115,7 +115,7 @@
       
       <span class="article-date">
   <i class="fa fa-date"></i>
-  <time class="dt-published" datetime="2018-07-06T21:40:20.000Z" itemprop="datePublished">2018-07-07</time>
+  <time class="dt-published" datetime="2024-05-17T12:38:27.000Z" itemprop="datePublished">2024-05-17</time>
 </span>
       
       
@@ -128,11 +128,11 @@
 
       
       
-<a href="/blog/2018/07/07/Assumptions-and-Conditional-Test-execution-ignoring-in-JUnit/#comments" class="article-comment-link">
+<a href="/blog/2024/05/17/How-to-enable-SMB-Multichannel-in-Windows-11/#comments" class="article-comment-link">
   
     
     
-      <i class="disqus-comment-count" data-disqus-identifier="/blog/2018/07/07/Assumptions-and-Conditional-Test-execution-ignoring-in-JUnit/"></i>
+      <i class="disqus-comment-count" data-disqus-identifier="/blog/2024/05/17/How-to-enable-SMB-Multichannel-in-Windows-11/"></i>
     
     
     
@@ -146,16 +146,29 @@
     </div>
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>Sometime you want to ignore some test depends on environment settings. Now both JUnit 4 and JUnit 5 support the concept of assumptions.</p>
-<p>Unit Test like this:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testRun</span><span class="params">()</span> &#123;</span><br><span class="line"> </span><br><span class="line">   Assume.assumeTrue(BooleanUtils.toBoolean(System.getProperty(<span class="string">&quot;runtest&quot;</span>)));</span><br><span class="line"></span><br><span class="line">   <span class="comment">// Rest of testcase</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>Network adapter requires to support <strong>RSS (Receive Side Scaling)</strong>.</p>
+<p><img src="/blog/img/RSS%20-%20Receive%20Side%20Scaling.png" alt="RSS (Receive Side Scaling)" title="RSS (Receive Side Scaling)"></p>
+<ul>
+<li>Open PowerShell as administrator in Windows 11, run and enable SMB Multichannel (should be enabled by default):</li>
+</ul>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">PS</span> C:\&gt; <span class="built_in">Set-SmbClientConfiguration</span> <span class="literal">-EnableMultiChannel</span> <span class="variable">$true</span></span><br><span class="line"></span><br><span class="line">Confirm</span><br><span class="line">Are you sure you want to perform this action?</span><br><span class="line">Performing operation <span class="string">&#x27;Modify&#x27;</span> on Target <span class="string">&#x27;SMB Client Configuration&#x27;</span>.</span><br><span class="line"><span class="function">[<span class="type">Y</span>] <span class="title">Yes</span></span>  <span class="function">[<span class="type">A</span>] <span class="title">Yes</span></span> to All  <span class="function">[<span class="type">N</span>] <span class="title">No</span></span>  <span class="function">[<span class="type">L</span>] <span class="title">No</span></span> to All  <span class="function">[<span class="type">S</span>] <span class="title">Suspend</span></span>  <span class="function">[?] <span class="title">Help</span></span> (default is <span class="string">&quot;Y&quot;</span>):</span><br></pre></td></tr></table></figure>
 
-<p>With Gradle, pass in parameter like this:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ gradle <span class="built_in">test</span> -Pruntest=<span class="literal">false</span></span><br></pre></td></tr></table></figure>
+<p>Check network interfaces which show “<strong>RSS capable &#x3D; True</strong>“:</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">PS</span> C:\&gt; <span class="built_in">Get-SmbClientNetworkInterface</span></span><br><span class="line"></span><br><span class="line">Interface Index RSS Capable RDMA Capable Speed   IpAddresses                               Friendly Name</span><br><span class="line"><span class="literal">---------------</span> <span class="literal">-----------</span> <span class="literal">------------</span> <span class="literal">-----</span>   <span class="literal">-----------</span>                               <span class="literal">-------------</span></span><br><span class="line"><span class="number">17</span>              True        False        <span class="number">20</span> Gbps &#123;&#125;                                        X710<span class="literal">-1-WFP</span> Native MAC Layer LightWeight <span class="keyword">Filter</span><span class="literal">-0000</span></span><br><span class="line"><span class="number">8</span>               False       False        <span class="number">10</span> Gbps &#123;&#125;                                        X710<span class="literal">-1</span></span><br><span class="line"><span class="number">13</span>              False       False        <span class="number">10</span> Gbps &#123;&#125;                                        X710<span class="literal">-2</span></span><br><span class="line"><span class="number">26</span>              True        False        <span class="number">20</span> Gbps &#123;fe80::<span class="number">923</span>a:<span class="number">90</span>de:dedd:ef44, <span class="number">192.168</span>.<span class="number">0.98</span>&#125; NIC<span class="literal">-Team</span></span><br></pre></td></tr></table></figure>
 
+<ul>
+<li>Verify there are any active SMB connections:</li>
+</ul>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">PS</span> C:\&gt; <span class="built_in">Get-SmbConnection</span></span><br><span class="line"></span><br><span class="line">ServerName ShareName UserName         Credential                               Dialect NumOpens</span><br><span class="line"><span class="literal">----------</span> <span class="literal">---------</span> <span class="literal">--------</span>         <span class="literal">----------</span>                               <span class="literal">-------</span> <span class="literal">--------</span></span><br><span class="line">Synology   NAS Drive RIPTIDE\terrence MicrosoftAccount\terrence.miao@mail.net  <span class="number">3.1</span>.<span class="number">1</span>   <span class="number">2</span></span><br></pre></td></tr></table></figure>
 
+<ul>
+<li>Copy a large file to a SMB device, e.g., Synology NAS which also has SMB Multichannel enabled, then verify the SMB Multichannel is working:</li>
+</ul>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">PS</span> C:\&gt; <span class="built_in">Get-SmbMultichannelConnection</span> <span class="literal">-IncludeNotSelected</span></span><br><span class="line"></span><br><span class="line">Server Name Selected Client IP    Server IP       Client Interface Index Server Interface Index Client RSS Capable Client RDMA Capable</span><br><span class="line"><span class="literal">-----------</span> <span class="literal">--------</span> <span class="literal">---------</span>    <span class="literal">---------</span>       <span class="literal">----------------------</span> <span class="literal">----------------------</span> <span class="literal">------------------</span> <span class="literal">-------------------</span></span><br><span class="line">Synology    True     <span class="number">192.168</span>.<span class="number">0.98</span> <span class="number">192.168</span>.<span class="number">0.112</span>   <span class="number">26</span>                     <span class="number">5</span>                      False              False</span><br><span class="line">Synology    False    <span class="number">192.168</span>.<span class="number">0.98</span> <span class="number">192.168</span>.<span class="number">0.34</span>    <span class="number">26</span>                     <span class="number">4</span>                      False              False</span><br><span class="line">Synology    False    <span class="number">192.168</span>.<span class="number">0.98</span> <span class="number">192.168</span>.<span class="number">196.140</span> <span class="number">26</span>                     <span class="number">7</span>                      False              False</span><br></pre></td></tr></table></figure>
+
+<p><code>192.168.0.98</code> is Windows 11 network address, after Network Teaming; <code>192.168.0.112</code> and <code>192.168.0.34</code> are Synology NAS network addresses.</p>
 <h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li>Assumptions and Conditional Test Execution with JUnit 4 and 5, <a target="_blank" rel="noopener" href="https://reflectoring.io/conditional-junit4-junit5-tests/">https://reflectoring.io/conditional-junit4-junit5-tests/</a></li>
+<li>HOW TO: Enable SMB Multichannel for &gt; 125 MB between Synology and Win 10, <em><a target="_blank" rel="noopener" href="https://www.reddit.com/r/synology/comments/rrb4r1/how_to_enable_smb_multichannel_for_125_mb_between/">https://www.reddit.com/r/synology/comments/rrb4r1/how_to_enable_smb_multichannel_for_125_mb_between/</a></em></li>
 </ul>
 
         
@@ -189,24 +202,15 @@
         
 <nav id="article-nav">
   
-    <a href="/blog/2018/06/16/Making-VSCode-like-IntelliJ-after-line-commented-the-cursor-automatically-moved-to-next-line/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/blog/2024/05/17/How-to-upgrade-Synology-NAS-network-from-1Gbps-to-2-5Gbps/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">older</strong>
       <div class="article-nav-title">
         
-          Making VSCode like IntelliJ after line commented the cursor automatically moved to next line
+          How to upgrade Synology NAS network from 1Gbps to 2.5Gbps
         
       </div>
     </a>
   
-  
-    <a href="/blog/2018/08/03/An-bash-curl-and-awk-example/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">newer</strong>
-      <div class="article-nav-title">
-        
-          An bash, curl and awk example
-        
-      </div>
-    </a>
   
 </nav>
 
@@ -379,7 +383,7 @@
     <script>
       var disqus_shortname = 'terrencemiao';
       
-        var disqus_url = 'https://terrencemiao.github.io/blog/2018/07/07/Assumptions-and-Conditional-Test-execution-ignoring-in-JUnit/';
+        var disqus_url = 'https://terrencemiao.github.io/blog/2024/05/17/How-to-enable-SMB-Multichannel-in-Windows-11/';
       
       (function(){
         var dsq = document.createElement('script');

@@ -97,6 +97,78 @@
 
       <div class="outer">
         <section id="main">
+  <article id="post-Bind-customised-KeyStore-TrustStore-and-PoolingHttpClientConnectionManager-in-Apache-Camel" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog/2018/12/03/Bind-customised-KeyStore-TrustStore-and-PoolingHttpClientConnectionManager-in-Apache-Camel/">Bind customised KeyStore,TrustStore and PoolingHttpClientConnectionManager in Apache Camel</a>
+    </h1>
+  
+
+
+      </header>
+    
+    <div class="article-meta">
+      
+      <span class="article-date">
+  <i class="fa fa-date"></i>
+  <time class="dt-published" datetime="2018-12-03T07:54:16.000Z" itemprop="datePublished">2018-12-03</time>
+</span>
+      
+      
+      
+<a href="/blog/2018/12/03/Bind-customised-KeyStore-TrustStore-and-PoolingHttpClientConnectionManager-in-Apache-Camel/#comments" class="article-comment-link">
+  
+  <i class="fa fa-commt"></i>
+  Guestbook
+</a>
+
+
+    </div>
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>In Apache HTTPClient 4.x, PoolingHttpClientConnectionManager and BasicHttpClientConnectionManager can be used as Connection Managers for HTTP Client. By default, above two Connection Managers load <strong>cacerts</strong> trust store, from $JRE_HOME&#x2F;lib&#x2F;security directory, not programmatically specified.</p>
+<p>Since Apache Camel starts supporting HTTP4 Component, camel-http4 is using Apache HTTPClient 4.x. The following is a solution how to customise PoolingHttpClientConnectionManager and SSLContext to use specified KeyStore and TrustStore.</p>
+<script src="https://gist.github.com/TerrenceMiao/fefc0d10359146c3612fde33046b95d0.js"></script>
+
+<p>In <strong>application.properties</strong> file defined environment specified KeyStore and TrustStore:</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">keystore.location=classpath:certificates/client-certs.jks</span><br><span class="line">keystore.password=client123</span><br><span class="line">truststore.location=classpath:certificates/trusted-cacerts.jks</span><br><span class="line">truststore.password=changeit</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>Without Connection Managers like PoolingHttpClientConnectionManager and BasicHttpClientConnectionManager in Apache HTTPClient 4.x, Apache Camel Route can be written in this way, binding programmatically specified KeyStore and TrustStore.</p>
+<script src="https://gist.github.com/TerrenceMiao/ecdb7cb674887a7f82199ac880987224.js"></script>
+
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li>Apache Camel HTTP4 Component, <em><a target="_blank" rel="noopener" href="http://camel.apache.org/http4.html">http://camel.apache.org/http4.html</a></em></li>
+<li>Java SSL with Multiple KeyStores, <em><a target="_blank" rel="noopener" href="http://codyaray.com/2013/04/java-ssl-with-multiple-keystores">http://codyaray.com/2013/04/java-ssl-with-multiple-keystores</a></em></li>
+<li>Multiple Keystores in Apache Camel&#x2F;HttpClient, <em><a target="_blank" rel="noopener" href="http://codyaray.com/2013/05/multiple-keystores-in-apache-camelhttpclient">http://codyaray.com/2013/05/multiple-keystores-in-apache-camelhttpclient</a></em></li>
+</ul>
+
+        
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div class="article-tag-wrap">
+          
+
+          
+          
+
+
+        </div>
+      
+      
+      
+    </footer>
+  </div>
+</article>
+
+
   <article id="post-Inspirational-Thought" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-inner">
     
@@ -755,74 +827,6 @@
 </article>
 
 
-  <article id="post-Assumptions-and-Conditional-Test-execution-ignoring-in-JUnit" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/blog/2018/07/07/Assumptions-and-Conditional-Test-execution-ignoring-in-JUnit/">Assumptions and Conditional Test execution, ignoring in JUnit</a>
-    </h1>
-  
-
-
-      </header>
-    
-    <div class="article-meta">
-      
-      <span class="article-date">
-  <i class="fa fa-date"></i>
-  <time class="dt-published" datetime="2018-07-06T21:40:20.000Z" itemprop="datePublished">2018-07-07</time>
-</span>
-      
-      
-      
-<a href="/blog/2018/07/07/Assumptions-and-Conditional-Test-execution-ignoring-in-JUnit/#comments" class="article-comment-link">
-  
-  <i class="fa fa-commt"></i>
-  Guestbook
-</a>
-
-
-    </div>
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>Sometime you want to ignore some test depends on environment settings. Now both JUnit 4 and JUnit 5 support the concept of assumptions.</p>
-<p>Unit Test like this:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testRun</span><span class="params">()</span> &#123;</span><br><span class="line"> </span><br><span class="line">   Assume.assumeTrue(BooleanUtils.toBoolean(System.getProperty(<span class="string">&quot;runtest&quot;</span>)));</span><br><span class="line"></span><br><span class="line">   <span class="comment">// Rest of testcase</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>With Gradle, pass in parameter like this:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ gradle <span class="built_in">test</span> -Pruntest=<span class="literal">false</span></span><br></pre></td></tr></table></figure>
-
-
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li>Assumptions and Conditional Test Execution with JUnit 4 and 5, <a target="_blank" rel="noopener" href="https://reflectoring.io/conditional-junit4-junit5-tests/">https://reflectoring.io/conditional-junit4-junit5-tests/</a></li>
-</ul>
-
-        
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <div class="article-tag-wrap">
-          
-
-          
-          
-
-
-        </div>
-      
-      
-      
-    </footer>
-  </div>
-</article>
-
-
 
     <nav id="page-nav">
 
@@ -841,6 +845,10 @@
       <ul>
         
           <li>
+            <a href="/blog/2024/05/17/How-to-enable-SMB-Multichannel-in-Windows-11/">How to enable SMB Multichannel in Windows 11</a>
+          </li>
+        
+          <li>
             <a href="/blog/2024/05/17/How-to-upgrade-Synology-NAS-network-from-1Gbps-to-2-5Gbps/">How to upgrade Synology NAS network from 1Gbps to 2.5Gbps</a>
           </li>
         
@@ -854,10 +862,6 @@
         
           <li>
             <a href="/blog/2023/12/17/Upscayl-AI-Image-Upscaler/">Upscayl - AI Image Upscaler</a>
-          </li>
-        
-          <li>
-            <a href="/blog/2023/11/24/OpenSSH-Server-for-Windows/">OpenSSH Server for Windows</a>
           </li>
         
       </ul>
@@ -875,7 +879,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title"><i class="fa fa-archive"></i> Archive</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2024/">2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2023/">2023</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/">2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/">2021</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/">2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/">2019</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/">2017</a><span class="archive-list-count">25</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2024/">2024</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2023/">2023</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/">2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/">2021</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/">2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/">2019</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/">2017</a><span class="archive-list-count">25</span></li></ul>
     </div>
   </div>
 
