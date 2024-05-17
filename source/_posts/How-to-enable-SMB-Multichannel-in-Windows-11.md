@@ -56,8 +56,12 @@ Synology    False    192.168.0.98 192.168.196.140 26                     7      
 
 `192.168.0.98` is Windows 11 network address, after Network Teaming; `192.168.0.112` and `192.168.0.34` are Synology NAS network addresses.
 
+![With and without multichannel](/img/With%20and%20without%20multichannel.png "With and without multichannel")
+
 
 References
 ----------
 
 - HOW TO: Enable SMB Multichannel for > 125 MB between Synology and Win 10, _https://www.reddit.com/r/synology/comments/rrb4r1/how_to_enable_smb_multichannel_for_125_mb_between/_
+- What is SMB3 Multichannel and how is it different from Link Aggregation?, _https://kb.synology.com/en-global/DSM/tutorial/smb3_multichannel_link_aggregation_
+- SMB Multichannel available for testing!, _https://community.synology.com/enu/forum/1/post/157265_
