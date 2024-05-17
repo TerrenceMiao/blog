@@ -6,7 +6,7 @@
   <link href="https://terrencemiao.github.io/blog/atom.xml" rel="self"/>
   
   <link href="https://terrencemiao.github.io/blog/"/>
-  <updated>2024-05-15T11:56:00.374Z</updated>
+  <updated>2024-05-17T11:18:58.683Z</updated>
   <id>https://terrencemiao.github.io/blog/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>How to upgrade Synology NAS network from 1Gbps to 2.5Gbps</title>
+    <link href="https://terrencemiao.github.io/blog/2024/05/17/How-to-upgrade-Synology-NAS-network-from-1Gbps-to-2-5Gbps/"/>
+    <id>https://terrencemiao.github.io/blog/2024/05/17/How-to-upgrade-Synology-NAS-network-from-1Gbps-to-2-5Gbps/</id>
+    <published>2024-05-17T10:25:45.000Z</published>
+    <updated>2024-05-17T11:18:58.683Z</updated>
+    
+    <content type="html"><![CDATA[<p>Synology NAS DS920+ with two 1Gbps ethernet adapters. There is an affordable and easy upgrading its gigabytes network path to 2.5Gbps.</p><p>Login Synology NAS Admin UI and run <strong>Control Panel</strong> -&gt; <strong>Network</strong> -&gt; <strong>Network Interface</strong></p><p><img src="/blog/img/Synology%20NAS%20network%20upgrade%20-%20installation%20before.png" alt="Installation before" title="Installation before"></p><ul><li>Get a USB 3.0 Ethernet Adapter 2.5Gbps with <strong>Realtek RTL8156 &#x2F; RTL8156B &#x2F; RTL8156BG</strong>  chipset, e.g., UGREEN 2.5Gbps USB-C Ethernet Adapter:</li></ul><p><img src="/blog/img/UGREEN%202.5Gbps%20USB-C%20Ethernet%20Adapter.jpg" alt="UGREEN 2.5Gbps USB-C Ethernet Adapter" title="UGREEN 2.5Gbps USB-C Ethernet Adapter"></p><ul><li><p>Find out the architecture name of CPU in NAS. For example, Synology DS920+ is equipped with Intel Celeron J4125 CPU. The architecture name of this processor is <code>Geminilake</code>.</p></li><li><p>Go to driver releases site <em><a href="https://github.com/bb-qq/r8152/releases">https://github.com/bb-qq/r8152/releases</a></em> and download the latest version e.g. <code>r8152-geminilake-2.17.1-1_7.2.spk</code>, Synology DSM 7.2 and above, use packages with the suffix <strong>_7.2</strong>.</p></li><li><p>Login Synology Admin UI, then go to <strong>Package Center</strong> -&gt; <strong>Manual Install</strong> and choose a driver package downloaded from above step.</p></li></ul><p><img src="/blog/img/Synology%20NAS%20network%20upgrade%20-%20package%20installation.png" alt="Package installation" title="Package installation"></p><p><img src="/blog/img/Synology%20NAS%20network%20upgrade%20-%20installation%20warning.png" alt="Installation warning" title="Installation warning"></p><p><img src="/blog/img/Synology%20NAS%20network%20upgrade%20-%20installation%20confirmation.png" alt="Installation confirmation" title="Installation confirmation"></p><ul><li>The installation will fail at the very first time.</li></ul><p><img src="/blog/img/Synology%20NAS%20network%20upgrade%20-%20installation%20failed.png" alt="Installation failed" title="Installation failed"></p><ul><li>Then <code>ssh</code> into the NAS, and run the following command:</li></ul><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo install -m 4755 -o root -D /var/packages/r8152/target/r8152/spk_su /opt/sbin/spk_su</span><br></pre></td></tr></table></figure><p><img src="/blog/img/Synology%20NAS%20network%20upgrade%20-%20installation%20fix.png" alt="Installation fix" title="Installation fix"></p><p>and continue &#x2F; retry the installation .</p><ul><li><p>Reboot NAS.</p></li><li><p>Login Synology Admin UI, <strong>Package Center</strong> -&gt; <strong>Installed</strong> -&gt; <strong>RTL8152&#x2F;RTL8153 driver</strong> and check new installed Realtek network adapter driver is running:</p></li></ul><p><img src="/blog/img/Synology%20NAS%20network%20upgrade%20-%20running.png" alt="Running" title="Running"></p><ul><li><strong>Control Panel</strong> -&gt; <strong>Network</strong> -&gt; <strong>Network Interface</strong> and check the new network interface <code>LAN 3</code> has been turned on:</li></ul><p><img src="/blog/img/Synology%20NAS%20network%20upgrade%20-%20new%20network%20interface.png" alt="New network interface" title="New network interface"></p><h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul><li>DSM driver for realtek RTL8152&#x2F;RTL8153&#x2F;RTL8156 based USB Ethernet adapters, <em><a href="https://github.com/bb-qq/r8152">https://github.com/bb-qq/r8152</a></em></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Synology NAS DS920+ with two 1Gbps ethernet adapters. There is an affordable and easy upgrading its gigabytes network path to 2.5Gbps.&lt;/p</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>How to team network (link aggregation) in Windows 11</title>
@@ -410,27 +430,6 @@
       
     <summary type="html">&lt;p&gt;When try to get the content of any &amp;#x2F;proc&amp;#x2F;&lt;em&gt;PID&lt;/em&gt;&amp;#x2F;environ file in more readable format, you can:&lt;/p&gt;
 &lt;figure class=&quot;hi</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>AWS KMS decrypt for base64 encoded input</title>
-    <link href="https://terrencemiao.github.io/blog/2021/04/30/AWS-KMS-decrypt-for-base64-encoded-input/"/>
-    <id>https://terrencemiao.github.io/blog/2021/04/30/AWS-KMS-decrypt-for-base64-encoded-input/</id>
-    <published>2021-04-30T09:22:55.000Z</published>
-    <updated>2021-04-30T09:31:05.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>With AWS CLI version 2:</p><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">𝜆 aws --version</span><br><span class="line">aws-cli/2.1.17 Python/3.7.4 Darwin/20.3.0 exe/x86_64 prompt/off</span><br></pre></td></tr></table></figure><p>Encrypt with AWS KMS key:</p><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">𝜆 aws kms encrypt --profile personal \</span><br><span class="line">  --key-id e2695b79-cbe0-4c16-aa5e-b7dbf52df1f9 \</span><br><span class="line">  --plaintext &quot;string-to-encrypt&quot; \</span><br><span class="line">  --output text \</span><br><span class="line">  --query CiphertextBlob \</span><br><span class="line">  --cli-binary-format raw-in-base64-out</span><br><span class="line">AQICAHjbJrIPgME ... lILuBSUdA==</span><br></pre></td></tr></table></figure><p>Decrypt with AWS KMS key:</p><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">𝜆 echo &quot;AQICAHjbJrIPgME ... lILuBSUdA==&quot; | base64 -D | \</span><br><span class="line">  aws kms decrypt --profile personal \</span><br><span class="line">  --ciphertext-blob fileb:///dev/stdin \</span><br><span class="line">  --output text \</span><br><span class="line">  --query Plaintext | base64 -D</span><br></pre></td></tr></table></figure><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul><li>cli_binary_format, <em><a href="https://docs.aws.amazon.com/credref/latest/refdocs/setting-global-cli_binary_format.html">https://docs.aws.amazon.com/credref/latest/refdocs/setting-global-cli_binary_format.html</a></em></li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;With AWS CLI version 2:&lt;/p&gt;
-&lt;figure class=&quot;highlight console&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span cla</summary>
       
     
     
