@@ -6,7 +6,7 @@
   <link href="https://terrencemiao.github.io/blog/atom.xml" rel="self"/>
   
   <link href="https://terrencemiao.github.io/blog/"/>
-  <updated>2024-05-17T13:12:21.219Z</updated>
+  <updated>2024-05-20T12:52:52.040Z</updated>
   <id>https://terrencemiao.github.io/blog/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>The solution making old Intel 10Gbps network adapter work in Windows 11</title>
+    <link href="https://terrencemiao.github.io/blog/2024/05/20/The-solution-making-old-Intel-10Gbps-network-adapter-work-in-Windows-11/"/>
+    <id>https://terrencemiao.github.io/blog/2024/05/20/The-solution-making-old-Intel-10Gbps-network-adapter-work-in-Windows-11/</id>
+    <published>2024-05-20T12:27:09.000Z</published>
+    <updated>2024-05-20T12:52:52.040Z</updated>
+    
+    <content type="html"><![CDATA[<p>Buy some old Intel 10Gbps network adapter, <code>X520</code>, <code>X540</code> … from AliExpress <em><a href="https://aliexpress.com/">https://aliexpress.com/</a></em>, and install old Intel network adapter driver for Windows 10 and make it working in Windows 11. The example is install version 25.0 Intel network adapter driver, <em><a href="https://www.intel.com/content/www/us/en/download/18293/29648/intel-network-adapter-driver-for-windows-10.html">https://www.intel.com/content/www/us/en/download/18293/29648/intel-network-adapter-driver-for-windows-10.html</a></em>, to get it to work in Windows 11:</p><ul><li><p>Intel network adapters supported Operating Systems, <em><a href="https://www.intel.com/content/www/us/en/support/articles/000025890/ethernet-products.html">https://www.intel.com/content/www/us/en/support/articles/000025890/ethernet-products.html</a></em></p></li><li><p>Buy dual ports 10Gbps network adapter</p></li><li><p>Install the network adapter in PCIE slot directly to the CPU</p></li><li><p>Enable SMB Multichannel</p></li><li><p>Enable Jumbo Frames</p></li></ul><iframe width="560" height="315" src="https://www.youtube.com/embed/WDPblqez00s?si=fs4-wswGT5AzDWMK&amp;start=222" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Buy some old Intel 10Gbps network adapter, &lt;code&gt;X520&lt;/code&gt;, &lt;code&gt;X540&lt;/code&gt; … from AliExpress &lt;em&gt;&lt;a href=&quot;https://aliexpress.com/&quot;&gt;h</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>How to enable SMB Multichannel in Windows 11</title>
@@ -42,7 +62,7 @@
     <link href="https://terrencemiao.github.io/blog/2024/05/17/How-to-upgrade-Synology-NAS-network-from-1Gbps-to-2-5Gbps/"/>
     <id>https://terrencemiao.github.io/blog/2024/05/17/How-to-upgrade-Synology-NAS-network-from-1Gbps-to-2-5Gbps/</id>
     <published>2024-05-17T10:25:45.000Z</published>
-    <updated>2024-05-17T13:11:37.920Z</updated>
+    <updated>2024-05-17T13:14:10.820Z</updated>
     
     <content type="html"><![CDATA[<p>Synology NAS DS920+ with two 1Gbps ethernet adapters. There is an affordable and easy upgrading its gigabytes network path to 2.5Gbps.</p><p>Login Synology NAS Admin UI and run <strong>Control Panel</strong> -&gt; <strong>Network</strong> -&gt; <strong>Network Interface</strong></p><p><img src="/blog/img/Synology%20NAS%20network%20upgrade%20-%20installation%20before.png" alt="Installation before" title="Installation before"></p><ul><li>Get a USB 3.0 Ethernet Adapter 2.5Gbps with <strong>Realtek RTL8156 &#x2F; RTL8156B &#x2F; RTL8156BG</strong>  chipset, e.g., UGREEN 2.5Gbps USB-C Ethernet Adapter:</li></ul><p><img src="/blog/img/UGREEN%202.5Gbps%20USB-C%20Ethernet%20Adapter.jpg" alt="UGREEN 2.5Gbps USB-C Ethernet Adapter" title="UGREEN 2.5Gbps USB-C Ethernet Adapter"></p><ul><li><p>Find out the architecture name of CPU in NAS. For example, Synology DS920+ is equipped with Intel Celeron J4125 CPU. The architecture name of this processor is <code>Geminilake</code>.</p></li><li><p>Go to driver releases site <em><a href="https://github.com/bb-qq/r8152/releases">https://github.com/bb-qq/r8152/releases</a></em> and download the latest version e.g. <code>r8152-geminilake-2.17.1-1_7.2.spk</code>, Synology DSM 7.2 and above, use packages with the suffix <strong>_7.2</strong>.</p></li><li><p>Login Synology Admin UI, then go to <strong>Package Center</strong> -&gt; <strong>Manual Install</strong> and choose a driver package downloaded from above step.</p></li></ul><p><img src="/blog/img/Synology%20NAS%20network%20upgrade%20-%20package%20installation.png" alt="Package installation" title="Package installation"></p><p><img src="/blog/img/Synology%20NAS%20network%20upgrade%20-%20installation%20warning.png" alt="Installation warning" title="Installation warning"></p><p><img src="/blog/img/Synology%20NAS%20network%20upgrade%20-%20installation%20confirmation.png" alt="Installation confirmation" title="Installation confirmation"></p><ul><li>The installation will fail at the very first time.</li></ul><p><img src="/blog/img/Synology%20NAS%20network%20upgrade%20-%20installation%20failed.png" alt="Installation failed" title="Installation failed"></p><ul><li>Then <code>ssh</code> into the NAS, and run the following command:</li></ul><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo install -m 4755 -o root -D /var/packages/r8152/target/r8152/spk_su /opt/sbin/spk_su</span><br></pre></td></tr></table></figure><p><img src="/blog/img/Synology%20NAS%20network%20upgrade%20-%20installation%20fix.png" alt="Installation fix" title="Installation fix"></p><p>and continue &#x2F; retry the installation .</p><ul><li><p>Reboot NAS.</p></li><li><p>Login Synology Admin UI, <strong>Package Center</strong> -&gt; <strong>Installed</strong> -&gt; <strong>RTL8152&#x2F;RTL8153 driver</strong> and check new installed Realtek network adapter driver is running:</p></li></ul><p><img src="/blog/img/Synology%20NAS%20network%20upgrade%20-%20running.png" alt="Running" title="Running"></p><ul><li><strong>Control Panel</strong> -&gt; <strong>Network</strong> -&gt; <strong>Network Interface</strong> and check the new network interface <code>LAN 3</code> has been turned on:</li></ul><p><img src="/blog/img/Synology%20NAS%20network%20upgrade%20-%20new%20network%20interface.png" alt="New network interface" title="New network interface"></p><h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul><li>DSM driver for realtek RTL8152&#x2F;RTL8153&#x2F;RTL8156 based USB Ethernet adapters, <em><a href="https://github.com/bb-qq/r8152">https://github.com/bb-qq/r8152</a></em></li></ul>]]></content>
     
@@ -409,27 +429,6 @@
       
       
     <summary type="html">&lt;p&gt;For all the people painfully read logs on AWS CloudWatch console, &lt;a href=&quot;https://github.com/TylerBrock/saw&quot;&gt;saw&lt;/a&gt; is your friend.&lt;/p&gt;</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>AWS EC2 CloudFormation templates in subnets</title>
-    <link href="https://terrencemiao.github.io/blog/2021/05/11/AWS-EC2-CloudFormation-templates-in-subnets/"/>
-    <id>https://terrencemiao.github.io/blog/2021/05/11/AWS-EC2-CloudFormation-templates-in-subnets/</id>
-    <published>2021-05-11T13:02:15.000Z</published>
-    <updated>2021-05-11T13:12:28.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>AWS EC2 instance CloudFormation templates in Public Tier and App Tier:</p><script src="https://gist.github.com/TerrenceMiao/58396c567574ed14c39dfc02ce78367f.js"></script>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;AWS EC2 instance CloudFormation templates in Public Tier and App Tier:&lt;/p&gt;
-&lt;script src=&quot;https://gist.github.com/TerrenceMiao/58396c567574</summary>
       
     
     

@@ -15,7 +15,7 @@
 <!-- End Google Analytics -->
 
   
-  <title>How to team network (link aggregation) in Windows 11 | Terrence Miao&#39;s Adventures</title>
+  <title>The solution making old Intel 10Gbps network adapter work in Windows 11 | Terrence Miao&#39;s Adventures</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   
     <meta name="description" content="Veni, vidi, vici">
@@ -96,7 +96,7 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-How-to-team-network-link-aggregation-in-Windows-11" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-The-solution-making-old-Intel-10Gbps-network-adapter-work-in-Windows-11" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-inner">
     
     
@@ -104,7 +104,7 @@
         
   
     <h1 class="p-name article-title" itemprop="headline name">
-      How to team network (link aggregation) in Windows 11
+      The solution making old Intel 10Gbps network adapter work in Windows 11
     </h1>
   
 
@@ -115,7 +115,7 @@
       
       <span class="article-date">
   <i class="fa fa-date"></i>
-  <time class="dt-published" datetime="2024-05-03T11:40:36.000Z" itemprop="datePublished">2024-05-03</time>
+  <time class="dt-published" datetime="2024-05-20T12:27:09.000Z" itemprop="datePublished">2024-05-20</time>
 </span>
       
       
@@ -128,11 +128,11 @@
 
       
       
-<a href="/blog/2024/05/03/How-to-team-network-link-aggregation-in-Windows-11/#comments" class="article-comment-link">
+<a href="/blog/2024/05/20/The-solution-making-old-Intel-10Gbps-network-adapter-work-in-Windows-11/#comments" class="article-comment-link">
   
     
     
-      <i class="disqus-comment-count" data-disqus-identifier="/blog/2024/05/03/How-to-team-network-link-aggregation-in-Windows-11/"></i>
+      <i class="disqus-comment-count" data-disqus-identifier="/blog/2024/05/20/The-solution-making-old-Intel-10Gbps-network-adapter-work-in-Windows-11/"></i>
     
     
     
@@ -146,22 +146,21 @@
     </div>
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>Intel Ethernet Converged Network Adapter X710, with two 10Gbps ports. This allows to team the two ports together for link aggregation.</p>
+        <p>Buy some old Intel 10Gbps network adapter, <code>X520</code>, <code>X540</code> … from AliExpress <em><a target="_blank" rel="noopener" href="https://aliexpress.com/">https://aliexpress.com/</a></em>, and install old Intel network adapter driver for Windows 10 and make it working in Windows 11. The example is install version 25.0 Intel network adapter driver, <em><a target="_blank" rel="noopener" href="https://www.intel.com/content/www/us/en/download/18293/29648/intel-network-adapter-driver-for-windows-10.html">https://www.intel.com/content/www/us/en/download/18293/29648/intel-network-adapter-driver-for-windows-10.html</a></em>, to get it to work in Windows 11:</p>
 <ul>
-<li>Install Optional Features <code>Server Manager</code> in Windows 11</li>
+<li><p>Intel network adapters supported Operating Systems, <em><a target="_blank" rel="noopener" href="https://www.intel.com/content/www/us/en/support/articles/000025890/ethernet-products.html">https://www.intel.com/content/www/us/en/support/articles/000025890/ethernet-products.html</a></em></p>
+</li>
+<li><p>Buy dual ports 10Gbps network adapter</p>
+</li>
+<li><p>Install the network adapter in PCIE slot directly to the CPU</p>
+</li>
+<li><p>Enable SMB Multichannel</p>
+</li>
+<li><p>Enable Jumbo Frames</p>
+</li>
 </ul>
-<p><img src="/blog/img/Network%20Team%20-%20Server%20Manager.png" alt="Server Manager" title="Server Manager"></p>
-<ul>
-<li>Open and run Windows Powershell as administrator, then run:</li>
-</ul>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">PS</span> C:\&gt; <span class="built_in">New-NetSwitchTeam</span> <span class="literal">-Name</span> <span class="string">&quot;NIC-Team&quot;</span> <span class="literal">-TeamMembers</span> <span class="string">&quot;X710-1&quot;</span>,<span class="string">&quot;X710-2&quot;</span></span><br></pre></td></tr></table></figure>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/WDPblqez00s?si=fs4-wswGT5AzDWMK&amp;start=222" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-<p><img src="/blog/img/Network%20Team%20-%20Connections.png" alt="Network Connections" title="Network Connections"></p>
-<p>A new network interface created, with combined speed <em><strong>20Gbps</strong></em>.</p>
-<p><img src="/blog/img/Network%20Team%20-%20Status.png" alt="Network Status" title="Network Status"></p>
-<p><img src="/blog/img/Network%20Team%20-%20Details.png" alt="Network Details" title="Network Details"></p>
-<p>To remove network team, run:</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">PS</span> C:\&gt; <span class="built_in">Remove-NetSwitchTeam</span> <span class="literal">-Name</span> <span class="string">&quot;NIC-Team&quot;</span></span><br></pre></td></tr></table></figure>
         
             <div id="toc-article">
                 
@@ -193,24 +192,15 @@
         
 <nav id="article-nav">
   
-    <a href="/blog/2024/04/26/Step-by-step-root-OnePlus-5T/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/blog/2024/05/17/How-to-enable-SMB-Multichannel-in-Windows-11/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">older</strong>
       <div class="article-nav-title">
         
-          Step by step root OnePlus 5T
+          How to enable SMB Multichannel in Windows 11
         
       </div>
     </a>
   
-  
-    <a href="/blog/2024/05/17/How-to-upgrade-Synology-NAS-network-from-1Gbps-to-2-5Gbps/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">newer</strong>
-      <div class="article-nav-title">
-        
-          How to upgrade Synology NAS network from 1Gbps to 2.5Gbps
-        
-      </div>
-    </a>
   
 </nav>
 
@@ -383,7 +373,7 @@
     <script>
       var disqus_shortname = 'terrencemiao';
       
-        var disqus_url = 'https://terrencemiao.github.io/blog/2024/05/03/How-to-team-network-link-aggregation-in-Windows-11/';
+        var disqus_url = 'https://terrencemiao.github.io/blog/2024/05/20/The-solution-making-old-Intel-10Gbps-network-adapter-work-in-Windows-11/';
       
       (function(){
         var dsq = document.createElement('script');

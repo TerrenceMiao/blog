@@ -1,5 +1,6 @@
-https://terrencemiao.github.io/blog/2024/05/17/How-to-enable-SMB-Multichannel-in-Windows-11/
+https://terrencemiao.github.io/blog/2024/05/20/The-solution-making-old-Intel-10Gbps-network-adapter-work-in-Windows-11/
 https://terrencemiao.github.io/blog/2024/05/17/How-to-upgrade-Synology-NAS-network-from-1Gbps-to-2-5Gbps/
+https://terrencemiao.github.io/blog/2024/05/17/How-to-enable-SMB-Multichannel-in-Windows-11/
 https://terrencemiao.github.io/blog/2024/05/03/How-to-team-network-link-aggregation-in-Windows-11/
 https://terrencemiao.github.io/blog/2024/04/26/Step-by-step-root-OnePlus-5T/
 https://terrencemiao.github.io/blog/2023/12/17/Upscayl-AI-Image-Upscaler/
