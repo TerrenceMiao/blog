@@ -1,3 +1,4 @@
+https://terrencemiao.github.io/blog/2022/08/02/Powerful-Zsh/
 https://terrencemiao.github.io/blog/2024/05/20/The-solution-making-old-Intel-10Gbps-network-adapter-work-in-Windows-11/
 https://terrencemiao.github.io/blog/2024/05/17/How-to-upgrade-Synology-NAS-network-from-1Gbps-to-2-5Gbps/
 https://terrencemiao.github.io/blog/2024/05/17/How-to-enable-SMB-Multichannel-in-Windows-11/
@@ -22,7 +23,6 @@ https://terrencemiao.github.io/blog/2023/07/29/Mac-and-iPad-and-Android-Benchmar
 https://terrencemiao.github.io/blog/2018/06/16/Making-VSCode-like-IntelliJ-after-line-commented-the-cursor-automatically-moved-to-next-line/
 https://terrencemiao.github.io/blog/2023/07/29/Micro-Frontends/
 https://terrencemiao.github.io/blog/2017/09/02/Plato-and-Socrates-%E6%9F%8F%E6%8B%89%E5%9B%BE%E9%BA%A6%E7%A9%97%E9%97%AE%E9%A2%98/
-https://terrencemiao.github.io/blog/2022/08/02/Powerful-Zsh/
 https://terrencemiao.github.io/blog/2019/12/05/AWS-EKS-with-Fargate/
 https://terrencemiao.github.io/blog/2019/01/11/Add-final-and-javadoc-for-auto-generated-getters-and-setters-in-IntelliJ/
 https://terrencemiao.github.io/blog/2017/06/30/Ant-Colony-Optimization-ACO/

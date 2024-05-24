@@ -148,20 +148,27 @@
       
         <p><img src="/blog/img/Powerful%20Zsh.png" alt="Powerful Zsh" title="Powerful Zsh"></p>
 <p>First you have <code>Zsh</code>, next install <code>Oh My Zsh</code> <a target="_blank" rel="noopener" href="https://ohmyz.sh/">https://ohmyz.sh/</a></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh -c &quot;$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&quot;</span><br></pre></td></tr></table></figure>
 
-<p>Add <code>Powerlevel10k</code> <a target="_blank" rel="noopener" href="https://github.com/romkatv/powerlevel10k">https://github.com/romkatv/powerlevel10k</a> and configure it</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $&#123;ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom&#125;/themes/powerlevel10k</span><br><span class="line"></span><br><span class="line">p10k configure</span><br></pre></td></tr></table></figure>
+<p>Add <code>Powerlevel10k</code> <em><a target="_blank" rel="noopener" href="https://github.com/romkatv/powerlevel10k">https://github.com/romkatv/powerlevel10k</a></em> and configure it</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $&#123;ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom&#125;/themes/powerlevel10k</span><br></pre></td></tr></table></figure>
 
 <p>Set <code>ZSH_THEME</code> to <strong>powerlevel10k</strong> in <code>.zshrc</code></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ZSH_THEME=&quot;powerlevel10k/powerlevel10k&quot;</span><br></pre></td></tr></table></figure>
 
-<p>Add <code>zsh-autosuggestions</code> <a target="_blank" rel="noopener" href="https://github.com/zsh-users/zsh-autosuggestions">https://github.com/zsh-users/zsh-autosuggestions</a> and enable in <code>.zshrc</code></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/zsh-users/zsh-autosuggestions $&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;/plugins/zsh-autosuggestions</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>Then run <code>Powerlevel10k</code> configure:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p10k configure</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">plugins=(</span><br><span class="line">  zsh-autosuggestions</span><br><span class="line">)</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>Add <code>zsh-autosuggestions</code> <em><a target="_blank" rel="noopener" href="https://github.com/zsh-users/zsh-autosuggestions">https://github.com/zsh-users/zsh-autosuggestions</a></em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/zsh-users/zsh-autosuggestions $&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;/plugins/zsh-autosuggestions</span><br></pre></td></tr></table></figure>
 
-<p>Install <code>Fig</code> <a target="_blank" rel="noopener" href="https://fig.io/">https://fig.io/</a>, an IDE-style autocomplete but for terminal, and configure in <code>.zshrc</code></p>
+<p>Add <code>zsh-syntax-highlighting</code> <em><a target="_blank" rel="noopener" href="https://github.com/zsh-users/zsh-syntax-highlighting">https://github.com/zsh-users/zsh-syntax-highlighting</a></em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;/plugins/zsh-syntax-highlighting</span><br></pre></td></tr></table></figure>
+
+<p>and enable them in <code>.zshrc</code>:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">plugins=(</span><br><span class="line">  zsh-autosuggestions</span><br><span class="line">  zsh-syntax-highlighting</span><br><span class="line">)</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>Install <code>Fig</code> (<strong>deprecated</strong>) <em><del><a target="_blank" rel="noopener" href="https://fig.io/">https://fig.io/</a></del></em>, an IDE-style autocomplete but for terminal, and configure in <code>.zshrc</code></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"># Fig pre block. Keep at the top of this file.</span><br><span class="line">[[ -f &quot;$HOME/.fig/shell/zshrc.pre.zsh&quot; ]] &amp;&amp; . &quot;$HOME/.fig/shell/zshrc.pre.zsh&quot;</span><br><span class="line">...</span><br><span class="line"># Fig post block. Keep at the bottom of this file.</span><br><span class="line">[[ -f &quot;$HOME/.fig/shell/zshrc.post.zsh&quot; ]] &amp;&amp; . &quot;$HOME/.fig/shell/zshrc.post.zsh&quot;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
 
 <h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
