@@ -9,15 +9,13 @@ tags:
 First you have `Zsh`, next install `Oh My Zsh` https://ohmyz.sh/
 
 ```
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
-Add `Powerlevel10k` https://github.com/romkatv/powerlevel10k and configure it
+Add `Powerlevel10k` _https://github.com/romkatv/powerlevel10k_ and configure it
 
 ```
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-
-p10k configure
 ```
 
 Set `ZSH_THEME` to **powerlevel10k** in `.zshrc`
@@ -26,22 +24,36 @@ Set `ZSH_THEME` to **powerlevel10k** in `.zshrc`
 ZSH_THEME="powerlevel10k/powerlevel10k"
 ```
 
-Add `zsh-autosuggestions` https://github.com/zsh-users/zsh-autosuggestions and enable in `.zshrc`
+Then run `Powerlevel10k` configure:
+
+```
+p10k configure
+```
+
+Add `zsh-autosuggestions` _https://github.com/zsh-users/zsh-autosuggestions_
 
 ```
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+```
+
+Add `zsh-syntax-highlighting` _https://github.com/zsh-users/zsh-syntax-highlighting_
 
 ```
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+```
+
+and enable them in `.zshrc`:
 
 ```
 ...
 plugins=(
   zsh-autosuggestions
+  zsh-syntax-highlighting
 )
 ...
 ```
 
-Install `Fig` https://fig.io/, an IDE-style autocomplete but for terminal, and configure in `.zshrc`
+Install `Fig` (**deprecated**) _~~https://fig.io/~~_, an IDE-style autocomplete but for terminal, and configure in `.zshrc`
 
 ```
 ...
