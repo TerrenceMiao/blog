@@ -36,7 +36,20 @@ Login Synology NAS Admin UI and run **Control Panel** -> **Network** -> **Networ
 $ sudo install -m 4755 -o root -D /var/packages/r8152/target/r8152/spk_su /opt/sbin/spk_su
 ```
 
+and also enable multiple identical USB devices, which SAME products have the SAME serial number:
+
+```
+$ sudo bash /var/packages/r8152/scripts/install-udev-rules
+```
+
 ![Installation fix](/img/Synology%20NAS%20network%20upgrade%20-%20installation%20fix.png "Installation fix")
+
+```
+$ sudo bash .var/packages/r8152/scripts/install-udev-rules
+Updating Hardware Database Index...
+UDEV rules have been installed to /usr/lib/udev/rules.d
+lrwxrwxrwx 1 root root 50 May 24 17:13 /usr/lib/udev/rules.d/51-usb-r8152-net.rules -> /var/packages/r8152/scripts/51-usb-r8152-net.rules
+```
 
 and continue / retry the installation .
 
@@ -46,12 +59,39 @@ and continue / retry the installation .
 
 ![Running](/img/Synology%20NAS%20network%20upgrade%20-%20running.png "Running")
 
-- **Control Panel** -> **Network** -> **Network Interface** and check the new network interface `LAN 3` has been turned on:
+- **Control Panel** -> **Network** -> **Network Interface** and check the new network interface `LAN 3` and `Lan 4` have been turned on, with jumbo frame :
 
 ![New network interface](/img/Synology%20NAS%20network%20upgrade%20-%20new%20network%20interface.png "New network interface")
+
+Bind the USB network adapter and run `iperf3` network performance test:
+
+```
+$ iperf3 -c 192.168.0.244 -B 192.168.0.229
+Connecting to host 192.168.0.244, port 5201
+[  5] local 192.168.0.229 port 46171 connected to 192.168.0.244 port 5201
+[ ID] Interval           Transfer     Bitrate         Retr  Cwnd
+[  5]   0.00-1.00   sec   281 MBytes  2.36 Gbits/sec    0    450 KBytes
+[  5]   1.00-2.00   sec   281 MBytes  2.35 Gbits/sec    0    450 KBytes
+[  5]   2.00-3.00   sec   280 MBytes  2.35 Gbits/sec    0    450 KBytes
+[  5]   3.00-4.00   sec   281 MBytes  2.35 Gbits/sec    0    450 KBytes
+[  5]   4.00-5.00   sec   281 MBytes  2.35 Gbits/sec    0    450 KBytes
+[  5]   5.00-6.00   sec   281 MBytes  2.35 Gbits/sec    0    450 KBytes
+[  5]   6.00-7.00   sec   281 MBytes  2.35 Gbits/sec    0    450 KBytes
+[  5]   7.00-8.00   sec   280 MBytes  2.35 Gbits/sec    0    450 KBytes
+[  5]   8.00-9.00   sec   281 MBytes  2.36 Gbits/sec    0    450 KBytes
+[  5]   9.00-10.00  sec   281 MBytes  2.36 Gbits/sec    0    670 KBytes
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Retr
+[  5]   0.00-10.00  sec  2.74 GBytes  2.35 Gbits/sec    0             sender
+[  5]   0.00-10.05  sec  2.74 GBytes  2.34 Gbits/sec                  receiver
+
+iperf Done.
+```
 
 
 References
 ----------
 
 - DSM driver for realtek RTL8152/RTL8153/RTL8156 based USB Ethernet adapters, _https://github.com/bb-qq/r8152_
+- Hot plugging does not work, _https://github.com/bb-qq/r8152/wiki/Troubleshooting#hot-plugging-does-not-work_
+- Multiple identical devices do not work, _https://github.com/bb-qq/r8152/wiki/Troubleshooting#multiple-identical-devices-do-not-work_
