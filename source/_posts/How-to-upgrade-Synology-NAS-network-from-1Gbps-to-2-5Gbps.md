@@ -59,7 +59,7 @@ and continue / retry the installation .
 
 ![Running](/img/Synology%20NAS%20network%20upgrade%20-%20running.png "Running")
 
-- **Control Panel** -> **Network** -> **Network Interface** and check the new network interface `LAN 3` and `Lan 4` have been turned on, with jumbo frame :
+- **Control Panel** -> **Network** -> **Network Interface** and check the new network interface `LAN 3` and `Lan 4` have been turned on, with MTU / jumbo frame enabled **9000**:
 
 ![New network interface](/img/Synology%20NAS%20network%20upgrade%20-%20new%20network%20interface.png "New network interface")
 
