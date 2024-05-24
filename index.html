@@ -313,7 +313,12 @@
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo install -m 4755 -o root -D /var/packages/r8152/target/r8152/spk_su /opt/sbin/spk_su</span><br></pre></td></tr></table></figure>
 
+<p>and also enable multiple identical USB devices, which SAME products have the SAME serial number:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo bash /var/packages/r8152/scripts/install-udev-rules</span><br></pre></td></tr></table></figure>
+
 <p><img src="/blog/img/Synology%20NAS%20network%20upgrade%20-%20installation%20fix.png" alt="Installation fix" title="Installation fix"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ sudo bash .var/packages/r8152/scripts/install-udev-rules</span><br><span class="line">Updating Hardware Database Index...</span><br><span class="line">UDEV rules have been installed to /usr/lib/udev/rules.d</span><br><span class="line">lrwxrwxrwx 1 root root 50 May 24 17:13 /usr/lib/udev/rules.d/51-usb-r8152-net.rules -&gt; /var/packages/r8152/scripts/51-usb-r8152-net.rules</span><br></pre></td></tr></table></figure>
+
 <p>and continue &#x2F; retry the installation .</p>
 <ul>
 <li><p>Reboot NAS.</p>
@@ -323,11 +328,17 @@
 </ul>
 <p><img src="/blog/img/Synology%20NAS%20network%20upgrade%20-%20running.png" alt="Running" title="Running"></p>
 <ul>
-<li><strong>Control Panel</strong> -&gt; <strong>Network</strong> -&gt; <strong>Network Interface</strong> and check the new network interface <code>LAN 3</code> has been turned on:</li>
+<li><strong>Control Panel</strong> -&gt; <strong>Network</strong> -&gt; <strong>Network Interface</strong> and check the new network interface <code>LAN 3</code> and <code>Lan 4</code> have been turned on, with jumbo frame :</li>
 </ul>
 <p><img src="/blog/img/Synology%20NAS%20network%20upgrade%20-%20new%20network%20interface.png" alt="New network interface" title="New network interface"></p>
+<p>Bind the USB network adapter and run <code>iperf3</code> network performance test:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">$ iperf3 -c 192.168.0.244 -B 192.168.0.229</span><br><span class="line">Connecting to host 192.168.0.244, port 5201</span><br><span class="line">[  5] local 192.168.0.229 port 46171 connected to 192.168.0.244 port 5201</span><br><span class="line">[ ID] Interval           Transfer     Bitrate         Retr  Cwnd</span><br><span class="line">[  5]   0.00-1.00   sec   281 MBytes  2.36 Gbits/sec    0    450 KBytes</span><br><span class="line">[  5]   1.00-2.00   sec   281 MBytes  2.35 Gbits/sec    0    450 KBytes</span><br><span class="line">[  5]   2.00-3.00   sec   280 MBytes  2.35 Gbits/sec    0    450 KBytes</span><br><span class="line">[  5]   3.00-4.00   sec   281 MBytes  2.35 Gbits/sec    0    450 KBytes</span><br><span class="line">[  5]   4.00-5.00   sec   281 MBytes  2.35 Gbits/sec    0    450 KBytes</span><br><span class="line">[  5]   5.00-6.00   sec   281 MBytes  2.35 Gbits/sec    0    450 KBytes</span><br><span class="line">[  5]   6.00-7.00   sec   281 MBytes  2.35 Gbits/sec    0    450 KBytes</span><br><span class="line">[  5]   7.00-8.00   sec   280 MBytes  2.35 Gbits/sec    0    450 KBytes</span><br><span class="line">[  5]   8.00-9.00   sec   281 MBytes  2.36 Gbits/sec    0    450 KBytes</span><br><span class="line">[  5]   9.00-10.00  sec   281 MBytes  2.36 Gbits/sec    0    670 KBytes</span><br><span class="line">- - - - - - - - - - - - - - - - - - - - - - - - -</span><br><span class="line">[ ID] Interval           Transfer     Bitrate         Retr</span><br><span class="line">[  5]   0.00-10.00  sec  2.74 GBytes  2.35 Gbits/sec    0             sender</span><br><span class="line">[  5]   0.00-10.05  sec  2.74 GBytes  2.34 Gbits/sec                  receiver</span><br><span class="line"></span><br><span class="line">iperf Done.</span><br></pre></td></tr></table></figure>
+
+
 <h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
 <li>DSM driver for realtek RTL8152&#x2F;RTL8153&#x2F;RTL8156 based USB Ethernet adapters, <em><a target="_blank" rel="noopener" href="https://github.com/bb-qq/r8152">https://github.com/bb-qq/r8152</a></em></li>
+<li>Hot plugging does not work, <em><a target="_blank" rel="noopener" href="https://github.com/bb-qq/r8152/wiki/Troubleshooting#hot-plugging-does-not-work">https://github.com/bb-qq/r8152/wiki/Troubleshooting#hot-plugging-does-not-work</a></em></li>
+<li>Multiple identical devices do not work, <em><a target="_blank" rel="noopener" href="https://github.com/bb-qq/r8152/wiki/Troubleshooting#multiple-identical-devices-do-not-work">https://github.com/bb-qq/r8152/wiki/Troubleshooting#multiple-identical-devices-do-not-work</a></em></li>
 </ul>
 
         
