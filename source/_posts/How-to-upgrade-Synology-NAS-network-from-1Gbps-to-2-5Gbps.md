@@ -45,7 +45,7 @@ $ sudo bash /var/packages/r8152/scripts/install-udev-rules
 ![Installation fix](/img/Synology%20NAS%20network%20upgrade%20-%20installation%20fix.png "Installation fix")
 
 ```
-$ sudo bash .var/packages/r8152/scripts/install-udev-rules
+$ sudo bash /var/packages/r8152/scripts/install-udev-rules
 Updating Hardware Database Index...
 UDEV rules have been installed to /usr/lib/udev/rules.d
 lrwxrwxrwx 1 root root 50 May 24 17:13 /usr/lib/udev/rules.d/51-usb-r8152-net.rules -> /var/packages/r8152/scripts/51-usb-r8152-net.rules
