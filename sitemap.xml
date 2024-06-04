@@ -4,196 +4,7 @@
   <url>
     <loc>https://terrencemiao.github.io/blog/2024/05/17/How-to-upgrade-Synology-NAS-network-from-1Gbps-to-2-5Gbps/</loc>
     
-    <lastmod>2024-05-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2022/08/02/Powerful-Zsh/</loc>
-    
-    <lastmod>2024-05-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2024/05/20/The-solution-making-old-Intel-10Gbps-network-adapter-work-in-Windows-11/</loc>
-    
-    <lastmod>2024-05-20</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2024/05/17/How-to-enable-SMB-Multichannel-in-Windows-11/</loc>
-    
-    <lastmod>2024-05-17</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2024/05/03/How-to-team-network-link-aggregation-in-Windows-11/</loc>
-    
-    <lastmod>2024-05-15</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2024/04/26/Step-by-step-root-OnePlus-5T/</loc>
-    
-    <lastmod>2024-05-05</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2023/12/17/Upscayl-AI-Image-Upscaler/</loc>
-    
-    <lastmod>2023-12-17</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2023/10/25/Setup-Socks-Socks5-proxy-and-git-repo-via-proxy/</loc>
-    
-    <lastmod>2023-11-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2023/11/24/OpenSSH-Server-for-Windows/</loc>
-    
-    <lastmod>2023-11-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2023/10/25/Setup-ssh-ProxyCommand-proxyJump-on-multiple-jump-hosts/</loc>
-    
-    <lastmod>2023-11-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2019/01/01/Year-2018-in-the-Rear-View-Mirror/</loc>
-    
-    <lastmod>2023-10-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2017/09/03/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E8%AF%BB%E4%B9%A6/</loc>
-    
-    <lastmod>2023-10-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2017/09/03/%E7%94%BB%E8%99%BE/</loc>
-    
-    <lastmod>2023-10-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2022/10/12/Remove-Image-Background/</loc>
-    
-    <lastmod>2023-10-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2019/11/22/Run-ssh-and-scp-with-AWS-Session-Manager/</loc>
-    
-    <lastmod>2023-10-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2018/10/24/Setup-Lambda-function-sync-AWS-DynamoDB-to-a-new-table/</loc>
-    
-    <lastmod>2023-10-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2018/08/23/Step-by-step-resetting-Bluetooth-on-Mac-OS/</loc>
-    
-    <lastmod>2023-10-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2018/12/10/Step-by-step-run-Kafka-on-Mac/</loc>
-    
-    <lastmod>2023-10-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2022/09/02/GitHub-Actions/</loc>
-    
-    <lastmod>2023-10-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2022/09/07/How-to-use-Web-Inspector-and-debug-Safari-on-iPhone-iPad/</loc>
-    
-    <lastmod>2023-10-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2018/11/22/Inspirational-Thought/</loc>
-    
-    <lastmod>2023-10-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2023/07/29/Mac-and-iPad-and-Android-Benchmark-Ceiling/</loc>
-    
-    <lastmod>2023-10-25</lastmod>
+    <lastmod>2024-06-04</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -202,7 +13,7 @@
   <url>
     <loc>https://terrencemiao.github.io/blog/2018/06/16/Making-VSCode-like-IntelliJ-after-line-commented-the-cursor-automatically-moved-to-next-line/</loc>
     
-    <lastmod>2023-10-25</lastmod>
+    <lastmod>2024-06-04</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -211,493 +22,7 @@
   <url>
     <loc>https://terrencemiao.github.io/blog/2023/07/29/Micro-Frontends/</loc>
     
-    <lastmod>2023-10-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2017/09/02/Plato-and-Socrates-%E6%9F%8F%E6%8B%89%E5%9B%BE%E9%BA%A6%E7%A9%97%E9%97%AE%E9%A2%98/</loc>
-    
-    <lastmod>2023-10-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2019/12/05/AWS-EKS-with-Fargate/</loc>
-    
-    <lastmod>2023-10-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2019/01/11/Add-final-and-javadoc-for-auto-generated-getters-and-setters-in-IntelliJ/</loc>
-    
-    <lastmod>2023-10-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2017/06/30/Ant-Colony-Optimization-ACO/</loc>
-    
-    <lastmod>2023-10-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2018/10/13/Apple-Designs-That-Inspire/</loc>
-    
-    <lastmod>2023-10-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2018/08/14/Cloudcraft-visualise-AWS-environment-as-isometric-architecture-diagrams/</loc>
-    
-    <lastmod>2023-10-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2022/10/10/Geekbench-head-to-head-Mac-vs-iPad-vs-Android/</loc>
-    
-    <lastmod>2023-10-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2019/12/29/2019-Year-in-Review/</loc>
-    
-    <lastmod>2023-10-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2020/10/13/AWS-CloudWatch-Metrics-example/</loc>
-    
-    <lastmod>2023-10-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2019/12/07/AWS-EKS-on-Fargate-with-eksctl/</loc>
-    
-    <lastmod>2023-10-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2019/12/01/Why-React/</loc>
-    
-    <lastmod>2022-12-07</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2022/05/02/Convert-JSON-to-CSV-by-using-jq/</loc>
-    
-    <lastmod>2022-05-02</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2021/07/30/Customise-VS-Code-settings-and-keybindings-with-Geddski-macros/</loc>
-    
-    <lastmod>2021-07-30</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2021/07/06/Export-and-Import-AWS-DynamoDB-data/</loc>
-    
-    <lastmod>2021-07-06</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2021/06/04/Get-and-read-logs-from-AWS-CloudWatch-with-saw/</loc>
-    
-    <lastmod>2021-06-04</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2021/05/11/AWS-EC2-CloudFormation-templates-in-subnets/</loc>
-    
-    <lastmod>2021-05-11</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2021/04/30/Read-environment-varibles-of-a-process-in-Linux/</loc>
-    
-    <lastmod>2021-04-30</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2021/04/30/AWS-KMS-decrypt-for-base64-encoded-input/</loc>
-    
-    <lastmod>2021-04-30</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2021/03/02/A-Modern-Architecture-Application/</loc>
-    
-    <lastmod>2021-03-02</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2020/11/30/Why-Repairable-Is-Important/</loc>
-    
-    <lastmod>2020-11-30</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2020/11/25/Bring-back-MagSafe/</loc>
-    
-    <lastmod>2020-11-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2020/10/26/Risk-Management-for-CI-CD-processes/</loc>
-    
-    <lastmod>2020-10-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2020/02/14/Creating-AWS-Lambda-with-AWS-SAM/</loc>
-    
-    <lastmod>2020-02-15</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2019/11/28/A-PC-person-s-guide-to-Mac/</loc>
-    
-    <lastmod>2019-11-28</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2019/04/23/A-simple-approach-to-export-import-AWS-DynamoDB-table-items/</loc>
-    
-    <lastmod>2019-04-23</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2019/01/11/Keep-running/</loc>
-    
-    <lastmod>2019-01-11</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2018/12/07/This-is-how-I-feel-when-my-code-runs-without-a-single-bug/</loc>
-    
-    <lastmod>2018-12-06</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2018/12/03/Bind-customised-KeyStore-TrustStore-and-PoolingHttpClientConnectionManager-in-Apache-Camel/</loc>
-    
-    <lastmod>2018-12-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2018/11/06/After-new-Macbook-Air-Mac-Mini-iPad-Pro-2018/</loc>
-    
-    <lastmod>2018-11-06</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2018/09/14/The-10-Commandments-of-Good-Products/</loc>
-    
-    <lastmod>2018-09-13</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2018/08/30/A-Python-script-which-implements-Mantua-Cipher/</loc>
-    
-    <lastmod>2018-08-30</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2018/08/03/An-bash-curl-and-awk-example/</loc>
-    
-    <lastmod>2018-08-02</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2018/07/07/Assumptions-and-Conditional-Test-execution-ignoring-in-JUnit/</loc>
-    
-    <lastmod>2018-07-06</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2018/06/09/Take-over-Mac-OS-X-Bluetooth-Control/</loc>
-    
-    <lastmod>2018-06-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2018/06/08/Setup-and-run-DEVHINTS-IO-cheatsheets-on-localhost/</loc>
-    
-    <lastmod>2018-06-08</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2017/10/29/First-ever-half-marathon-trial/</loc>
-    
-    <lastmod>2018-06-08</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2018/02/17/AWS-ElasticSearch-and-Kibana-proxy-setup/</loc>
-    
-    <lastmod>2018-05-30</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2018/05/12/The-Evolution-of-Mobile-Phones/</loc>
-    
-    <lastmod>2018-05-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2018/05/12/The-Evolution-of-Communication/</loc>
-    
-    <lastmod>2018-05-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2018/03/10/RESTful-calls-to-create-Index-and-Mappings-in-ElasticSearch/</loc>
-    
-    <lastmod>2018-05-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2018/05/03/Serenity-powered-by-Simple-Design/</loc>
-    
-    <lastmod>2018-05-02</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2018/04/28/Data-Science-Knowledge-Graph/</loc>
-    
-    <lastmod>2018-04-28</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2018/03/10/AWS-access-key-id-and-secret-access-key/</loc>
-    
-    <lastmod>2018-04-28</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2018/04/17/Always-safe-Always-fun/</loc>
-    
-    <lastmod>2018-04-28</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2018/03/25/AlphaGo-movie/</loc>
-    
-    <lastmod>2018-04-28</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2017/09/03/C10k-C10M-Challenge/</loc>
-    
-    <lastmod>2018-04-28</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2017/08/02/Customisation-of-Filco-Majestouch-2-Mechanical-Keyboard/</loc>
-    
-    <lastmod>2018-04-28</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2017/02/18/Factorial-function-implementation-in-Java-8/</loc>
-    
-    <lastmod>2018-04-28</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2017/02/18/Fibonacci-function-implementation-in-Java-8/</loc>
-    
-    <lastmod>2018-04-28</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2018/04/07/Flow/</loc>
-    
-    <lastmod>2018-04-28</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2017/09/20/Geoffrey-Hinton-interview/</loc>
-    
-    <lastmod>2018-04-28</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2018/02/06/Good-things-come-to-those-who-could-wait-till-the-last/</loc>
-    
-    <lastmod>2018-04-28</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2018/03/26/House-Prices-Down-Under/</loc>
-    
-    <lastmod>2018-04-28</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2017/03/12/Influence-Without-Authority/</loc>
-    
-    <lastmod>2018-04-28</lastmod>
+    <lastmod>2024-06-04</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -706,7 +31,16 @@
   <url>
     <loc>https://terrencemiao.github.io/blog/2018/01/12/OnePlus-5T-a-smartphone-full-of-all-the-right-ideas/</loc>
     
-    <lastmod>2018-04-28</lastmod>
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2023/11/24/OpenSSH-Server-for-Windows/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -715,7 +49,43 @@
   <url>
     <loc>https://terrencemiao.github.io/blog/2017/02/01/Perfection/</loc>
     
-    <lastmod>2018-04-28</lastmod>
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2017/09/02/Plato-and-Socrates-%E6%9F%8F%E6%8B%89%E5%9B%BE%E9%BA%A6%E7%A9%97%E9%97%AE%E9%A2%98/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2018/03/10/RESTful-calls-to-create-Index-and-Mappings-in-ElasticSearch/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2022/08/02/Powerful-Zsh/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2021/04/30/Read-environment-varibles-of-a-process-in-Linux/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -724,7 +94,34 @@
   <url>
     <loc>https://terrencemiao.github.io/blog/2017/02/11/Remote-debugging-Java-applications-run-on-Tomcat/</loc>
     
-    <lastmod>2018-04-28</lastmod>
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2022/10/12/Remove-Image-Background/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2020/10/26/Risk-Management-for-CI-CD-processes/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2019/11/22/Run-ssh-and-scp-with-AWS-Session-Manager/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -733,7 +130,16 @@
   <url>
     <loc>https://terrencemiao.github.io/blog/2017/03/03/SQL-script-generates-random-data-and-insert-into-MySQL-database/</loc>
     
-    <lastmod>2018-04-28</lastmod>
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2018/05/03/Serenity-powered-by-Simple-Design/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -742,7 +148,7 @@
   <url>
     <loc>https://terrencemiao.github.io/blog/2017/02/26/Set-up-and-run-AWS-Lambda-hello-function-with-serverless/</loc>
     
-    <lastmod>2018-04-28</lastmod>
+    <lastmod>2024-06-04</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -751,7 +157,7 @@
   <url>
     <loc>https://terrencemiao.github.io/blog/2017/01/28/Setup-Docker-Private-Registry-in-Nexus-Repository-OSS-3-x-x/</loc>
     
-    <lastmod>2018-04-28</lastmod>
+    <lastmod>2024-06-04</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -760,7 +166,43 @@
   <url>
     <loc>https://terrencemiao.github.io/blog/2017/01/28/Setup-HTTPS-access-in-Nexus-Repository-Manager-OSS-3-x-x/</loc>
     
-    <lastmod>2018-04-28</lastmod>
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2018/10/24/Setup-Lambda-function-sync-AWS-DynamoDB-to-a-new-table/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2023/10/25/Setup-Socks-Socks5-proxy-and-git-repo-via-proxy/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2018/06/08/Setup-and-run-DEVHINTS-IO-cheatsheets-on-localhost/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2023/10/25/Setup-ssh-ProxyCommand-proxyJump-on-multiple-jump-hosts/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -769,7 +211,52 @@
   <url>
     <loc>https://terrencemiao.github.io/blog/2017/03/04/Spring-Data-powerful-and-succinct-abstraction/</loc>
     
-    <lastmod>2018-04-28</lastmod>
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2018/08/23/Step-by-step-resetting-Bluetooth-on-Mac-OS/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2024/04/26/Step-by-step-root-OnePlus-5T/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2018/12/10/Step-by-step-run-Kafka-on-Mac/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2018/06/09/Take-over-Mac-OS-X-Bluetooth-Control/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2018/09/14/The-10-Commandments-of-Good-Products/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -778,7 +265,25 @@
   <url>
     <loc>https://terrencemiao.github.io/blog/2018/03/11/The-A-I-Revolution-Will-Not-Be-Supervised/</loc>
     
-    <lastmod>2018-04-28</lastmod>
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2018/05/12/The-Evolution-of-Communication/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2018/05/12/The-Evolution-of-Mobile-Phones/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -787,7 +292,7 @@
   <url>
     <loc>https://terrencemiao.github.io/blog/2017/02/18/The-State-Quadrants-Functional-vs-Object-Oriented/</loc>
     
-    <lastmod>2018-04-28</lastmod>
+    <lastmod>2024-06-04</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -796,7 +301,7 @@
   <url>
     <loc>https://terrencemiao.github.io/blog/2017/07/02/The-end-of-IT-is-Art/</loc>
     
-    <lastmod>2018-04-28</lastmod>
+    <lastmod>2024-06-04</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -805,7 +310,34 @@
   <url>
     <loc>https://terrencemiao.github.io/blog/2018/03/28/The-longest-official-place-name-in-Australia/</loc>
     
-    <lastmod>2018-04-28</lastmod>
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2024/05/20/The-solution-making-old-Intel-10Gbps-network-adapter-work-in-Windows-11/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2018/12/07/This-is-how-I-feel-when-my-code-runs-without-a-single-bug/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2023/12/17/Upscayl-AI-Image-Upscaler/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -814,7 +346,25 @@
   <url>
     <loc>https://terrencemiao.github.io/blog/2017/02/01/Web-Components-are-coming/</loc>
     
-    <lastmod>2018-04-28</lastmod>
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2019/12/01/Why-React/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2020/11/30/Why-Repairable-Is-Important/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -823,7 +373,25 @@
   <url>
     <loc>https://terrencemiao.github.io/blog/2017/08/17/Why-functional-programming/</loc>
     
-    <lastmod>2018-04-28</lastmod>
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2019/01/01/Year-2018-in-the-Rear-View-Mirror/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2017/09/03/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E8%AF%BB%E4%B9%A6/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -832,7 +400,7 @@
   <url>
     <loc>https://terrencemiao.github.io/blog/2017/07/16/%E6%9E%81%E7%AE%80%E4%B9%8B%E9%81%93-The-interface-%E4%BA%BA%E4%B8%8E%E6%9C%BA%E5%99%A8%E7%9A%84%E6%80%9D%E6%83%B3%E4%BA%A4%E6%B5%81/</loc>
     
-    <lastmod>2018-04-28</lastmod>
+    <lastmod>2024-06-04</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -841,7 +409,16 @@
   <url>
     <loc>https://terrencemiao.github.io/blog/2017/09/23/%E6%B5%85%E8%B0%88%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%95%B0%E5%AD%A6%E4%BF%AE%E5%85%BB/</loc>
     
-    <lastmod>2018-04-28</lastmod>
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2017/09/03/%E7%94%BB%E8%99%BE/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -850,7 +427,7 @@
   <url>
     <loc>https://terrencemiao.github.io/blog/2017/08/04/%E8%82%A1%E5%B8%82%E6%8A%95%E8%B5%84%E4%B8%89%E8%A6%81%E7%B4%A0/</loc>
     
-    <lastmod>2018-04-28</lastmod>
+    <lastmod>2024-06-04</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -859,7 +436,430 @@
   <url>
     <loc>https://terrencemiao.github.io/blog/about/index.html</loc>
     
-    <lastmod>2018-04-28</lastmod>
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2019/12/29/2019-Year-in-Review/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2021/03/02/A-Modern-Architecture-Application/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2019/11/28/A-PC-person-s-guide-to-Mac/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2018/08/30/A-Python-script-which-implements-Mantua-Cipher/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2019/04/23/A-simple-approach-to-export-import-AWS-DynamoDB-table-items/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2020/10/13/AWS-CloudWatch-Metrics-example/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2021/05/11/AWS-EC2-CloudFormation-templates-in-subnets/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2019/12/07/AWS-EKS-on-Fargate-with-eksctl/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2019/12/05/AWS-EKS-with-Fargate/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2018/02/17/AWS-ElasticSearch-and-Kibana-proxy-setup/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2021/04/30/AWS-KMS-decrypt-for-base64-encoded-input/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2019/01/11/Add-final-and-javadoc-for-auto-generated-getters-and-setters-in-IntelliJ/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2018/11/06/After-new-Macbook-Air-Mac-Mini-iPad-Pro-2018/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2018/03/25/AlphaGo-movie/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2018/04/17/Always-safe-Always-fun/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2018/08/03/An-bash-curl-and-awk-example/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2017/06/30/Ant-Colony-Optimization-ACO/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2018/03/10/AWS-access-key-id-and-secret-access-key/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2018/10/13/Apple-Designs-That-Inspire/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2018/07/07/Assumptions-and-Conditional-Test-execution-ignoring-in-JUnit/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2018/12/03/Bind-customised-KeyStore-TrustStore-and-PoolingHttpClientConnectionManager-in-Apache-Camel/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2020/11/25/Bring-back-MagSafe/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2017/09/03/C10k-C10M-Challenge/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2018/08/14/Cloudcraft-visualise-AWS-environment-as-isometric-architecture-diagrams/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2022/05/02/Convert-JSON-to-CSV-by-using-jq/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2020/02/14/Creating-AWS-Lambda-with-AWS-SAM/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2017/08/02/Customisation-of-Filco-Majestouch-2-Mechanical-Keyboard/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2021/07/30/Customise-VS-Code-settings-and-keybindings-with-Geddski-macros/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2018/04/28/Data-Science-Knowledge-Graph/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2021/07/06/Export-and-Import-AWS-DynamoDB-data/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2017/02/18/Factorial-function-implementation-in-Java-8/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2017/02/18/Fibonacci-function-implementation-in-Java-8/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2017/10/29/First-ever-half-marathon-trial/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2018/04/07/Flow/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2022/10/10/Geekbench-head-to-head-Mac-vs-iPad-vs-Android/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2017/09/20/Geoffrey-Hinton-interview/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2021/06/04/Get-and-read-logs-from-AWS-CloudWatch-with-saw/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2022/09/02/GitHub-Actions/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2018/02/06/Good-things-come-to-those-who-could-wait-till-the-last/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2018/03/26/House-Prices-Down-Under/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2024/05/17/How-to-enable-SMB-Multichannel-in-Windows-11/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2024/05/03/How-to-team-network-link-aggregation-in-Windows-11/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2022/09/07/How-to-use-Web-Inspector-and-debug-Safari-on-iPhone-iPad/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2017/03/12/Influence-Without-Authority/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2019/01/11/Keep-running/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2018/11/22/Inspirational-Thought/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrencemiao.github.io/blog/2023/07/29/Mac-and-iPad-and-Android-Benchmark-Ceiling/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -868,7 +868,7 @@
 
   <url>
     <loc>https://terrencemiao.github.io/blog</loc>
-    <lastmod>2024-05-24</lastmod>
+    <lastmod>2024-06-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
