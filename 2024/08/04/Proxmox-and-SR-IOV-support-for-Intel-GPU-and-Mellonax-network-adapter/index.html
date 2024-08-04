@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=330279473"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '330279473');
+</script>
+<!-- End Google Analytics -->
+
+  
+  <title>Proxmox and SR-IOV support for Intel GPU and Mellonax network adapter | Terrence Miao&#39;s Adventures</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+    <meta name="description" content="Veni, vidi, vici">
+  
+  
+  
+    <link rel="alternate" href="/blog/atom.xml" title="Terrence Miao's Adventures" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/blog/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/blog/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.min.css">
+
+  
+  
+  
+  
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7274218747178099" crossorigin="anonymous"></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">Terrence Miao&#39;s Adventures</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/blog/" id="subtitle">A journey of a thousand miles begins with a single step</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/blog/."><i class="fa fa-home"></i> Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives/"><i class="fa fa-archive"></i> Archive</a>
+        
+          <a class="main-nav-link" href="/blog/about/"><i class="fa fa-user"></i> About</a>
+        
+          <a class="main-nav-link" href="/blog/atom.xml"><i class="fa fa-rss"></i> RSS</a>
+        
+      </nav>
+    </div>
+    <div id="search-form">
+      <div id="result-mask" class="hide"></div>
+      <label><input id="search-key" type="text" autocomplete="off" placeholder="search"></label>
+      <div id="result-wrap" class="hide">
+        <div id="search-result"></div>
+      </div>
+      <div class="hide">
+        <template id="search-tpl">
+          <div class="item">
+            <a href="/{path}" title="{title}">
+              <div class="title">{title}</div>
+              <div class="time">{date}</div>
+              <div class="tags">{tags}</div>
+            </a>
+          </div>
+        </template>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Proxmox-and-SR-IOV-support-for-Intel-GPU-and-Mellonax-network-adapter" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Proxmox and SR-IOV support for Intel GPU and Mellonax network adapter
+    </h1>
+  
+
+
+      </header>
+    
+    <div class="article-meta">
+      
+      <span class="article-date">
+  <i class="fa fa-date"></i>
+  <time class="dt-published" datetime="2024-08-04T01:56:12.000Z" itemprop="datePublished">2024-08-04</time>
+</span>
+      
+      
+        <span class="article-views">
+  <i class="fa fa-views"></i>
+  <i id="busuanzi_container_page_pv">
+      <i id="busuanzi_value_page_pv"></i>
+  </i>
+</span>
+
+      
+      
+<a href="/blog/2024/08/04/Proxmox-and-SR-IOV-support-for-Intel-GPU-and-Mellonax-network-adapter/#comments" class="article-comment-link">
+  
+    
+    
+      <i class="disqus-comment-count" data-disqus-identifier="/blog/2024/08/04/Proxmox-and-SR-IOV-support-for-Intel-GPU-and-Mellonax-network-adapter/"></i>
+    
+    
+    
+    
+  
+  <i class="fa fa-commt"></i>
+  Guestbook
+</a>
+
+
+    </div>
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><p>Enable <code>VT-d</code> which provides IOMMU services, and <code>SR-IOV</code> in motherboard BIOS in Chipset, e.g. <em>ASRock Z790 Riptide WiFi</em>.</p>
+</li>
+<li><p>Enable <code>SR-IOV</code> for Mellonax network adapter e.g. <em>Mellanox ConnectX-4 MCX455A-ECAT PCIe x16 3.0 100GBe VPI EDR IB</em> in the same motherboard BIOS.</p>
+</li>
+<li><p>Add Proxmox No Subscription URL:</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">root@pve:~# cat /etc/apt/sources.list</span><br><span class="line">deb http://ftp.au.debian.org/debian bookworm main contrib</span><br><span class="line"></span><br><span class="line">deb http://ftp.au.debian.org/debian bookworm-updates main contrib</span><br><span class="line"></span><br><span class="line"># security updates</span><br><span class="line">deb http://security.debian.org bookworm-security main contrib</span><br><span class="line"></span><br><span class="line"># Proxmox VE pve-no-subscription repository provided by proxmox.com,</span><br><span class="line"># NOT recommended for production use</span><br><span class="line">deb http://download.proxmox.com/debian/pve bookworm pve-no-subscription</span><br></pre></td></tr></table></figure>
+
+<p>and run packages update:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@pve:~# apt update</span><br></pre></td></tr></table></figure>
+
+<p>and install all build tools:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@pve:~# apt install build-* dkms</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Set&#x2F;Pin Proxmox kernel version:</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">root@pve:~# proxmox-boot-tool kernel pin 6.8.4-2-pve</span><br><span class="line">Setting &#x27;6.8.4-2-pve&#x27; as grub default entry and running update-grub.</span><br><span class="line">Generating grub configuration file ...</span><br><span class="line">Found linux image: /boot/vmlinuz-6.8.4-2-pve</span><br><span class="line">Found initrd image: /boot/initrd.img-6.8.4-2-pve</span><br><span class="line">Found memtest86+ 64bit EFI image: /boot/memtest86+x64.efi</span><br><span class="line">Adding boot menu entry for UEFI Firmware Settings ...</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
+<p>and verify Proxmox kernal version:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">root@pve:~# proxmox-boot-tool kernel list</span><br><span class="line">Manually selected kernels:</span><br><span class="line">None.</span><br><span class="line"></span><br><span class="line">Automatically selected kernels:</span><br><span class="line">6.8.4-2-pve</span><br><span class="line"></span><br><span class="line">Pinned kernel:</span><br><span class="line">6.8.4-2-pve</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Install Proxmox kernel headers source code package:</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">root@pve:~# apt install proxmox-headers-6.8.4-2-pve</span><br><span class="line">Reading package lists... Done</span><br><span class="line">Building dependency tree... Done</span><br><span class="line">Reading state information... Done</span><br><span class="line">The following NEW packages will be installed:</span><br><span class="line">  proxmox-headers-6.8.4-2-pve</span><br><span class="line">0 upgraded, 1 newly installed, 0 to remove and 39 not upgraded.</span><br><span class="line">Need to get 13.7 MB of archives.</span><br><span class="line">After this operation, 97.0 MB of additional disk space will be used.</span><br><span class="line">Get:1 http://download.proxmox.com/debian/pve bookworm/pve-no-subscription amd64 proxmox-headers-6.8.4-2-pve amd64 6.8.4-2 [13.7 MB]</span><br><span class="line">Fetched 13.7 MB in 1s (23.8 MB/s)</span><br><span class="line">Selecting previously unselected package proxmox-headers-6.8.4-2-pve.</span><br><span class="line">(Reading database ... 70448 files and directories currently installed.)</span><br><span class="line">Preparing to unpack .../proxmox-headers-6.8.4-2-pve_6.8.4-2_amd64.deb ...</span><br><span class="line">Unpacking proxmox-headers-6.8.4-2-pve (6.8.4-2) ...</span><br><span class="line">Setting up proxmox-headers-6.8.4-2-pve (6.8.4-2) ...</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Download <code>Linux i915 driver with SR-IOV</code> support for Linux kernel:</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@pve:~# git clone https://github.com/strongtz/i915-sriov-dkms</span><br></pre></td></tr></table></figure>
+
+<p>and change into the cloned repository and run:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">root@pve:~/i915-sriov-dkms# cat VERSION</span><br><span class="line">2024.07.24</span><br><span class="line"></span><br><span class="line">root@pve:~/i915-sriov-dkms# dkms add .</span><br><span class="line">Creating symlink /var/lib/dkms/i915-sriov-dkms/2024.07.24/source -&gt; /usr/src/i915-sriov-dkms-2024.07.24</span><br></pre></td></tr></table></figure>
+
+<p>and build, install <code>i915-sriov-dkms</code> Linux kernel module:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">root@pve:~/i915-sriov-dkms# dkms install -m i915-sriov-dkms -v $(cat VERSION) --force</span><br><span class="line">Sign command: /lib/modules/6.8.4-2-pve/build/scripts/sign-file</span><br><span class="line">Signing key: /var/lib/dkms/mok.key</span><br><span class="line">Public certificate (MOK): /var/lib/dkms/mok.pub</span><br><span class="line">Certificate or key are missing, generating self signed certificate for MOK...</span><br><span class="line"></span><br><span class="line">Building module:</span><br><span class="line">Cleaning build area...</span><br><span class="line">make -j20 KERNELRELEASE=6.8.4-2-pve -C /lib/modules/6.8.4-2-pve/build M=/var/lib/dkms/i915-sriov-dkms/2024.07.24/build.......</span><br><span class="line">Signing module /var/lib/dkms/i915-sriov-dkms/2024.07.24/build/i915.ko</span><br><span class="line">Cleaning build area...</span><br><span class="line"></span><br><span class="line">i915.ko:</span><br><span class="line">Running module version sanity check.</span><br><span class="line"> - Original module</span><br><span class="line"> - Installation</span><br><span class="line">   - Installing to /lib/modules/6.8.4-2-pve/updates/dkms/</span><br><span class="line">depmod...</span><br></pre></td></tr></table></figure>
+
+<p>and enable <code>i915-sriov-dkms</code> module with upto maximum <strong>7</strong> VFS (Virtual File System) in Linux kernel:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root@pve:~# cat /etc/default/grub | grep GRUB_CMDLINE_LINUX_DEFAULT</span><br><span class="line">GRUB_CMDLINE_LINUX_DEFAULT=&quot;quiet intel_iommu=on i915.enable_guc=3 i915.max_vfs=7&quot;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Reboot Proxmox:</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">root@pve:~# lspci | grep VGA</span><br><span class="line">00:02.0 VGA compatible controller: Intel Corporation Raptor Lake-S GT1 [UHD Graphics 770] (rev 04)</span><br><span class="line">00:02.1 VGA compatible controller: Intel Corporation Raptor Lake-S GT1 [UHD Graphics 770] (rev 04)</span><br><span class="line">00:02.2 VGA compatible controller: Intel Corporation Raptor Lake-S GT1 [UHD Graphics 770] (rev 04)</span><br><span class="line">00:02.3 VGA compatible controller: Intel Corporation Raptor Lake-S GT1 [UHD Graphics 770] (rev 04)</span><br><span class="line">00:02.4 VGA compatible controller: Intel Corporation Raptor Lake-S GT1 [UHD Graphics 770] (rev 04)</span><br><span class="line">00:02.5 VGA compatible controller: Intel Corporation Raptor Lake-S GT1 [UHD Graphics 770] (rev 04)</span><br><span class="line">00:02.6 VGA compatible controller: Intel Corporation Raptor Lake-S GT1 [UHD Graphics 770] (rev 04)</span><br><span class="line">00:02.7 VGA compatible controller: Intel Corporation Raptor Lake-S GT1 [UHD Graphics 770] (rev 04)</span><br></pre></td></tr></table></figure>
+
+<p>First VGA <code>00:02.0</code> is the <strong>REAL</strong> GPU. Other <strong>7</strong> are <strong>Virtual</strong> ones.</p>
+<ul>
+<li>Enable Virtual GPU for <code>Windows 11</code> VM in Proxmox</li>
+</ul>
+<p>Add a PCI device for <code>Windows 11</code> VM, and choose one Virtual GPU:</p>
+<p><img src="/blog/img/Proxmox%20-%20Windows%2011,%20PCI%20device.png" alt="Proxmox - Windows 11, PCI device" title="Proxmox - Windows 11, PCI device"></p>
+<p>Enable <code>Primary GPU</code> and <code>PCI Express</code> in options:</p>
+<p><img src="/blog/img/Proxmox%20-%20Windows%2011,%20Primary%20GPU%20and%20PCI%20Express.png" alt="Proxmox - Windows 11, Primary GPU and PCI Express" title="Proxmox - Windows 11, Primary GPU and PCI Express"></p>
+<p>Choose <code>none</code> in Display option for <code>Windows 11</code> VM:</p>
+<p><img src="/blog/img/Proxmox%20-%20Windows%2011,%20Display.png" alt="Proxmox - Windows 11, Display" title="Proxmox - Windows 11, Display"></p>
+<p><img src="/blog/img/Proxmox%20-%20Windows%2011,%20Display%20none.png" alt="Proxmox - Windows 11, Display none" title="Proxmox - Windows 11, Display none"></p>
+<p>Start <code>Windows 11</code> VM, login with <code>Microsoft Remote Desktop</code> <em><a target="_blank" rel="noopener" href="https://apps.microsoft.com/detail/9wzdncrfj3ps">https://apps.microsoft.com/detail/9wzdncrfj3ps</a></em> and a Virtual GPU is available now. Run <code>Task Manager</code> and check CPU and GPU load:</p>
+<p><img src="/blog/img/Proxmox%20-%20Windows%2011,%20Performance.png" alt="Proxmox - Windows 11, Performance" title="Proxmox - Windows 11, Performance"></p>
+<ul>
+<li>Enable Virtual GPU for <code>Ubuntu</code> VM in Proxmox</li>
+</ul>
+<p>Ubuntu version 22.04.4 for desktop.</p>
+<p>Add a PCI device for <code>Ubuntu</code> VM, and choose one Virtual GPU; Enable <code>Primary GPU</code> and <code>PCI Express</code> in options; Choose <code>none</code> in Display option:</p>
+<p><img src="/blog/img/Proxmox%20-%20Ubuntu.png" alt="Proxmox - Ubuntu" title="Proxmox - Ubuntu"></p>
+<p>Setup remote desktop connection to Ubuntu:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">root@nucleus:~# apt install ubuntu-desktop</span><br><span class="line"></span><br><span class="line">root@nucleus:~# apt install xrdp</span><br><span class="line"></span><br><span class="line">root@nucleus:~# systemctl enable xrdp</span><br></pre></td></tr></table></figure>
+
+<p><img src="/blog/img/Proxmox%20-%20Remote%20Desktop.png" alt="Proxmox - Remote Desktop" title="Proxmox - Remote Desktop"></p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li>最新保姆级 PVE 8 安装教程！虚拟机 PCIE 设备及 SR-IOV 核显直通，最多分配7个虚拟化单独核显！最强虚拟机！<em><a target="_blank" rel="noopener" href="https://v2rayssr.com/pve.html">https://v2rayssr.com/pve.html</a></em></li>
+<li>PVE 8.1 下部署 Intel 集显虚拟化驱动 <em><a target="_blank" rel="noopener" href="https://zoe.red/2023/38.html">https://zoe.red/2023/38.html</a></em></li>
+<li>Enable &amp; Using vGPU Passthrough <em><a target="_blank" rel="noopener" href="https://gist.github.com/scyto/e4e3de35ee23fdb4ae5d5a3b85c16ed3">https://gist.github.com/scyto/e4e3de35ee23fdb4ae5d5a3b85c16ed3</a></em></li>
+<li>Proxmox VE: Passthrough with Intel Integrated Graphics Card Alder Lake Architecture | vGPU, VT-d, SR-IOV <em><a target="_blank" rel="noopener" href="https://github.com/kamilllooo/Proxmox">https://github.com/kamilllooo/Proxmox</a></em></li>
+<li>Remote Desktop connection from Mac to Ubuntu <em><a target="_blank" rel="noopener" href="https://askubuntu.com/questions/893831/remote-desktop-connection-from-mac-to-ubuntu">https://askubuntu.com/questions/893831/remote-desktop-connection-from-mac-to-ubuntu</a></em></li>
+</ul>
+
+        
+            <div id="toc-article">
+                
+  <div class="widget-wrap" id="toc-wrap">
+    <h3 class="widget-title"><i class="fa fa-toc"></i> Contents</h3>
+    <div class="widget">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#References"><span class="toc-text">References</span></a></li></ol>
+    </div>
+  </div>
+
+
+            </div>
+        
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div class="article-tag-wrap">
+          
+
+          
+          
+
+
+        </div>
+      
+      
+        
+<nav id="article-nav">
+  
+    <a href="/blog/2024/05/20/The-solution-making-old-Intel-10Gbps-network-adapter-work-in-Windows-11/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">older</strong>
+      <div class="article-nav-title">
+        
+          The solution making old Intel 10Gbps network adapter work in Windows 11
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+      
+      
+        
+
+
+
+  <div id="comments"><div id="disqus_thread"></div></div>
+
+
+
+
+
+
+      
+    </footer>
+  </div>
+</article>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title"><i class="fa fa-posts"></i> Recent</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2024/08/04/Proxmox-and-SR-IOV-support-for-Intel-GPU-and-Mellonax-network-adapter/">Proxmox and SR-IOV support for Intel GPU and Mellonax network adapter</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2024/05/20/The-solution-making-old-Intel-10Gbps-network-adapter-work-in-Windows-11/">The solution making old Intel 10Gbps network adapter work in Windows 11</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2024/05/17/How-to-enable-SMB-Multichannel-in-Windows-11/">How to enable SMB Multichannel in Windows 11</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2024/05/17/How-to-upgrade-Synology-NAS-network-from-1Gbps-to-2-5Gbps/">How to upgrade Synology NAS network from 1Gbps to 2.5Gbps</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2024/05/03/How-to-team-network-link-aggregation-in-Windows-11/">How to team network (link aggregation) in Windows 11</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+  
+    
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title"><i class="fa fa-archive"></i> Archive</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2024/">2024</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2023/">2023</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/">2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/">2021</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/">2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/">2019</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/">2017</a><span class="archive-list-count">25</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title"><i class="fa fa-link"></i> Blogroll</h3>
+    <div class="widget">
+      <ul>
+      
+        <li>
+          <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/terrencemiao/">LinkedIn</a>
+        </li>
+      
+        <li>
+          <a target="_blank" rel="noopener" href="https://github.com/TerrenceMiao">GitHub</a>
+        </li>
+      
+        <li>
+          <a target="_blank" rel="noopener" href="https://twitter.com/TerrenceMiao">Twitter</a>
+        </li>
+      
+      </ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+        
+      </div>
+      <a id="totop" href="#top"></a>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      <p>
+        <a href="/blog/sitemap.xml">Site Map</a>
+        <span> | </span><a href="/blog/atom.xml">Subscribe to this site</a>
+        <span> | </span><a href="/blog/about/">Contact the blogger</a>
+      </p>
+      
+        <p>
+          <i class="fa fa-visitors"></i>
+          <i id="busuanzi_container_site_uv"><i id="busuanzi_value_site_uv"></i></i>
+          ，
+          <i class="fa fa-views"></i>
+          <i id="busuanzi_container_site_pv"><i id="busuanzi_value_site_pv"></i></i>
+        </p>
+      
+      <p>
+        <span>Copyright &copy; 2024 Terrence Miao.</span>
+        <span>Theme by <a href="https://github.com/chaooo/hexo-theme-BlueLake/" target="_blank">BlueLake.</a></span>
+        <span>Powered by <a href="https://hexo.io/" target="_blank">Hexo.</a></span>
+      </p>
+    </div>
+  </div>
+</footer>
+
+    </div>
+  </div>
+  
+<script src="/blog/js/jquery-3.4.1.min.js"></script>
+
+
+<script src="/blog/js/search.json.js"></script>
+
+
+  
+<script src="/blog/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/blog/js/script.js"></script>
+
+
+
+
+
+
+  
+<script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+
+  
+
+  
+    <script>
+      var disqus_shortname = 'terrencemiao';
+      
+        var disqus_url = 'https://terrencemiao.github.io/blog/2024/08/04/Proxmox-and-SR-IOV-support-for-Intel-GPU-and-Mellonax-network-adapter/';
+      
+      (function(){
+        var dsq = document.createElement('script');
+        dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+
+
+
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+  <script src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML" async type="text/javascript"></script>
+
+</body>
+</html>
