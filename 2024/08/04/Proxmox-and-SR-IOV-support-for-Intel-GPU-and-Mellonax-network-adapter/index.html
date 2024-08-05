@@ -202,7 +202,7 @@
 <p><img src="/blog/img/Proxmox%20-%20Windows%2011,%20PCI%20device.png" alt="Proxmox - Windows 11, PCI device" title="Proxmox - Windows 11, PCI device"></p>
 <p>Enable <code>Primary GPU</code> and <code>PCI Express</code> in options:</p>
 <p><img src="/blog/img/Proxmox%20-%20Windows%2011,%20Primary%20GPU%20and%20PCI%20Express.png" alt="Proxmox - Windows 11, Primary GPU and PCI Express" title="Proxmox - Windows 11, Primary GPU and PCI Express"></p>
-<p>Choose <code>none</code> in Display option for <code>Windows 11</code> VM:</p>
+<p>Choose <code>none</code> in Display and <code>host</code> in Processors options for <code>Windows 11</code> VM:</p>
 <p><img src="/blog/img/Proxmox%20-%20Windows%2011,%20Display.png" alt="Proxmox - Windows 11, Display" title="Proxmox - Windows 11, Display"></p>
 <p><img src="/blog/img/Proxmox%20-%20Windows%2011,%20Display%20none.png" alt="Proxmox - Windows 11, Display none" title="Proxmox - Windows 11, Display none"></p>
 <p>Start <code>Windows 11</code> VM, login with <code>Microsoft Remote Desktop</code> <em><a target="_blank" rel="noopener" href="https://apps.microsoft.com/detail/9wzdncrfj3ps">https://apps.microsoft.com/detail/9wzdncrfj3ps</a></em> and a Virtual GPU is available now. Run <code>Task Manager</code> and check CPU and GPU load:</p>
@@ -211,7 +211,7 @@
 <li>Enable Virtual GPU for <code>Ubuntu</code> VM in Proxmox</li>
 </ul>
 <p>Ubuntu version 22.04.4 for desktop.</p>
-<p>Add a PCI device for <code>Ubuntu</code> VM, and choose one Virtual GPU; Enable <code>Primary GPU</code> and <code>PCI Express</code> in options; Choose <code>none</code> in Display option:</p>
+<p>Add a PCI device for <code>Ubuntu</code> VM, and choose one Virtual GPU; Enable <code>Primary GPU</code> and <code>PCI Express</code> in options; Choose <code>none</code> in Display and <code>host</code> in Processors options:</p>
 <p><img src="/blog/img/Proxmox%20-%20Ubuntu.png" alt="Proxmox - Ubuntu" title="Proxmox - Ubuntu"></p>
 <p>Setup remote desktop connection to Ubuntu:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">root@nucleus:~# apt install ubuntu-desktop</span><br><span class="line"></span><br><span class="line">root@nucleus:~# apt install xrdp</span><br><span class="line"></span><br><span class="line">root@nucleus:~# systemctl enable xrdp</span><br></pre></td></tr></table></figure>
