@@ -4,7 +4,7 @@ date: 2024-08-04 11:56:12
 tags:
 ---
 
-- Enable `VT-d` which provides IOMMU services, and `SR-IOV` in motherboard BIOS in Chipset, e.g. _ASRock Z790 Riptide WiFi_.
+- Enable `VT-d` for IOMMU (（Input Output Memory Management Unit) services, and `SR-IOV` in motherboard BIOS in Chipset, e.g. _ASRock Z790 Riptide WiFi_.
 
 - Enable `SR-IOV` for Mellonax network adapter e.g. _Mellanox ConnectX-4 MCX455A-ECAT PCIe x16 3.0 100GBe VPI EDR IB_ in the same motherboard BIOS.
 
@@ -146,6 +146,72 @@ root@pve:~# lspci | grep VGA
 
 First VGA `00:02.0` is the **REAL** GPU. Other **7** are **Virtual** ones.
 
+Verify IOMMU has been enabled:
+
+```
+root@pve:~# dmesg | grep -i iommu
+[    0.000000] Command line: BOOT_IMAGE=/boot/vmlinuz-6.8.4-2-pve root=/dev/mapper/pve-root ro quiet intel_iommu=on i915.enable_guc=3 i915.max_vfs=7
+[    0.036486] Kernel command line: BOOT_IMAGE=/boot/vmlinuz-6.8.4-2-pve root=/dev/mapper/pve-root ro quiet intel_iommu=on i915.enable_guc=3 i915.max_vfs=7
+[    0.036515] DMAR: IOMMU enabled
+[    0.090320] DMAR-IR: IOAPIC id 2 under DRHD base  0xfed91000 IOMMU 1
+[    0.244292] pci 0000:00:02.0: DMAR: Skip IOMMU disabling for graphics
+[    0.270125] iommu: Default domain type: Translated
+[    0.270125] iommu: DMA domain TLB invalidation policy: lazy mode
+[    0.303735] DMAR: IOMMU feature fl1gp_support inconsistent
+[    0.303735] DMAR: IOMMU feature pgsel_inv inconsistent
+[    0.303736] DMAR: IOMMU feature nwfs inconsistent
+[    0.303736] DMAR: IOMMU feature dit inconsistent
+[    0.303737] DMAR: IOMMU feature sc_support inconsistent
+[    0.303737] DMAR: IOMMU feature dev_iotlb_support inconsistent
+[    0.304175] pci 0000:00:02.0: Adding to iommu group 0
+[    0.304544] pci 0000:00:00.0: Adding to iommu group 1
+[    0.304554] pci 0000:00:01.0: Adding to iommu group 2
+[    0.304562] pci 0000:00:01.1: Adding to iommu group 3
+[    0.304570] pci 0000:00:06.0: Adding to iommu group 4
+[    0.304582] pci 0000:00:14.0: Adding to iommu group 5
+[    0.304589] pci 0000:00:14.2: Adding to iommu group 5
+[    0.304598] pci 0000:00:15.0: Adding to iommu group 6
+[    0.304607] pci 0000:00:16.0: Adding to iommu group 7
+[    0.304614] pci 0000:00:17.0: Adding to iommu group 8
+[    0.304630] pci 0000:00:1a.0: Adding to iommu group 9
+[    0.304641] pci 0000:00:1b.0: Adding to iommu group 10
+[    0.304651] pci 0000:00:1c.0: Adding to iommu group 11
+[    0.304662] pci 0000:00:1c.1: Adding to iommu group 12
+[    0.304671] pci 0000:00:1c.2: Adding to iommu group 13
+[    0.304681] pci 0000:00:1c.3: Adding to iommu group 14
+[    0.304692] pci 0000:00:1c.4: Adding to iommu group 15
+[    0.304703] pci 0000:00:1d.0: Adding to iommu group 16
+[    0.304721] pci 0000:00:1f.0: Adding to iommu group 17
+[    0.304728] pci 0000:00:1f.3: Adding to iommu group 17
+[    0.304735] pci 0000:00:1f.4: Adding to iommu group 17
+[    0.304742] pci 0000:00:1f.5: Adding to iommu group 17
+[    0.304750] pci 0000:01:00.0: Adding to iommu group 18
+[    0.304758] pci 0000:02:00.0: Adding to iommu group 19
+[    0.304765] pci 0000:03:00.0: Adding to iommu group 20
+[    0.304781] pci 0000:04:00.0: Adding to iommu group 21
+[    0.304791] pci 0000:05:00.0: Adding to iommu group 22
+[    0.304801] pci 0000:06:00.0: Adding to iommu group 23
+[    0.304810] pci 0000:07:00.0: Adding to iommu group 24
+[    0.304834] pci 0000:08:00.0: Adding to iommu group 25
+[    0.304845] pci 0000:09:00.0: Adding to iommu group 26
+[    0.304857] pci 0000:0a:00.0: Adding to iommu group 27
+[    0.304866] pci 0000:0b:00.0: Adding to iommu group 28
+[    4.659395] pci 0000:00:02.1: DMAR: Skip IOMMU disabling for graphics
+[    4.659438] pci 0000:00:02.1: Adding to iommu group 29
+[    4.664441] pci 0000:00:02.2: DMAR: Skip IOMMU disabling for graphics
+[    4.664479] pci 0000:00:02.2: Adding to iommu group 30
+[    4.667692] pci 0000:00:02.3: DMAR: Skip IOMMU disabling for graphics
+[    4.667727] pci 0000:00:02.3: Adding to iommu group 31
+[    4.671096] pci 0000:00:02.4: DMAR: Skip IOMMU disabling for graphics
+[    4.671129] pci 0000:00:02.4: Adding to iommu group 32
+[    4.673545] pci 0000:00:02.5: DMAR: Skip IOMMU disabling for graphics
+[    4.673572] pci 0000:00:02.5: Adding to iommu group 33
+[    4.676357] pci 0000:00:02.6: DMAR: Skip IOMMU disabling for graphics
+[    4.676402] pci 0000:00:02.6: Adding to iommu group 34
+[    4.679192] pci 0000:00:02.7: DMAR: Skip IOMMU disabling for graphics
+[    4.679221] pci 0000:00:02.7: Adding to iommu group 35
+```
+
 - Enable Virtual GPU for `Windows 11` VM in Proxmox
 
 Add a PCI device for `Windows 11` VM, and choose one Virtual GPU:
@@ -186,6 +252,18 @@ root@nucleus:~# systemctl enable xrdp
 
 ![Proxmox - Remote Desktop](/img/Proxmox%20-%20Remote%20Desktop.png "Proxmox - Remote Desktop")
 
+- Fix Remote Desktop audio over HDMI issue with the script, enable the sound redirection:
+
+```
+terrence@nucleus:~$ ./xrdp-installer-1.5.1.sh -s
+```
+
+then reboot VM.
+
+![Proxmox - Ubuntu Remote Desktop](/img/Proxmox%20-%20Ubuntu%20Remote%20Desktop.png "Proxmox - Ubuntu Remote Desktop")
+
+Now Audio device becomes xrdp input / output.
+
 - Now can remote desktop access Ubuntu and Windows 11 VMs both run in Proxmox:
 
 ![Proxmox - Ubuntu and Windows 11](/img/Proxmox%20-%20Ubuntu%20and%20Windows%2011.jpg "Proxmox - Ubuntu and Windows 11")
@@ -195,6 +273,9 @@ References
 
 - 最新保姆级 PVE 8 安装教程！虚拟机 PCIE 设备及 SR-IOV 核显直通，最多分配7个虚拟化单独核显！最强虚拟机！_https://v2rayssr.com/pve.html_
 - PVE 8.1 下部署 Intel 集显虚拟化驱动 _https://zoe.red/2023/38.html_
+- 定制 OVMF 固件实现 PVE 8 环境 UEFI 模式直通 Intel 核显并显示 BIOS 适用于 intel 6-13 代处理器 PVE 8 核显直通画面 Windows 10 and MacOS 系统画面显示教程，可以外接显示器 _https://imacos.top/2023/10/09/152/_
+- PVE 下如何启用 PCI 直通显卡 GPU/iGPU/USB/声卡 AUDIO 等硬件直通教程 _https://imacos.top/2023/07/31/pci/_
 - Enable & Using vGPU Passthrough _https://gist.github.com/scyto/e4e3de35ee23fdb4ae5d5a3b85c16ed3_
 - Proxmox VE: Passthrough with Intel Integrated Graphics Card Alder Lake Architecture | vGPU, VT-d, SR-IOV _https://github.com/kamilllooo/Proxmox_
 - Remote Desktop connection from Mac to Ubuntu _https://askubuntu.com/questions/893831/remote-desktop-connection-from-mac-to-ubuntu_
+- xRDP – Easy install xRDP on Ubuntu 20.04,22.04,23.XX,24.04 (Script Version 1.5.1) _https://c-nergy.be/blog/?p=19814_
