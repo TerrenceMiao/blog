@@ -156,7 +156,7 @@ Enable `Primary GPU` and `PCI Express` in options:
 
 ![Proxmox - Windows 11, Primary GPU and PCI Express](/img/Proxmox%20-%20Windows%2011,%20Primary%20GPU%20and%20PCI%20Express.png "Proxmox - Windows 11, Primary GPU and PCI Express")
 
-Choose `none` in Display option for `Windows 11` VM:
+Choose `none` in Display and `host` in Processors options for `Windows 11` VM:
 
 ![Proxmox - Windows 11, Display](/img/Proxmox%20-%20Windows%2011,%20Display.png "Proxmox - Windows 11, Display")
 
@@ -170,7 +170,7 @@ Start `Windows 11` VM, login with `Microsoft Remote Desktop` _https://apps.micro
 
 Ubuntu version 22.04.4 for desktop.
 
-Add a PCI device for `Ubuntu` VM, and choose one Virtual GPU; Enable `Primary GPU` and `PCI Express` in options; Choose `none` in Display option:
+Add a PCI device for `Ubuntu` VM, and choose one Virtual GPU; Enable `Primary GPU` and `PCI Express` in options; Choose `none` in Display and `host` in Processors options:
 
 ![Proxmox - Ubuntu](/img/Proxmox%20-%20Ubuntu.png "Proxmox - Ubuntu")
 
@@ -185,6 +185,10 @@ root@nucleus:~# systemctl enable xrdp
 ```
 
 ![Proxmox - Remote Desktop](/img/Proxmox%20-%20Remote%20Desktop.png "Proxmox - Remote Desktop")
+
+- Now can remote desktop access Ubuntu and Windows 11 VMs both run in Proxmox:
+
+![Proxmox - Ubuntu and Windows 11](/img/Proxmox%20-%20Ubuntu%20and%20Windows%2011.jpg "Proxmox - Ubuntu and Windows 11")
 
 References
 ----------
