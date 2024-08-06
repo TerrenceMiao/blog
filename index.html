@@ -214,9 +214,16 @@
 <p><img src="/blog/img/Proxmox%20-%20Ubuntu%20Remote%20Desktop.png" alt="Proxmox - Ubuntu Remote Desktop" title="Proxmox - Ubuntu Remote Desktop"></p>
 <p>Now Audio device becomes xrdp input &#x2F; output.</p>
 <ul>
-<li>Now can remote desktop access Ubuntu and Windows 11 VMs both run in Proxmox:</li>
+<li>Windows Server 2022</li>
 </ul>
-<p><img src="/blog/img/Proxmox%20-%20Ubuntu%20and%20Windows%2011.jpg" alt="Proxmox - Ubuntu and Windows 11" title="Proxmox - Ubuntu and Windows 11"></p>
+<p>Windows Server 2022 is similar to Windows 11 setup in Proxmox. A few issues like <strong>GPU</strong>:</p>
+<p><img src="/blog/img/Proxmox%20-%20Windows%20Server%202022,%20GPU.png" alt="Proxmox - Windows Server 2022, GPU" title="Proxmox - Windows Server 2022, GPU"></p>
+<p>just disable GPU then enable it, it will work correctly.</p>
+<p>And no sound after installation, but can enable <strong>Windows Audio Service</strong> and choose <strong>Remote Audio</strong>:</p>
+<p><img src="/blog/img/Proxmox%20-%20Windows%20Server%202022,%20Sound.png" alt="Proxmox - Windows Server 2022, Sound" title="Proxmox - Windows Server 2022, Sound"></p>
+<p>then audio over HDMI to remote desktop can work.</p>
+<p>Now can remote desktop access Ubuntu, Windows 11 and Windows Server 2022 VMs both run in Proxmox:</p>
+<p><img src="/blog/img/Proxmox%20-%20Ubuntu%20and%20Windows.jpg" alt="Proxmox - Ubuntu and Windows" title="Proxmox - Ubuntu and Windows"></p>
 <h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
 <li>最新保姆级 PVE 8 安装教程！虚拟机 PCIE 设备及 SR-IOV 核显直通，最多分配7个虚拟化单独核显！最强虚拟机！<em><a target="_blank" rel="noopener" href="https://v2rayssr.com/pve.html">https://v2rayssr.com/pve.html</a></em></li>
 <li>PVE 8.1 下部署 Intel 集显虚拟化驱动 <em><a target="_blank" rel="noopener" href="https://zoe.red/2023/38.html">https://zoe.red/2023/38.html</a></em></li>
