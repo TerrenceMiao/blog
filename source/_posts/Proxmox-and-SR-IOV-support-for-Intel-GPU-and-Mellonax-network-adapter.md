@@ -279,6 +279,8 @@ And no sound after installation, but can enable **Windows Audio Service** and ch
 
 then audio over HDMI to remote desktop can work.
 
+In addition, can setup User Auto Logon after Windows Server 2022 startup.
+
 Now can remote desktop access Ubuntu, Windows 11 and Windows Server 2022 VMs both run in Proxmox:
 
 ![Proxmox - Ubuntu and Windows](/img/Proxmox%20-%20Ubuntu%20and%20Windows.jpg "Proxmox - Ubuntu and Windows")
@@ -294,3 +296,5 @@ References
 - Proxmox VE: Passthrough with Intel Integrated Graphics Card Alder Lake Architecture | vGPU, VT-d, SR-IOV _https://github.com/kamilllooo/Proxmox_
 - Remote Desktop connection from Mac to Ubuntu _https://askubuntu.com/questions/893831/remote-desktop-connection-from-mac-to-ubuntu_
 - xRDP – Easy install xRDP on Ubuntu 20.04,22.04,23.XX,24.04 (Script Version 1.5.1) _https://c-nergy.be/blog/?p=19814_
+- Autologon User at Startup in Windows Server _https://jc-lan.org/2022/06/02/autologon-user-at-startup-in-windows-server/_
+- Windows Server 2022 audio available but not playing _https://answers.microsoft.com/en-us/windowserver/forum/all/windows-server-2022-audio-available-but-not/eca821f1-7b4a-4293-8273-fda49dd0e9d4_
