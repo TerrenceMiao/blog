@@ -264,9 +264,24 @@ then reboot VM.
 
 Now Audio device becomes xrdp input / output.
 
-- Now can remote desktop access Ubuntu and Windows 11 VMs both run in Proxmox:
 
-![Proxmox - Ubuntu and Windows 11](/img/Proxmox%20-%20Ubuntu%20and%20Windows%2011.jpg "Proxmox - Ubuntu and Windows 11")
+- Windows Server 2022
+
+Windows Server 2022 is similar to Windows 11 setup in Proxmox. A few issues like **GPU**:
+
+![Proxmox - Windows Server 2022, GPU](/img/Proxmox%20-%20Windows%20Server%202022,%20GPU.png "Proxmox - Windows Server 2022, GPU")
+
+just disable GPU then enable it, it will work correctly.
+
+And no sound after installation, but can enable **Windows Audio Service** and choose **Remote Audio**:
+
+![Proxmox - Windows Server 2022, Sound](/img/Proxmox%20-%20Windows%20Server%202022,%20Sound.png "Proxmox - Windows Server 2022, Sound")
+
+then audio over HDMI to remote desktop can work.
+
+Now can remote desktop access Ubuntu, Windows 11 and Windows Server 2022 VMs both run in Proxmox:
+
+![Proxmox - Ubuntu and Windows](/img/Proxmox%20-%20Ubuntu%20and%20Windows.jpg "Proxmox - Ubuntu and Windows")
 
 References
 ----------
