@@ -222,7 +222,9 @@
 <p>And no sound after installation, but can enable <strong>Windows Audio Service</strong> and choose <strong>Remote Audio</strong>:</p>
 <p><img src="/blog/img/Proxmox%20-%20Windows%20Server%202022,%20Sound.png" alt="Proxmox - Windows Server 2022, Sound" title="Proxmox - Windows Server 2022, Sound"></p>
 <p>then audio over HDMI to remote desktop can work.</p>
-<p>In addition, can setup User Auto Logon after Windows Server 2022 startup.</p>
+<p>In addition, can setup User Auto Logon after Windows Server 2022 startup. And check Windows license by running:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PS C:\Users\Administrator&gt; slmgr -dlv</span><br></pre></td></tr></table></figure>
+
 <p>Now can remote desktop access Ubuntu, Windows 11 and Windows Server 2022 VMs both run in Proxmox:</p>
 <p><img src="/blog/img/Proxmox%20-%20Ubuntu%20and%20Windows.jpg" alt="Proxmox - Ubuntu and Windows" title="Proxmox - Ubuntu and Windows"></p>
 <h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
