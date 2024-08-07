@@ -6,7 +6,7 @@
   <link href="https://terrencemiao.github.io/blog/atom.xml" rel="self"/>
   
   <link href="https://terrencemiao.github.io/blog/"/>
-  <updated>2024-08-07T04:17:50.445Z</updated>
+  <updated>2024-08-07T12:31:35.902Z</updated>
   <id>https://terrencemiao.github.io/blog/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Samba setup and share in TrueNAS</title>
+    <link href="https://terrencemiao.github.io/blog/2024/08/07/Samba-setup-and-share-in-TrueNAS/"/>
+    <id>https://terrencemiao.github.io/blog/2024/08/07/Samba-setup-and-share-in-TrueNAS/</id>
+    <published>2024-08-07T12:19:00.000Z</published>
+    <updated>2024-08-07T12:31:35.902Z</updated>
+    
+    <content type="html"><![CDATA[<p><code>TrueNAS</code> installed and a few steps to setup to let users access shared <code>Samba</code> directories.</p><ul><li>Enable <code>SMB</code> Samba service in <code>TrueNAS</code></li></ul><p><img src="/blog/img/TrueNAS%20-%20Enable%20SMB%20service.png" alt="TrueNAS - Enable SMB service" title="TrueNAS - Enable SMB service"></p><ul><li>Create an user account with home directory and all access permisssions</li></ul><p><img src="/blog/img/TrueNAS%20-%20Create%20user.png" alt="TrueNAS - Create user" title="TrueNAS - Create user"></p><ul><li>Share <code>TrueNAS</code> pool created</li></ul><p><img src="/blog/img/TrueNAS%20-%20Sharing.png" alt="TrueNAS - Sharing" title="TrueNAS - Sharing"></p><p>Then can access shared directory from <code>TrunNAS</code> in both Windows and Mac:</p><p><img src="/blog/img/TrueNAS%20-%20Access.png" alt="TrueNAS - Access" title="TrueNAS - Access"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;code&gt;TrueNAS&lt;/code&gt; installed and a few steps to setup to let users access shared &lt;code&gt;Samba&lt;/code&gt; directories.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Enable &lt;c</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Increase, decrease and resize Proxmox disk volume</title>
@@ -409,26 +431,6 @@
       
     <summary type="html">&lt;p&gt;Step by step convert exported JSON data from AWS DynamoDB table into CSV, by using &lt;code&gt;jq&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Export all the data from AWS D</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Customise VS Code settings and keybindings with Geddski macros</title>
-    <link href="https://terrencemiao.github.io/blog/2021/07/30/Customise-VS-Code-settings-and-keybindings-with-Geddski-macros/"/>
-    <id>https://terrencemiao.github.io/blog/2021/07/30/Customise-VS-Code-settings-and-keybindings-with-Geddski-macros/</id>
-    <published>2021-07-30T10:28:19.000Z</published>
-    <updated>2021-07-30T10:52:12.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>In IntelliJ IDEA, you can comment a line, the cursor is moved to the next line automatically. This is a very easy way to comment several lines. However, in VS Code, default behaviour is that the cursor stays on the same line.</p><p>To copy the behavior of IntelliJ, go with:</p><ul><li><p>Install <code>macros</code> author by <strong>geddski</strong> in VS Code.</p></li><li><p>Edit <code>settings.json</code> and add:</p></li></ul><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&quot;macros&quot;: &#123;</span><br><span class="line">    &quot;commentDown&quot;: [</span><br><span class="line">        &quot;editor.action.commentLine&quot;,</span><br><span class="line">        &quot;cursorDown&quot;</span><br><span class="line">    ]</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure><ul><li>Edit <code>keybindings.json</code> and add:</li></ul><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  &#123;</span><br><span class="line">    &quot;key&quot;: &quot;cmd+/&quot;,</span><br><span class="line">    &quot;command&quot;: &quot;macros.commentDown&quot;,</span><br><span class="line">    &quot;when&quot;: &quot;editorTextFocus &amp;&amp; !editorReadonly&quot;</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;In IntelliJ IDEA, you can comment a line, the cursor is moved to the next line automatically. This is a very easy way to comment several </summary>
       
     
     

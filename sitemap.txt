@@ -1,3 +1,4 @@
+https://terrencemiao.github.io/blog/2024/08/07/Samba-setup-and-share-in-TrueNAS/
 https://terrencemiao.github.io/blog/2024/08/07/Increase-decrease-and-resize-Proxmox-disk-volume/
 https://terrencemiao.github.io/blog/2024/08/04/Proxmox-and-SR-IOV-support-for-Intel-GPU-and-Mellonax-network-adapter/
 https://terrencemiao.github.io/blog/2024/05/17/How-to-upgrade-Synology-NAS-network-from-1Gbps-to-2-5Gbps/

@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://terrencemiao.github.io/blog/2024/08/07/Samba-setup-and-share-in-TrueNAS/</loc>
+    
+    <lastmod>2024-08-07</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://terrencemiao.github.io/blog/2024/08/07/Increase-decrease-and-resize-Proxmox-disk-volume/</loc>
     
     <lastmod>2024-08-07</lastmod>
