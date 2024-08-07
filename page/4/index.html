@@ -97,6 +97,88 @@
 
       <div class="outer">
         <section id="main">
+  <article id="post-Creating-AWS-Lambda-with-AWS-SAM" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog/2020/02/14/Creating-AWS-Lambda-with-AWS-SAM/">Creating AWS Lambda with AWS SAM</a>
+    </h1>
+  
+
+
+      </header>
+    
+    <div class="article-meta">
+      
+      <span class="article-date">
+  <i class="fa fa-date"></i>
+  <time class="dt-published" datetime="2020-02-14T01:12:06.000Z" itemprop="datePublished">2020-02-14</time>
+</span>
+      
+      
+      
+<a href="/blog/2020/02/14/Creating-AWS-Lambda-with-AWS-SAM/#comments" class="article-comment-link">
+  
+  <i class="fa fa-commt"></i>
+  Guestbook
+</a>
+
+
+    </div>
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>This is a simple Lambda with REST API and SNS enabled. Firstly, have a look the Nodejs script:</p>
+<script src="https://gist.github.com/TerrenceMiao/7d60e5c79f9b93c362bb9a5ff40f67c3.js"></script>
+
+<p>AWS SAM template yaml file:</p>
+<script src="https://gist.github.com/TerrenceMiao/3512439f22c427e70db8cadc5cc83846.js"></script>
+
+<p>Generate AWS CloudFormation yaml file and package &#x2F; zip &#x2F; create an artefact (need to create AWS S3 bucket <code>hello-world-tub</code> in advance):</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">𝜆 sam package --profile personal --template-file template.yml --output-template-file cloudFormation.yml --s3-bucket hello-sam-tub</span><br><span class="line">Uploading to 7431f83ac979bfccc26980049807e595  1461 / 1461.0  (100.00%)</span><br><span class="line"></span><br><span class="line">Successfully packaged artifacts and wrote output template to file cloudFormation.yml.</span><br><span class="line">Execute the following command to deploy the packaged template</span><br><span class="line">sam deploy --template-file /Users/terrence/Projects/hello-sam/cloudFormation.yml --stack-name &lt;YOUR STACK NAME&gt;</span><br></pre></td></tr></table></figure>
+
+<p>Can also create artefact file with <code>zip</code> command, and upload zip file into AWS S3 bucket:</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">𝜆 zip hello-sam.zip README.md index.js template.yml</span><br></pre></td></tr></table></figure>
+
+<p>What AWS CloudFormation yaml file looks like:</p>
+<script src="https://gist.github.com/TerrenceMiao/a0ffabc5e118b78dfb21b5cee814e44c.js"></script>
+
+<p>Deploy application’s AWS CloudFormation stack with AWS SAM command:</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">𝜆 sam deploy --profile personal --template-file cloudFormation.yml --stack-name hello-sam --capabilities CAPABILITY_IAM</span><br><span class="line"></span><br><span class="line">	Deploying with following values</span><br><span class="line">	===============================</span><br><span class="line">	Stack name                 : hello-sam</span><br><span class="line">	Region                     : None</span><br><span class="line">	Confirm changeset          : False</span><br><span class="line">	Deployment s3 bucket       : None</span><br><span class="line">	Capabilities               : [&quot;CAPABILITY_IAM&quot;]</span><br><span class="line">	Parameter overrides        : &#123;&#125;</span><br><span class="line"></span><br><span class="line">Initiating deployment</span><br><span class="line">=====================</span><br><span class="line"></span><br><span class="line">Waiting for changeset to be created..</span><br><span class="line"></span><br><span class="line">CloudFormation stack changeset</span><br><span class="line">---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span><br><span class="line">Operation                                                                                     LogicalResourceId                                                                             ResourceType</span><br><span class="line">---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span><br><span class="line">+ Add                                                                                         HelloWorldFunctionHelloWorldApiPermissionProd                                                 AWS::Lambda::Permission</span><br><span class="line">+ Add                                                                                         HelloWorldFunctionRole                                                                        AWS::IAM::Role</span><br><span class="line">+ Add                                                                                         HelloWorldFunction                                                                            AWS::Lambda::Function</span><br><span class="line">+ Add                                                                                         HelloWorldTopic                                                                               AWS::SNS::Topic</span><br><span class="line">+ Add                                                                                         ServerlessRestApiDeployment79454cea13                                                         AWS::ApiGateway::Deployment</span><br><span class="line">+ Add                                                                                         ServerlessRestApiProdStage                                                                    AWS::ApiGateway::Stage</span><br><span class="line">+ Add                                                                                         ServerlessRestApi                                                                             AWS::ApiGateway::RestApi</span><br><span class="line">---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">Changeset created successfully. arn:aws:cloudformation:ap-southeast-2:123456789012:changeSet/samcli-deploy1581737165/48e53ff2-1b50-45d8-bbfd-97652f20d967</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2020-02-15 14:26:10 - Waiting for stack create/update to complete</span><br><span class="line"></span><br><span class="line">CloudFormation events from changeset</span><br><span class="line">-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span><br><span class="line">ResourceStatus                                                        ResourceType                                                          LogicalResourceId                                                     ResourceStatusReason</span><br><span class="line">-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span><br><span class="line">CREATE_IN_PROGRESS                                                    AWS::SNS::Topic                                                       HelloWorldTopic                                                       Resource creation Initiated</span><br><span class="line">CREATE_COMPLETE                                                       AWS::SNS::Topic                                                       HelloWorldTopic                                                       -</span><br><span class="line">CREATE_IN_PROGRESS                                                    AWS::IAM::Role                                                        HelloWorldFunctionRole                                                Resource creation Initiated</span><br><span class="line">CREATE_COMPLETE                                                       AWS::IAM::Role                                                        HelloWorldFunctionRole                                                -</span><br><span class="line">CREATE_IN_PROGRESS                                                    AWS::Lambda::Function                                                 HelloWorldFunction                                                    Resource creation Initiated</span><br><span class="line">CREATE_COMPLETE                                                       AWS::Lambda::Function                                                 HelloWorldFunction                                                    -</span><br><span class="line">CREATE_IN_PROGRESS                                                    AWS::ApiGateway::RestApi                                              ServerlessRestApi                                                     Resource creation Initiated</span><br><span class="line">CREATE_COMPLETE                                                       AWS::ApiGateway::RestApi                                              ServerlessRestApi                                                     -</span><br><span class="line">CREATE_IN_PROGRESS                                                    AWS::Lambda::Permission                                               HelloWorldFunctionHelloWorldApiPermissionProd                         Resource creation Initiated</span><br><span class="line">CREATE_IN_PROGRESS                                                    AWS::ApiGateway::Deployment                                           ServerlessRestApiDeployment79454cea13                                 Resource creation Initiated</span><br><span class="line">CREATE_COMPLETE                                                       AWS::ApiGateway::Deployment                                           ServerlessRestApiDeployment79454cea13                                 -</span><br><span class="line">CREATE_IN_PROGRESS                                                    AWS::ApiGateway::Stage                                                ServerlessRestApiProdStage                                            Resource creation Initiated</span><br><span class="line">CREATE_COMPLETE                                                       AWS::ApiGateway::Stage                                                ServerlessRestApiProdStage                                            -</span><br><span class="line">CREATE_COMPLETE                                                       AWS::Lambda::Permission                                               HelloWorldFunctionHelloWorldApiPermissionProd                         -</span><br><span class="line">CREATE_COMPLETE                                                       AWS::CloudFormation::Stack                                            hello-sam                                                             -</span><br><span class="line">-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">Successfully created/updated stack - hello-sam in None</span><br></pre></td></tr></table></figure>
+
+<p>NOTE: The <code>--capabilities CAPABILITY_IAM</code> option is necessary to authorise your stack to create IAM roles, which SAM applications do by default.</p>
+<p>After application deployed, user subscribes notification will receive email titled - <strong>AWS Notification - Subscription Confirmation</strong> After confirmation, user will receive an email every time API is invoked.</p>
+<p>Now log on AWS Console, have a look the resources this Lambda application used in CloudFormation, S3 Bucket, Lambda, IAM, SNS, CloudWatch, API Gateway.</p>
+<p>After this Lambda application successfully deployed into AWS, you will receive an email asking whether you want to subscribe the SNS topic. You can also unsubscribe the SNS topic. You can manually test Lambda function in AWS Console.</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li>Creating AWS Lambda Applications With SAM by <strong>Daniel Weibel</strong>, <em><a target="_blank" rel="noopener" href="https://itnext.io/creating-aws-lambda-applications-with-sam-dd13258c16dd">https://itnext.io/creating-aws-lambda-applications-with-sam-dd13258c16dd</a></em></li>
+</ul>
+
+        
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div class="article-tag-wrap">
+          
+
+          
+          
+
+
+        </div>
+      
+      
+      
+    </footer>
+  </div>
+</article>
+
+
   <article id="post-2019-Year-in-Review" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-inner">
     
@@ -934,89 +1016,6 @@
 </article>
 
 
-  <article id="post-Year-2018-in-the-Rear-View-Mirror" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/blog/2019/01/01/Year-2018-in-the-Rear-View-Mirror/">Year 2018 in the Rear View Mirror</a>
-    </h1>
-  
-
-
-      </header>
-    
-    <div class="article-meta">
-      
-      <span class="article-date">
-  <i class="fa fa-date"></i>
-  <time class="dt-published" datetime="2018-12-31T13:46:43.000Z" itemprop="datePublished">2019-01-01</time>
-</span>
-      
-      
-      
-<a href="/blog/2019/01/01/Year-2018-in-the-Rear-View-Mirror/#comments" class="article-comment-link">
-  
-  <i class="fa fa-commt"></i>
-  Guestbook
-</a>
-
-
-    </div>
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>2018 是一个让人敬畏恐惧“逢八必变”的年份。2018 是过去十年中最糟糕的一年，但也许是未来十年里最好的一年。</p>
-<p>2018 年过去了，我很怀念它。</p>
-<p><img src="/blog/img/Year%202018%20-%2001.jpg" alt="Year 2018 - 01" title="Year 2018 - 01"></p>
-<p>图 1：2018 年是在过去十年中唯一的各项投资都为负增长的一年。</p>
-<p><img src="/blog/img/Year%202018%20-%2002.jpg" alt="Year 2018 - 02" title="Year 2018 - 02"></p>
-<p>图2：美国股市进入下半年一直跌跌不休。但在 Boxing Day 却创造了单日涨幅的纪录。</p>
-<p><img src="/blog/img/Year%202018%20-%2003.jpg" alt="Year 2018 - 03" title="Year 2018 - 03"></p>
-<p>图 3：黎曼 Zeta 函数，用于计算素数分布。2018 年多人声称证明了百年未解决的黎曼猜想，但最终都是闹剧收场。黎曼猜想依然有如最为壮美，巍峨，险峻的奇山，矗立在人类的智力巅峰之上。</p>
-<p><img src="/blog/img/Year%202018%20-%2004.jpg" alt="Year 2018 - 04" title="Year 2018 - 04"></p>
-<p>图 4：The cost of living，city by city。生活有多贵？中国六城市入选全球生活成本最昂贵的 top 25 list.</p>
-<p><img src="/blog/img/Year%202018%20-%2005.jpg" alt="Year 2018 - 05" title="Year 2018 - 05"></p>
-<p>图 5：肯尼亚的 Eliud Kipchoge 在 2018 年柏林马拉松上创造的 2 小时 1 分 39 秒的马拉松世界纪录。人类仍然在试图突破 2 小时完成马拉松的运动极限。</p>
-<p><img src="/blog/img/Year%202018%20-%2006.jpg" alt="Year 2018 - 06" title="Year 2018 - 06"></p>
-<p>图 6：中国·上海</p>
-<p><img src="/blog/img/Year%202018%20-%2007.jpg" alt="Year 2018 - 07" title="Year 2018 - 07"></p>
-<p>图 7：Chinese President Xi Jinping,centre, arrives with Premier Li Keqiang, left, for the opening session of the Chinese People’s Political Consultative Conference in Beijing’s Great Hall of the People on March 3, 2018.</p>
-<p><img src="/blog/img/Year%202018%20-%2008.jpg" alt="Year 2018 - 08" title="Year 2018 - 08"></p>
-<p>图 8：Chinese President Xi Jinping Speech.</p>
-<p><img src="/blog/img/Year%202018%20-%2009.jpg" alt="Year 2018 - 09" title="Year 2018 - 09"></p>
-<p>图 9：在 2018 年 Pantone Colour of the year，Ultra Violet 紫外光后，潘通子给出 2019 年度流行色 Living Coral  珊瑚橙。</p>
-<p><img src="/blog/img/Year%202018%20-%2010.jpg" alt="Year 2018 - 10" title="Year 2018 - 10"></p>
-<p>图 10：2018 年度汉字，由 “穷” 和 “丑” 合体所组成，读音是 “qiou”（音同糗），即又穷又丑的意思。不少网友表示，这字应该念 “wo”（我）。</p>
-<p><img src="/blog/img/Year%202018%20-%2011.jpg" alt="Year 2018 - 11" title="Year 2018 - 11"></p>
-<p>图 11：电影《甲方乙方》的结局。杨立新走到雪地里，抬起头，和每个普通人都一样，要继续面对风雪。屋子里面是红灯笼，亮堂堂的。外面已经是冷色调了。外面就是现实的生活。</p>
-<p>“我很怀念它”，经历越多，这句话带来的感触就越厚重。</p>
-<p>时间，梦想和爱，都是如此。</p>
-
-        
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <div class="article-tag-wrap">
-          
-
-          
-          
-
-
-        </div>
-      
-      
-      
-    </footer>
-  </div>
-</article>
-
-
 
     <nav id="page-nav">
 
@@ -1035,6 +1034,10 @@
       <ul>
         
           <li>
+            <a href="/blog/2024/08/07/Increase-decrease-and-resize-Proxmox-disk-volume/">Increase, decrease and resize Proxmox disk volume</a>
+          </li>
+        
+          <li>
             <a href="/blog/2024/08/04/Proxmox-and-SR-IOV-support-for-Intel-GPU-and-Mellonax-network-adapter/">Proxmox and SR-IOV support for Intel GPU and Mellonax network adapter</a>
           </li>
         
@@ -1048,10 +1051,6 @@
         
           <li>
             <a href="/blog/2024/05/17/How-to-upgrade-Synology-NAS-network-from-1Gbps-to-2-5Gbps/">How to upgrade Synology NAS network from 1Gbps to 2.5Gbps</a>
-          </li>
-        
-          <li>
-            <a href="/blog/2024/05/03/How-to-team-network-link-aggregation-in-Windows-11/">How to team network (link aggregation) in Windows 11</a>
           </li>
         
       </ul>
@@ -1069,7 +1068,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title"><i class="fa fa-archive"></i> Archive</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2024/">2024</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2023/">2023</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/">2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/">2021</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/">2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/">2019</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/">2017</a><span class="archive-list-count">25</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2024/">2024</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2023/">2023</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/">2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/">2021</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/">2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/">2019</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/">2017</a><span class="archive-list-count">25</span></li></ul>
     </div>
   </div>
 
