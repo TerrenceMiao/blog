@@ -6,7 +6,7 @@
   <link href="https://terrencemiao.github.io/blog/atom.xml" rel="self"/>
   
   <link href="https://terrencemiao.github.io/blog/"/>
-  <updated>2024-08-07T12:31:35.902Z</updated>
+  <updated>2024-08-08T15:12:52.764Z</updated>
   <id>https://terrencemiao.github.io/blog/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Setup TrueNAS Network and Link Aggregation</title>
+    <link href="https://terrencemiao.github.io/blog/2024/08/09/Setup-TrueNAS-Network-and-Link-Aggregation/"/>
+    <id>https://terrencemiao.github.io/blog/2024/08/09/Setup-TrueNAS-Network-and-Link-Aggregation/</id>
+    <published>2024-08-08T15:03:40.000Z</published>
+    <updated>2024-08-08T15:12:52.764Z</updated>
+    
+    <content type="html"><![CDATA[<p>Two network adapters have been setup with DHCP allocated addresses:</p><ol><li><code>ens18</code> 192.168.0.246</li><li><code>ens19</code> 192.168.0.105</li></ol><ul><li>Create a Network Link Aggregation Interface</li></ul><p><img src="/blog/img/TrueNAS%20-%20Link%20Aggregation.png" alt="TrueNAS - Link Aggregation" title="TrueNAS - Link Aggregation"></p><p>After Link Aggregation Interface <code>bond1</code> created, original two network adapters <code>ens18</code> and <code>ens19</code> IP addresses are gone. <code>bond1</code> with the ONLY ONE network interface address for <code>TrueNAS</code>.</p><p><img src="/blog/img/TrueNAS%20-%20Network.png" alt="TrueNAS - Network" title="TrueNAS - Network"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Two network adapters have been setup with DHCP allocated addresses:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;ens18&lt;/code&gt; 192.168.0.246&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ens19&lt;/c</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Samba setup and share in TrueNAS</title>
@@ -410,27 +433,6 @@
       
     <summary type="html">&lt;p&gt;&lt;img src=&quot;/blog/img/Powerful%20Zsh.png&quot; alt=&quot;Powerful Zsh&quot; title=&quot;Powerful Zsh&quot;&gt;&lt;/p&gt;
 &lt;p&gt;First you have &lt;code&gt;Zsh&lt;/code&gt;, next install &lt;co</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Convert JSON to CSV by using jq</title>
-    <link href="https://terrencemiao.github.io/blog/2022/05/02/Convert-JSON-to-CSV-by-using-jq/"/>
-    <id>https://terrencemiao.github.io/blog/2022/05/02/Convert-JSON-to-CSV-by-using-jq/</id>
-    <published>2022-05-02T06:20:52.000Z</published>
-    <updated>2022-05-02T06:50:23.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>Step by step convert exported JSON data from AWS DynamoDB table into CSV, by using <code>jq</code>.</p><p>Export all the data from AWS DynamoDB table at first:</p><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">𝜆 aws --profile production dynamodb scan --table-name tiles &gt; tiles.json</span><br></pre></td></tr></table></figure><p>The exported JSON data looks like:</p><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;Items&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;last_modified_date&quot;: &#123;</span><br><span class="line">                &quot;S&quot;: &quot;2021-12-09T01:15:25.335516&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;valid_from&quot;: &#123;</span><br><span class="line">                &quot;S&quot;: &quot;2021-12-09T01:00&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;created_date&quot;: &#123;</span><br><span class="line">                &quot;S&quot;: &quot;2021-12-09T01:15:25.334965&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;status&quot;: &#123;</span><br><span class="line">                &quot;S&quot;: &quot;PUBLISHED&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;valid_to&quot;: &#123;</span><br><span class="line">                &quot;S&quot;: &quot;2022-01-31T23:00&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;id&quot;: &#123;</span><br><span class="line">                &quot;S&quot;: &quot;b2c60f43-a81c-4363-a68a-dfe7682182d7&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;description&quot;: &#123;</span><br><span class="line">                &quot;S&quot;: &quot;Hit the road Jack!&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;title&quot;: &#123;</span><br><span class="line">                &quot;S&quot;: &quot;Novated Lease&quot;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">...</span><br><span class="line">    ],</span><br><span class="line">    &quot;Count&quot;: 223,</span><br><span class="line">    &quot;ScannedCount&quot;: 223,</span><br><span class="line">    &quot;ConsumedCapacity&quot;: null</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>Extract &#x2F; transform JSON data:</p><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">𝜆 cat tiles.json | jq &#x27;[.Items[] | &#123; id: .id.S, title: .title.S, description: .description.S, status: .status.S, valid_from: .valid_from.S, valid_to: .valid_to.S &#125;]&#x27; &gt; tiles-extracted.json</span><br><span class="line">[</span><br><span class="line">  &#123;</span><br><span class="line">    &quot;id&quot;: &quot;b2c60f43-a81c-4363-a68a-dfe7682182d7&quot;,</span><br><span class="line">    &quot;title&quot;: &quot;Novated Lease&quot;,</span><br><span class="line">    &quot;description&quot;: &quot;Hit the road Jack!&quot;,</span><br><span class="line">    &quot;status&quot;: &quot;PUBLISHED&quot;,</span><br><span class="line">    &quot;valid_from&quot;: &quot;2021-12-09T01:00&quot;,</span><br><span class="line">    &quot;valid_to&quot;: &quot;2022-01-31T23:00&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">...</span><br><span class="line">]</span><br></pre></td></tr></table></figure><p>Convert JSON data into CSV:</p><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">𝜆 cat tiles-extracted.json | jq -r &#x27;(.[0] | keys_unsorted) as $keys | $keys, map([.[ $keys[] ]])[] | @csv&#x27; &gt; tiles.csv</span><br></pre></td></tr></table></figure><h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul><li>How to convert arbitrary simple JSON to CSV using jq, <a href="https://stackoverflow.com/questions/32960857/how-to-convert-arbitrary-simple-json-to-csv-using-jq">https://stackoverflow.com/questions/32960857/how-to-convert-arbitrary-simple-json-to-csv-using-jq</a></li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;Step by step convert exported JSON data from AWS DynamoDB table into CSV, by using &lt;code&gt;jq&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;Export all the data from AWS D</summary>
       
     
     

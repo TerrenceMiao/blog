@@ -97,6 +97,74 @@
 
       <div class="outer">
         <section id="main">
+  <article id="post-Setup-TrueNAS-Network-and-Link-Aggregation" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog/2024/08/09/Setup-TrueNAS-Network-and-Link-Aggregation/">Setup TrueNAS Network and Link Aggregation</a>
+    </h1>
+  
+
+
+      </header>
+    
+    <div class="article-meta">
+      
+      <span class="article-date">
+  <i class="fa fa-date"></i>
+  <time class="dt-published" datetime="2024-08-08T15:03:40.000Z" itemprop="datePublished">2024-08-09</time>
+</span>
+      
+      
+      
+<a href="/blog/2024/08/09/Setup-TrueNAS-Network-and-Link-Aggregation/#comments" class="article-comment-link">
+  
+  <i class="fa fa-commt"></i>
+  Guestbook
+</a>
+
+
+    </div>
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>Two network adapters have been setup with DHCP allocated addresses:</p>
+<ol>
+<li><code>ens18</code> 192.168.0.246</li>
+<li><code>ens19</code> 192.168.0.105</li>
+</ol>
+<ul>
+<li>Create a Network Link Aggregation Interface</li>
+</ul>
+<p><img src="/blog/img/TrueNAS%20-%20Link%20Aggregation.png" alt="TrueNAS - Link Aggregation" title="TrueNAS - Link Aggregation"></p>
+<p>After Link Aggregation Interface <code>bond1</code> created, original two network adapters <code>ens18</code> and <code>ens19</code> IP addresses are gone. <code>bond1</code> with the ONLY ONE network interface address for <code>TrueNAS</code>.</p>
+<p><img src="/blog/img/TrueNAS%20-%20Network.png" alt="TrueNAS - Network" title="TrueNAS - Network"></p>
+
+        
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div class="article-tag-wrap">
+          
+
+          
+          
+
+
+        </div>
+      
+      
+      
+    </footer>
+  </div>
+</article>
+
+
   <article id="post-Samba-setup-and-share-in-TrueNAS" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-inner">
     
@@ -953,94 +1021,6 @@
 </article>
 
 
-  <article id="post-OpenSSH-Server-for-Windows" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/blog/2023/11/24/OpenSSH-Server-for-Windows/">OpenSSH Server for Windows</a>
-    </h1>
-  
-
-
-      </header>
-    
-    <div class="article-meta">
-      
-      <span class="article-date">
-  <i class="fa fa-date"></i>
-  <time class="dt-published" datetime="2023-11-24T04:59:14.000Z" itemprop="datePublished">2023-11-24</time>
-</span>
-      
-      
-      
-<a href="/blog/2023/11/24/OpenSSH-Server-for-Windows/#comments" class="article-comment-link">
-  
-  <i class="fa fa-commt"></i>
-  Guestbook
-</a>
-
-
-    </div>
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>Want to run <code>OpenSSH</code> Server on Windows e.g. Windows 10. From Windows 10, it natively supports <code>OpenSSH</code>.</p>
-<p><strong>NOTE:</strong> The <em>beta</em> and <em>nightly build</em> of <code>OpenSSH</code> Server for Windows have a lot of runtime issues.</p>
-<p>Check <code>OpenSSH</code> installation:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">PS C:\ProgramData\ssh&gt; Get-WindowsCapability -Online | Where-Object Name -like &#x27;OpenSSH*&#x27;</span><br><span class="line"></span><br><span class="line">Name  : OpenSSH.Client~~~~0.0.1.0</span><br><span class="line">State : Installed</span><br><span class="line"></span><br><span class="line">Name  : OpenSSH.Server~~~~0.0.1.0</span><br><span class="line">State : NotPresent</span><br></pre></td></tr></table></figure>
-
-<p>Install the missing <code>OpenSSH</code> Server:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">PS C:\ProgramData\ssh&gt; Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0</span><br><span class="line"><span class="meta prompt_">&gt;</span><span class="language-bash">&gt;</span></span><br><span class="line"></span><br><span class="line">Path          :</span><br><span class="line">Online        : True</span><br><span class="line">RestartNeeded : False</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">PS C:\ProgramData\ssh&gt; Get-WindowsCapability -Online | Where-Object Name -like &#x27;OpenSSH*&#x27;</span><br><span class="line"></span><br><span class="line">Name  : OpenSSH.Client~~~~0.0.1.0</span><br><span class="line">State : Installed</span><br><span class="line"></span><br><span class="line">Name  : OpenSSH.Server~~~~0.0.1.0</span><br><span class="line">State : Installed</span><br></pre></td></tr></table></figure>
-
-<p>Check <code>OpenSSH</code> for Windows version, check Windows Operating System version:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">PS C:\ProgramData\ssh&gt; ((Get-Item (Get-Command sshd).Source).VersionInfo.FileVersion)</span><br><span class="line">8.1.0.1</span><br><span class="line"></span><br><span class="line">PS C:\ProgramData\ssh&gt; ((Get-ItemProperty &quot;HKLM:\SOFTWARE\Microsoft\Windows nt\CurrentVersion\&quot; -Name ProductName).ProductName)</span><br><span class="line">Windows 10 Enterprise</span><br></pre></td></tr></table></figure>
-
-<p>Check Windows Domain information:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">PS C:\ProgramData\ssh&gt; dsregcmd /status</span><br><span class="line"></span><br><span class="line">+----------------------------------------------------------------------+</span><br><span class="line">| Device State                                                         |</span><br><span class="line">+----------------------------------------------------------------------+</span><br><span class="line"></span><br><span class="line">             AzureAdJoined : YES</span><br><span class="line">          EnterpriseJoined : NO</span><br><span class="line">              DomainJoined : YES</span><br><span class="line">                DomainName : CORP</span><br><span class="line">               Device Name : WINDOWS.corp.paradise.local</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-
-<p>Check <code>OpenSSH</code> Server for Windows run as a service:</p>
-<p><img src="/blog/img/OpenSSH%20SSH%20Server%20service.png" alt="OpenSSH SSH Server service" title="OpenSSH SSH Server service"></p>
-<p>Make sure OpenSSH SSH Server firewall inbound rule allows <strong>ALL</strong> profiles:</p>
-<p><img src="/blog/img/OpenSSH%20SSH%20Server%20firewall%20inbound%20rule.png" alt="OpenSSH SSH Server firewall inbound rule" title="OpenSSH SSH Server firewall inbound rule"></p>
-<p>The default <code>C:\ProgramData\ssh\sshd_config</code> file doesn’t work for Windows Domain users authentication, and does’t support <code>.ssh\authorized_keys</code> public key authentication. Error <strong>lookup_principal_name: User principal name lokup failed for user ‘corp\darling’</strong> in <code>OpenSSH</code> Server <code>C:\ProgramData\ssh\logs\ssd</code> log file. A work around solution is to comment out lines:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#Match Group administrators</span><br><span class="line">#       AuthorizedKeysFile __PROGRAMDATA__/ssh/administrators_authorized_keys</span><br></pre></td></tr></table></figure>
-
-<p>A complete <code>sshd_config</code> example file:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><span class="line"># This is the sshd server system-wide configuration file.  See</span><br><span class="line"># sshd_config(5) for more information.</span><br><span class="line"></span><br><span class="line"># The strategy used for options in the default sshd_config shipped with</span><br><span class="line"># OpenSSH is to specify options with their default value where</span><br><span class="line"># possible, but leave them commented.  Uncommented options override the</span><br><span class="line"># default value.</span><br><span class="line"></span><br><span class="line">#Port 22</span><br><span class="line">#AddressFamily any</span><br><span class="line">#ListenAddress 0.0.0.0</span><br><span class="line">#ListenAddress ::</span><br><span class="line"></span><br><span class="line">#HostKey __PROGRAMDATA__/ssh/ssh_host_rsa_key</span><br><span class="line">#HostKey __PROGRAMDATA__/ssh/ssh_host_dsa_key</span><br><span class="line">#HostKey __PROGRAMDATA__/ssh/ssh_host_ecdsa_key</span><br><span class="line">#HostKey __PROGRAMDATA__/ssh/ssh_host_ed25519_key</span><br><span class="line"></span><br><span class="line"># Ciphers and keying</span><br><span class="line">#RekeyLimit default none</span><br><span class="line"></span><br><span class="line"># Logging</span><br><span class="line">SyslogFacility LOCAL0</span><br><span class="line">LogLevel DEBUG3</span><br><span class="line"></span><br><span class="line"># Authentication:</span><br><span class="line"></span><br><span class="line">#LoginGraceTime 2m</span><br><span class="line">#PermitRootLogin prohibit-password</span><br><span class="line">#StrictModes yes</span><br><span class="line">#MaxAuthTries 6</span><br><span class="line">#MaxSessions 10</span><br><span class="line"></span><br><span class="line">#PubkeyAuthentication yes</span><br><span class="line"></span><br><span class="line"># The default is to check both .ssh/authorized_keys and .ssh/authorized_keys2</span><br><span class="line"># but this is overridden so installations will only check .ssh/authorized_keys</span><br><span class="line">AuthorizedKeysFile	.ssh/authorized_keys</span><br><span class="line"></span><br><span class="line">#AuthorizedPrincipalsFile none</span><br><span class="line"></span><br><span class="line"># For this to work you will also need host keys in %programData%/ssh/ssh_known_hosts</span><br><span class="line">#HostbasedAuthentication no</span><br><span class="line"># Change to yes if you don&#x27;t trust ~/.ssh/known_hosts for</span><br><span class="line"># HostbasedAuthentication</span><br><span class="line">#IgnoreUserKnownHosts no</span><br><span class="line"># Don&#x27;t read the user&#x27;s ~/.rhosts and ~/.shosts files</span><br><span class="line">#IgnoreRhosts yes</span><br><span class="line"></span><br><span class="line"># To disable tunneled clear text passwords, change to no here!</span><br><span class="line">#PasswordAuthentication yes</span><br><span class="line">#PermitEmptyPasswords no</span><br><span class="line"></span><br><span class="line"># GSSAPI options</span><br><span class="line">#GSSAPIAuthentication no</span><br><span class="line"></span><br><span class="line">#AllowAgentForwarding yes</span><br><span class="line">#AllowTcpForwarding yes</span><br><span class="line">#GatewayPorts no</span><br><span class="line">#PermitTTY yes</span><br><span class="line">#PrintMotd yes</span><br><span class="line">#PrintLastLog yes</span><br><span class="line">#TCPKeepAlive yes</span><br><span class="line">#UseLogin no</span><br><span class="line">#PermitUserEnvironment no</span><br><span class="line">#ClientAliveInterval 0</span><br><span class="line">#ClientAliveCountMax 3</span><br><span class="line">#UseDNS no</span><br><span class="line">#PidFile /var/run/sshd.pid</span><br><span class="line">#MaxStartups 10:30:100</span><br><span class="line">#PermitTunnel no</span><br><span class="line">#ChrootDirectory none</span><br><span class="line">#VersionAddendum none</span><br><span class="line"></span><br><span class="line"># no default banner path</span><br><span class="line">#Banner none</span><br><span class="line"></span><br><span class="line"># override default of no subsystems</span><br><span class="line">Subsystem	sftp	sftp-server.exe</span><br><span class="line"></span><br><span class="line"># Example of overriding settings on a per-user basis</span><br><span class="line">#Match User anoncvs</span><br><span class="line">#	AllowTcpForwarding no</span><br><span class="line">#	PermitTTY no</span><br><span class="line">#	ForceCommand cvs server</span><br><span class="line"></span><br><span class="line">#Match Group administrators</span><br><span class="line">#       AuthorizedKeysFile __PROGRAMDATA__/ssh/administrators_authorized_keys</span><br></pre></td></tr></table></figure>
-
-<p>Now run ssh client and log on SSH Server:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sshpass -f ~/.ssh/windows.passwd ssh -l darling windows.local</span></span><br><span class="line">Microsoft Windows [Version 10.0.19044.2965]</span><br><span class="line">(c) Microsoft Corporation. All rights reserved.</span><br><span class="line"></span><br><span class="line">corp\darling@WINDOWS C:\Users\darling&gt;</span><br></pre></td></tr></table></figure>
-
-<h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><ul>
-<li>The Ultimate Guide to Installing OpenSSH on Windows, <em><a target="_blank" rel="noopener" href="https://petri.com/the-ultimate-guide-to-installing-openssh-on-windows">https://petri.com/the-ultimate-guide-to-installing-openssh-on-windows</a></em></li>
-<li>Installing SFTP&#x2F;SSH Server on Windows using OpenSSH, <em><a target="_blank" rel="noopener" href="https://winscp.net/eng/docs/guide_windows_openssh_server">https://winscp.net/eng/docs/guide_windows_openssh_server</a></em></li>
-</ul>
-
-        
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <div class="article-tag-wrap">
-          
-
-          
-          
-
-
-        </div>
-      
-      
-      
-    </footer>
-  </div>
-</article>
-
-
 
     <nav id="page-nav">
 
@@ -1059,6 +1039,10 @@
       <ul>
         
           <li>
+            <a href="/blog/2024/08/09/Setup-TrueNAS-Network-and-Link-Aggregation/">Setup TrueNAS Network and Link Aggregation</a>
+          </li>
+        
+          <li>
             <a href="/blog/2024/08/07/Samba-setup-and-share-in-TrueNAS/">Samba setup and share in TrueNAS</a>
           </li>
         
@@ -1072,10 +1056,6 @@
         
           <li>
             <a href="/blog/2024/05/20/The-solution-making-old-Intel-10Gbps-network-adapter-work-in-Windows-11/">The solution making old Intel 10Gbps network adapter work in Windows 11</a>
-          </li>
-        
-          <li>
-            <a href="/blog/2024/05/17/How-to-enable-SMB-Multichannel-in-Windows-11/">How to enable SMB Multichannel in Windows 11</a>
           </li>
         
       </ul>
@@ -1093,7 +1073,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title"><i class="fa fa-archive"></i> Archive</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2024/">2024</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2023/">2023</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/">2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/">2021</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/">2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/">2019</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/">2017</a><span class="archive-list-count">25</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2024/">2024</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2023/">2023</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/">2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/">2021</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/">2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/">2019</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/">2017</a><span class="archive-list-count">25</span></li></ul>
     </div>
   </div>
 
