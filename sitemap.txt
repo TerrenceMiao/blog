@@ -1,3 +1,4 @@
+https://terrencemiao.github.io/blog/2024/08/11/Setup-network-bond-in-Synology-NAS/
 https://terrencemiao.github.io/blog/2024/08/09/Setup-TrueNAS-Network-and-Link-Aggregation/
 https://terrencemiao.github.io/blog/2024/08/07/Samba-setup-and-share-in-TrueNAS/
 https://terrencemiao.github.io/blog/2024/08/07/Increase-decrease-and-resize-Proxmox-disk-volume/

@@ -6,7 +6,7 @@
   <link href="https://terrencemiao.github.io/blog/atom.xml" rel="self"/>
   
   <link href="https://terrencemiao.github.io/blog/"/>
-  <updated>2024-08-08T15:12:52.764Z</updated>
+  <updated>2024-08-11T06:08:33.048Z</updated>
   <id>https://terrencemiao.github.io/blog/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Setup network bond in Synology NAS</title>
+    <link href="https://terrencemiao.github.io/blog/2024/08/11/Setup-network-bond-in-Synology-NAS/"/>
+    <id>https://terrencemiao.github.io/blog/2024/08/11/Setup-network-bond-in-Synology-NAS/</id>
+    <published>2024-08-11T05:45:25.000Z</published>
+    <updated>2024-08-11T06:08:33.048Z</updated>
+    
+    <content type="html"><![CDATA[<p>Synology NAS DS920+ with two build-in 1Gbps ethernet adapters, and two 2.5Gbps USB 3.0 Ethernet Adapters. Now setup network bond &#x2F; link aggregation on them.</p><ul><li>Enable Network Link Aggregation Mode</li></ul><p><img src="/blog/img/Synology%20-%20Network%20Link%20Aggregation.png" alt="Synology - Network Link Aggregation Mode" title="Synology - Network Link Aggregation Mode"></p><ul><li>Pickup network devices into bond</li></ul><p><img src="/blog/img/Synology%20-%20Physical%20devices.png" alt="Synology - Physical devices" title="Synology - Physical devices"></p><ul><li>Setup network</li></ul><p><img src="/blog/img/Synology%20-%20Physical%20devices%20network%20setup.png" alt="Synology - Physical devices network setup" title="Synology - Physical devices network setup"></p><ul><li>Accept network interface change after network bond</li></ul><p><img src="/blog/img/Synology%20-%20Bond%20warning%20message.png" alt="Synology - Bond warning message" title="Synology - Bond warning message"></p><ul><li>Network bonded</li></ul><p><img src="/blog/img/Synology%20-%20Network%20bonded.png" alt="Synology - Network bonded" title="Synology - Network bonded"></p><ul><li>Network bond service order</li></ul><p><img src="/blog/img/Synology%20-%20Network%20bonded.png" alt="Synology - Network bond service order" title="Synology - Network bond service order"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Synology NAS DS920+ with two build-in 1Gbps ethernet adapters, and two 2.5Gbps USB 3.0 Ethernet Adapters. Now setup network bond &amp;#x2F; l</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Setup TrueNAS Network and Link Aggregation</title>
@@ -412,27 +432,6 @@
 &lt;li&gt;GitHub Actions&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;img src=&quot;/blog/img/GitHub%20Actions.png&quot; alt=&quot;GitHub Actions&quot; t</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Powerful Zsh</title>
-    <link href="https://terrencemiao.github.io/blog/2022/08/02/Powerful-Zsh/"/>
-    <id>https://terrencemiao.github.io/blog/2022/08/02/Powerful-Zsh/</id>
-    <published>2022-08-02T09:42:06.000Z</published>
-    <updated>2024-05-24T02:53:59.932Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="/blog/img/Powerful%20Zsh.png" alt="Powerful Zsh" title="Powerful Zsh"></p><p>First you have <code>Zsh</code>, next install <code>Oh My Zsh</code> <a href="https://ohmyz.sh/">https://ohmyz.sh/</a></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&quot;</span><br></pre></td></tr></table></figure><p>Add <code>Powerlevel10k</code> <em><a href="https://github.com/romkatv/powerlevel10k">https://github.com/romkatv/powerlevel10k</a></em> and configure it</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $&#123;ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom&#125;/themes/powerlevel10k</span><br></pre></td></tr></table></figure><p>Set <code>ZSH_THEME</code> to <strong>powerlevel10k</strong> in <code>.zshrc</code></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ZSH_THEME=&quot;powerlevel10k/powerlevel10k&quot;</span><br></pre></td></tr></table></figure><p>Then run <code>Powerlevel10k</code> configure:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p10k configure</span><br></pre></td></tr></table></figure><p>Add <code>zsh-autosuggestions</code> <em><a href="https://github.com/zsh-users/zsh-autosuggestions">https://github.com/zsh-users/zsh-autosuggestions</a></em></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/zsh-users/zsh-autosuggestions $&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;/plugins/zsh-autosuggestions</span><br></pre></td></tr></table></figure><p>Add <code>zsh-syntax-highlighting</code> <em><a href="https://github.com/zsh-users/zsh-syntax-highlighting">https://github.com/zsh-users/zsh-syntax-highlighting</a></em></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;/plugins/zsh-syntax-highlighting</span><br></pre></td></tr></table></figure><p>and enable them in <code>.zshrc</code>:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">plugins=(</span><br><span class="line">  zsh-autosuggestions</span><br><span class="line">  zsh-syntax-highlighting</span><br><span class="line">)</span><br><span class="line">...</span><br></pre></td></tr></table></figure><p>Install <code>Fig</code> (<strong>deprecated</strong>) <em><del><a href="https://fig.io/">https://fig.io/</a></del></em>, an IDE-style autocomplete but for terminal, and configure in <code>.zshrc</code></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"># Fig pre block. Keep at the top of this file.</span><br><span class="line">[[ -f &quot;$HOME/.fig/shell/zshrc.pre.zsh&quot; ]] &amp;&amp; . &quot;$HOME/.fig/shell/zshrc.pre.zsh&quot;</span><br><span class="line">...</span><br><span class="line"># Fig post block. Keep at the bottom of this file.</span><br><span class="line">[[ -f &quot;$HOME/.fig/shell/zshrc.post.zsh&quot; ]] &amp;&amp; . &quot;$HOME/.fig/shell/zshrc.post.zsh&quot;</span><br><span class="line">...</span><br></pre></td></tr></table></figure><h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul><li>How To Make Your Boring Mac Terminal So Much Better, <em><a href="https://www.youtube.com/watch?v=CF1tMjvHDRA">https://www.youtube.com/watch?v=CF1tMjvHDRA</a></em></li><li>How To Setup Your Mac Terminal, <em><a href="https://www.josean.com/posts/terminal-setup">https://www.josean.com/posts/terminal-setup</a></em></li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;/blog/img/Powerful%20Zsh.png&quot; alt=&quot;Powerful Zsh&quot; title=&quot;Powerful Zsh&quot;&gt;&lt;/p&gt;
-&lt;p&gt;First you have &lt;code&gt;Zsh&lt;/code&gt;, next install &lt;co</summary>
       
     
     
