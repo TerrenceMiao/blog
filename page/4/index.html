@@ -97,6 +97,67 @@
 
       <div class="outer">
         <section id="main">
+  <article id="post-Why-Repairable-Is-Important" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog/2020/11/30/Why-Repairable-Is-Important/">Why Repairable Is Important</a>
+    </h1>
+  
+
+
+      </header>
+    
+    <div class="article-meta">
+      
+      <span class="article-date">
+  <i class="fa fa-date"></i>
+  <time class="dt-published" datetime="2020-11-30T00:38:56.000Z" itemprop="datePublished">2020-11-30</time>
+</span>
+      
+      
+      
+<a href="/blog/2020/11/30/Why-Repairable-Is-Important/#comments" class="article-comment-link">
+  
+  <i class="fa fa-commt"></i>
+  Guestbook
+</a>
+
+
+    </div>
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>Fix our destructive and throwaway economy, save our planet by making products both repairable, durable, environmentally friendly, and by defending our Right to Repair.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/qSmFI6J7eRo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<p>This is my second video created and composed by Apple Final Cut Pro X - Why Repairable Is Important <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=qSmFI6J7eRo">https://www.youtube.com/watch?v=qSmFI6J7eRo</a></p>
+
+        
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div class="article-tag-wrap">
+          
+
+          
+          
+
+
+        </div>
+      
+      
+      
+    </footer>
+  </div>
+</article>
+
+
   <article id="post-Bring-back-MagSafe" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-inner">
     
@@ -1086,170 +1147,10 @@
 </article>
 
 
-  <article id="post-Run-ssh-and-scp-with-AWS-Session-Manager" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/blog/2019/11/22/Run-ssh-and-scp-with-AWS-Session-Manager/">Run ssh and scp with AWS Session Manager</a>
-    </h1>
-  
-
-
-      </header>
-    
-    <div class="article-meta">
-      
-      <span class="article-date">
-  <i class="fa fa-date"></i>
-  <time class="dt-published" datetime="2019-11-22T01:09:05.000Z" itemprop="datePublished">2019-11-22</time>
-</span>
-      
-      
-      
-<a href="/blog/2019/11/22/Run-ssh-and-scp-with-AWS-Session-Manager/#comments" class="article-comment-link">
-  
-  <i class="fa fa-commt"></i>
-  Guestbook
-</a>
-
-
-    </div>
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="AWS-Session-Manager"><a href="#AWS-Session-Manager" class="headerlink" title="AWS Session Manager"></a>AWS Session Manager</h2><p>New AWS Systems Manager, including Session Manager is another step enhance security on Cloud. Here are step by step how to set up.</p>
-<p>NOTE: There is NO need to require to have a Public IP on EC2 instance, and have network inbound rule setup with opened SSH port 22, and VPN connection.</p>
-<ul>
-<li>You have <code>ec2-user</code> account on AWS EC2 instance. On localhost:</li>
-</ul>
-<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">𝜆 cat .aws/config</span><br><span class="line">[default]</span><br><span class="line">output = json</span><br><span class="line">region = ap-southeast-2</span><br><span class="line"></span><br><span class="line">[session]</span><br><span class="line">output = json</span><br><span class="line">region = ap-southeast-2</span><br><span class="line"></span><br><span class="line">𝜆 cat .aws/credentials</span><br><span class="line">[default]</span><br><span class="line">aws_access_key_id = ASIANPOWERHOUSEBLAHBLAH</span><br><span class="line">aws_secret_access_key = aGLMountainLionPIEXL0UK0TunalNB61Kt+GuavaVm4tAD</span><br><span class="line"></span><br><span class="line">[session]</span><br><span class="line">aws_access_key_id = ASIANPOWERHOUSEBLAHBLAH</span><br><span class="line">aws_secret_access_key = aGLMountainLionPIEXL0UK0TunalNB61Kt+GuavaVm4tAD</span><br><span class="line">aws_session_token = FwoGZXIvYXdzEB8aDDuzeYcE5QDFo0 ... z2h/Px7nUMEWaZOZZw==</span><br><span class="line">aws_expiration=2019-11-22T20:33:18.000Z</span><br><span class="line"></span><br><span class="line">𝜆 ssh -i .ssh/aws-key.pem -l ec2-user ec2-3-121-69-96.ap-southeast-2.compute.amazonaws.com</span><br><span class="line">Last login: Fri Nov 22 01:17:33 2019 from 155.144.114.41</span><br><span class="line"></span><br><span class="line">       __|  __|_  )</span><br><span class="line">       _|  (     /   Amazon Linux 2 AMI</span><br><span class="line">      ___|\___|___|</span><br><span class="line"></span><br><span class="line">https://aws.amazon.com/amazon-linux-2/</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>NOTE: Need <strong>ROOT</strong> access key pair <code>ASIANPOWERHOUSEBLAHBLAH</code> above setup in <code>session</code> profile to run <code>aws sts</code> command.</p>
-<p>NOTE: <strong>IAM role</strong> for EC2 instance need to have <code>AmazonSSMManagedInstanceCore</code> policy. So create a customised role <code>CustomAmazonSSMManagedInstanceCore</code> in AWS IAM including <code>AmazonSSMManagedInstanceCore</code> policy, and bind this IAM role with EC2 instance, also with security group and key pair.</p>
-<p><img src="/blog/img/AWS%20Session%20Manager%20-%20Managed%20instances.png" alt="AWS Session Manager - Managed instances" title="AWS Session Manager - Managed instances"></p>
-<ul>
-<li>Install all the dependencies<ol>
-<li>latest Systems Manager Agent on your EC2 instance; enabled “<strong>Agent auto update</strong>” under Managed Instances in AWS Systems Manager</li>
-<li>latest AWS CLI on localhost</li>
-<li>latest Session Manager Plugin on localhost, <em><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html">https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html</a></em></li>
-</ol>
-</li>
-</ul>
-<p><img src="/blog/img/AWS%20Session%20Manager%20-%20Agent%20auto%20update.png" alt="AWS Session Manager - Agent auto update" title="AWS Session Manager - Agent auto update"></p>
-<ul>
-<li>Add customised RunAs users via “Run Command”</li>
-</ul>
-<p>To elevated <code>SSM_pwr_user</code>, a customised user to allow login EC2 instance, with command:</p>
-<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">𝜆 useradd -g wheel SSM_pwr_user</span><br><span class="line">𝜆 echo &quot;SSM_pwr_user ALL=(ALL) NOPASSWD:ALL&quot; &gt; /etc/sudoers.d/SSM_pwr_user</span><br></pre></td></tr></table></figure>
-
-<p><img src="/blog/img/AWS%20System%20Manager%20-%20Run%20a%20command.png" alt="AWS System Manager - Run a command" title="AWS System Manager - Run a command"></p>
-<p>Updated above solution and add a <strong>DIFFERENT</strong> user <code>ssm-user</code>, if SSM throws error “<strong>Unable to start shell: failed to start pty since RunAs user ssm-user does not exist</strong>“:</p>
-<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">𝜆 useradd -g wheel ssm-user</span><br><span class="line">𝜆 echo &quot;ssm-user ALL=(ALL) NOPASSWD:ALL&quot; &gt; /etc/sudoers.d/ssm-agent-users</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>Update SSH config file on localhost to proxy commands through the AWS Session Manager for any EC2 instance id</li>
-</ul>
-<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">𝜆 cat .ssh/config</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">SSH over Session Manager</span></span><br><span class="line">host i-* mi-*</span><br><span class="line">    ProxyCommand sh -c &quot;aws ssm start-session --target %h --document-name AWS-StartSSHSession --parameters &#x27;portNumber=%p&#x27;&quot;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>Generate session token</li>
-</ul>
-<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">𝜆 date</span><br><span class="line">Thu 21 Nov 2019 04:33:03 UTC</span><br><span class="line"></span><br><span class="line">𝜆 aws sts get-session-token --duration-seconds 129600 --profile session</span><br><span class="line">&#123;</span><br><span class="line">    &quot;Credentials&quot;: &#123;</span><br><span class="line">        &quot;SecretAccessKey&quot;: &quot;I7brpY8XWDWYwwyUdp5PLq7cxpskuMSHyBtPjPNE&quot;,</span><br><span class="line">        &quot;SessionToken&quot;: &quot;FwoGZXIvYXdzENL//////////wEaDKKdWTVmCrwKRiMbOSKCAbkQr ... YiNntciJszsZVRypXz1HTfa3gbcKoNXHon8=&quot;,</span><br><span class="line">        &quot;Expiration&quot;: &quot;2019-11-22T16:33:12Z&quot;,</span><br><span class="line">        &quot;AccessKeyId&quot;: &quot;ASIASZPQ3TMDVJVIGM7H&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>If AWS user <code>ec2-user</code> has MFA enabled, generate session token like this:</p>
-<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">𝜆 aws sts get-session-token --duration-seconds 129600 --profile session \</span><br><span class="line">    --serial-number arn:aws:iam::910218657901234:mfa/root-account-mfa-device --token-code 251556</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>Add session token in AWS credentials file on localhost, and test</li>
-</ul>
-<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">𝜆 cat .aws/credentials</span><br><span class="line">[default]</span><br><span class="line">aws_access_key_id = ASIANPOWERHOUSEBLAHBLAH</span><br><span class="line">aws_secret_access_key = aGLMountainLionPIEXL0UK0TunalNB61Kt+GuavaVm4tAD</span><br><span class="line"></span><br><span class="line">[session]</span><br><span class="line">aws_access_key_id = ASIASZPQ3TMDVJVIGM7H</span><br><span class="line">aws_secret_access_key = I7brpY8XWDWYwwyUdp5PLq7cxpskuMSHyBtPjPNE</span><br><span class="line">aws_session_token = FwoGZXIvYXdzENL//////////wEaDKKdWTVmCrwKRiMbOSKCAbkQr ... YiNntciJszsZVRypXz1HTfa3gbcKoNXHon8=</span><br><span class="line">aws_expiration=2019-11-22T20:33:18.000Z</span><br><span class="line"></span><br><span class="line">𝜆 aws ssm start-session --target i-e2f189dashfdf65weqfwda2 --profile session</span><br><span class="line"></span><br><span class="line">Starting session with SessionId: ec2-user-094c34172bdc6fc22</span><br><span class="line">sh-4.2$ whoami</span><br><span class="line">SSM_pwr_user</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>Run Session Manager commands</li>
-</ul>
-<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">𝜆 aws ssm send-command --instance-ids i-e2f189dashfdf65weqfwda2 --document-name AWS-RunShellScript --comment &quot;IP config&quot; --parameters commands=ifconfig --output text \</span><br><span class="line">    --profile session</span><br><span class="line">COMMAND	39e80533-376e-46fa-bb11-8daf040fe80f	IP config	0	0	AWS-RunShellScript		0	1574377262.9	50	0			1574370062.9		Pending	Pending	1</span><br><span class="line">CLOUDWATCHOUTPUTCONFIG		False</span><br><span class="line">INSTANCEIDS	i-e2f189dashfdf65weqfwda2</span><br><span class="line">NOTIFICATIONCONFIG</span><br><span class="line">COMMANDS	ifconfig</span><br><span class="line"></span><br><span class="line">𝜆 aws ssm list-command-invocations --command-id 39e80533-376e-46fa-bb11-8daf040fe80f --details --profile session</span><br><span class="line">&#123;</span><br><span class="line">    &quot;CommandInvocations&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;Comment&quot;: &quot;IP config&quot;,</span><br><span class="line">            &quot;Status&quot;: &quot;Success&quot;,</span><br><span class="line">            &quot;CommandPlugins&quot;: [</span><br><span class="line">                &#123;</span><br><span class="line">                    &quot;Status&quot;: &quot;Success&quot;,</span><br><span class="line">                    &quot;ResponseStartDateTime&quot;: 1574370063.609,</span><br><span class="line">                    &quot;StandardErrorUrl&quot;: &quot;&quot;,</span><br><span class="line">                    &quot;OutputS3BucketName&quot;: &quot;&quot;,</span><br><span class="line">                    &quot;OutputS3Region&quot;: &quot;ap-southeast-2&quot;,</span><br><span class="line">                    &quot;OutputS3KeyPrefix&quot;: &quot;&quot;,</span><br><span class="line">                    &quot;ResponseCode&quot;: 0,</span><br><span class="line">                    &quot;Output&quot;: &quot;eth0: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 9001\n        inet 172.31.9.155  netmask 255.255.240.0  broadcast 172.31.15.255\n        inet6 fe80::69:c9ff:fe76:91ae  prefixlen 64  scopeid 0x20&lt;link&gt;\n        ether 02:69:c9:76:91:ae  txqueuelen 1000  (Ethernet)\n        RX packets 60339  bytes 17254584 (16.4 MiB)\n        RX errors 0  dropped 0  overruns 0  frame 0\n        TX packets 56971  bytes 13112880 (12.5 MiB)\n        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0\n\nlo: flags=73&lt;UP,LOOPBACK,RUNNING&gt;  mtu 65536\n        inet 127.0.0.1  netmask 255.0.0.0\n        inet6 ::1  prefixlen 128  scopeid 0x10&lt;host&gt;\n        loop  txqueuelen 1000  (Local Loopback)\n        RX packets 0  bytes 0 (0.0 B)\n        RX errors 0  dropped 0  overruns 0  frame 0\n        TX packets 0  bytes 0 (0.0 B)\n        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0\n\n&quot;,</span><br><span class="line">                    &quot;ResponseFinishDateTime&quot;: 1574370063.634,</span><br><span class="line">                    &quot;StatusDetails&quot;: &quot;Success&quot;,</span><br><span class="line">                    &quot;StandardOutputUrl&quot;: &quot;&quot;,</span><br><span class="line">                    &quot;Name&quot;: &quot;aws:runShellScript&quot;</span><br><span class="line">                &#125;</span><br><span class="line">            ],</span><br><span class="line">            &quot;ServiceRole&quot;: &quot;&quot;,</span><br><span class="line">            &quot;CloudWatchOutputConfig&quot;: &#123;</span><br><span class="line">                &quot;CloudWatchLogGroupName&quot;: &quot;&quot;,</span><br><span class="line">                &quot;CloudWatchOutputEnabled&quot;: false</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;InstanceId&quot;: &quot;i-e2f189dashfdf65weqfwda2&quot;,</span><br><span class="line">            &quot;DocumentName&quot;: &quot;AWS-RunShellScript&quot;,</span><br><span class="line">            &quot;NotificationConfig&quot;: &#123;</span><br><span class="line">                &quot;NotificationArn&quot;: &quot;&quot;,</span><br><span class="line">                &quot;NotificationEvents&quot;: [],</span><br><span class="line">                &quot;NotificationType&quot;: &quot;&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;DocumentVersion&quot;: &quot;&quot;,</span><br><span class="line">            &quot;StatusDetails&quot;: &quot;Success&quot;,</span><br><span class="line">            &quot;StandardOutputUrl&quot;: &quot;&quot;,</span><br><span class="line">            &quot;StandardErrorUrl&quot;: &quot;&quot;,</span><br><span class="line">            &quot;InstanceName&quot;: &quot;&quot;,</span><br><span class="line">            &quot;CommandId&quot;: &quot;39e80533-376e-46fa-bb11-8daf040fe80f&quot;,</span><br><span class="line">            &quot;RequestedDateTime&quot;: 1574370062.995</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>Open a connection forwarding session to a remote port</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">𝜆 aws ssm start-session --target i-e2f189dashfdf65weqfwda2 --document-name AWS-StartPortForwardingSessionToRemoteHost \</span><br><span class="line">    --parameters &#x27;&#123;&quot;portNumber&quot;:[&quot;3306&quot;],&quot;localPortNumber&quot;:[&quot;13306&quot;],&quot;host&quot;:[&quot;remote-mysql-host-name&quot;]&#125;&#x27; \</span><br><span class="line">    --profile session</span><br><span class="line"></span><br><span class="line">𝜆 mysql -h 127.0.0.1 --port 13306 -u admin -p</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>Monitor AWS Session Manager log <code>/var/log/amazon/ssm/amazon-ssm-agent.log</code> on EC2 instance</p>
-</li>
-<li><p>Test <code>ssh</code> command with session token</p>
-</li>
-</ul>
-<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">𝜆 AWS_PROFILE=session ssh -i .ssh/aws-key.pem -l ec2-user i-e2f189dashfdf65weqfwda2</span><br><span class="line">Last login: Fri Nov 22 00:19:32 2019 from localhost</span><br><span class="line"></span><br><span class="line">       __|  __|_  )</span><br><span class="line">       _|  (     /   Amazon Linux 2 AMI</span><br><span class="line">      ___|\___|___|</span><br><span class="line"></span><br><span class="line">https://aws.amazon.com/amazon-linux-2/</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>Test <code>scp</code> command with session token</li>
-</ul>
-<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">𝜆 AWS_PROFILE=session scp -i .ssh/aws-key.pem /tmp/stack-overflow.log ec2-user@i-e2f189dashfdf65weqfwda2:/tmp</span><br><span class="line">stack-overflow.log                                          100%   67KB 437.0KB/s   00:00</span><br></pre></td></tr></table></figure>
-
-<p>Without using <code>scp</code>, transferring files directly is not possible with the AWS Session Manager. You should use S3 bucket and the AWS CLI to exchange data.</p>
-<ul>
-<li>Test <code>ssh</code> tunnel</li>
-</ul>
-<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">𝜆 AWS_PROFILE=session ssh -i .ssh/aws-key.pem -L 443:www.google.com:443 -l ec2-user@i-e2f189dashfdf65weqfwda2</span><br></pre></td></tr></table></figure>
-
-<h2 id="OKTA"><a href="#OKTA" class="headerlink" title="OKTA"></a>OKTA</h2><p>Set up integrated OKTA authentication with session. Have you OKTA AWS CLI installed at first, and configure it:</p>
-<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">𝜆 cat ~/.okta-aws</span><br><span class="line">[default]</span><br><span class="line">base-url = hello.paradise.org</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># The remaining parameters are optional.</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># You will be prompted for them, if they&#x27;re not included here.</span></span></span><br><span class="line">username = terrence.miao@paradise.org</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Current choices are: GOOGLE or OKTA</span></span><br><span class="line">factor = OKTA</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">AWS role name (match one of the options prompted <span class="keyword">for</span> by <span class="string">&quot;Please select the AWS role&quot;</span> when this parameter is not specified</span></span><br><span class="line">role =</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Found <span class="keyword">in</span> Okta<span class="string">&#x27;s configuration for your AWS account.</span></span></span><br><span class="line">app-link = https://hello.paradise.org/home/amazon_aws/0oa1ch3l6/272</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="string">duration in seconds to request a session token for, make sure your accounts (both AWS itself and the associated okta application) allow for large durations. default: 3600</span></span></span><br><span class="line">duration = 28800</span><br></pre></td></tr></table></figure>
-
-<p>Create session:</p>
-<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">𝜆 bin/okta/okta --okta-profile default --force --profile session</span><br><span class="line">Enter password:</span><br><span class="line">Multi-factor Authentication required.</span><br><span class="line">Pick a factor:</span><br><span class="line">[ 0 ] Okta Verify App: SmartPhone_Android: ONEPLUS A5010</span><br><span class="line">[ 1 ] token:software:totp( OKTA ) : terrence.miao@paradise.org</span><br><span class="line">Selection: 0</span><br><span class="line">1: arn:aws:iam::994385754915:role/federation/DeveloperPowerUser</span><br><span class="line">2: arn:aws:iam::354184710243:role/federation/DeveloperPowerUser</span><br><span class="line">3: arn:aws:iam::855034721059:role/federation/DeveloperPowerUser</span><br><span class="line">4: arn:aws:iam::944986439712:role/federation/DeveloperPowerUser</span><br><span class="line">5: arn:aws:iam::944986439712:role/federation/Operations</span><br><span class="line">6: arn:aws:iam::015951833499:role/federation/DeveloperPowerUser</span><br><span class="line">Please select the AWS role: 3</span><br><span class="line">Session token expires on: 2019-12-05 06:30:18+00:00</span><br></pre></td></tr></table></figure>
-
-<h2 id="Azure"><a href="#Azure" class="headerlink" title="Azure"></a>Azure</h2><p>Set up integrated Azure authentication with session. Have you AWS Azure CLI installed at first, and configure it:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">𝜆 cat ~/.aws/config</span><br><span class="line">[profile session]</span><br><span class="line">output=json</span><br><span class="line">region=ap-southeast-2</span><br><span class="line">azure_tenant_id=paradise.org</span><br><span class="line">azure_app_id_uri=dac7d48b-7f45-47bb-bdae-d3c4f8351839</span><br><span class="line">azure_default_username=terrence.miao@paradise.org</span><br><span class="line">azure_default_role_arn=arn:aws:iam::994385754915:role/federation/DeveloperPowerUser</span><br><span class="line">azure_default_duration_hours=12</span><br><span class="line">azure_default_remember_me=false</span><br><span class="line"></span><br><span class="line">[profile session-cicd]</span><br><span class="line">output=json</span><br><span class="line">region=ap-southeast-2</span><br><span class="line">role_arn=arn:aws:iam::994385754915:role/ap-sc-iam-cicd-ap-southeast-2</span><br><span class="line">source_profile=session</span><br></pre></td></tr></table></figure>
-
-<p>Create session:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">𝜆 bin/aws-azure-cli/aws-azure-cli --profile session --mode gui</span><br><span class="line">Logging in with profile &#x27;session&#x27;...</span><br><span class="line">Using AWS SAML endpoint https://signin.aws.amazon.com/saml</span><br><span class="line">Looking in /Applications/Google Chrome.app/Contents/MacOS/Google Chrome</span><br><span class="line">Found browser in /Applications/Google Chrome.app/Contents/MacOS/Google Chrome</span><br><span class="line">Please complete the login in the opened window</span><br><span class="line">? Role: arn:aws:iam::994385754915:role/federation/DeveloperPowerUser</span><br><span class="line">? Session Duration Hours (up to 12): 12</span><br><span class="line">Assuming role arn:aws:iam::994385754915:role/federation/DeveloperPowerUser</span><br><span class="line">Requesting session duration 43200s</span><br><span class="line">Session expires Sun Feb 19 2023 06:46:43 GMT+1100 (Australian Eastern Daylight Time)</span><br></pre></td></tr></table></figure>
-
-<p>Login EC2 instance, overwritting default <code>ap-southeast-2</code> region:</p>
-<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">𝜆 aws ssm start-session --target i-04ee902e33625c4f3 --profile session --region us-east-2 --debug</span><br><span class="line">Starting session with SessionId: terrence.miao@paradise.org-05411f2e2d5a58b0b</span><br></pre></td></tr></table></figure>
-
-<p>Attach a new key pair to EC2 instance by:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">𝜆 ssh-keygen -y -f .ssh/aws-key.pem</span><br><span class="line">ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCL ... asasf2qcvASEFWF</span><br></pre></td></tr></table></figure>
-
-<p>Find out EC2 Instance ID by querying Instance Name:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">𝜆 aws ec2 describe-instances --profile session \</span><br><span class="line">    --filter &quot;Name=tag:Name,Values=EC2Stack-Apptier/EC2&quot; \</span><br><span class="line">    --query &quot;Reservations[].Instances[?State.Name == &#x27;running&#x27;].InstanceId[]&quot; \</span><br><span class="line">    --output text</span><br><span class="line">i-04ee902e33625c4f3</span><br></pre></td></tr></table></figure>
-
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li>Troubleshooting Systems Manager Run Command, <em><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/systems-manager/latest/userguide/troubleshooting-remote-commands.html#systems-manager-ssm-agent-log-files">https://docs.aws.amazon.com/systems-manager/latest/userguide/troubleshooting-remote-commands.html#systems-manager-ssm-agent-log-files</a></em></li>
-<li>Provides Okta authentication for awscli, <em><a target="_blank" rel="noopener" href="https://github.com/jmhale/okta-awscli">https://github.com/jmhale/okta-awscli</a></em></li>
-<li>How to add a new key pair to your exisitng AWS ec2 Instances, <em><a target="_blank" rel="noopener" href="https://www.how2shout.com/linux/add-a-new-key-pair-to-your-exisitng-aws-ec2-instances/">https://www.how2shout.com/linux/add-a-new-key-pair-to-your-exisitng-aws-ec2-instances/</a></em></li>
-<li>Use port forwarding in AWS Systems Manager Session Manager to connect to remote hosts, <em><a target="_blank" rel="noopener" href="https://aws.amazon.com/blogs/mt/use-port-forwarding-in-aws-systems-manager-session-manager-to-connect-to-remote-hosts/">https://aws.amazon.com/blogs/mt/use-port-forwarding-in-aws-systems-manager-session-manager-to-connect-to-remote-hosts/</a></em></li>
-</ul>
-
-        
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <div class="article-tag-wrap">
-          
-
-          
-          
-
-
-        </div>
-      
-      
-      
-    </footer>
-  </div>
-</article>
-
-
 
     <nav id="page-nav">
 
-<a class="extend prev" rel="prev" href="/blog/page/3/">Previous</a><a class="page-number" href="/blog/">1</a><a class="page-number" href="/blog/page/2/">2</a><a class="page-number" href="/blog/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/blog/page/5/">5</a><a class="page-number" href="/blog/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/10/">10</a><a class="extend next" rel="next" href="/blog/page/5/">Next</a>
+<a class="extend prev" rel="prev" href="/blog/page/3/">Previous</a><a class="page-number" href="/blog/">1</a><a class="page-number" href="/blog/page/2/">2</a><a class="page-number" href="/blog/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/blog/page/5/">5</a><a class="page-number" href="/blog/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/11/">11</a><a class="extend next" rel="next" href="/blog/page/5/">Next</a>
 </nav>
 
 
@@ -1262,6 +1163,10 @@
     <h3 class="widget-title"><i class="fa fa-posts"></i> Recent</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/blog/2024/09/02/Setup-MikroTik-CRS504-4XQ-IN-and-run-a-speed-test/">Setup MikroTik CRS504-4XQ-IN and run a speed test</a>
+          </li>
         
           <li>
             <a href="/blog/2024/08/11/Setup-network-bond-in-Synology-NAS/">Setup network bond in Synology NAS</a>
@@ -1279,10 +1184,6 @@
             <a href="/blog/2024/08/07/Increase-decrease-and-resize-Proxmox-disk-volume/">Increase, decrease and resize Proxmox disk volume</a>
           </li>
         
-          <li>
-            <a href="/blog/2024/08/04/Proxmox-and-SR-IOV-support-for-Intel-GPU-and-Mellonax-network-adapter/">Proxmox and SR-IOV support for Intel GPU and Mellonax network adapter</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -1298,7 +1199,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title"><i class="fa fa-archive"></i> Archive</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2024/">2024</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2023/">2023</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/">2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/">2021</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/">2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/">2019</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/">2017</a><span class="archive-list-count">25</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2024/">2024</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2023/">2023</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/">2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/">2021</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/">2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/">2019</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/">2017</a><span class="archive-list-count">25</span></li></ul>
     </div>
   </div>
 

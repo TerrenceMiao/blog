@@ -6,7 +6,7 @@
   <link href="https://terrencemiao.github.io/blog/atom.xml" rel="self"/>
   
   <link href="https://terrencemiao.github.io/blog/"/>
-  <updated>2024-08-11T06:08:33.048Z</updated>
+  <updated>2024-09-02T05:09:49.841Z</updated>
   <id>https://terrencemiao.github.io/blog/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Setup MikroTik CRS504-4XQ-IN and run a speed test</title>
+    <link href="https://terrencemiao.github.io/blog/2024/09/02/Setup-MikroTik-CRS504-4XQ-IN-and-run-a-speed-test/"/>
+    <id>https://terrencemiao.github.io/blog/2024/09/02/Setup-MikroTik-CRS504-4XQ-IN-and-run-a-speed-test/</id>
+    <published>2024-09-02T04:17:37.000Z</published>
+    <updated>2024-09-02T05:09:49.841Z</updated>
+    
+    <content type="html"><![CDATA[<p><code>MikroTik CRS504-4XQ-IN</code>, the Cloud Switch can handle FOUR QSFP28 100Gbps ports, equal to 16 x 25Gbps bandwidth.</p><p><img src="/blog/img/MikroTik%20-%20Interfaces.png" alt="MikroTik - Interfaces" title="MikroTik - Interfaces"></p><p>Setup single link mode, only the first QSFP28 sub-interface needs to be configured, while the remaining three sub-interfaces should remain enabled. For example, connect <code>Mellanox MCX455A-ECAT ConnectX-4 InfiniBand/Ethernet adapter card (EDR IB 100Gbps and 100GbE, single-port QSFP28, PCIe 3.0x16)</code> using <code>ONTi DAC QSFP28 100Gbps</code> cable to the switch.</p><p>Change <strong>FEC Mode</strong> to <code>fec91</code>.</p><p><em>Ethernet Forward Error Correction (FEC) is a technique used to improve the reliability of data transmission over Ethernet networks by detecting and correcting errors in data packets. The two most common types of FEC used in Ethernet networks are CL74 and CL91.</em></p><p><em>CL74 and CL91 refer to two different types of FEC codes, each with its own characteristics and performance. Here’s a brief comparison between the two:</em></p><p><em>Code Rate:</em></p><p><em>CL91 has a higher code rate of 91.6%, which means that only 8.4% of the data transmitted is used for error correction.</em></p><p>In addition, setup the swith port connected to <code>ONTi QSFP28 40Gbps TO 4SFP+</code> breakout cable:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -l admin MikroTik.local</span><br><span class="line"></span><br><span class="line">[admin@MikroTik] &gt; /interface ethernet set qsfp28-1-1 auto-negotiation=no speed=10G-baseCR</span><br><span class="line">[admin@MikroTik] &gt; /interface ethernet set qsfp28-1-2 auto-negotiation=no speed=10G-baseCR</span><br><span class="line">[admin@MikroTik] &gt; /interface ethernet set qsfp28-1-3 auto-negotiation=no speed=10G-baseCR</span><br><span class="line">[admin@MikroTik] &gt; /interface ethernet set qsfp28-1-4 auto-negotiation=no speed=10G-baseCR</span><br></pre></td></tr></table></figure><h2 id="Speed-test"><a href="#Speed-test" class="headerlink" title="Speed test"></a>Speed test</h2><p>In <code>iperf3</code> server, run listens to 4 ports to manage connections in parallel:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ iperf3 -s -p 5201 &amp; iperf3 -s -p 5202 &amp; iperf3 -s -p 5203 &amp; iperf3 -s -p 5204 &amp;</span><br></pre></td></tr></table></figure><p>In a MacBook Pro with WiFi-6 connection, run:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ iperf3 -c MikroTik.local -p 5201 -P 4 -t 1000</span><br></pre></td></tr></table></figure><p>In a Mac Studio with 10Gbps Ethernet connection, run:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ iperf3 -c MikroTik.local -p 5202 -P 8 -t 1000 -B 192.168.0.104</span><br></pre></td></tr></table></figure><p>In a Windows 11 PC with 100Gbps Ethernet connection, run:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ iperf3 -c MikroTik.local -p 5203 -P 2 -t 1000</span><br></pre></td></tr></table></figure><p>Check the speed on switch console:</p><p><img src="/blog/img/MikroTik%20-%20Speed.png" alt="MikroTik - Speed" title="MikroTik - Speed"></p><p>and in graph:</p><p><img src="/blog/img/MikroTik%20-%20Performance.png" alt="MikroTik - Performance" title="MikroTik - Performance"></p><h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul><li>MikroTik wired interface compatibility, <em><a href="https://help.mikrotik.com/docs/display/ROS/MikroTik+wired+interface+compatibility">https://help.mikrotik.com/docs/display/ROS/MikroTik+wired+interface+compatibility</a></em></li><li>MikroTik RouterOS, <em><a href="https://help.mikrotik.com/docs/display/ROS/RouterOS">https://help.mikrotik.com/docs/display/ROS/RouterOS</a></em></li><li>MikroTik CRS504-4XQ-IN Quick Guide, <em><a href="https://help.mikrotik.com/docs/display/QG/Quick+Guide+-+CRS504-4XQ-IN">https://help.mikrotik.com/docs/display/QG/Quick+Guide+-+CRS504-4XQ-IN</a></em></li><li>FEC (Forward Error Correction), <em><a href="https://www.reddit.com/r/fortinet/comments/127z3wd/fec_forward_error_correction/">https://www.reddit.com/r/fortinet/comments/127z3wd/fec_forward_error_correction/</a></em></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;code&gt;MikroTik CRS504-4XQ-IN&lt;/code&gt;, the Cloud Switch can handle FOUR QSFP28 100Gbps ports, equal to 16 x 25Gbps bandwidth.&lt;/p&gt;
+&lt;p&gt;&lt;img s</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Setup network bond in Synology NAS</title>
@@ -408,30 +429,6 @@
 &lt;ul&gt;
 &lt;li&gt;iPhone &amp;#x2F; iPad &amp;#x2F; iPod and the Macbook on the same version of Safari&lt;/li&gt;
 &lt;li&gt;a genuine Apple lightni</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>GitHub Actions</title>
-    <link href="https://terrencemiao.github.io/blog/2022/09/02/GitHub-Actions/"/>
-    <id>https://terrencemiao.github.io/blog/2022/09/02/GitHub-Actions/</id>
-    <published>2022-09-02T05:33:47.000Z</published>
-    <updated>2023-10-25T10:54:29.326Z</updated>
-    
-    <content type="html"><![CDATA[<p>Have you tried GitHub Actions?</p><ul><li>GitHub Actions</li></ul><p><img src="/blog/img/GitHub%20Actions.png" alt="GitHub Actions" title="GitHub Actions"></p><ul><li>GitHub Actions Workflow</li></ul><p><img src="/blog/img/GitHub%20Actions%20Workflow.png" alt="GitHub Actions Workflow" title="GitHub Actions Workflow"></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;Have you tried GitHub Actions?&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;GitHub Actions&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img src=&quot;/blog/img/GitHub%20Actions.png&quot; alt=&quot;GitHub Actions&quot; t</summary>
       
     
     
