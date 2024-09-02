@@ -10,6 +10,8 @@ tags:
 
 ![TrueNAS - Enable SMB service](/img/TrueNAS%20-%20Enable%20SMB%20service.png "TrueNAS - Enable SMB service")
 
+![TrueNAS - SMB Settings](/img/TrueNAS%20-%20SMB%20Settings.png "TrueNAS - SMB Settings")
+
 - Create an user account with home directory and all access permisssions
 
 ![TrueNAS - Create user](/img/TrueNAS%20-%20Create%20user.png "TrueNAS - Create user")
@@ -21,3 +23,5 @@ tags:
 Then can access shared directory from `TrunNAS` in both Windows and Mac:
 
 ![TrueNAS - Access](/img/TrueNAS%20-%20Access.png "TrueNAS - Access")
+
+Make sure there is NO a lock icon on the folder (can unlock the folder in MacOS Finder)
