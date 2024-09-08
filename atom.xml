@@ -6,7 +6,7 @@
   <link href="https://terrencemiao.github.io/blog/atom.xml" rel="self"/>
   
   <link href="https://terrencemiao.github.io/blog/"/>
-  <updated>2024-09-02T05:09:49.841Z</updated>
+  <updated>2024-09-08T02:29:17.004Z</updated>
   <id>https://terrencemiao.github.io/blog/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Running MacOS on Proxmox</title>
+    <link href="https://terrencemiao.github.io/blog/2024/09/08/Running-MacOS-on-Proxmox/"/>
+    <id>https://terrencemiao.github.io/blog/2024/09/08/Running-MacOS-on-Proxmox/</id>
+    <published>2024-09-08T01:34:16.000Z</published>
+    <updated>2024-09-08T02:29:17.004Z</updated>
+    
+    <content type="html"><![CDATA[<p>Following the instructions to run the latest MacOS, <em>Sonoma 14.6.1</em>, on Proxmox - <a href="https://klabsdev.com/definitive-guide-to-running-macos-in-proxmox">The Definitive Guide to Running MacOS in Proxmox</a>.</p><p><img src="/blog/img/Proxmox%20-%20MacOS.png" alt="Proxmox - MacOS" title="Proxmox - MacOS"></p><p>A few more put on notes:</p><ul><li>You can login with <code>Apple ID</code></li><li>Modify <code>config.plist</code> file under EFI folder -&gt; OC folder, change the default Screen Resolution from <code>1080P</code> <strong>1920x1080@32</strong> to <code>2K</code> <strong>2560x1440@32</strong>. Look more information in <code>Configuration.pdf</code> file in <a href="https://github.com/thenickdude/KVM-Opencore/releases"><strong>KVM-Opencore</strong> release</a></li></ul><p>Connect with <strong>Apple Remote Desktop</strong>, so can use exact same Apple Keyboard mapping:</p><p><img src="/blog/img/Proxmox%20-%20Apple%20Remote%20Desktop.png" alt="Proxmox - Apple Remote Desktop" title="Proxmox - Apple Remote Desktop"></p><p>Current <a href="https://github.com/thenickdude/KVM-Opencore"><strong>KVM-Opencore</strong></a> hasn’t setup support for Audio device and GPU accelerator.</p><p>Also try to setup <a href="https://parsec.app/"><strong>Parsec</strong></a> in MacOS on Proxmox, without success.</p><p><img src="/blog/img/Proxmox%20-%20Parsec.png" alt="Proxmox - Parsec" title="Proxmox - Parsec"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Following the instructions to run the latest MacOS, &lt;em&gt;Sonoma 14.6.1&lt;/em&gt;, on Proxmox - &lt;a href=&quot;https://klabsdev.com/definitive-guide-t</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Setup MikroTik CRS504-4XQ-IN and run a speed test</title>
@@ -406,29 +426,6 @@
     <summary type="html">&lt;p&gt;&lt;strong&gt;Geekbench head to head - Mac vs iPad vs Android:&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;10 years old Mac mini Late 2012 (2.6GHz quad-core Intel Co</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>How to use Web Inspector and debug Safari on iPhone/iPad</title>
-    <link href="https://terrencemiao.github.io/blog/2022/09/07/How-to-use-Web-Inspector-and-debug-Safari-on-iPhone-iPad/"/>
-    <id>https://terrencemiao.github.io/blog/2022/09/07/How-to-use-Web-Inspector-and-debug-Safari-on-iPhone-iPad/</id>
-    <published>2022-09-07T03:32:33.000Z</published>
-    <updated>2023-10-25T10:54:29.326Z</updated>
-    
-    <content type="html"><![CDATA[<p>Prerequisites:</p><ul><li>iPhone &#x2F; iPad &#x2F; iPod and the Macbook on the same version of Safari</li><li>a genuine Apple lightning or USB cable</li></ul><p>Step by step:</p><ul><li>On iPad, iPhone or iPod touch, go to menu Settings &gt; Safari &gt; Advanced and toggle on Web Inspector. Enable JavaScript if it isn’t already on</li><li>On Macbook, launch Safari and go to menu Preferences &gt; Advanced then toggle on “Show Develop menu in menu bar”</li><li>Connect iOS device to Macbook with the lightning or USB cable</li><li>Now on iOS device, open Safari and go to the website you want to debug</li><li>On Macbook, open Safari and go to “Develop” menu. You now see your iOS device that has connected with Macbook (if no page opened on iOS device, you see a message saying “No Inspectable Applications”)</li></ul><p>![Safari Develop menu](&#x2F;img&#x2F;Safari Develop.png “Safari Develop menu”)</p><ul><li>Click on the website in Safari Develop &gt; iOS device menu, Web Inspector window opened, then you can debug as you used to debug in Safari</li></ul><p>![Web Inspector](&#x2F;img&#x2F;Web Inspector.png “Web Inspector”)</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;Prerequisites:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;iPhone &amp;#x2F; iPad &amp;#x2F; iPod and the Macbook on the same version of Safari&lt;/li&gt;
-&lt;li&gt;a genuine Apple lightni</summary>
       
     
     
