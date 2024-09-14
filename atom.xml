@@ -6,7 +6,7 @@
   <link href="https://terrencemiao.github.io/blog/atom.xml" rel="self"/>
   
   <link href="https://terrencemiao.github.io/blog/"/>
-  <updated>2024-09-08T02:29:17.004Z</updated>
+  <updated>2024-09-14T02:53:10.659Z</updated>
   <id>https://terrencemiao.github.io/blog/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Fixing TrueNAS SMB IP binding</title>
+    <link href="https://terrencemiao.github.io/blog/2024/09/14/Fixing-TrueNAS-SMB-IP-binding/"/>
+    <id>https://terrencemiao.github.io/blog/2024/09/14/Fixing-TrueNAS-SMB-IP-binding/</id>
+    <published>2024-09-14T02:37:53.000Z</published>
+    <updated>2024-09-14T02:53:10.659Z</updated>
+    
+    <content type="html"><![CDATA[<p>After changing network settings, <code>TrueNAS</code> IP address has been updated. If modify SMB configuration, error like:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">smb_update.bindip.0: IP address [192.168.0.51] is not a configured address for this server</span><br></pre></td></tr></table></figure><p>thrown.</p><p>To reset and clean up already bind IP, login TrueNAS Console and run:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">root@TrueNAS[~]# midclt call smb.update &#x27;&#123;&quot;bindip&quot;: []&#125;&#x27;</span><br><span class="line">&#123;</span><br><span class="line">    &quot;id&quot;: 1,</span><br><span class="line">    &quot;netbiosname&quot;: &quot;TRUENAS&quot;,</span><br><span class="line">    &quot;netbiosalias&quot;: [],</span><br><span class="line">    &quot;workgroup&quot;: &quot;IGLOO STUDIO&quot;,</span><br><span class="line">    &quot;description&quot;: &quot;TrueNAS Server&quot;,</span><br><span class="line">    &quot;unixcharset&quot;: &quot;UTF-8&quot;,</span><br><span class="line">    &quot;loglevel&quot;: &quot;MINIMUM&quot;,</span><br><span class="line">    &quot;syslog&quot;: false,</span><br><span class="line">    &quot;aapl_extensions&quot;: true,</span><br><span class="line">    &quot;Localmaster&quot;: true,</span><br><span class="line">    &quot;guest&quot;: &quot;nobody&quot;,</span><br><span class="line">    &quot;filemask&quot;&#x27;: &quot;&quot;,</span><br><span class="line">    &quot;dirmask&quot;&#x27;: &quot;&quot;,</span><br><span class="line">    &quot;smb_options&quot;: &quot;&quot;,</span><br><span class="line">    &quot;bindip&quot;: [],</span><br><span class="line">    &quot;cifs_SID&quot;: &quot;S-1-5-21-2487580926-3122677641-100607549&quot;,</span><br><span class="line">    &quot;ntImv1_auth&quot;: false,</span><br><span class="line">    &quot;enable_smb1&quot;: false,</span><br><span class="line">    &quot;admin_group&quot;: null,</span><br><span class="line">    &quot;next_rid&quot;: 0,</span><br><span class="line">    &quot;multichannel&quot;: true,</span><br><span class="line">    &quot;netbiosname_local&quot;: &quot;TRUENAS&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>then can modify SMB configuration successfully.</p><h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul><li>Help with SMB IP binding, <em><a href="https://www.reddit.com/r/freenas/comments/fovpfz/help_with_smb_ip_binding">https://www.reddit.com/r/freenas/comments/fovpfz/help_with_smb_ip_binding</a></em></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;After changing network settings, &lt;code&gt;TrueNAS&lt;/code&gt; IP address has been updated. If modify SMB configuration, error like:&lt;/p&gt;
+&lt;figure c</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Running MacOS on Proxmox</title>
@@ -404,28 +425,6 @@
       
       
     <summary type="html">&lt;p&gt;Remove backgrounds 100% automatically in 5 seconds with one click. Thanks to remove.bg &lt;em&gt;&lt;a href=&quot;https://www.remove.bg/&quot;&gt;https://www.r</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Geekbench head to head - Mac vs iPad vs Android</title>
-    <link href="https://terrencemiao.github.io/blog/2022/10/10/Geekbench-head-to-head-Mac-vs-iPad-vs-Android/"/>
-    <id>https://terrencemiao.github.io/blog/2022/10/10/Geekbench-head-to-head-Mac-vs-iPad-vs-Android/</id>
-    <published>2022-10-10T01:48:30.000Z</published>
-    <updated>2023-10-25T10:54:29.325Z</updated>
-    
-    <content type="html"><![CDATA[<p><strong>Geekbench head to head - Mac vs iPad vs Android:</strong></p><ul><li>10 years old Mac mini Late 2012 (2.6GHz quad-core Intel Core i7 Turbo Boost up to 3.6GHz)</li><li>4 years old MacBook Pro 15-inch Mid 2018 (2.6GHz 6-core Intel Core i7, Turbo Boost up to 4.3GHz)</li><li>4 years old iPad Pro 11” 2018 3rd gen (A12X Bionic 7 nm, 4-core Vortex at 2.5GHz , 4-core Tempest at 1.6GHz)</li><li>1 year old MacBook Pro 16-inch 2021 (Apple Silicon M1 Pro, 10-core CPU at 3.2GHz)</li><li>没满岁的 Android (Snapdragon 8 Gen1, 1 core Cortex-X2 at 3GHz, 3-core Cortex-A710 at 2.5GHz, and 4-core Cortex-A510 at 1.8GHz)</li></ul><p><img src="/blog/img/Geekbench%20head%20to%20head%20-%20Mac%20vs%20iPad%20vs%20Android.png" alt="Geekbench head to head - Mac vs iPad vs Android" title="Geekbench head to head - Mac vs iPad vs Android"></p><p><strong>Conclusion:</strong></p><ol><li>Intel 已经是江河日下，被时代淘汰</li><li>Apple Processors 实在太强。 四年前的处理器还可吊打当前最新的 Snapdragon Processors</li><li>同是 2018 年产品，iPad Pro 把 Intel CPU based 的 MacBook Pro 按在地上碾压</li></ol><p>ARM vs x86 谁是未来，一目了然。</p><p><strong>NOTE</strong></p><p>The Apple M1 chip is built for Macs, and the A15 for phones. They use completely different architectures. The A15 prioritizes battery over performance. The M1 has more firepower for graphics.</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;strong&gt;Geekbench head to head - Mac vs iPad vs Android:&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;10 years old Mac mini Late 2012 (2.6GHz quad-core Intel Co</summary>
       
     
     

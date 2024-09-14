@@ -1,3 +1,4 @@
+https://terrencemiao.github.io/blog/2024/09/14/Fixing-TrueNAS-SMB-IP-binding/
 https://terrencemiao.github.io/blog/2024/09/08/Running-MacOS-on-Proxmox/
 https://terrencemiao.github.io/blog/2024/08/07/Samba-setup-and-share-in-TrueNAS/
 https://terrencemiao.github.io/blog/2024/09/02/Setup-MikroTik-CRS504-4XQ-IN-and-run-a-speed-test/
