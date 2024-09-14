@@ -4,8 +4,7 @@ date: 2024-09-14 17:52:08
 tags:
 ---
 
-
-In `Windows 11 Pro Station`:
+In `Windows 11 Pro Station`, a _Mellanox ConnectX-4 MCX455A-ECAT PCIe x16 3.0 100GBe VPI EDR IB network adatper_, goes to support **SMB Direct**, client and server side **SMB Multichannel** and **RDMA** (Remote Direct Memory Access):
 
 ![Windows 11 Pro for Workstations](/img/Windows%2011%20Pro%20for%20Workstations.png "Windows 11 Pro for Workstations")
 
