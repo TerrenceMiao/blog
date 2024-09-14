@@ -80,7 +80,12 @@ Scope Name Interface Index RSS Capable RDMA Capable Speed    IpAddress
 *          22              True        True         100 Gbps 192.168.68.67
 ```
 
+Have a look `TrueNAS` disk speed benchmark, over a 100Gbps ethernet network, from `Windows 11 Pro for Workstations` with **SMB Direct**, client/server **SMB Multichannel** and **RDMA** enabled:
+
+![TrueNAS disk speed benchmark](/img/TrueNAS%20disk%20speed%20benchmark.png "TrueNAS disk speed benchmark")
+
 References
 ----------
 
 - SMB Direct, _https://learn.microsoft.com/en-us/windows-server/storage/file-server/smb-direct_
+- 100 Gbe & TrueNAS Scale 23.10 iSCSI - Performance Unleashed, _https://forum.level1techs.com/t/100-gbe-truenas-scale-23-10-iscsi-performance-unleashed/206452_
