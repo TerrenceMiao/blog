@@ -6,7 +6,7 @@
   <link href="https://terrencemiao.github.io/blog/atom.xml" rel="self"/>
   
   <link href="https://terrencemiao.github.io/blog/"/>
-  <updated>2024-09-15T11:09:04.507Z</updated>
+  <updated>2024-09-15T11:27:42.438Z</updated>
   <id>https://terrencemiao.github.io/blog/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Fix network object name already existed issue in Windows</title>
+    <link href="https://terrencemiao.github.io/blog/2024/09/15/Fix-network-object-name-already-existed-issue-in-Windows/"/>
+    <id>https://terrencemiao.github.io/blog/2024/09/15/Fix-network-object-name-already-existed-issue-in-Windows/</id>
+    <published>2024-09-15T11:18:03.000Z</published>
+    <updated>2024-09-15T11:27:42.438Z</updated>
+    
+    <content type="html"><![CDATA[<p>When rename a network adapter in <code>Windows</code>:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PS C:\&gt; Rename-NetAdapter -Name Ethernet -NewName Mellanox</span><br></pre></td></tr></table></figure><p>an error <strong>Rename-NetAdapter : {Object Exists} An attempt was made to create an object and the object name already existed</strong> thrown.</p><p>Work around solution is:</p><ol><li>Open <strong>Device Manager</strong> in Windows Control Panel</li><li>Under menu <strong>View</strong> enable <strong>Show hidden devices</strong></li><li>Uninstall the old network adapter with the old name</li><li>Then rename the network adapter again</li></ol><p><img src="/blog/img/Rename%20Network%20in%20Windows.png" alt="Rename Network in Windows" title="Rename Network in Windows"></p><h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul><li>Registry mismatch Get-NetAdapter, <em><a href="https://stackoverflow.com/questions/42220423/registry-mismatch-get-netadapter">https://stackoverflow.com/questions/42220423/registry-mismatch-get-netadapter</a></em></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;When rename a network adapter in &lt;code&gt;Windows&lt;/code&gt;:&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span c</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>How to enable SMB Direct client/server in Windows 11 Pro for Workstations</title>
@@ -404,27 +425,6 @@
       
       
     <summary type="html">&lt;h1 id=&quot;Benchmark-head-to-head-Mac-vs-iPad-vs-Android&quot;&gt;&lt;a href=&quot;#Benchmark-head-to-head-Mac-vs-iPad-vs-Android&quot; class=&quot;headerlink&quot; title=&quot;Be</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Micro Frontends</title>
-    <link href="https://terrencemiao.github.io/blog/2023/07/29/Micro-Frontends/"/>
-    <id>https://terrencemiao.github.io/blog/2023/07/29/Micro-Frontends/</id>
-    <published>2023-07-29T05:16:56.000Z</published>
-    <updated>2023-10-25T10:54:29.326Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="/blog/img/Micro%20Frontends.png" alt="Micro Frontends" title="Micro Frontends"></p><p><strong>Righ model, right tools - the new way of building and collaborating on frontend apps is the core element of Micro Frontends.</strong></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;/blog/img/Micro%20Frontends.png&quot; alt=&quot;Micro Frontends&quot; title=&quot;Micro Frontends&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Righ model, right tools - the ne</summary>
       
     
     

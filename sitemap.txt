@@ -1,3 +1,4 @@
+https://terrencemiao.github.io/blog/2024/09/15/Fix-network-object-name-already-existed-issue-in-Windows/
 https://terrencemiao.github.io/blog/2024/09/14/How-to-enable-SMB-Direct-client-server-in-Windows-11-Pro-for-Workstations/
 https://terrencemiao.github.io/blog/2024/09/14/Fixing-TrueNAS-SMB-IP-binding/
 https://terrencemiao.github.io/blog/2024/09/08/Running-MacOS-on-Proxmox/
