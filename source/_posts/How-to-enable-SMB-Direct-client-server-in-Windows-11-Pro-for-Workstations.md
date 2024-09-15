@@ -84,6 +84,33 @@ Have a look `TrueNAS` disk speed benchmark, over a 100Gbps ethernet network, fro
 
 ![TrueNAS disk speed benchmark](/img/TrueNAS%20disk%20speed%20benchmark.png "TrueNAS disk speed benchmark")
 
+In `Windows Server 2022`, with SMB shared folder in **Storage Spaces**:
+
+![Windows Server 2022](/img/Windows%20Server%202022.png "Windows Server 2022")
+
+Run Windows Powershell as **Administrator** user , which **RDMA Capable** are all True for both SMB client/server:
+
+```
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+Install the latest PowerShell for new features and improvements! https://aka.ms/PSWindows
+
+PS C:\Users\Administrator> Get-SmbServerNetworkInterface
+Scope Name Interface Index RSS Capable RDMA Capable Speed    IpAddress
+---------- --------------- ----------- ------------ -----    ---------
+*          5               True        True         100 Gbps fe80::9ee0:7f4c:5128:863b
+*          5               True        True         100 Gbps 192.168.68.66
+
+PS C:\Users\Administrator> Get-SmbClientNetworkInterface
+Interface Index RSS Capable RDMA Capable Speed    IpAddresses                                Friendly Name
+--------------- ----------- ------------ -----    -----------                                -------------
+5               True        True         100 Gbps {fe80::9ee0:7f4c:5128:863b, 192.168.68.66} Mellanox
+```
+
+Have a look `Windows Server 2022` disk speed benchmark, over a 100Gbps ethernet network, from `Windows 11 Pro for Workstations` with **SMB Direct**, client/server **SMB Multichannel** and **RDMA** enabled:
+
+![Windows Server 2022 disk speed benchmark](/img/Windows%20Server%202022%20disk%20speed%20benchmark.png "Windows Server 2022 disk speed benchmark")
+
 References
 ----------
 
