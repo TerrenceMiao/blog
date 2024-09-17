@@ -1,10 +1,10 @@
 ---
-title: Proxmox and SR-IOV support for Intel GPU and Mellonax network adapter
+title: Proxmox and SR-IOV support for Intel GPU and Mellanox network adapter
 date: 2024-08-04 11:56:12
 tags:
 ---
 
-- Enable `VT-d` for IOMMU (（Input Output Memory Management Unit) services, and `SR-IOV` in motherboard BIOS in Chipset, e.g. _ASRock Z790 Riptide WiFi_.
+- Enable `VT-d`(Intel Virtualization Technology for Directed I/O), for `IOMMU`(Input Output Memory Management Unit) services, and `SR-IOV` (Single Root IO Virtualization), a technology that allows a physical PCIe device to present itself multiple times through the PCIe bus, in motherboard BIOS in Chipset, e.g. _ASRock Z790 Riptide WiFi_.
 
 - Enable `SR-IOV` for Mellonax network adapter e.g. _Mellanox ConnectX-4 MCX455A-ECAT PCIe x16 3.0 100GBe VPI EDR IB_ in the same motherboard BIOS.
 
