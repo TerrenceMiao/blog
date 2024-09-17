@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://terrencemiao.github.io/blog/2024/08/04/Proxmox-and-SR-IOV-support-for-Intel-GPU-and-Mellonax-network-adapter/</loc>
+    
+    <lastmod>2024-09-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://terrencemiao.github.io/blog/2024/09/15/Create-Storage-Pool-in-Windows-Server-2022/</loc>
     
     <lastmod>2024-09-15</lastmod>
@@ -86,15 +95,6 @@
     <loc>https://terrencemiao.github.io/blog/2024/08/07/Increase-decrease-and-resize-Proxmox-disk-volume/</loc>
     
     <lastmod>2024-08-07</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2024/08/04/Proxmox-and-SR-IOV-support-for-Intel-GPU-and-Mellonax-network-adapter/</loc>
-    
-    <lastmod>2024-08-06</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -191,7 +191,7 @@
   </url>
   
   <url>
-    <loc>https://terrencemiao.github.io/blog/2019/01/01/Year-2018-in-the-Rear-View-Mirror/</loc>
+    <loc>https://terrencemiao.github.io/blog/2018/12/31/Year-2018-in-the-Rear-View-Mirror/</loc>
     
     <lastmod>2023-10-25</lastmod>
     
@@ -967,7 +967,7 @@
 
   <url>
     <loc>https://terrencemiao.github.io/blog</loc>
-    <lastmod>2024-09-15</lastmod>
+    <lastmod>2024-09-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>

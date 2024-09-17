@@ -1,3 +1,4 @@
+https://terrencemiao.github.io/blog/2024/08/04/Proxmox-and-SR-IOV-support-for-Intel-GPU-and-Mellonax-network-adapter/
 https://terrencemiao.github.io/blog/2024/09/15/Create-Storage-Pool-in-Windows-Server-2022/
 https://terrencemiao.github.io/blog/2024/09/15/Fix-network-object-name-already-existed-issue-in-Windows/
 https://terrencemiao.github.io/blog/2024/09/14/How-to-enable-SMB-Direct-client-server-in-Windows-11-Pro-for-Workstations/
@@ -8,7 +9,6 @@ https://terrencemiao.github.io/blog/2024/09/02/Setup-MikroTik-CRS504-4XQ-IN-and-
 https://terrencemiao.github.io/blog/2024/08/11/Setup-network-bond-in-Synology-NAS/
 https://terrencemiao.github.io/blog/2024/08/09/Setup-TrueNAS-Network-and-Link-Aggregation/
 https://terrencemiao.github.io/blog/2024/08/07/Increase-decrease-and-resize-Proxmox-disk-volume/
-https://terrencemiao.github.io/blog/2024/08/04/Proxmox-and-SR-IOV-support-for-Intel-GPU-and-Mellonax-network-adapter/
 https://terrencemiao.github.io/blog/2024/05/17/How-to-upgrade-Synology-NAS-network-from-1Gbps-to-2-5Gbps/
 https://terrencemiao.github.io/blog/2022/08/02/Powerful-Zsh/
 https://terrencemiao.github.io/blog/2024/05/20/The-solution-making-old-Intel-10Gbps-network-adapter-work-in-Windows-11/
@@ -19,7 +19,7 @@ https://terrencemiao.github.io/blog/2023/12/17/Upscayl-AI-Image-Upscaler/
 https://terrencemiao.github.io/blog/2023/10/25/Setup-Socks-Socks5-proxy-and-git-repo-via-proxy/
 https://terrencemiao.github.io/blog/2023/11/24/OpenSSH-Server-for-Windows/
 https://terrencemiao.github.io/blog/2023/10/25/Setup-ssh-ProxyCommand-proxyJump-on-multiple-jump-hosts/
-https://terrencemiao.github.io/blog/2019/01/01/Year-2018-in-the-Rear-View-Mirror/
+https://terrencemiao.github.io/blog/2018/12/31/Year-2018-in-the-Rear-View-Mirror/
 https://terrencemiao.github.io/blog/2017/09/03/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E8%AF%BB%E4%B9%A6/
 https://terrencemiao.github.io/blog/2017/09/03/%E7%94%BB%E8%99%BE/
 https://terrencemiao.github.io/blog/2022/10/12/Remove-Image-Background/
