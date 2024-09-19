@@ -208,3 +208,4 @@ References
 - Single Root IO Virtualization (SR-IOV), _https://docs.nvidia.com/networking/display/mlnxofedv53100143/single+root+io+virtualization+(sr-iov)_
 - Persisting SR-IOV virtual functions after reboot, _https://www.reddit.com/r/homelab/comments/hf12mv/persisting_sriov_virtual_functions_after_reboot/_
 - PCI Device Assignment with SR-IOV Devices, _https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/7/html/virtualization_deployment_and_administration_guide/sect-pci_devices-pci_passthrough_
+- 100 Gbe & TrueNAS Scale 23.10 iSCSI - Performance Unleashed, _https://forum.level1techs.com/t/100-gbe-truenas-scale-23-10-iscsi-performance-unleashed/206452_
