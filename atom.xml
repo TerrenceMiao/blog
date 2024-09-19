@@ -6,7 +6,7 @@
   <link href="https://terrencemiao.github.io/blog/atom.xml" rel="self"/>
   
   <link href="https://terrencemiao.github.io/blog/"/>
-  <updated>2024-09-17T04:21:02.880Z</updated>
+  <updated>2024-09-19T00:34:04.803Z</updated>
   <id>https://terrencemiao.github.io/blog/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Running a Mac app from Unidentified Developer on MacOS Sequoia</title>
+    <link href="https://terrencemiao.github.io/blog/2024/09/19/Running-a-Mac-app-from-Unidentified-Developer-on-MacOS-Sequoia/"/>
+    <id>https://terrencemiao.github.io/blog/2024/09/19/Running-a-Mac-app-from-Unidentified-Developer-on-MacOS-Sequoia/</id>
+    <published>2024-09-19T00:16:23.000Z</published>
+    <updated>2024-09-19T00:34:04.803Z</updated>
+    
+    <content type="html"><![CDATA[<p>Latest <code>MacOS Sequoia</code> has made another security enforcement. To open and run a Mac application, e.g. <code>VLC</code> nightly build at <em><a href="https://nightlies.videolan.org/">https://nightlies.videolan.org/</a></em>, <strong>Unidentified Developer</strong> , the following steps can take.</p><ul><li>Enable “Allow Applications from Anywhere”</li></ul><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">base ~</span><br><span class="line">sudo spctl --master-disable</span><br><span class="line">Password:</span><br><span class="line">Globally disabling the assessment system needs to be confirmed in System Settings.</span><br></pre></td></tr></table></figure><p>Go to <strong>System Settings</strong> -&gt; <strong>Privacy &amp; Security</strong>, select “Allow Applications from Anywhere”:</p><p><img src="/blog/img/MacOS%20-%20Allow%20Applications%20from%20Anywhere.png" alt="MacOS - Allow Applications from Anywhere" title="MacOS - Allow Applications from Anywhere"></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">base ~</span><br><span class="line">sudo spctl --master-enable</span><br><span class="line">Password:</span><br><span class="line">This operation is no longer supported. Please see the man page for more information.</span><br></pre></td></tr></table></figure><ul><li>Disable MacOS Quarantine on the application</li></ul><p>In this case application <code>VLC</code>:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">base ~</span><br><span class="line">xattr -dr com.apple.quarantine /Applications/VLC.app</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Latest &lt;code&gt;MacOS Sequoia&lt;/code&gt; has made another security enforcement. To open and run a Mac application, e.g. &lt;code&gt;VLC&lt;/code&gt; nightly</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Configure and setup Mellanox network adapter</title>
@@ -403,29 +423,6 @@
       
     <summary type="html">&lt;p&gt;Want to run &lt;code&gt;OpenSSH&lt;/code&gt; Server on Windows e.g. Windows 10. From Windows 10, it natively supports &lt;code&gt;OpenSSH&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;s</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Setup Socks/Socks5 proxy and git repo via proxy</title>
-    <link href="https://terrencemiao.github.io/blog/2023/10/25/Setup-Socks-Socks5-proxy-and-git-repo-via-proxy/"/>
-    <id>https://terrencemiao.github.io/blog/2023/10/25/Setup-Socks-Socks5-proxy-and-git-repo-via-proxy/</id>
-    <published>2023-10-25T11:23:53.000Z</published>
-    <updated>2023-11-26T00:37:20.283Z</updated>
-    
-    <content type="html"><![CDATA[<p>Host <code>windows.local</code> has VPN connection which is granted with git repository.</p><ul><li>Setup Socks&#x2F;Socks5 proxy</li></ul><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">ssh-copy-id -i id_rsa.pub darling@windows.local</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">ssh -D 3128 -q -C -N -f darling@windows.local</span></span><br></pre></td></tr></table></figure><ul><li>-q: quiet mode, don’t output anything locally</li><li>-C: compress data in the tunnel, save bandwidth</li><li>-N: do not execute remote commands, useful for just forwarding ports</li><li>-f: keep it running in the background</li></ul><p>If <code>PasswordAuthentication</code> is enforced, and <code>pubilc key authentication</code> in SSH Server is not supported, try:</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sshpass -f ~/.ssh/windows.passwd ssh -D 3128 -q -C -N -f darling@windows.local</span></span><br></pre></td></tr></table></figure><ul><li>Configure <code>git</code> with Sock&#x2F;Socks5 proxy</li></ul><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git config http.proxy <span class="string">&#x27;socks5://localhost:3128&#x27;</span></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cat</span> .git/config</span></span><br><span class="line">[user]</span><br><span class="line">name = Terrence Miao</span><br><span class="line">email = terrence.miao@paradise.net</span><br><span class="line">signingkey = EBCEB936</span><br><span class="line">[http]</span><br><span class="line">proxy = socks5://localhost:3128</span><br></pre></td></tr></table></figure><p>Then can access git repository via proxy both on command line and in UI client.</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;Host &lt;code&gt;windows.local&lt;/code&gt; has VPN connection which is granted with git repository.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Setup Socks&amp;#x2F;Socks5 proxy&lt;/li&gt;
-</summary>
       
     
     
