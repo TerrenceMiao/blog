@@ -183,9 +183,13 @@ in **MacOS Sequoia.vmx** file.
 
 - Mount MacOS ISO image and install
 
+![VMware - MacOS Sequoia settings](/img/VMware%20-%20MacOS%20Sequoia%20settings.png "VMware - MacOS Sequoia settings")
+
 **DON'T login Apple ID during the installation!**
 
-![VMware - MacOS Sequoia settings](/img/VMware%20-%20MacOS%20Sequoia%20settings.png "VMware - MacOS Sequoia settings")
+Since `MacOS Sequoia` has added the ability to detect whether OS is running in Virtual Machine environment, so for now can't login Apple ID directly in VM if the version is `MacOS Sequoia`.
+
+![VMware - Apple ID](/img/VMware%20-%20Apple%20ID.png "VMware - Apple ID")
 
 
 - Install `VMware Tools`
