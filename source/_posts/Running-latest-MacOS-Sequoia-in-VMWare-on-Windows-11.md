@@ -4,8 +4,11 @@ date: 2024-10-16 16:06:59
 tags:
 ---
 
-This is the step by step guide to install latest `MacOS Sequoia 15.0.1` in `VMware Workstation Pro` on `Windows 11`.
+This is the step by step guide, the fastest and easiest way install and run latest `MacOS Sequoia 15.0.1` in `VMware Workstation Pro` on `Windows 11`.
 
+Due to `MacOS Sequoia` has added detection whether OS is running in Virtual Machine, so it's better install `MacOS Sonoma` at first, then upgrade to latest version `MacOS Sequoia`.
+
+![VMware - Apple ID](/img/VMware%20-%20Apple%20ID.png "VMware - Apple ID")
 
 - Build a bootable MacOS ISO image
 
@@ -50,9 +53,9 @@ R. Toggle Recovery-Only (Currently Off)
 U. Show Catalog URL
 Q. Quit
 
-Please select an option: 1
+Please select an option: 3
 
-Downloading InstallAssistant.pkg for 072-01382 - 15.0.1 macOS Sequoia (24A348)...
+Downloading InstallAssistant.pkg for 062-78824 - 14.7 macOS Sonoma (23H124)...
 
 1.35 GB/14.48 GB | =                    9.34% | 101.7 MB/s | 00:02:10 left
 
@@ -67,7 +70,7 @@ Failed:
   None
 
 Files saved to:
-  /Users/terrence/Projects/gibMacOS/macOS Downloads/publicrelease/072-01382 - 15.0.1 macOS Sequoia (24A348)
+  /Users/terrence/Projects/gibMacOS/macOS Downloads/publicrelease/062-78824 - 14.7 macOS Sonoma (23H124)
 ```
 
 Run `InstallAssistant.pkg` from above MacOS download directory. It will be using to build ISO image.
@@ -91,25 +94,25 @@ created: /tmp/MacOS.dmg
 Create ISO image from `Install masOS app`:
 
 ```
-$ sudo /Applications/Install\ macOS\ Sequoia.app/Contents/Resources/createinstallmedia --volume /Volumes/MacOSISO --nointeraction
+$ sudo /Applications/Install\ macOS\ Sonoma.app/Contents/Resources/createinstallmedia --volume /Volumes/MacOSISO --nointeraction
 Erasing disk: 0%... 10%... 20%... 30%... 100%
 Copying essential files...
 Copying the macOS RecoveryOS...
 Making disk bootable...
 Copying to disk: 0%... 10%... 20%... 30%... 40%... 50%... 60%... 100%
-Install media now available at "/Volumes/Install macOS Sequoia"
+Install media now available at "/Volumes/Install macOS Sonoma"
 ```
 
 Unmount disk image and convert to an ISO image:
 
 ```
-$ hdiutil detach -force /Volumes/Install\ macOS\ Sequoia
+$ hdiutil detach -force /Volumes/Install\ macOS\ Sonoma
 "disk6" ejected.
 
 $ ls -al /tmp/MacOS.dmg
 -rw-r--r--@ 1 terrence  wheel  16777216000 15 Oct 21:54 /tmp/MacOS.dmg
 
-$ hdiutil convert /tmp/MacOS.dmg -format UDTO -o /tmp/MacOS-Sequoia-15.0.1.cdr
+$ hdiutil convert /tmp/MacOS.dmg -format UDTO -o /tmp/MacOS-Sonoma-14.7.cdr
 Reading Driver Descriptor Map (DDM : 0)…
 Reading Apple (Apple_partition_map : 1)…
 Reading  (Apple_Free : 2)…
@@ -118,9 +121,9 @@ Reading disk image (Apple_HFS : 3)…
 Elapsed Time: 19.139s
 Speed: 835.9MB/s
 Savings: 0.0%
-created: /tmp/MacOS-Sequoia-15.0.1.cdr
+created: /tmp/MacOS-Sonoma-14.7.cdr
 
-$ mv /tmp/MacOS-Sequoia-15.0.1.cdr /tmp/MacOS-Sequoia-15.0.1.iso
+$ mv /tmp/MacOS-Sonoma-14.7.cdr /tmp/MacOS-Sonoma-14.7.iso
 
 $ rm /tmp/MacOS.dmg
 ```
@@ -129,6 +132,7 @@ $ rm /tmp/MacOS.dmg
 - Install VMware Workstation Pro
 
 Download VMware Workstation Pro from e.g. _https://softwareupdate.vmware.com/cds/vmw-desktop/ws/17.6.1/24319023/windows/core/VMware-workstation-17.6.1-24319023.exe.tar_
+
 
 - Patch VMware Workstation Pro
 
@@ -158,6 +162,7 @@ Finished!
 
 ![VMware - Apple macOS](/img/VMware%20-%20Apple%20macOS.png "VMware - Apple macOS")
 
+
 - Add `VMware Tools`
 
 Copy `darwin.iso` and `darwinPre15.iso` files extracted from `VMware Fusion` e.g. _https://softwareupdate.vmware.com/cds/vmw-desktop/fusion/12.2.5/20904517/x86/core/com.vmware.fusion.zip.tar _ into `VMware Workstation Pro` directory:
@@ -168,36 +173,15 @@ C:\Projects\unlocker\tools\darwinPre15.iso -> C:\Program Files (x86)\VMware\VMwa
 ```
 
 
-- Create Virtual Machine for MacOS 15 Sequoia
+- Create Virtual Machine for MacOS 14 Sonoma and update the settings
 
-Change and add: 
+Add: 
 
 ```
 smc.version = "0"
 ```
 
-in **MacOS Sequoia.vmx** file.
-
-![VMware - MacOS Sequoia](/img/VMware%20-%20MacOS%20Sequoia.png "VMware - MacOS Sequoia")
-
-
-- Mount MacOS ISO image and install
-
-![VMware - MacOS Sequoia settings](/img/VMware%20-%20MacOS%20Sequoia%20settings.png "VMware - MacOS Sequoia settings")
-
-**DON'T login Apple ID during the installation!**
-
-Since `MacOS Sequoia` has added the ability to detect whether OS is running in Virtual Machine environment, so for now can't login Apple ID directly in VM if the version is `MacOS Sequoia`.
-
-![VMware - Apple ID](/img/VMware%20-%20Apple%20ID.png "VMware - Apple ID")
-
-
-- Install `VMware Tools`
-
-After MacOS installed and VM restarted, install `VMware Tools`. Then Display Memory in MacOS becomes 128 MB, and support Full Screen mode.
-
-
-- Generated Apple product serial number
+into **MacOS Sonoma.vmx** file.
 
 Clone `GenSMBIOS` repo _https://github.com/corpnewt/GenSMBIOS_ and generate serial number on Windows:
 
@@ -249,28 +233,45 @@ efi.nvram.var.ROM = "6..........7"
 efi.nvram.var.MLB = "C0.............FB"
 ```
 
-then add above block into **MacOS Sequoia.vmx** file.
+then add above block into **MacOS Sonoma.vmx** file.
 
-
-- Ethernet settings
-
-Based on Apple Ethernet MAC Address range _https://hwaddress.com/company/apple-inc/_, change network settings from:
+Based on Apple Ethernet MAC Address range _https://hwaddress.com/company/apple-inc/_, change and add network settings from:
 
 ```
 ethernet0.addressType = "generated"
-ethernet0.generatedAddress = "00:0c:29:c0:92:76"
-ethernet0.generatedAddressOffset = "0"
 ```
 
 to:
 
 ```
 ethernet0.addressType = "static"
-ethernet0.Address = "00:21:E9:c0:92:76"
-ethernet0.CheckMacAddress = "FALSE"
+ethernet0.address = "00:21:E9:c0:92:76"
+ethernet0.checkMacAddress = "FALSE"
 ```
 
-Run MacOS in `VMware Player`:
+in **MacOS Sonoma.vmx** file.
+
+![VMware - MacOS Sonoma](/img/VMware%20-%20MacOS%20Sonoma.png "VMware - MacOS Sonoma")
+
+
+- Mount MacOS ISO image and install
+
+![VMware - MacOS Sonoma settings](/img/VMware%20-%20MacOS%20Sonoma%20settings.png "VMware - MacOS Sonoma settings")
+
+**DON'T enable Location Service** during the installation! Otherwise, you can't setup Time Zone, Date Time based on your area. You can login with your **Apple ID** during the installation.
+
+
+- Install `VMware Tools`
+
+After MacOS installed and VM restarted, mount `darwin.iso` and install `VMware Tools`. Then Display Memory in MacOS becomes 128 MB, and support the **Full Screen** mode.
+
+
+- Upgrade MacOS
+
+After `MacOS Sonoma` installed, make sure everything is OK, then copy the whole **MacOS Sonoma** directory to a new directory **MacOS Sequoia (Upgraded)**. Open the new directory in VMware, and select **I copied it**, then you can upgrade MacOS to latest verion in _System Settings -> Software Update_.
+
+
+- Run MacOS in `VMware Player`:
 
 ![VMware - Player](/img/VMware%20-%20Player.png "VMware - Player")
 
