@@ -260,6 +260,8 @@ in **MacOS Sonoma.vmx** file.
 
 **DON'T enable Location Service** during the installation! Otherwise, you can't setup Time Zone, Date Time based on your area. You can login with your **Apple ID** during the installation.
 
+![VMware - Apple ID login](/img/VMware%20-%20Apple%20ID%20login.png "VMware - Apple ID login")
+
 
 - Install `VMware Tools`
 
