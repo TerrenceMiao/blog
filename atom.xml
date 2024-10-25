@@ -6,7 +6,7 @@
   <link href="https://terrencemiao.github.io/blog/atom.xml" rel="self"/>
   
   <link href="https://terrencemiao.github.io/blog/"/>
-  <updated>2024-10-25T15:11:56.882Z</updated>
+  <updated>2024-10-25T15:18:33.738Z</updated>
   <id>https://terrencemiao.github.io/blog/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Turn On and Turn Off Recall in Windows 11</title>
+    <link href="https://terrencemiao.github.io/blog/2024/10/26/Turn-On-and-Turn-Off-Recall-in-Windows-11/"/>
+    <id>https://terrencemiao.github.io/blog/2024/10/26/Turn-On-and-Turn-Off-Recall-in-Windows-11/</id>
+    <published>2024-10-25T14:15:03.000Z</published>
+    <updated>2024-10-25T15:18:33.738Z</updated>
+    
+    <content type="html"><![CDATA[<p>Turn On <strong>Recall</strong> feature in <code>Windows 11 24H2</code>, by running Widnows Power Shell as <strong>Administrator</strong>:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">PS C:\&gt; DISM /Online /Get-FeatureInfo /FeatureName:Recall</span><br><span class="line"></span><br><span class="line">Deployment Image Servicing and Management tool</span><br><span class="line">Version: 10.0.26100.1150</span><br><span class="line"></span><br><span class="line">Image Version: 10.0.26100.2033</span><br><span class="line"></span><br><span class="line">Feature Information:</span><br><span class="line"></span><br><span class="line">Feature Name : Recall</span><br><span class="line">Display Name : Recall</span><br><span class="line">Description : Recall application.</span><br><span class="line">Restart Required : Possible</span><br><span class="line">State : Enabled</span><br><span class="line"></span><br><span class="line">Custom Properties:</span><br><span class="line"></span><br><span class="line">(No custom properties found)</span><br><span class="line"></span><br><span class="line">The operation completed successfully.</span><br></pre></td></tr></table></figure><p>Turn Off <strong>Recall</strong> in <code>Windows 11 24H2</code>:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">PS C:\&gt; DISM /Online /Disable-Feature /FeatureName:Recall</span><br><span class="line"></span><br><span class="line">Deployment Image Servicing and Management tool</span><br><span class="line">Version: 10.0.26100.1150</span><br><span class="line"></span><br><span class="line">Image Version: 10.0.26100.2033</span><br><span class="line"></span><br><span class="line">Disabling feature(s)</span><br><span class="line">[==========================100.0%==========================]</span><br><span class="line">The operation completed successfully.</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Turn On &lt;strong&gt;Recall&lt;/strong&gt; feature in &lt;code&gt;Windows 11 24H2&lt;/code&gt;, by running Widnows Power Shell as &lt;strong&gt;Administrator&lt;/strong&gt;</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Running latest MacOS Sequoia in VMware on Windows 11</title>
@@ -401,26 +421,6 @@
       
       
     <summary type="html">&lt;p&gt;Synology NAS DS920+ with two 1Gbps ethernet adapters. There is an affordable and easy upgrading its gigabytes network path to 2.5Gbps.&lt;/p</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>How to team network (link aggregation) in Windows 11</title>
-    <link href="https://terrencemiao.github.io/blog/2024/05/03/How-to-team-network-link-aggregation-in-Windows-11/"/>
-    <id>https://terrencemiao.github.io/blog/2024/05/03/How-to-team-network-link-aggregation-in-Windows-11/</id>
-    <published>2024-05-03T11:40:36.000Z</published>
-    <updated>2024-05-15T11:56:00.374Z</updated>
-    
-    <content type="html"><![CDATA[<p>Intel Ethernet Converged Network Adapter X710, with two 10Gbps ports. This allows to team the two ports together for link aggregation.</p><ul><li>Install Optional Features <code>Server Manager</code> in Windows 11</li></ul><p><img src="/blog/img/Network%20Team%20-%20Server%20Manager.png" alt="Server Manager" title="Server Manager"></p><ul><li>Open and run Windows Powershell as administrator, then run:</li></ul><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">PS</span> C:\&gt; <span class="built_in">New-NetSwitchTeam</span> <span class="literal">-Name</span> <span class="string">&quot;NIC-Team&quot;</span> <span class="literal">-TeamMembers</span> <span class="string">&quot;X710-1&quot;</span>,<span class="string">&quot;X710-2&quot;</span></span><br></pre></td></tr></table></figure><p><img src="/blog/img/Network%20Team%20-%20Connections.png" alt="Network Connections" title="Network Connections"></p><p>A new network interface created, with combined speed <em><strong>20Gbps</strong></em>.</p><p><img src="/blog/img/Network%20Team%20-%20Status.png" alt="Network Status" title="Network Status"></p><p><img src="/blog/img/Network%20Team%20-%20Details.png" alt="Network Details" title="Network Details"></p><p>To remove network team, run:</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">PS</span> C:\&gt; <span class="built_in">Remove-NetSwitchTeam</span> <span class="literal">-Name</span> <span class="string">&quot;NIC-Team&quot;</span></span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;Intel Ethernet Converged Network Adapter X710, with two 10Gbps ports. This allows to team the two ports together for link aggregation.&lt;/p</summary>
       
     
     

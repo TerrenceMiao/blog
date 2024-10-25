@@ -15,7 +15,7 @@
 <!-- End Google Analytics -->
 
   
-  <title>Archive: 2017/3 | Terrence Miao&#39;s Adventures</title>
+  <title>Turn On and Turn Off Recall in Windows 11 | Terrence Miao&#39;s Adventures</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   
     <meta name="description" content="Veni, vidi, vici">
@@ -96,59 +96,122 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-
-  
-  
+        <section id="main"><article id="post-Turn-On-and-Turn-Off-Recall-in-Windows-11" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner">
     
     
-    <section class="archives-wrap">
-      <div class="archive-title">
+      <header class="article-header">
         
-          <i class="fa fa-date"></i>
-          2017
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Turn On and Turn Off Recall in Windows 11
+    </h1>
+  
+
+
+      </header>
+    
+    <div class="article-meta">
+      
+      <span class="article-date">
+  <i class="fa fa-date"></i>
+  <time class="dt-published" datetime="2024-10-25T14:15:03.000Z" itemprop="datePublished">2024-10-26</time>
+</span>
+      
+      
+        <span class="article-views">
+  <i class="fa fa-views"></i>
+  <i id="busuanzi_container_page_pv">
+      <i id="busuanzi_value_page_pv"></i>
+  </i>
+</span>
+
+      
+      
+<a href="/blog/2024/10/26/Turn-On-and-Turn-Off-Recall-in-Windows-11/#comments" class="article-comment-link">
+  
+    
+    
+      <i class="disqus-comment-count" data-disqus-identifier="/blog/2024/10/26/Turn-On-and-Turn-Off-Recall-in-Windows-11/"></i>
+    
+    
+    
+    
+  
+  <i class="fa fa-commt"></i>
+  Guestbook
+</a>
+
+
+    </div>
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>Turn On <strong>Recall</strong> feature in <code>Windows 11 24H2</code>, by running Widnows Power Shell as <strong>Administrator</strong>:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">PS C:\&gt; DISM /Online /Get-FeatureInfo /FeatureName:Recall</span><br><span class="line"></span><br><span class="line">Deployment Image Servicing and Management tool</span><br><span class="line">Version: 10.0.26100.1150</span><br><span class="line"></span><br><span class="line">Image Version: 10.0.26100.2033</span><br><span class="line"></span><br><span class="line">Feature Information:</span><br><span class="line"></span><br><span class="line">Feature Name : Recall</span><br><span class="line">Display Name : Recall</span><br><span class="line">Description : Recall application.</span><br><span class="line">Restart Required : Possible</span><br><span class="line">State : Enabled</span><br><span class="line"></span><br><span class="line">Custom Properties:</span><br><span class="line"></span><br><span class="line">(No custom properties found)</span><br><span class="line"></span><br><span class="line">The operation completed successfully.</span><br></pre></td></tr></table></figure>
+
+<p>Turn Off <strong>Recall</strong> in <code>Windows 11 24H2</code>:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">PS C:\&gt; DISM /Online /Disable-Feature /FeatureName:Recall</span><br><span class="line"></span><br><span class="line">Deployment Image Servicing and Management tool</span><br><span class="line">Version: 10.0.26100.1150</span><br><span class="line"></span><br><span class="line">Image Version: 10.0.26100.2033</span><br><span class="line"></span><br><span class="line">Disabling feature(s)</span><br><span class="line">[==========================100.0%==========================]</span><br><span class="line">The operation completed successfully.</span><br></pre></td></tr></table></figure>
+
+        
+            <div id="toc-article">
+                
+  <div class="widget-wrap" id="toc-wrap">
+    <h3 class="widget-title"><i class="fa fa-toc"></i> Contents</h3>
+    <div class="widget">
+      
+    </div>
+  </div>
+
+
+            </div>
+        
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div class="article-tag-wrap">
+          
+
+          
+          
+
+
+        </div>
+      
+      
+        
+<nav id="article-nav">
+  
+    <a href="/blog/2024/10/16/Running-latest-MacOS-Sequoia-in-VMWare-on-Windows-11/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">older</strong>
+      <div class="article-nav-title">
+        
+          Running latest MacOS Sequoia in VMware on Windows 11
         
       </div>
-      <div class="archives">
-  
-  <ul class="archive-article archive-type-post">
-  <li class="archive-article-inner">
-    <a href="/blog/2017/03/12/Influence-Without-Authority/">
-      <time class="dt-published" datetime="2017-03-12T11:31:23.000Z" itemprop="datePublished">2017-03-12</time>
-      | <span class="archive-article-title">Influence Without Authority</span>
     </a>
-  </li>
-</ul>
-
-
   
   
-  <ul class="archive-article archive-type-post">
-  <li class="archive-article-inner">
-    <a href="/blog/2017/03/04/Spring-Data-powerful-and-succinct-abstraction/">
-      <time class="dt-published" datetime="2017-03-03T23:05:30.000Z" itemprop="datePublished">2017-03-04</time>
-      | <span class="archive-article-title">Spring Data - powerful and succinct abstraction</span>
-    </a>
-  </li>
-</ul>
+</nav>
 
-
-  
-  
-  <ul class="archive-article archive-type-post">
-  <li class="archive-article-inner">
-    <a href="/blog/2017/03/03/SQL-script-generates-random-data-and-insert-into-MySQL-database/">
-      <time class="dt-published" datetime="2017-03-03T12:02:17.000Z" itemprop="datePublished">2017-03-03</time>
-      | <span class="archive-article-title">SQL script generates random data and insert into MySQL database</span>
-    </a>
-  </li>
-</ul>
+      
+      
+        
 
 
 
-  </div></section>
+  <div id="comments"><div id="disqus_thread"></div></div>
 
 
+
+
+
+
+      
+    </footer>
+  </div>
+</article>
 </section>
         
           <aside id="sidebar">
@@ -286,6 +349,9 @@
 
 
 
+  
+  
+
 
 
   
@@ -298,10 +364,12 @@
     <script>
       var disqus_shortname = 'terrencemiao';
       
+        var disqus_url = 'https://terrencemiao.github.io/blog/2024/10/26/Turn-On-and-Turn-Off-Recall-in-Windows-11/';
+      
       (function(){
         var dsq = document.createElement('script');
         dsq.async = true;
-        dsq.src = 'https://' + disqus_shortname + '.disqus.com/count.js';
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
       })();
     </script>

@@ -1,3 +1,5 @@
+https://terrencemiao.github.io/blog/2024/10/26/Turn-On-and-Turn-Off-Recall-in-Windows-11/
+https://terrencemiao.github.io/blog/2024/10/16/Running-latest-MacOS-Sequoia-in-VMWare-on-Windows-11/
 https://terrencemiao.github.io/blog/2024/10/12/How-to-access-Ollama-runs-on-localhost-from-internet/
 https://terrencemiao.github.io/blog/2024/09/27/Proxmox-VE-Helper-Scripts/
 https://terrencemiao.github.io/blog/2024/09/17/Configure-and-setup-Mellanox-network-adapter/
