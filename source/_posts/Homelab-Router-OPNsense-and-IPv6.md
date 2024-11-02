@@ -82,6 +82,7 @@ References
 - OPNsense Optional Port Configuration, _https://kb.protectli.com/kb/opnsense-optional-port-configuration/_
 - IPv6 setup, _https://docs.opnsense.org/manual/ipv6.html_
 - Anyone have IPv6 working with OPNSense? _https://www.reddit.com/r/AussieBroadband/comments/10qldin/anyone_have_ipv6_working_with_opnsense/_, _https://f001.backblazeb2.com/b2api/v1/b2_download_file_by_id?fileId=4_zd344e4de4b297a128d680f16_f1019c6ea32f55c8f_d20240526_m042719_c001_v0001101_t0001_u01716697639553_
+- Common Router Settings (Part of the Aussie Broadband article), _https://whirlpool.net.au/wiki/aussie_broadband_ipv6_router_settings_
 - Aussie Broadband IPv6 deployment journey, _https://2022.apricot.net/assets/files/APNT374/aussie-broadband-ipv6-deployment-journey.pdf_
 - IPv6 Chart / IPv4 CIDR Chart, _https://www.ripe.net/media/documents/IPv6_Chart_2015.pdf_
 
