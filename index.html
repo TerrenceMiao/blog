@@ -137,7 +137,11 @@
 <ul>
 <li>Enable <strong>OPT1</strong> Interface</li>
 <li>Select <strong>Static IPv4</strong> for IPv4 Configuration Type</li>
+<li>Select <strong>Track Interface</strong> for IPv6 Configuration Type</li>
 <li>IPv4 address set to <strong>192.168.2.1&#x2F;24</strong></li>
+<li>IPv6 parent interface set to <strong>WAN</strong></li>
+<li>IPv6 prefix ID set to <strong>0x1</strong>. <strong>0x0</strong> has been assigned to <strong>LAN</strong></li>
+<li>Enable <strong>Allow manual adjustment of DHCPv6 and Router Advertisements</strong></li>
 </ul>
 <p><img src="/blog/img/OPNsense%20-%20OPT1%20Interface.png" alt="OPNsense - OPT1 Interface" title="OPNsense - OPT1 Interface"></p>
 <ul>
@@ -152,9 +156,24 @@
 </ul>
 <p><img src="/blog/img/OPNsense%20-%20OPT1%20Firewall%20Rule.png" alt="OPNsense - OPT1 Firewall Rule" title="OPNsense - OPT1 Firewall Rule"></p>
 <ul>
-<li>Setup Firewall Rule for <strong>OPT1</strong> interface</li>
+<li>Setup Firewall Rule for IPv4 on <strong>OPT1</strong> interface, then</li>
+<li>Setup Firewall Rule for IPv6 on <strong>OPT1</strong> interface</li>
 </ul>
 <p><img src="/blog/img/OPNsense%20-%20OPT1%20Firewall.png" alt="OPNsense - OPT1 Firewall" title="OPNsense - OPT1 Firewall"></p>
+<h2 id="Setup-IPv6"><a href="#Setup-IPv6" class="headerlink" title="Setup IPv6"></a>Setup IPv6</h2><p>Step by step to enable IPv6 with <strong>Buddy Telco &#x2F; Aussie Broadband</strong> ISP.</p>
+<p><img src="/blog/img/OPNsense%20-%20WAN.png" alt="OPNsense - WAN" title="OPNsense - WAN"></p>
+<ul>
+<li>Enable DHCP&#x2F;DHCPv6 for IPv4&#x2F;IPv6 Configuration Type</li>
+<li>Set ISP’s <strong>Prefix delegation size</strong> to <code>48</code></li>
+<li>Enable <strong>Send prefix hint</strong></li>
+</ul>
+<p><img src="/blog/img/OPNsense%20-%20Router%20Advertisements.png" alt="OPNsense - Router Advertisements" title="OPNsense - Router Advertisements"></p>
+<ul>
+<li>Set <strong>Router Advertisements</strong> to <code>Unmanaged</code></li>
+<li>Set <strong>Router Priority</strong> to <code>Normal</code></li>
+</ul>
+<p>After all the change made above, reboot <code>OPNsense</code> instance.</p>
+<p><img src="/blog/img/OPNsense%20-%20Dashboard.png" alt="OPNsense - Dashboard" title="OPNsense - Dashboard"></p>
 <h2 id="IPv6-Test"><a href="#IPv6-Test" class="headerlink" title="IPv6 Test"></a>IPv6 Test</h2><ul>
 <li><em><a target="_blank" rel="noopener" href="https://test-ipv6.com/">https://test-ipv6.com/</a></em></li>
 </ul>
@@ -167,6 +186,7 @@
 <li>Virtualize OPNsense on Proxmox as Your Primary Router, <em><a target="_blank" rel="noopener" href="https://homenetworkguy.com/how-to/virtualize-opnsense-on-proxmox-as-your-primary-router/">https://homenetworkguy.com/how-to/virtualize-opnsense-on-proxmox-as-your-primary-router/</a></em></li>
 <li>OPNsense Optional Port Configuration, <em><a target="_blank" rel="noopener" href="https://kb.protectli.com/kb/opnsense-optional-port-configuration/">https://kb.protectli.com/kb/opnsense-optional-port-configuration/</a></em></li>
 <li>IPv6 setup, <em><a target="_blank" rel="noopener" href="https://docs.opnsense.org/manual/ipv6.html">https://docs.opnsense.org/manual/ipv6.html</a></em></li>
+<li>Anyone have IPv6 working with OPNSense? <em><a target="_blank" rel="noopener" href="https://www.reddit.com/r/AussieBroadband/comments/10qldin/anyone_have_ipv6_working_with_opnsense/">https://www.reddit.com/r/AussieBroadband/comments/10qldin/anyone_have_ipv6_working_with_opnsense/</a></em>, <em><a target="_blank" rel="noopener" href="https://f001.backblazeb2.com/b2api/v1/b2_download_file_by_id?fileId=4_zd344e4de4b297a128d680f16_f1019c6ea32f55c8f_d20240526_m042719_c001_v0001101_t0001_u01716697639553">https://f001.backblazeb2.com/b2api/v1/b2_download_file_by_id?fileId=4_zd344e4de4b297a128d680f16_f1019c6ea32f55c8f_d20240526_m042719_c001_v0001101_t0001_u01716697639553</a></em></li>
 <li>Aussie Broadband IPv6 deployment journey, <em><a target="_blank" rel="noopener" href="https://2022.apricot.net/assets/files/APNT374/aussie-broadband-ipv6-deployment-journey.pdf">https://2022.apricot.net/assets/files/APNT374/aussie-broadband-ipv6-deployment-journey.pdf</a></em></li>
 <li>IPv6 Chart &#x2F; IPv4 CIDR Chart, <em><a target="_blank" rel="noopener" href="https://www.ripe.net/media/documents/IPv6_Chart_2015.pdf">https://www.ripe.net/media/documents/IPv6_Chart_2015.pdf</a></em></li>
 </ul>
