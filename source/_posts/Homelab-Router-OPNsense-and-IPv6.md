@@ -60,6 +60,8 @@ Step by step to enable IPv6 with **Buddy Telco / Aussie Broadband** ISP.
 
 After all the change made above, reboot `OPNsense` instance.
 
+![OPNsense - In Proxmox](/img/OPNsense%20-%20In%20Proxmox.png "OPNsense - In Proxmox")
+
 ![OPNsense - Dashboard](/img/OPNsense%20-%20Dashboard.png "OPNsense - Dashboard")
 
 
