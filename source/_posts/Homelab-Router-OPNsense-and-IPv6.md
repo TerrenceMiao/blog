@@ -46,6 +46,8 @@ Setup IPv6
 
 Step by step to enable IPv6 with **Buddy Telco / Aussie Broadband** ISP.
 
+![OPNsense - Interfaces Settings](/img/OPNsense%20-%20Interfaces%20Settings.png "OPNsense - Interfaces Settings")
+
 ![OPNsense - WAN](/img/OPNsense%20-%20WAN.png "OPNsense - WAN")
 
 - Enable DHCP/DHCPv6 for IPv4/IPv6 Configuration Type
@@ -81,6 +83,18 @@ IPv6 Test
 - _https://ipv6-test.com/_
 
 ![OPNsense - IPv6 Test](/img/OPNsense%20-%20IPv6%20Test.png "OPNsense - Test Test")
+
+
+VLAN
+----
+
+![OPNsense - VLAN](/img/OPNsense%20-%20VLAN.png "OPNsense - VLAN")
+
+![OPNsense - VLAN Interfaces](/img/OPNsense%20-%20VLAN%20Interfaces.png "OPNsense - VLAN Interfaces")
+
+![OPNsense - Trusted VLAN](/img/OPNsense%20-%20Trusted%20VLAN.png "OPNsense - Trusted VLAN")
+
+![OPNsense - Untrusted VLAN](/img/OPNsense%20-%20Untrusted%20VLAN.png "OPNsense - Untrusted VLAN")
 
 
 References
