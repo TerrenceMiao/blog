@@ -60,6 +60,30 @@ Step by step to enable IPv6 with **Buddy Telco / Aussie Broadband** ISP.
 - Set **Router Priority** to `Normal`
 
 
+VLAN
+----
+
+Setup Trusted and Untrusted VLAN.
+
+![OPNsense - VLAN](/img/OPNsense%20-%20VLAN.png "OPNsense - VLAN")
+
+![OPNsense - VLAN Interfaces](/img/OPNsense%20-%20VLAN%20Interfaces.png "OPNsense - VLAN Interfaces")
+
+![OPNsense - Trusted VLAN](/img/OPNsense%20-%20Trusted%20VLAN.png "OPNsense - Trusted VLAN")
+
+![OPNsense - Untrusted VLAN](/img/OPNsense%20-%20Untrusted%20VLAN.png "OPNsense - Untrusted VLAN")
+
+Then,
+
+- Set **Router Advertisements** to `Unmanaged`
+- Set **Router Priority** to `Normal`
+
+for both VLANs. 
+
+
+Running
+-------
+
 After all the change made above, reboot `OPNsense` instance.
 
 ![OPNsense - Proxmox Network](/img/OPNsense%20-%20Proxmox%20Network.png "OPNsense - Proxmox Network")
@@ -83,18 +107,6 @@ IPv6 Test
 - _https://ipv6-test.com/_
 
 ![OPNsense - IPv6 Test](/img/OPNsense%20-%20IPv6%20Test.png "OPNsense - Test Test")
-
-
-VLAN
-----
-
-![OPNsense - VLAN](/img/OPNsense%20-%20VLAN.png "OPNsense - VLAN")
-
-![OPNsense - VLAN Interfaces](/img/OPNsense%20-%20VLAN%20Interfaces.png "OPNsense - VLAN Interfaces")
-
-![OPNsense - Trusted VLAN](/img/OPNsense%20-%20Trusted%20VLAN.png "OPNsense - Trusted VLAN")
-
-![OPNsense - Untrusted VLAN](/img/OPNsense%20-%20Untrusted%20VLAN.png "OPNsense - Untrusted VLAN")
 
 
 References
