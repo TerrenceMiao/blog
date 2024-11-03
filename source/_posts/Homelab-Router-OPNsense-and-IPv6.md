@@ -62,6 +62,8 @@ After all the change made above, reboot `OPNsense` instance.
 
 ![OPNsense - In Proxmox](/img/OPNsense%20-%20In%20Proxmox.png "OPNsense - In Proxmox")
 
+![OPNsense - Interfaces Overview](/img/OPNsense%20-%20Interfaces%20Overview.png "OPNsense - Interfaces Overview")
+
 ![OPNsense - Dashboard](/img/OPNsense%20-%20Dashboard.png "OPNsense - Dashboard")
 
 
@@ -81,6 +83,8 @@ References
 ----------
 
 - Virtualize OPNsense on Proxmox as Your Primary Router, _https://homenetworkguy.com/how-to/virtualize-opnsense-on-proxmox-as-your-primary-router/_
+- How to Configure IPv6 in Your Home Network with ISP such as Comcast Xfinity, _https://homenetworkguy.com/how-to/configure-ipv6-opnsense-with-isp-such-as-comcast-xfinity/_
+- Beginner's Guide to Set Up a Home Network Using OPNsense, _https://homenetworkguy.com/how-to/beginners-guide-to-set-up-home-network-using-opnsense/_
 - OPNsense Optional Port Configuration, _https://kb.protectli.com/kb/opnsense-optional-port-configuration/_
 - IPv6 setup, _https://docs.opnsense.org/manual/ipv6.html_
 - Anyone have IPv6 working with OPNSense? _https://www.reddit.com/r/AussieBroadband/comments/10qldin/anyone_have_ipv6_working_with_opnsense/_, _https://f001.backblazeb2.com/b2api/v1/b2_download_file_by_id?fileId=4_zd344e4de4b297a128d680f16_f1019c6ea32f55c8f_d20240526_m042719_c001_v0001101_t0001_u01716697639553_
