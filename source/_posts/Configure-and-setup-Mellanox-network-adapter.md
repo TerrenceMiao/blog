@@ -6,8 +6,11 @@ tags:
 
 A _Mellanox ConnectX-4 MCX455A-ECAT PCIe x16 3.0 100GBe VPI EDR IB_ network adapter. Enable `VT-d`(Intel Virtualization Technology for Directed I/O), `SR-IOV` (Single Root IO Virtualization), and the number of Virtual Functions in Chipset and Network in BIOS.
 
+The following steps are made in a `Proxmox Virtual Environment (PVE)`.
+
+
 Configuration and Setup
-----------------------
+-----------------------
 
 Go to NVIDIA Firmware Tools (MFT) _https://network.nvidia.com/products/adapter-software/firmware-tools/_ and download the `MFT`; go to Updating Firmware for ConnectX®-4 VPI PCI Express Adapter Cards (InfiniBand, Ethernet, VPI) _https://network.nvidia.com/support/firmware/connectx4ib/_ and download the updated firmware e.g. `mft-4.26.1-6-x86_64-deb.tgz`.
 
@@ -129,6 +132,7 @@ Settings for enp1s0np0:
 	Link detected: yes
 ```
 
+
 Virtualization
 --------------
 
@@ -178,6 +182,7 @@ root@pve:~# ip link show
 ...
 ```
 
+
 Persistence
 -----------
 
@@ -201,6 +206,23 @@ root@pve:~# cat /etc/udev/rules.d/mlx.rules
 ACTION=="add", SUBSYSTEM=="infiniband", ENV{NAME}=="mlx5_0", ATTR{device/sriov_numvfs}="8"
 ```
 
+
+Network in Proxmox
+------------------
+
+Add virtualised network adapter in Resource Mappings in Proxmox:
+
+![Mellanox - Resource Mappings](/img/Mellanox%20-%20Resource%20Mappings.png "Mellanox - Resource Mappings")
+
+List PCI Devices in Resource Mappings in Proxmox which support Virtual Functions:
+
+![Mellanox - Resource Mappings PCI Devices](/img/Mellanox%20-%20Resource%20Mappings%20PCI%20Devices.png "Mellanox - Resource Mappings PCI Devices")
+
+Add PCI device in Resource Mappings in Proxmox in VM:
+
+![Mellanox - Network PCI Device](/img/Mellanox%20-%20Network%20PCI%20Device.png "Mellanox - Network PCI Device")
+
+
 References
 ----------
 
@@ -209,3 +231,4 @@ References
 - Persisting SR-IOV virtual functions after reboot, _https://www.reddit.com/r/homelab/comments/hf12mv/persisting_sriov_virtual_functions_after_reboot/_
 - PCI Device Assignment with SR-IOV Devices, _https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/7/html/virtualization_deployment_and_administration_guide/sect-pci_devices-pci_passthrough_
 - 100 Gbe & TrueNAS Scale 23.10 iSCSI - Performance Unleashed, _https://forum.level1techs.com/t/100-gbe-truenas-scale-23-10-iscsi-performance-unleashed/206452_
+- Single-Root IO Virtualization (SR-IOV) in Proxmox Virtual Environment (PVE) for Networking, _https://www.youtube.com/watch?v=AdzeMpBIXlQ_
