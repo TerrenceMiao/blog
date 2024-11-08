@@ -97,6 +97,66 @@
 
       <div class="outer">
         <section id="main">
+  <article id="post-Remove-Image-Background" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog/2022/10/12/Remove-Image-Background/">Remove Image Background</a>
+    </h1>
+  
+
+
+      </header>
+    
+    <div class="article-meta">
+      
+      <span class="article-date">
+  <i class="fa fa-date"></i>
+  <time class="dt-published" datetime="2022-10-12T11:59:54.000Z" itemprop="datePublished">2022-10-12</time>
+</span>
+      
+      
+      
+<a href="/blog/2022/10/12/Remove-Image-Background/#comments" class="article-comment-link">
+  
+  <i class="fa fa-commt"></i>
+  Guestbook
+</a>
+
+
+    </div>
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>Remove backgrounds 100% automatically in 5 seconds with one click. Thanks to remove.bg <em><a target="_blank" rel="noopener" href="https://www.remove.bg/">https://www.remove.bg/</a></em> clever AI.</p>
+<p><img src="/blog/img/Messi%2030.png" alt="Messi" title="Messi"></p>
+<p><img src="/blog/img/%E5%B0%8F%E6%B3%89%E4%BB%8A%E6%97%A5%E5%AD%90.png" alt="小泉今日子" title="小泉今日子"></p>
+
+        
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div class="article-tag-wrap">
+          
+
+          
+          
+
+
+        </div>
+      
+      
+      
+    </footer>
+  </div>
+</article>
+
+
   <article id="post-Geekbench-head-to-head-Mac-vs-iPad-vs-Android" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-inner">
     
@@ -736,73 +796,6 @@
 </article>
 
 
-  <article id="post-Read-environment-varibles-of-a-process-in-Linux" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/blog/2021/04/30/Read-environment-varibles-of-a-process-in-Linux/">Read environment variables of a process in Linux</a>
-    </h1>
-  
-
-
-      </header>
-    
-    <div class="article-meta">
-      
-      <span class="article-date">
-  <i class="fa fa-date"></i>
-  <time class="dt-published" datetime="2021-04-30T12:44:39.000Z" itemprop="datePublished">2021-04-30</time>
-</span>
-      
-      
-      
-<a href="/blog/2021/04/30/Read-environment-varibles-of-a-process-in-Linux/#comments" class="article-comment-link">
-  
-  <i class="fa fa-commt"></i>
-  Guestbook
-</a>
-
-
-    </div>
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>When try to get the content of any &#x2F;proc&#x2F;<em>PID</em>&#x2F;environ file in more readable format, you can:</p>
-<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/proc/[pid]/environ</span><br><span class="line">      This file contains the environment for the process.  The entries</span><br><span class="line">      are separated by null bytes (&#x27;\0&#x27;), and there may be a null byte</span><br><span class="line">      at the end.</span><br></pre></td></tr></table></figure>
-
-<p>A simple way is to apply <code>xargs -0 -L1 -a</code> on it:</p>
-<ul>
-<li><code>-0</code> - read null-delimited lines,</li>
-<li><code>-L1</code> - read one line per execution of command</li>
-<li><code>-a</code> - file read lines from file</li>
-</ul>
-<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">ps -aef</span></span><br><span class="line">10101     3629  3589  0 Apr27 ?        00:00:00 /bin/bash bin/start</span><br><span class="line">10101     3670  3629  0 Apr27 ?        00:00:00 /bin/bash bin/start-tomcat</span><br><span class="line">10101     3671  3670  0 Apr27 ?        00:07:36 /usr/lib/jvm/java-11-amazon-corretto.x86_64/bin/java -Djava.util.logging.config.file=/usr/local/tomcat/conf/</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">cat</span> /proc/3629/environ</span></span><br><span class="line">PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/binHOSTNAME=27c44e8a5c7cJAVA_HOME=/usr/lib/jvm/java-11-amazon-corretto.x86_64HOME=/usr/local/tomcat</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">xargs -0 -L1 -a /proc/3629/environ</span></span><br><span class="line">PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin</span><br><span class="line">HOSTNAME=27c44e8a5c7c</span><br><span class="line">JAVA_HOME=/usr/lib/jvm/java-11-amazon-corretto.x86_64</span><br><span class="line">HOME=/usr/local/tomcat</span><br></pre></td></tr></table></figure>
-
-        
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <div class="article-tag-wrap">
-          
-
-          
-          
-
-
-        </div>
-      
-      
-      
-    </footer>
-  </div>
-</article>
-
-
 
     <nav id="page-nav">
 
@@ -821,6 +814,10 @@
       <ul>
         
           <li>
+            <a href="/blog/2024/11/08/Enable-SR-IOV-in-Intel-82599ES-10Gbps-Ethernet-Controller/">Enable SR-IOV in Intel 82599ES 10Gbps Ethernet Controller</a>
+          </li>
+        
+          <li>
             <a href="/blog/2024/11/01/Homelab-Router-OPNsense-and-IPv6/">Homelab Router OPNsense and IPv6</a>
           </li>
         
@@ -834,10 +831,6 @@
         
           <li>
             <a href="/blog/2024/10/12/How-to-access-Ollama-runs-on-localhost-from-internet/">How to access Ollama runs on localhost from internet</a>
-          </li>
-        
-          <li>
-            <a href="/blog/2024/09/27/Proxmox-VE-Helper-Scripts/">Proxmox VE Helper Scripts</a>
           </li>
         
       </ul>
@@ -855,7 +848,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title"><i class="fa fa-archive"></i> Archive</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2024/">2024</a><span class="archive-list-count">23</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2023/">2023</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/">2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/">2021</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/">2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/">2019</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/">2017</a><span class="archive-list-count">25</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2024/">2024</a><span class="archive-list-count">24</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2023/">2023</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/">2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/">2021</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/">2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/">2019</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/">2017</a><span class="archive-list-count">25</span></li></ul>
     </div>
   </div>
 

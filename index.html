@@ -97,6 +97,94 @@
 
       <div class="outer">
         <section id="main">
+  <article id="post-Enable-SR-IOV-in-Intel-82599ES-10Gbps-Ethernet-Controller" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog/2024/11/08/Enable-SR-IOV-in-Intel-82599ES-10Gbps-Ethernet-Controller/">Enable SR-IOV in Intel 82599ES 10Gbps Ethernet Controller</a>
+    </h1>
+  
+
+
+      </header>
+    
+    <div class="article-meta">
+      
+      <span class="article-date">
+  <i class="fa fa-date"></i>
+  <time class="dt-published" datetime="2024-11-08T10:06:48.000Z" itemprop="datePublished">2024-11-08</time>
+</span>
+      
+      
+      
+<a href="/blog/2024/11/08/Enable-SR-IOV-in-Intel-82599ES-10Gbps-Ethernet-Controller/#comments" class="article-comment-link">
+  
+  <i class="fa fa-commt"></i>
+  Guestbook
+</a>
+
+
+    </div>
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><strong>Intel® 82599ES 10Gbps Ethernet Controller</strong> <em><a target="_blank" rel="noopener" href="https://ark.intel.com/content/www/us/en/ark/products/41282/intel-82599es-10-gigabit-ethernet-controller.html">https://ark.intel.com/content/www/us/en/ark/products/41282/intel-82599es-10-gigabit-ethernet-controller.html</a></em> supports <strong>SR-IOV</strong>, which is Intel® Virtualization Technology for Connectivity (VT-c) solution.</p>
+<p>The following step by step instructions is made in <code>Proxmox</code>.</p>
+<p>Intel i3 N305 Mini PC <em><a target="_blank" rel="noopener" href="https://www.aliexpress.com/item/1005007278560105.html">https://www.aliexpress.com/item/1005007278560105.html</a></em> </p>
+<p><img src="/blog/img/Intel%20Network%20-%20Mini%20PC.png" alt="Intel Network - Mini PC" title="Intel Network - Mini PC"></p>
+<p>equips with 2x10G SFP+ (Intel 82599ES) and 2x2.5G (Intel i226-V) network cards:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">root@sense:~# lspci | grep Ethernet</span><br><span class="line">01:00.0 Ethernet controller: Intel Corporation 82599ES 10-Gigabit SFI/SFP+ Network Connection (rev 01)</span><br><span class="line">01:00.1 Ethernet controller: Intel Corporation 82599ES 10-Gigabit SFI/SFP+ Network Connection (rev 01)</span><br><span class="line">02:00.0 Ethernet controller: Intel Corporation Ethernet Controller I226-V (rev 04)</span><br><span class="line">03:00.0 Ethernet controller: Intel Corporation Ethernet Controller I226-V (rev 04)</span><br></pre></td></tr></table></figure>
+
+<p>Verify Intel 82599ES network card status:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">root@sense:~# ethtool enp1s0f0</span><br><span class="line">Settings for enp1s0f0:</span><br><span class="line">        Supported ports: [ FIBRE ]</span><br><span class="line">        Supported link modes:   10000baseT/Full</span><br><span class="line">        Supported pause frame use: Symmetric</span><br><span class="line">        Supports auto-negotiation: No</span><br><span class="line">        Supported FEC modes: Not reported</span><br><span class="line">        Advertised link modes:  10000baseT/Full</span><br><span class="line">        Advertised pause frame use: Symmetric</span><br><span class="line">        Advertised auto-negotiation: No</span><br><span class="line">        Advertised FEC modes: Not reported</span><br><span class="line">        Speed: 10000Mb/s</span><br><span class="line">        Duplex: Full</span><br><span class="line">        Auto-negotiation: off</span><br><span class="line">        Port: FIBRE</span><br><span class="line">        PHYAD: 0</span><br><span class="line">        Transceiver: internal</span><br><span class="line">        Supports Wake-on: d</span><br><span class="line">        Wake-on: d</span><br><span class="line">        Current message level: 0x00000007 (7)</span><br><span class="line">                               drv probe link</span><br><span class="line">        Link detected: yes</span><br></pre></td></tr></table></figure>
+
+<p>Enable <strong>IOMMU</strong> in <code>Proxmox</code>:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root@sense:~# cat /etc/default/grub | grep GRUB_CMDLINE_LINUX_DEFAULT</span><br><span class="line">GRUB_CMDLINE_LINUX_DEFAULT=&quot;quiet intel_iommu=on&quot;</span><br></pre></td></tr></table></figure>
+
+<p>Update UEFI:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">root@sense:~# update-grub</span><br><span class="line">Generating grub configuration file ...</span><br><span class="line">Found linux image: /boot/vmlinuz-6.8.12-2-pve</span><br><span class="line">Found initrd image: /boot/initrd.img-6.8.12-2-pve</span><br><span class="line">Found linux image: /boot/vmlinuz-6.8.4-2-pve</span><br><span class="line">Found initrd image: /boot/initrd.img-6.8.4-2-pve</span><br><span class="line">Found memtest86+ 64bit EFI image: /boot/memtest86+x64.efi</span><br><span class="line">Adding boot menu entry for UEFI Firmware Settings ...</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
+<p>Reboot <code>Proxmox</code> and verify <strong>IOMMU</strong> is enabled:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">root@sense:~# dmesg | grep -i IOMMU</span><br><span class="line">[    0.000000] Command line: BOOT_IMAGE=/boot/vmlinuz-6.8.12-2-pve root=/dev/mapper/pve-root ro quiet intel_iommu=on</span><br><span class="line">[    0.053988] Kernel command line: BOOT_IMAGE=/boot/vmlinuz-6.8.12-2-pve root=/dev/mapper/pve-root ro quiet intel_iommu=on</span><br><span class="line">[    0.054043] DMAR: IOMMU enabled</span><br><span class="line">[    0.145258] DMAR-IR: IOAPIC id 2 under DRHD base  0xfed91000 IOMMU 1</span><br><span class="line">[    0.403235] pci 0000:00:02.0: DMAR: Skip IOMMU disabling for graphics</span><br><span class="line">[    0.440538] iommu: Default domain type: Translated</span><br><span class="line">[    0.440538] iommu: DMA domain TLB invalidation policy: lazy mode</span><br><span class="line">[    0.483908] DMAR: IOMMU feature fl1gp_support inconsistent</span><br><span class="line">[    0.483909] DMAR: IOMMU feature pgsel_inv inconsistent</span><br><span class="line">[    0.483910] DMAR: IOMMU feature nwfs inconsistent</span><br><span class="line">[    0.483911] DMAR: IOMMU feature dit inconsistent</span><br><span class="line">[    0.483912] DMAR: IOMMU feature sc_support inconsistent</span><br><span class="line">[    0.483912] DMAR: IOMMU feature dev_iotlb_support inconsistent</span><br><span class="line">[    0.484136] pci 0000:00:02.0: Adding to iommu group 0</span><br><span class="line">[    0.484654] pci 0000:00:00.0: Adding to iommu group 1</span><br><span class="line">...</span><br><span class="line">[    0.484866] pci 0000:04:00.0: Adding to iommu group 15</span><br></pre></td></tr></table></figure>
+
+<p>Assign <strong>8</strong> Virtual Network Cards to <strong>Intel® 82599ES 10Gbps Ethernet Controller</strong>:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">root@sense:~# ip addr</span><br><span class="line">...</span><br><span class="line">4: enp1s0f0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc mq master vmbr0 state UP group default qlen 1000</span><br><span class="line">    link/ether a8:b8:e0:05:96:4d brd ff:ff:ff:ff:ff:ff</span><br><span class="line">5: enp1s0f1: &lt;NO-CARRIER,BROADCAST,MULTICAST,UP&gt; mtu 1500 qdisc mq master vmbr1 state DOWN group default qlen 1000</span><br><span class="line">    link/ether a8:b8:e0:05:96:4e brd ff:ff:ff:ff:ff:ff</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">root@sense:~# echo 8 &gt; /sys/class/net/enp1s0f0/device/sriov_numvfs </span><br><span class="line">root@sense:~# echo 8 &gt; /sys/class/net/enp1s0f1/device/sriov_numvfs </span><br></pre></td></tr></table></figure>
+
+<p>Verify network cards again:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">root@sense:~# lspci | grep Ethernet</span><br><span class="line">01:00.0 Ethernet controller: Intel Corporation 82599ES 10-Gigabit SFI/SFP+ Network Connection (rev 01)</span><br><span class="line">01:00.1 Ethernet controller: Intel Corporation 82599ES 10-Gigabit SFI/SFP+ Network Connection (rev 01)</span><br><span class="line">01:10.0 Ethernet controller: Intel Corporation 82599 Ethernet Controller Virtual Function (rev 01)</span><br><span class="line">...</span><br><span class="line">01:10.7 Ethernet controller: Intel Corporation 82599 Ethernet Controller Virtual Function (rev 01)</span><br><span class="line">01:11.0 Ethernet controller: Intel Corporation 82599 Ethernet Controller Virtual Function (rev 01)</span><br><span class="line">...</span><br><span class="line">01:11.7 Ethernet controller: Intel Corporation 82599 Ethernet Controller Virtual Function (rev 01)</span><br><span class="line">02:00.0 Ethernet controller: Intel Corporation Ethernet Controller I226-V (rev 04)</span><br><span class="line">03:00.0 Ethernet controller: Intel Corporation Ethernet Controller I226-V (rev 04)</span><br></pre></td></tr></table></figure>
+
+<p>Add Virtual Network Adapters into <strong>Resource Mappings</strong> in <code>Proxmox</code>:</p>
+<p><img src="/blog/img/Intel%20Network%20-%20Resource%20Mappings.png" alt="Intel Network - Resource Mappings" title="Intel Network - Resource Mappings"></p>
+<p>Add Mapped PCI Devices into Virtual Machine in <code>Proxmox</code>:</p>
+<p><img src="/blog/img/Intel%20Network%20-%20Mapped%20PCI%20Devices.png" alt="Intel Network - Mapped PCI Devices" title="Intel Network - Mapped PCI Devices"></p>
+<p>Virtual Network Cards can be set up as Network Cards, with hardware direct access, from a Network Cards pool (shared by other Virtual Machines), when the first Network Card is available.</p>
+<p><img src="/blog/img/Intel%20Network%20-%20Virtual%20Network%20Cards.png" alt="Intel Network - Virtual Network Cards" title="Intel Network - Virtual Network Cards"></p>
+
+        
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div class="article-tag-wrap">
+          
+
+          
+          
+
+
+        </div>
+      
+      
+      
+    </footer>
+  </div>
+</article>
+
+
   <article id="post-Homelab-Router-OPNsense-and-IPv6" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-inner">
     
@@ -895,96 +983,6 @@
 </article>
 
 
-  <article id="post-How-to-enable-SMB-Direct-client-server-in-Windows-11-Pro-for-Workstations" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/blog/2024/09/14/How-to-enable-SMB-Direct-client-server-in-Windows-11-Pro-for-Workstations/">How to enable SMB Direct client/server in Windows 11 Pro for Workstations</a>
-    </h1>
-  
-
-
-      </header>
-    
-    <div class="article-meta">
-      
-      <span class="article-date">
-  <i class="fa fa-date"></i>
-  <time class="dt-published" datetime="2024-09-14T07:52:08.000Z" itemprop="datePublished">2024-09-14</time>
-</span>
-      
-      
-      
-<a href="/blog/2024/09/14/How-to-enable-SMB-Direct-client-server-in-Windows-11-Pro-for-Workstations/#comments" class="article-comment-link">
-  
-  <i class="fa fa-commt"></i>
-  Guestbook
-</a>
-
-
-    </div>
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>In <code>Windows 11 Pro Station</code>, a <em>Mellanox ConnectX-4 MCX455A-ECAT PCIe x16 3.0 100GBe VPI EDR IB network adatper</em>, goes to support <strong>SMB Direct</strong>, client and server side <strong>SMB Multichannel</strong> and <strong>RDMA</strong> (Remote Direct Memory Access):</p>
-<p><img src="/blog/img/Windows%2011%20Pro%20for%20Workstations.png" alt="Windows 11 Pro for Workstations" title="Windows 11 Pro for Workstations"></p>
-<p>Open Windows Terminal as Administrator.</p>
-<p>Enable SMB Direct:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">PS C:\&gt; Enable-WindowsOptionalFeature -Online -FeatureName SMBDirect</span><br><span class="line">Path          :</span><br><span class="line">Online        : True</span><br><span class="line">RestartNeeded : False</span><br></pre></td></tr></table></figure>
-
-<p>Enable SMB Multichannel on the client-side:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">PS C:\&gt; Set-SmbClientConfiguration -EnableMultiChannel $true</span><br><span class="line">Confirm</span><br><span class="line">Are you sure you want to perform this action?</span><br><span class="line">Performing operation &#x27;Modify&#x27; on Target &#x27;SMB Client Configuration&#x27;.</span><br><span class="line">[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is &quot;Y&quot;):</span><br><span class="line"></span><br><span class="line">PS C:\&gt; Get-SmbClientConfiguration</span><br><span class="line">...</span><br><span class="line">EnableMultiChannel                    : True</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-
-<p>Enable SMB Multichannel on the server-side:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">PS C:\&gt; Set-SmbServerConfiguration -EnableMultiChannel $true</span><br><span class="line">Confirm</span><br><span class="line">Are you sure you want to perform this action?</span><br><span class="line">Performing operation &#x27;Modify&#x27; on Target &#x27;SMB Server Configuration&#x27;.</span><br><span class="line">[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is &quot;Y&quot;):</span><br><span class="line"></span><br><span class="line">PS C:\&gt; Get-SmbServerConfiguration</span><br><span class="line">...</span><br><span class="line">EnableMultiChannel                     : True</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-
-<p>Enable RDMA for a specific interface:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PS C:\&gt; Enable-NetAdapterRDMA Mellanox</span><br></pre></td></tr></table></figure>
-
-<p>Verify which state of operability SMB Direct is currently configured to:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">PS C:\&gt; Get-WindowsOptionalFeature -Online -FeatureName SMBDirect</span><br><span class="line">FeatureName      : SmbDirect</span><br><span class="line">DisplayName      : SMB Direct</span><br><span class="line">Description      : Remote Direct Memory Access (RDMA) support for the SMB 3.x file sharing protocol</span><br><span class="line">RestartRequired  : Possible</span><br><span class="line">State            : Enabled</span><br><span class="line">CustomProperties :</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">PS C:\&gt; Get-SmbClientNetworkInterface</span><br><span class="line">Interface Index RSS Capable RDMA Capable Speed       IpAddresses                                 Friendly Name</span><br><span class="line">--------------- ----------- ------------ -----       -----------                                 -------------</span><br><span class="line">22              True        True         100 Gbps    &#123;fe80::708:c529:1bcb:2432, 192.168.68.67&#125;   Mellanox</span><br><span class="line"></span><br><span class="line">PS C:\&gt; Get-SmbServerNetworkInterface</span><br><span class="line">Scope Name Interface Index RSS Capable RDMA Capable Speed    IpAddress</span><br><span class="line">---------- --------------- ----------- ------------ -----    ---------</span><br><span class="line">*          22              True        True         100 Gbps fe80::708:c529:1bcb:2432</span><br><span class="line">*          22              True        True         100 Gbps 192.168.68.67</span><br></pre></td></tr></table></figure>
-
-<p>Have a look <code>TrueNAS</code> disk speed benchmark, over a 100Gbps ethernet network, from <code>Windows 11 Pro for Workstations</code> with <strong>SMB Direct</strong>, client&#x2F;server <strong>SMB Multichannel</strong> and <strong>RDMA</strong> enabled:</p>
-<p><img src="/blog/img/TrueNAS%20disk%20speed%20benchmark.png" alt="TrueNAS disk speed benchmark" title="TrueNAS disk speed benchmark"></p>
-<p>In <code>Windows Server 2022</code>, with SMB shared folder in <strong>Storage Spaces</strong>:</p>
-<p><img src="/blog/img/Windows%20Server%202022.png" alt="Windows Server 2022" title="Windows Server 2022"></p>
-<p>Run Windows Powershell as <strong>Administrator</strong> user , which <strong>RDMA Capable</strong> are all True for both SMB client&#x2F;server:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Windows PowerShell</span><br><span class="line">Copyright (C) Microsoft Corporation. All rights reserved.</span><br><span class="line">Install the latest PowerShell for new features and improvements! https://aka.ms/PSWindows</span><br><span class="line"></span><br><span class="line">PS C:\Users\Administrator&gt; Get-SmbServerNetworkInterface</span><br><span class="line">Scope Name Interface Index RSS Capable RDMA Capable Speed    IpAddress</span><br><span class="line">---------- --------------- ----------- ------------ -----    ---------</span><br><span class="line">*          5               True        True         100 Gbps fe80::9ee0:7f4c:5128:863b</span><br><span class="line">*          5               True        True         100 Gbps 192.168.68.66</span><br><span class="line"></span><br><span class="line">PS C:\Users\Administrator&gt; Get-SmbClientNetworkInterface</span><br><span class="line">Interface Index RSS Capable RDMA Capable Speed    IpAddresses                                Friendly Name</span><br><span class="line">--------------- ----------- ------------ -----    -----------                                -------------</span><br><span class="line">5               True        True         100 Gbps &#123;fe80::9ee0:7f4c:5128:863b, 192.168.68.66&#125; Mellanox</span><br></pre></td></tr></table></figure>
-
-<p>Have a look <code>Windows Server 2022</code> disk speed benchmark, over a 100Gbps ethernet network, from <code>Windows 11 Pro for Workstations</code> with <strong>SMB Direct</strong>, client&#x2F;server <strong>SMB Multichannel</strong> and <strong>RDMA</strong> enabled:</p>
-<p><img src="/blog/img/Windows%20Server%202022%20disk%20speed%20benchmark.png" alt="Windows Server 2022 disk speed benchmark" title="Windows Server 2022 disk speed benchmark"></p>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li>SMB Direct, <em><a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/windows-server/storage/file-server/smb-direct">https://learn.microsoft.com/en-us/windows-server/storage/file-server/smb-direct</a></em></li>
-<li>100 Gbe &amp; TrueNAS Scale 23.10 iSCSI - Performance Unleashed, <em><a target="_blank" rel="noopener" href="https://forum.level1techs.com/t/100-gbe-truenas-scale-23-10-iscsi-performance-unleashed/206452">https://forum.level1techs.com/t/100-gbe-truenas-scale-23-10-iscsi-performance-unleashed/206452</a></em></li>
-</ul>
-
-        
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <div class="article-tag-wrap">
-          
-
-          
-          
-
-
-        </div>
-      
-      
-      
-    </footer>
-  </div>
-</article>
-
-
 
     <nav id="page-nav">
 
@@ -1003,6 +1001,10 @@
       <ul>
         
           <li>
+            <a href="/blog/2024/11/08/Enable-SR-IOV-in-Intel-82599ES-10Gbps-Ethernet-Controller/">Enable SR-IOV in Intel 82599ES 10Gbps Ethernet Controller</a>
+          </li>
+        
+          <li>
             <a href="/blog/2024/11/01/Homelab-Router-OPNsense-and-IPv6/">Homelab Router OPNsense and IPv6</a>
           </li>
         
@@ -1016,10 +1018,6 @@
         
           <li>
             <a href="/blog/2024/10/12/How-to-access-Ollama-runs-on-localhost-from-internet/">How to access Ollama runs on localhost from internet</a>
-          </li>
-        
-          <li>
-            <a href="/blog/2024/09/27/Proxmox-VE-Helper-Scripts/">Proxmox VE Helper Scripts</a>
           </li>
         
       </ul>
@@ -1037,7 +1035,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title"><i class="fa fa-archive"></i> Archive</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2024/">2024</a><span class="archive-list-count">23</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2023/">2023</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/">2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/">2021</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/">2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/">2019</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/">2017</a><span class="archive-list-count">25</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2024/">2024</a><span class="archive-list-count">24</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2023/">2023</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/">2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/">2021</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/">2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/">2019</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/">2017</a><span class="archive-list-count">25</span></li></ul>
     </div>
   </div>
 
