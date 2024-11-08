@@ -135,3 +135,31 @@ Add Mapped PCI Devices into Virtual Machine in `Proxmox`:
 Virtual Network Cards can be set up as Network Cards, with hardware direct access, from a Network Cards pool (shared by other Virtual Machines), when the first Network Card is available.
 
 ![Intel Network - Virtual Network Cards](/img/Intel%20Network%20-%20Virtual%20Network%20Cards.png "Intel Network - Virtual Network Cards")
+
+Virtual Machine's `Proxmox` configuration file:
+
+```
+root@sense:/etc/pve/qemu-server# cat 101.conf
+agent: 1
+bios: ovmf
+boot: order=scsi0;ide2;net0
+cores: 8
+cpu: x86-64-v2-AES,flags=+aes
+efidisk0: local-lvm:vm-101-disk-0,efitype=4m,size=4M
+hostpci0: mapping=enp0_vf
+hostpci1: mapping=enp1_vf
+ide2: local:iso/OPNsense-24.7-dvd-amd64.iso,media=cdrom,size=2131548K
+machine: q35
+memory: 8192
+meta: creation-qemu=9.0.2,ctime=1731054484
+name: LINKsense
+net0: virtio=BC:24:11:0C:52:4B,bridge=vmbr2,firewall=1,queues=4
+net1: virtio=BC:24:11:21:3C:E0,bridge=vmbr3,firewall=1,queues=4
+numa: 0
+ostype: l26
+scsi0: local-lvm:vm-101-disk-1,discard=on,iothread=1,size=128G,ssd=1
+scsihw: virtio-scsi-single
+smbios1: uuid=3e913d90-c284-47d7-881a-599013fa21a4
+sockets: 1
+vmgenid: aab228d8-bccc-46c1-b627-927271ad20b6
+```
