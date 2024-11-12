@@ -21,13 +21,110 @@ Intel i3 N305 Mini PC _https://www.aliexpress.com/item/1005007278560105.html_
 equips with 2x10G SFP+ (Intel 82599ES) and 2x2.5G (Intel i226-V) network cards:
 
 ```
-root@sense:~# lspci
+root@sense:~# lspci -v 
 ...
 01:00.0 Ethernet controller: Intel Corporation 82599ES 10-Gigabit SFI/SFP+ Network Connection (rev 01)
+        Flags: bus master, fast devsel, latency 0, IRQ 16, IOMMU group 12
+        Memory at 80a20000 (64-bit, non-prefetchable) [size=128K]
+        I/O ports at 3020 [disabled] [size=32]
+        Memory at 80a44000 (64-bit, non-prefetchable) [size=16K]
+        Capabilities: [40] Power Management version 3
+        Capabilities: [50] MSI: Enable- Count=1/1 Maskable+ 64bit+
+        Capabilities: [70] MSI-X: Enable+ Count=64 Masked-
+        Capabilities: [a0] Express Endpoint, MSI 00
+        Capabilities: [e0] Vital Product Data
+        Capabilities: [100] Advanced Error Reporting
+        Capabilities: [140] Device Serial Number a8-b8-e0-ff-ff-05-96-4d
+        Capabilities: [150] Alternative Routing-ID Interpretation (ARI)
+        Capabilities: [160] Single Root I/O Virtualization (SR-IOV)
+        Kernel driver in use: ixgbe
+        Kernel modules: ixgbe
+
 01:00.1 Ethernet controller: Intel Corporation 82599ES 10-Gigabit SFI/SFP+ Network Connection (rev 01)
+        Flags: bus master, fast devsel, latency 0, IRQ 17, IOMMU group 13
+        Memory at 80a00000 (64-bit, non-prefetchable) [size=128K]
+        I/O ports at 3000 [disabled] [size=32]
+        Memory at 80a40000 (64-bit, non-prefetchable) [size=16K]
+        Capabilities: [40] Power Management version 3
+        Capabilities: [50] MSI: Enable- Count=1/1 Maskable+ 64bit+
+        Capabilities: [70] MSI-X: Enable+ Count=64 Masked-
+        Capabilities: [a0] Express Endpoint, MSI 00
+        Capabilities: [e0] Vital Product Data
+        Capabilities: [100] Advanced Error Reporting
+        Capabilities: [140] Device Serial Number a8-b8-e0-ff-ff-05-96-4d
+        Capabilities: [150] Alternative Routing-ID Interpretation (ARI)
+        Capabilities: [160] Single Root I/O Virtualization (SR-IOV)
+        Kernel driver in use: ixgbe
+        Kernel modules: ixgbe
+
+01:10.0 Ethernet controller: Intel Corporation 82599 Ethernet Controller Virtual Function (rev 01)
+        Flags: bus master, fast devsel, latency 0, IOMMU group 18
+        Memory at 4017000000 (64-bit, prefetchable) [virtual] [size=16K]
+        Memory at 4017100000 (64-bit, prefetchable) [virtual] [size=16K]
+        Capabilities: [70] MSI-X: Enable+ Count=3 Masked-
+        Capabilities: [a0] Express Endpoint, MSI 00
+        Capabilities: [100] Advanced Error Reporting
+        Capabilities: [150] Alternative Routing-ID Interpretation (ARI)
+        Kernel driver in use: vfio-pci
+        Kernel modules: ixgbevf
+
+...
+
 02:00.0 Ethernet controller: Intel Corporation Ethernet Controller I226-V (rev 04)
+        Subsystem: Intel Corporation Ethernet Controller I226-V
+        Flags: bus master, fast devsel, latency 0, IRQ 18, IOMMU group 14
+        Memory at 80600000 (32-bit, non-prefetchable) [size=1M]
+        Memory at 80700000 (32-bit, non-prefetchable) [size=16K]
+        Capabilities: [40] Power Management version 3
+        Capabilities: [50] MSI: Enable- Count=1/1 Maskable+ 64bit+
+        Capabilities: [70] MSI-X: Enable+ Count=5 Masked-
+        Capabilities: [a0] Express Endpoint, MSI 00
+        Capabilities: [100] Advanced Error Reporting
+        Capabilities: [140] Device Serial Number a8-b8-e0-ff-ff-05-96-4f
+        Capabilities: [1c0] Latency Tolerance Reporting
+        Capabilities: [1f0] Precision Time Measurement
+        Capabilities: [1e0] L1 PM Substates
+        Kernel driver in use: igc
+        Kernel modules: igc
+
 03:00.0 Ethernet controller: Intel Corporation Ethernet Controller I226-V (rev 04)
+        Subsystem: Intel Corporation Ethernet Controller I226-V
+        Flags: bus master, fast devsel, latency 0, IRQ 16, IOMMU group 15
+        Memory at 80400000 (32-bit, non-prefetchable) [size=1M]
+        Memory at 80500000 (32-bit, non-prefetchable) [size=16K]
+        Capabilities: [40] Power Management version 3
+        Capabilities: [50] MSI: Enable- Count=1/1 Maskable+ 64bit+
+        Capabilities: [70] MSI-X: Enable+ Count=5 Masked-
+        Capabilities: [a0] Express Endpoint, MSI 00
+        Capabilities: [100] Advanced Error Reporting
+        Capabilities: [140] Device Serial Number a8-b8-e0-ff-ff-05-96-50
+        Capabilities: [1c0] Latency Tolerance Reporting
+        Capabilities: [1f0] Precision Time Measurement
+        Capabilities: [1e0] L1 PM Substates
+        Kernel driver in use: igc
+        Kernel modules: igc
+
 04:00.0 Network controller: Intel Corporation Wi-Fi 7(802.11be) AX1775*/AX1790*/BE20*/BE401/BE1750* 2x2 (rev 1a)
+        Subsystem: Intel Corporation Wi-Fi 7(802.11be) AX1775*/AX1790*/BE20*/BE401/BE1750* 2x2 (BE200 320MHz [Gale Peak])
+        Flags: bus master, fast devsel, latency 0, IRQ 17, IOMMU group 16
+        Memory at 80900000 (64-bit, non-prefetchable) [size=16K]
+        Capabilities: [40] Power Management version 3
+        Capabilities: [50] MSI: Enable- Count=1/1 Maskable- 64bit+
+        Capabilities: [70] Express Endpoint, MSI 00
+        Capabilities: [b0] MSI-X: Enable+ Count=32 Masked-
+        Capabilities: [100] Advanced Error Reporting
+        Capabilities: [148] Secondary PCI Express
+        Capabilities: [158] Physical Layer 16.0 GT/s <?>
+        Capabilities: [17c] Lane Margining at the Receiver <?>
+        Capabilities: [188] Latency Tolerance Reporting
+        Capabilities: [190] L1 PM Substates
+        Capabilities: [1a0] Vendor Specific Information: ID=0002 Rev=4 Len=100 <?>
+        Capabilities: [2a0] Data Link Feature <?>
+        Capabilities: [2ac] Precision Time Measurement
+        Capabilities: [2b8] Vendor Specific Information: ID=0003 Rev=1 Len=054 <?>
+        Capabilities: [500] Vendor Specific Information: ID=0023 Rev=1 Len=010 <?>
+        Kernel driver in use: iwlwifi
+        Kernel modules: iwlwifi
 ...
 
 root@sense:~# ip a
@@ -40,6 +137,8 @@ root@sense:~# ip a
     link/ether a8:b8:e0:05:96:4d brd ff:ff:ff:ff:ff:ff
 5: enp1s0f1: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc mq master vmbr1 state DOWN group default qlen 1000
     link/ether a8:b8:e0:05:96:4e brd ff:ff:ff:ff:ff:ff
+7: enp1s0f0v1: <BROADCAST,MULTICAST> mtu 1500 qdisc noop state DOWN group default qlen 1000
+    link/ether 7a:de:19:c7:c2:ce brd ff:ff:ff:ff:ff:ff    
 ...
 22: wlp4s0f0: <BROADCAST,MULTICAST> mtu 1500 qdisc noop state DOWN group default qlen 1000
     link/ether e0:8f:4c:b2:58:95 brd ff:ff:ff:ff:ff:ff
