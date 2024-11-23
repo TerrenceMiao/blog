@@ -8,6 +8,52 @@ Current IPv6 setting on TP-Link Router, connecting to **Buddy Telco / Aussie Bro
 
 ![OPNsense - TP-Link IPv6](/img/OPNsense%20-%20TP-Link%20IPv6.png "OPNsense - TP-Link IPv6")
 
+Setup OPNsense VM
+-----------------
+
+Create a new VM for OPNsense in Proxmox:
+
+![OPNsense - VM General](/img/OPNsense%20-%20VM%20General.png "OPNsense - VM General")
+
+![OPNsense - VM OS](/img/OPNsense%20-%20VM%20OS.png "OPNsense - VM OS")
+
+![OPNsense - VM System](/img/OPNsense%20-%20VM%20System.png "OPNsense - VM System")
+
+![OPNsense - VM Disks](/img/OPNsense%20-%20VM%20Disks.png "OPNsense - VM Disks")
+
+![OPNsense - VM CPU](/img/OPNsense%20-%20VM%20CPU.png "OPNsense - VM CPU")
+
+![OPNsense - VM Memory](/img/OPNsense%20-%20VM%20Memory.png "OPNsense - VM Memory")
+
+![OPNsense - VM Network WAN](/img/OPNsense%20-%20VM%20Network%20WAN.png "OPNsense - VM Network WAN")
+
+![OPNsense - VM Network LAN](/img/OPNsense%20-%20VM%20Network%20LAN.png "OPNsense - VM Network LAN")
+
+![OPNsense - VM Network OPT1](/img/OPNsense%20-%20VM%20Network%20OPT1.png "OPNsense - VM Network OPT1")
+
+![OPNsense - VM In Proxmox](/img/OPNsense%20-%20VM%20In%20Proxmox.png "OPNsense - VM In Proxmox")
+
+![OPNsense - Proxmox Network](/img/OPNsense%20-%20Proxmox%20Network.png "OPNsense - Proxmox Network")
+
+
+Setup IPv6
+----------
+
+Step by step to enable IPv6 with **Buddy Telco / Aussie Broadband** ISP.
+
+![OPNsense - Interfaces Settings](/img/OPNsense%20-%20Interfaces%20Settings.png "OPNsense - Interfaces Settings")
+
+![OPNsense - WAN](/img/OPNsense%20-%20WAN.png "OPNsense - WAN")
+
+- Enable DHCP/DHCPv6 for IPv4/IPv6 Configuration Type
+- Set ISP's **Prefix delegation size** to `48`
+- Enable **Send prefix hint**
+
+![OPNsense - Router Advertisements](/img/OPNsense%20-%20Router%20Advertisements.png "OPNsense - Router Advertisements")
+
+- Set **Router Advertisements** to `Unmanaged`
+- Set **Router Priority** to `Normal`
+
 
 Setup OPNsense Optional Port
 ----------------------------
@@ -41,25 +87,6 @@ For example, setup **OPT1** interface after `OPNsense` installed in `Proxmox`.
 ![OPNsense - OPT1 Firewall](/img/OPNsense%20-%20OPT1%20Firewall.png "OPNsense - OPT1 Firewall")
 
 
-Setup IPv6
-----------
-
-Step by step to enable IPv6 with **Buddy Telco / Aussie Broadband** ISP.
-
-![OPNsense - Interfaces Settings](/img/OPNsense%20-%20Interfaces%20Settings.png "OPNsense - Interfaces Settings")
-
-![OPNsense - WAN](/img/OPNsense%20-%20WAN.png "OPNsense - WAN")
-
-- Enable DHCP/DHCPv6 for IPv4/IPv6 Configuration Type
-- Set ISP's **Prefix delegation size** to `48`
-- Enable **Send prefix hint**
-
-![OPNsense - Router Advertisements](/img/OPNsense%20-%20Router%20Advertisements.png "OPNsense - Router Advertisements")
-
-- Set **Router Advertisements** to `Unmanaged`
-- Set **Router Priority** to `Normal`
-
-
 VLAN
 ----
 
@@ -85,10 +112,6 @@ Running
 -------
 
 After all the change made above, reboot `OPNsense` instance.
-
-![OPNsense - Proxmox Network](/img/OPNsense%20-%20Proxmox%20Network.png "OPNsense - Proxmox Network")
-
-![OPNsense - Setting In Proxmox](/img/OPNsense%20-%20Setting%20In%20Proxmox.png "OPNsense - Setting In Proxmox")
 
 ![OPNsense - Run In Proxmox](/img/OPNsense%20-%20Run%20In%20Proxmox.png "OPNsense - Run In Proxmox")
 
