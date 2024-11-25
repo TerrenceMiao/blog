@@ -18,7 +18,7 @@ Intel i3 N305 Mini PC _https://www.aliexpress.com/item/1005007278560105.html_
 
 ![Intel Network - Mini PC](/img/Intel%20Network%20-%20Mini%20PC.png "Intel Network - Mini PC")
 
-equips with 2x10G SFP+ (Intel 82599ES) and 2x2.5G (Intel i226-V) network cards:
+equips with two 10G SFP+ (Intel 82599ES) and two 2.5G (Intel i226-V) network cards:
 
 ```
 root@sense:~# lspci -v 
@@ -265,7 +265,11 @@ root@sense:~# dmesg | grep -i IOMMU
 
 > **ATTENTION:**  IOMMU Group not order by PCI BUS IDs
 
-This is an **_ISSUE_** CAN"T setup PCI Device Resource Mappings, because of errors, e.g., "Configuration for iommugroup not correct ('21' != ''27)" thrown after `Proxmox` reboot!
+This is an **_ISSUE_** CAN'T setup PCI Device Resource Mappings, because of errors, e.g., "Configuration for iommugroup not correct ('21' != ''27)" thrown, sometime, after `Proxmox` reboot! 
+
+Work around solution is go to **Resource Mappings** in `Proxmox`, edit, make no change and save:
+
+![Intel Network - Resource Mappings](/img/Intel%20Network%20-%20Resource%20Mappings.png "Intel Network - Resource Mappings")
 
 Filter out network card **udev** information, e.g., **enp1s0f1**:
 
@@ -343,10 +347,6 @@ root@sense:~# cat /etc/udev/rules.d/enp.rules
 ACTION=="add", SUBSYSTEM=="net", ENV{INTERFACE}=="enp1s0f0", ATTR{device/sriov_numvfs}="8"
 ACTION=="add", SUBSYSTEM=="net", ENV{INTERFACE}=="enp1s0f1", ATTR{device/sriov_numvfs}="8"
 ```
-
-Add Virtual Network Adapters into **Resource Mappings** in `Proxmox`:
-
-![Intel Network - Resource Mappings](/img/Intel%20Network%20-%20Resource%20Mappings.png "Intel Network - Resource Mappings")
 
 Add Mapped PCI Devices into Virtual Machine in `Proxmox`:
 
