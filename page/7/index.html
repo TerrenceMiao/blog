@@ -97,6 +97,104 @@
 
       <div class="outer">
         <section id="main">
+  <article id="post-Step-by-step-run-Kafka-on-Mac" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog/2018/12/10/Step-by-step-run-Kafka-on-Mac/">Step by step run Kafka on Mac</a>
+    </h1>
+  
+
+
+      </header>
+    
+    <div class="article-meta">
+      
+      <span class="article-date">
+  <i class="fa fa-date"></i>
+  <time class="dt-published" datetime="2018-12-10T04:45:51.000Z" itemprop="datePublished">2018-12-10</time>
+</span>
+      
+      
+      
+<a href="/blog/2018/12/10/Step-by-step-run-Kafka-on-Mac/#comments" class="article-comment-link">
+  
+  <i class="fa fa-commt"></i>
+  Guestbook
+</a>
+
+
+    </div>
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><p>Download Kafka binary file from <em><a target="_blank" rel="noopener" href="https://kafka.apache.org/downloads">https://kafka.apache.org/downloads</a></em> and install it</p>
+</li>
+<li><p>Set up Kafka listen on <strong>PLAINTEXT:&#x2F;&#x2F;localhost:9092</strong></p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">terrence@igloo /usr/local/kafka</span><br><span class="line">15:51:25 𝜆 diff config/server.properties config/server.properties.orig</span><br><span class="line">31c31</span><br><span class="line">&lt; listeners=PLAINTEXT://localhost:9092</span><br><span class="line">---</span><br><span class="line">&gt; <span class="comment">#listeners=PLAINTEXT://:9092</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Start Zookeeper</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">igloo:kafka root<span class="comment"># bin/zookeeper-server-start.sh config/zookeeper.properties</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Start Kafka</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">igloo:kafka root<span class="comment"># bin/kafka-server-start.sh config/server.properties</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Create a new Kafka topic named “test”</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">igloo:kafka root<span class="comment"># bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Initialise Producer in Console</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">terrence@igloo /usr/local/kafka_2.12-2.1.0</span><br><span class="line">16:04:19 𝜆 bin/kafka-console-producer.sh --broker-list localhost:9092 --topic <span class="built_in">test</span></span><br><span class="line">&gt;Hello World</span><br><span class="line">&gt;Wow</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Initialize Consumer in Console to receive the messages</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">terrence@igloo /usr/local/kafka_2.12-2.1.0</span><br><span class="line">16:06:11 𝜆 bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic <span class="built_in">test</span> --from-beginning</span><br><span class="line">Hello World</span><br><span class="line">Wow</span><br></pre></td></tr></table></figure>
+
+<p>Run Kafka Manager, an UI tool for managing Kafka.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">terrence@igloo ~/bin/kafka-manager-1.3.3.18</span><br><span class="line">16:16:47 𝜆 <span class="built_in">env</span> ZK_HOSTS=<span class="string">&quot;localhost:2181&quot;</span> bin/kafka-manager</span><br></pre></td></tr></table></figure>
+
+<p>Then visit <em><a target="_blank" rel="noopener" href="http://localhost:9000/">http://localhost:9000</a></em></p>
+<p>Create a Kafka cluster at first:</p>
+<p><img src="/blog/img/Kafka%20Cluster.png" alt="Kafka Cluster" title="Kafka Cluster"></p>
+<p>Visit “test” topic in Kafka cluster:</p>
+<p><img src="/blog/img/Kafka%20Manager.png" alt="Kafka Manager" title="Kafka Manager"></p>
+
+        
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div class="article-tag-wrap">
+          
+
+          
+          
+
+
+        </div>
+      
+      
+      
+    </footer>
+  </div>
+</article>
+
+
   <article id="post-This-is-how-I-feel-when-my-code-runs-without-a-single-bug" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-inner">
     
@@ -766,67 +864,6 @@
 </article>
 
 
-  <article id="post-Cloudcraft-visualise-AWS-environment-as-isometric-architecture-diagrams" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/blog/2018/08/14/Cloudcraft-visualise-AWS-environment-as-isometric-architecture-diagrams/">Cloudcraft - visualise AWS environment as isometric architecture diagrams</a>
-    </h1>
-  
-
-
-      </header>
-    
-    <div class="article-meta">
-      
-      <span class="article-date">
-  <i class="fa fa-date"></i>
-  <time class="dt-published" datetime="2018-08-14T00:05:03.000Z" itemprop="datePublished">2018-08-14</time>
-</span>
-      
-      
-      
-<a href="/blog/2018/08/14/Cloudcraft-visualise-AWS-environment-as-isometric-architecture-diagrams/#comments" class="article-comment-link">
-  
-  <i class="fa fa-commt"></i>
-  Guestbook
-</a>
-
-
-    </div>
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p><img src="/blog/img/AWS%20architecture%20diagram.png" alt="Cloudcraft - AWS environment architecture diagrams" title="Cloudcraft - AWS environment architecture diagrams"></p>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li>CloudCraft, <a target="_blank" rel="noopener" href="https://cloudcraft.co/">https://cloudcraft.co/</a></li>
-</ul>
-
-        
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <div class="article-tag-wrap">
-          
-
-          
-          
-
-
-        </div>
-      
-      
-      
-    </footer>
-  </div>
-</article>
-
-
 
     <nav id="page-nav">
 
@@ -845,6 +882,10 @@
       <ul>
         
           <li>
+            <a href="/blog/2024/11/25/Fixing-Multimedia-Audio-Controller-driver-missing-issue-in-Windows-11/">Fixing Multimedia Audio Controller driver missing issue in Windows 11</a>
+          </li>
+        
+          <li>
             <a href="/blog/2024/11/21/Setting-up-DNS-Server-in-OPNsense/">Setting up DNS Server in OPNsense</a>
           </li>
         
@@ -858,10 +899,6 @@
         
           <li>
             <a href="/blog/2024/10/26/Turn-On-and-Turn-Off-Recall-in-Windows-11/">Turn On and Turn Off Recall in Windows 11</a>
-          </li>
-        
-          <li>
-            <a href="/blog/2024/10/16/Running-latest-MacOS-Sequoia-in-VMWare-on-Windows-11/">Running latest MacOS Sequoia in VMware on Windows 11</a>
           </li>
         
       </ul>
@@ -879,7 +916,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title"><i class="fa fa-archive"></i> Archive</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2024/">2024</a><span class="archive-list-count">25</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2023/">2023</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/">2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/">2021</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/">2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/">2019</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/">2017</a><span class="archive-list-count">25</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2024/">2024</a><span class="archive-list-count">26</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2023/">2023</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/">2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/">2021</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/">2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/">2019</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/">2017</a><span class="archive-list-count">25</span></li></ul>
     </div>
   </div>
 
