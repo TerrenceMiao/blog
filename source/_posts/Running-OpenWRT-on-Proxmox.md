@@ -86,6 +86,158 @@ Login `OpenWRT` at _http://192.168.2.3/_, via LAN port, and land on dashboard:
 
 ![OpenWRT - Dashboard](/img/OpenWRT%20-%20Dashboard.png "OpenWRT - Dashboard")
 
+- Themes
+
+**SSH** login:
+
+```
+$ ssh -l root 192.168.2.3
+The authenticity of host '192.168.2.3 (192.168.2.3)' can't be established.
+ED25519 key fingerprint is SHA256:AggWAL1oU8+r1f84KoqpvcsYUylZOTfN0sXwHSby3b0.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '192.168.2.3' (ED25519) to the list of known hosts.
+root@192.168.2.3's password: 
+ash: od: not found
+  _______                     ________        __
+ |       |.-----.-----.-----.|  |  |  |.----.|  |_
+ |   -   ||  _  |  -__|     ||  |  |  ||   _||   _|
+ |_______||   __|_____|__|__||________||__|  |____|
+          |__| W I R E L E S S   F R E E D O M
+ -----------------------------------------------------
+ OpenWrt 23.05.5, r24106-10cc5fcd00
+ -----------------------------------------------------
+
+
+BusyBox v1.36.1 (2024-09-23 12:34:46 UTC) built-in shell (ash)
+```
+
+Install `OpenWRT2020` Theme _https://openwrt.org/docs/guide-user/luci/luci.themes_, but get the latest update at first:
+
+```
+root@OpenWRT:~# opkg update
+Downloading https://downloads.openwrt.org/releases/23.05.5/targets/x86/64/packages/Packages.gz
+Updated list of available packages in /var/opkg-lists/openwrt_core
+Downloading https://downloads.openwrt.org/releases/23.05.5/targets/x86/64/packages/Packages.sig
+Signature check passed.
+Downloading https://downloads.openwrt.org/releases/23.05.5/packages/x86_64/base/Packages.gz
+Updated list of available packages in /var/opkg-lists/openwrt_base
+Downloading https://downloads.openwrt.org/releases/23.05.5/packages/x86_64/base/Packages.sig
+Signature check passed.
+Downloading https://downloads.openwrt.org/releases/23.05.5/packages/x86_64/luci/Packages.gz
+Updated list of available packages in /var/opkg-lists/openwrt_luci
+Downloading https://downloads.openwrt.org/releases/23.05.5/packages/x86_64/luci/Packages.sig
+Signature check passed.
+Downloading https://downloads.openwrt.org/releases/23.05.5/packages/x86_64/packages/Packages.gz
+Updated list of available packages in /var/opkg-lists/openwrt_packages
+Downloading https://downloads.openwrt.org/releases/23.05.5/packages/x86_64/packages/Packages.sig
+Signature check passed.
+Downloading https://downloads.openwrt.org/releases/23.05.5/packages/x86_64/routing/Packages.gz
+Updated list of available packages in /var/opkg-lists/openwrt_routing
+Downloading https://downloads.openwrt.org/releases/23.05.5/packages/x86_64/routing/Packages.sig
+Signature check passed.
+Downloading https://downloads.openwrt.org/releases/23.05.5/packages/x86_64/telephony/Packages.gz
+Updated list of available packages in /var/opkg-lists/openwrt_telephony
+Downloading https://downloads.openwrt.org/releases/23.05.5/packages/x86_64/telephony/Packages.sig
+Signature check passed.
+
+root@OpenWRT:~# opkg install luci-theme-openwrt-2020
+Installing luci-theme-openwrt-2020 (git-24.332.79522-a493155) to root...
+Downloading https://downloads.openwrt.org/releases/23.05.5/packages/x86_64/luci/luci-theme-openwrt-2020_git-24.332.79522-a493155_all.ipk
+Configuring luci-theme-openwrt-2020.
+```
+
+Install Argon Theme _https://github.com/jerrykuku/luci-theme-argon_:
+
+```
+root@OpenWRT:~# opkg install luci-compat
+Installing luci-compat (git-24.332.79522-a493155) to root...
+Downloading https://downloads.openwrt.org/releases/23.05.5/packages/x86_64/luci/luci-compat_git-24.332.79522-a493155_all.ipk
+Installing liblua5.1.5 (5.1.5-11) to root...
+Downloading https://downloads.openwrt.org/releases/23.05.5/packages/x86_64/base/liblua5.1.5_5.1.5-11_x86_64.ipk
+Installing lua (5.1.5-11) to root...
+Downloading https://downloads.openwrt.org/releases/23.05.5/packages/x86_64/base/lua_5.1.5-11_x86_64.ipk
+Installing luci-lib-nixio (git-24.332.79522-a493155) to root...
+Downloading https://downloads.openwrt.org/releases/23.05.5/packages/x86_64/luci/luci-lib-nixio_git-24.332.79522-a493155_x86_64.ipk
+Installing luci-lib-ip (git-24.332.79522-a493155) to root...
+Downloading https://downloads.openwrt.org/releases/23.05.5/packages/x86_64/luci/luci-lib-ip_git-24.332.79522-a493155_x86_64.ipk
+Installing luci-lib-jsonc (git-24.332.79522-a493155) to root...
+Downloading https://downloads.openwrt.org/releases/23.05.5/packages/x86_64/luci/luci-lib-jsonc_git-24.332.79522-a493155_x86_64.ipk
+Installing liblucihttp-lua (2023-03-15-9b5b683f-1) to root...
+Downloading https://downloads.openwrt.org/releases/23.05.5/packages/x86_64/luci/liblucihttp-lua_2023-03-15-9b5b683f-1_x86_64.ipk
+Installing luci-lib-base (git-24.332.79522-a493155) to root...
+Downloading https://downloads.openwrt.org/releases/23.05.5/packages/x86_64/luci/luci-lib-base_git-24.332.79522-a493155_all.ipk
+Installing libubus-lua (2023-06-05-f787c97b-1) to root...
+Downloading https://downloads.openwrt.org/releases/23.05.5/packages/x86_64/base/libubus-lua_2023-06-05-f787c97b-1_x86_64.ipk
+Installing ucode-mod-lua (1) to root...
+Downloading https://downloads.openwrt.org/releases/23.05.5/packages/x86_64/luci/ucode-mod-lua_1_x86_64.ipk
+Installing luci-lua-runtime (git-24.332.79522-a493155) to root...
+Downloading https://downloads.openwrt.org/releases/23.05.5/packages/x86_64/luci/luci-lua-runtime_git-24.332.79522-a493155_x86_64.ipk
+Configuring liblua5.1.5.
+Configuring lua.
+Configuring luci-lib-nixio.
+Configuring luci-lib-ip.
+Configuring luci-lib-jsonc.
+Configuring liblucihttp-lua.
+Configuring luci-lib-base.
+Configuring libubus-lua.
+Configuring ucode-mod-lua.
+Configuring luci-lua-runtime.
+Configuring luci-compat.
+
+root@OpenWRT:~# opkg install luci-lib-ipkg
+Installing luci-lib-ipkg (git-24.332.79522-a493155) to root...
+Downloading https://downloads.openwrt.org/releases/23.05.5/packages/x86_64/luci/luci-lib-ipkg_git-24.332.79522-a493155_all.ipk
+Configuring luci-lib-ipkg.
+
+root@OpenWRT:~# wget --no-check-certificate -O luci-theme-argon.ipk https://github.com/jerrykuku/luci-theme-argon/releases/download/v2.3.1/luci-theme-argon_2.3.1_all.ipk
+Downloading 'https://github.com/jerrykuku/luci-theme-argon/releases/download/v2.3.1/luci-theme-argon_2.3.1_all.ipk'
+Connecting to 4.237.22.38:443
+Redirected to /github-production-release-asset-2e65be/170895520/63bb58df-abc2-4421-aed8-0ace3f9aae17?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=releaseassetproduction%2F20241203%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20241203T115236Z&X-Amz-Expires=300&X-Amz-Signature=a7def95cb209474a2901f69cc99f24a89dd9a4a64b2a6bfe92ff2e99ddb73f59&X-Amz-SignedHeaders=host&response-content-disposition=attachment%3B%20filename%3Dluci-theme-argon_2.3.1_all.ipk&response-content-type=application%2Foctet-stream on objects.githubusercontent.com
+Writing to 'luci-theme-argon.ipk'
+luci-theme-argon.ipk 100% |*******************************|   381k  0:00:00 ETA
+Download completed (390325 bytes)
+
+root@OpenWRT:~# wget --no-check-certificate -O luci-app-argon-config.ipk https://github.com/jerrykuku/luci-app-argon-config/releases/download/v0.9/luci-app-argon-config_0.9_all.ipk
+Downloading 'https://github.com/jerrykuku/luci-app-argon-config/releases/download/v0.9/luci-app-argon-config_0.9_all.ipk'
+Connecting to 4.237.22.38:443
+Redirected to /github-production-release-asset-2e65be/293833947/ae3e48a8-5b91-4950-b57a-3022e66a3130?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=releaseassetproduction%2F20241203%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20241203T115856Z&X-Amz-Expires=300&X-Amz-Signature=a94a6aa7b381a5a1b5b44c7e6d7af17dc1e570fac3c4c4c128e76cdb775fae94&X-Amz-SignedHeaders=host&response-content-disposition=attachment%3B%20filename%3Dluci-app-argon-config_0.9_all.ipk&response-content-type=application%2Foctet-stream on objects.githubusercontent.com
+Writing to 'luci-app-argon-config.ipk'
+luci-app-argon-confi 100% |*******************************|  4469   0:00:00 ETA
+Download completed (4469 bytes)
+```
+
+There are ERRORS:
+
+- _//usr/lib/opkg/info/luci-theme-argon.postinst: .: line 2: can't open '/etc/uci-defaults/30_luci-theme-argon': No such file or directory_
+- _//usr/lib/opkg/info/luci-app-argon-config.postinst: .: line 2: can't open '/etc/uci-defaults/luci-argon-config': No such file or directory_
+
+thrown when try to install these packages.
+
+A workaround solution is modify **/lib/functions.sh** file, replace line: 282:
+
+```
+    ( [ -f "$i" ] && cd "$(dirname $i)" && . "$i" ) && rm -f "$i"
+```
+
+with: 
+
+```
+    ( [ -f "$i" ] && cd "$(dirname $i)" && . "$i" ) && echo
+```
+
+temporarily. Then run installation:
+
+```
+root@OpenWRT:~# opkg install luci-theme-argon.ipk 
+Installing luci-theme-argon (2.3.1) to root...
+Configuring luci-theme-argon.
+
+root@OpenWRT:~# opkg install luci-app-argon-config.ipk 
+Installing luci-app-argon-config (0.9) to root...
+Configuring luci-app-argon-config.
+```
+
 
 References
 ----------
