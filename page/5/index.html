@@ -97,6 +97,76 @@
 
       <div class="outer">
         <section id="main">
+  <article id="post-Customise-VS-Code-settings-and-keybindings-with-Geddski-macros" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog/2021/07/30/Customise-VS-Code-settings-and-keybindings-with-Geddski-macros/">Customise VS Code settings and keybindings with Geddski macros</a>
+    </h1>
+  
+
+
+      </header>
+    
+    <div class="article-meta">
+      
+      <span class="article-date">
+  <i class="fa fa-date"></i>
+  <time class="dt-published" datetime="2021-07-30T10:28:19.000Z" itemprop="datePublished">2021-07-30</time>
+</span>
+      
+      
+      
+<a href="/blog/2021/07/30/Customise-VS-Code-settings-and-keybindings-with-Geddski-macros/#comments" class="article-comment-link">
+  
+  <i class="fa fa-commt"></i>
+  Guestbook
+</a>
+
+
+    </div>
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>In IntelliJ IDEA, you can comment a line, the cursor is moved to the next line automatically. This is a very easy way to comment several lines. However, in VS Code, default behaviour is that the cursor stays on the same line.</p>
+<p>To copy the behavior of IntelliJ, go with:</p>
+<ul>
+<li><p>Install <code>macros</code> author by <strong>geddski</strong> in VS Code.</p>
+</li>
+<li><p>Edit <code>settings.json</code> and add:</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&quot;macros&quot;: &#123;</span><br><span class="line">    &quot;commentDown&quot;: [</span><br><span class="line">        &quot;editor.action.commentLine&quot;,</span><br><span class="line">        &quot;cursorDown&quot;</span><br><span class="line">    ]</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Edit <code>keybindings.json</code> and add:</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  &#123;</span><br><span class="line">    &quot;key&quot;: &quot;cmd+/&quot;,</span><br><span class="line">    &quot;command&quot;: &quot;macros.commentDown&quot;,</span><br><span class="line">    &quot;when&quot;: &quot;editorTextFocus &amp;&amp; !editorReadonly&quot;</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+        
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div class="article-tag-wrap">
+          
+
+          
+          
+
+
+        </div>
+      
+      
+      
+    </footer>
+  </div>
+</article>
+
+
   <article id="post-Export-and-Import-AWS-DynamoDB-data" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-inner">
     
@@ -980,69 +1050,6 @@
 </article>
 
 
-  <article id="post-AWS-CloudWatch-Metrics-example" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/blog/2020/10/13/AWS-CloudWatch-Metrics-example/">AWS CloudWatch Metrics Example</a>
-    </h1>
-  
-
-
-      </header>
-    
-    <div class="article-meta">
-      
-      <span class="article-date">
-  <i class="fa fa-date"></i>
-  <time class="dt-published" datetime="2020-10-13T12:29:39.000Z" itemprop="datePublished">2020-10-13</time>
-</span>
-      
-      
-      
-<a href="/blog/2020/10/13/AWS-CloudWatch-Metrics-example/#comments" class="article-comment-link">
-  
-  <i class="fa fa-commt"></i>
-  Guestbook
-</a>
-
-
-    </div>
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="AWS-CloudWatch-Metrics"><a href="#AWS-CloudWatch-Metrics" class="headerlink" title="AWS CloudWatch Metrics"></a>AWS CloudWatch Metrics</h2><p>The interface of Metrics in AWS CloudWatch console:</p>
-<p><img src="/blog/img/AWS%20CloudWatch%20-%20Metrics.png" alt="AWS CloudWatch - Metrics" title="AWS CloudWatch - Metrics"></p>
-<p>The URL:</p>
-<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://ap-southeast-2.console.aws.amazon.com/cloudwatch/home?region=ap-southeast-2#metricsV2:graph=~(metrics~(~(~&#x27;AWS*2fRoute53Resolver~&#x27;InboundQueryVolume)~(~&#x27;.~&#x27;OutboundQueryVolume))~view~&#x27;timeSeries~stacked~false~region~&#x27;ap-southeast-2~stat~&#x27;Sum~period~86400~start~&#x27;-P28D~end~&#x27;P0D);query=~&#x27;*7bAWS*2fRoute53Resolver*7d</span><br></pre></td></tr></table></figure>
-
-<p>Metrics source:</p>
-<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;metrics&quot;: [</span><br><span class="line">        [ &quot;AWS/Route53Resolver&quot;, &quot;InboundQueryVolume&quot; ],</span><br><span class="line">        [ &quot;.&quot;, &quot;OutboundQueryVolume&quot; ]</span><br><span class="line">    ],</span><br><span class="line">    &quot;view&quot;: &quot;timeSeries&quot;,</span><br><span class="line">    &quot;stacked&quot;: false,</span><br><span class="line">    &quot;region&quot;: &quot;ap-southeast-2&quot;,</span><br><span class="line">    &quot;stat&quot;: &quot;Sum&quot;,</span><br><span class="line">    &quot;period&quot;: 86400,</span><br><span class="line">    &quot;title&quot;: &quot;Test&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-        
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <div class="article-tag-wrap">
-          
-
-          
-          
-
-
-        </div>
-      
-      
-      
-    </footer>
-  </div>
-</article>
-
-
 
     <nav id="page-nav">
 
@@ -1061,6 +1068,10 @@
       <ul>
         
           <li>
+            <a href="/blog/2024/12/05/Connecting-OpenWRT-to-internet/">Connecting OpenWRT to internet</a>
+          </li>
+        
+          <li>
             <a href="/blog/2024/12/03/Running-OpenWRT-on-Proxmox/">Running OpenWRT on Proxmox</a>
           </li>
         
@@ -1074,10 +1085,6 @@
         
           <li>
             <a href="/blog/2024/11/08/Enable-SR-IOV-in-Intel-82599ES-10Gbps-Ethernet-Controller/">Enable SR-IOV in Intel 82599ES 10Gbps Ethernet Controller</a>
-          </li>
-        
-          <li>
-            <a href="/blog/2024/11/01/Homelab-Router-OPNsense-and-IPv6/">Homelab Router OPNsense and IPv6</a>
           </li>
         
       </ul>
@@ -1095,7 +1102,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title"><i class="fa fa-archive"></i> Archive</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2024/">2024</a><span class="archive-list-count">27</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2023/">2023</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/">2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/">2021</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/">2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/">2019</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/">2017</a><span class="archive-list-count">25</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2024/">2024</a><span class="archive-list-count">28</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2023/">2023</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/">2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/">2021</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/">2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/">2019</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/">2017</a><span class="archive-list-count">25</span></li></ul>
     </div>
   </div>
 

@@ -6,7 +6,7 @@
   <link href="https://terrencemiao.github.io/blog/atom.xml" rel="self"/>
   
   <link href="https://terrencemiao.github.io/blog/"/>
-  <updated>2024-12-03T12:37:53.893Z</updated>
+  <updated>2024-12-05T04:17:45.318Z</updated>
   <id>https://terrencemiao.github.io/blog/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Connecting OpenWRT to internet</title>
+    <link href="https://terrencemiao.github.io/blog/2024/12/05/Connecting-OpenWRT-to-internet/"/>
+    <id>https://terrencemiao.github.io/blog/2024/12/05/Connecting-OpenWRT-to-internet/</id>
+    <published>2024-12-05T03:19:34.000Z</published>
+    <updated>2024-12-05T04:17:45.318Z</updated>
+    
+    <content type="html"><![CDATA[<p><code>OpenWRT</code> is running on <code>Proxmox</code>. Now setting up it to connect internet.</p><p>Add new network interface <strong>OPT</strong> on <strong>eth2</strong> adapter:</p><p><img src="/blog/img/OpenWRT%20-%20OPT%20Interface.png" alt="OpenWRT - OPT Interface" title="OpenWRT - OPT Interface"></p><p><img src="/blog/img/OpenWRT%20-%20OPT%20Advanced%20Settings.png" alt="OpenWRT - OPT Advanced Settings" title="OpenWRT - OPT Advanced Settings"></p><p><img src="/blog/img/OpenWRT%20-%20OPT%20Firewall%20Settings.png" alt="OpenWRT - OPT Firewall Settings" title="OpenWRT - OPT Firewall Settings"></p><p><img src="/blog/img/OpenWRT%20-%20OPT%20DHCP%20Server%20General%20Setup.png" alt="OpenWRT - OPT DHCP Server General Setup" title="OpenWRT - OPT DHCP Server General Setup"></p><p><img src="/blog/img/OpenWRT%20-%20OPT%20DHCP%20Server%20Advanced%20Settings.png" alt="OpenWRT - OPT DHCP Server Advanced Settings" title="OpenWRT - OPT DHCP Server Advanced Settings"></p><p><img src="/blog/img/OpenWRT%20-%20OPT%20DHCP%20Server%20IPv6%20Settings.png" alt="OpenWRT - OPT DHCP Server IPv6 Settings" title="OpenWRT - OPT DHCP Server IPv6 Settings"></p><p><img src="/blog/img/OpenWRT%20-%20OPT%20DHCP%20Server%20IPv6%20RA%20Settings.png" alt="OpenWRT - OPT DHCP Server IPv6 RA Settings" title="OpenWRT - OPT DHCP Server IPv6 RA Settings"></p><p><img src="/blog/img/OpenWRT%20-%20OPT.png" alt="OpenWRT - OPT" title="OpenWRT - OPT"></p><p>Add a new Firewall Zone, from network <strong>opt</strong> to <strong>wan</strong>:</p><p><img src="/blog/img/OpenWRT%20-%20Firewall%20Zone%20General%20Settings.png" alt="OpenWRT - Firewall Zone General Settings" title="OpenWRT - Firewall Zone General Settings"></p><p><img src="/blog/img/OpenWRT%20-%20Firewall%20Zone%20Advanced%20Settings.png" alt="OpenWRT - Firewall Zone Advanced Settings" title="OpenWRT - Firewall Zone Advanced Settings"></p><p><img src="/blog/img/OpenWRT%20-%20Firewall%20Zone%20Conntrack%20Settings.png" alt="OpenWRT - Firewall Zone Conntrack Settings" title="OpenWRT - Firewall Zone Conntrack Settings"></p><p><img src="/blog/img/OpenWRT%20-%20Firewall%20Zone.png" alt="OpenWRT - Firewall Zone" title="OpenWRT - Firewall Zone"></p><p>Add a new Firewall Traffic Rule for network <strong>opt</strong>:</p><p><img src="/blog/img/OpenWRT%20-%20Firewall%20Traffic%20Rule%20General%20Settings.png" alt="OpenWRT - Firewall Traffic Rule General Settings" title="OpenWRT - Firewall Traffic Rule General Settings"></p><p><img src="/blog/img/OpenWRT%20-%20Firewall%20Traffic%20Rule%20Advanced%20Settings.png" alt="OpenWRT - Firewall Traffic Rule Advanced Settings" title="OpenWRT - Firewall Traffic Rule Advanced Settings"></p><p><img src="/blog/img/OpenWRT%20-%20Firewall%20Traffic%20Rule%20Time%20Restrictions.png" alt="OpenWRT - Firewall Traffic Rule Time Restrictions" title="OpenWRT - Firewall Traffic Rule Time Restrictions"></p><p><img src="/blog/img/OpenWRT%20-%20Firewall%20Traffic%20Rule.png" alt="OpenWRT - Firewall Traffic Rule" title="OpenWRT - Firewall Traffic Rule"></p><p>Setup DHCP clients’ static IP addresses:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -l root 192.168.2.1</span><br><span class="line">root@192.168.2.1&#x27;s password:</span><br><span class="line"></span><br><span class="line">BusyBox v1.36.1 (2024-09-23 12:34:46 UTC) built-in shell (ash)</span><br><span class="line"></span><br><span class="line">  _______                     ________        __</span><br><span class="line"> |       |.-----.-----.-----.|  |  |  |.----.|  |_</span><br><span class="line"> |   -   ||  _  |  -__|     ||  |  |  ||   _||   _|</span><br><span class="line"> |_______||   __|_____|__|__||________||__|  |____|</span><br><span class="line">          |__| W I R E L E S S   F R E E D O M</span><br><span class="line"> -----------------------------------------------------</span><br><span class="line"> OpenWrt 23.05.5, r24106-10cc5fcd00</span><br><span class="line"> -----------------------------------------------------</span><br><span class="line"></span><br><span class="line">root@OpenWRT:~# cat /etc/config/dhcp</span><br><span class="line">config dnsmasq</span><br><span class="line">option domainneeded &#x27;1&#x27;</span><br><span class="line">option localise_queries &#x27;1&#x27;</span><br><span class="line">option rebind_protection &#x27;1&#x27;</span><br><span class="line">option rebind_localhost &#x27;1&#x27;</span><br><span class="line">option local &#x27;/local/&#x27;</span><br><span class="line">option domain &#x27;local&#x27;</span><br><span class="line">option expandhosts &#x27;1&#x27;</span><br><span class="line">option cachesize &#x27;1000&#x27;</span><br><span class="line">option authoritative &#x27;1&#x27;</span><br><span class="line">option readethers &#x27;1&#x27;</span><br><span class="line">option leasefile &#x27;/tmp/dhcp.leases&#x27;</span><br><span class="line">option resolvfile &#x27;/tmp/resolv.conf.d/resolv.conf.auto&#x27;</span><br><span class="line">option localservice &#x27;1&#x27;</span><br><span class="line">option ednspacket_max &#x27;1232&#x27;</span><br><span class="line">...</span><br><span class="line">config host</span><br><span class="line">option name &#x27;TL-SX3016F&#x27;</span><br><span class="line">option ip &#x27;192.168.2.100&#x27;</span><br><span class="line">option mac &#x27;3C:52:A1:47:23:5D&#x27;</span><br><span class="line"></span><br><span class="line">config host</span><br><span class="line">option name &#x27;MikroTik&#x27;</span><br><span class="line">option ip &#x27;192.168.2.110&#x27;</span><br><span class="line">option mac &#x27;78:9A:18:D0:20:ED&#x27;</span><br><span class="line"></span><br><span class="line">config domain</span><br><span class="line">option name &#x27;TL-SX3016F&#x27;</span><br><span class="line">option ip &#x27;192.168.2.100&#x27;</span><br><span class="line"></span><br><span class="line">config domain</span><br><span class="line">option name &#x27;MikroTik&#x27;</span><br><span class="line">option ip &#x27;192.168.2.110&#x27;</span><br><span class="line"></span><br></pre></td></tr></table></figure><p><img src="/blog/img/OpenWRT%20-%20DHCP%20and%20DNS.png" alt="OpenWRT - DHCP and DNS" title="OpenWRT - DHCP and DNS"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;code&gt;OpenWRT&lt;/code&gt; is running on &lt;code&gt;Proxmox&lt;/code&gt;. Now setting up it to connect internet.&lt;/p&gt;
+&lt;p&gt;Add new network interface &lt;strong&gt;</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Running OpenWRT on Proxmox</title>
@@ -402,28 +423,6 @@
 &lt;ol&gt;
 &lt;li&gt;&lt;code&gt;ens18&lt;/code&gt; 192.168.0.246&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;ens19&lt;/c</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Samba setup and share in TrueNAS</title>
-    <link href="https://terrencemiao.github.io/blog/2024/08/07/Samba-setup-and-share-in-TrueNAS/"/>
-    <id>https://terrencemiao.github.io/blog/2024/08/07/Samba-setup-and-share-in-TrueNAS/</id>
-    <published>2024-08-07T12:19:00.000Z</published>
-    <updated>2024-09-02T10:24:20.287Z</updated>
-    
-    <content type="html"><![CDATA[<p><code>TrueNAS</code> installed and a few steps to setup to let users access shared <code>Samba</code> directories.</p><ul><li>Enable <code>SMB</code> Samba service in <code>TrueNAS</code></li></ul><p><img src="/blog/img/TrueNAS%20-%20Enable%20SMB%20service.png" alt="TrueNAS - Enable SMB service" title="TrueNAS - Enable SMB service"></p><p><img src="/blog/img/TrueNAS%20-%20SMB%20Settings.png" alt="TrueNAS - SMB Settings" title="TrueNAS - SMB Settings"></p><ul><li>Create an user account with home directory and all access permisssions</li></ul><p><img src="/blog/img/TrueNAS%20-%20Create%20user.png" alt="TrueNAS - Create user" title="TrueNAS - Create user"></p><ul><li>Share <code>TrueNAS</code> pool created</li></ul><p><img src="/blog/img/TrueNAS%20-%20Sharing.png" alt="TrueNAS - Sharing" title="TrueNAS - Sharing"></p><p>Then can access shared directory from <code>TrunNAS</code> in both Windows and Mac:</p><p><img src="/blog/img/TrueNAS%20-%20Access.png" alt="TrueNAS - Access" title="TrueNAS - Access"></p><p>Make sure there is NO a lock icon on the folder (can unlock the folder in MacOS Finder)</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;code&gt;TrueNAS&lt;/code&gt; installed and a few steps to setup to let users access shared &lt;code&gt;Samba&lt;/code&gt; directories.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Enable &lt;c</summary>
       
     
     
