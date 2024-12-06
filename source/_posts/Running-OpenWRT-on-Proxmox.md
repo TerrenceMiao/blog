@@ -124,19 +124,23 @@ drwxr-xr-x   23 root     root          4096 Dec  6 02:41 ..
 -rw-r--r--    1 root     root           555 Dec  6 02:46 distfeeds.conf
 drwxr-xr-x    2 root     root          4096 Sep 23 12:34 keys
 
-root@OpenWrt:~# ls -al /var/opkg-lists
-drwxr-xr-x    2 root     root           240 Dec  6 02:28 .
-drwxrwxrwt   17 root     root           640 Dec  6 02:37 ..
--rw-r--r--    1 root     root        100214 Dec  6 02:28 openwrt_core
--rw-r--r--    1 root     root           142 Dec  6 02:28 openwrt_core.sig
--rw-r--r--    1 root     root        187546 Dec  6 02:28 openwrt_luci
--rw-r--r--    1 root     root           142 Dec  6 02:28 openwrt_luci.sig
--rw-r--r--    1 root     root        492630 Dec  6 02:28 openwrt_packages
--rw-r--r--    1 root     root           142 Dec  6 02:28 openwrt_packages.sig
--rw-r--r--    1 root     root         11959 Dec  6 02:28 openwrt_routing
--rw-r--r--    1 root     root           142 Dec  6 02:28 openwrt_routing.sig
--rw-r--r--    1 root     root         75622 Dec  6 02:28 openwrt_telephony
--rw-r--r--    1 root     root           142 Dec  6 02:28 openwrt_telephony.sig
+root@OpenWrt:~# ls -al /var/opkg-lists/
+drwxr-xr-x    2 root     root           320 Dec  6 03:15 .
+drwxrwxrwt   17 root     root           440 Dec  6 03:15 ..
+-rw-r--r--    1 root     root         72705 Dec  6 03:15 openwrt_base
+-rw-r--r--    1 root     root           142 Dec  6 03:15 openwrt_base.sig
+-rw-r--r--    1 root     root         10039 Dec  6 03:15 openwrt_core
+-rw-r--r--    1 root     root           142 Dec  6 03:15 openwrt_core.sig
+-rw-r--r--    1 root     root        100416 Dec  6 03:15 openwrt_kmods
+-rw-r--r--    1 root     root           142 Dec  6 03:15 openwrt_kmods.sig
+-rw-r--r--    1 root     root        197242 Dec  6 03:15 openwrt_luci
+-rw-r--r--    1 root     root           142 Dec  6 03:15 openwrt_luci.sig
+-rw-r--r--    1 root     root        516243 Dec  6 03:15 openwrt_packages
+-rw-r--r--    1 root     root           142 Dec  6 03:15 openwrt_packages.sig
+-rw-r--r--    1 root     root          9918 Dec  6 03:15 openwrt_routing
+-rw-r--r--    1 root     root           142 Dec  6 03:15 openwrt_routing.sig
+-rw-r--r--    1 root     root         58240 Dec  6 03:15 openwrt_telephony
+-rw-r--r--    1 root     root           142 Dec  6 03:15 openwrt_telephony.sig
 ```
 
 There is some issue with **IPv6** support in `OpenWRT` when download update. Errors thrown when **wan** connected to a **IPv6** router: 
@@ -165,22 +169,7 @@ Downloading https://downloads.openwrt.org/releases/23.05.5/targets/x86/64/packag
 Updated list of available packages in /var/opkg-lists/openwrt_core
 Downloading https://downloads.openwrt.org/releases/23.05.5/targets/x86/64/packages/Packages.sig
 Signature check passed.
-Downloading https://downloads.openwrt.org/releases/23.05.5/packages/x86_64/base/Packages.gz
-Updated list of available packages in /var/opkg-lists/openwrt_base
-Downloading https://downloads.openwrt.org/releases/23.05.5/packages/x86_64/base/Packages.sig
-Signature check passed.
-Downloading https://downloads.openwrt.org/releases/23.05.5/packages/x86_64/luci/Packages.gz
-Updated list of available packages in /var/opkg-lists/openwrt_luci
-Downloading https://downloads.openwrt.org/releases/23.05.5/packages/x86_64/luci/Packages.sig
-Signature check passed.
-Downloading https://downloads.openwrt.org/releases/23.05.5/packages/x86_64/packages/Packages.gz
-Updated list of available packages in /var/opkg-lists/openwrt_packages
-Downloading https://downloads.openwrt.org/releases/23.05.5/packages/x86_64/packages/Packages.sig
-Signature check passed.
-Downloading https://downloads.openwrt.org/releases/23.05.5/packages/x86_64/routing/Packages.gz
-Updated list of available packages in /var/opkg-lists/openwrt_routing
-Downloading https://downloads.openwrt.org/releases/23.05.5/packages/x86_64/routing/Packages.sig
-Signature check passed.
+...
 Downloading https://downloads.openwrt.org/releases/23.05.5/packages/x86_64/telephony/Packages.gz
 Updated list of available packages in /var/opkg-lists/openwrt_telephony
 Downloading https://downloads.openwrt.org/releases/23.05.5/packages/x86_64/telephony/Packages.sig
@@ -240,20 +229,7 @@ Downloading https://downloads.openwrt.org/releases/23.05.5/packages/x86_64/luci/
 Configuring luci-lib-ipkg.
 
 root@OpenWRT:~# wget --no-check-certificate -O luci-theme-argon.ipk https://github.com/jerrykuku/luci-theme-argon/releases/download/v2.3.1/luci-theme-argon_2.3.1_all.ipk
-Downloading 'https://github.com/jerrykuku/luci-theme-argon/releases/download/v2.3.1/luci-theme-argon_2.3.1_all.ipk'
-Connecting to 4.237.22.38:443
-Redirected to /github-production-release-asset-2e65be/170895520/63bb58df-abc2-4421-aed8-0ace3f9aae17?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=releaseassetproduction%2F20241203%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20241203T115236Z&X-Amz-Expires=300&X-Amz-Signature=a7def95cb209474a2901f69cc99f24a89dd9a4a64b2a6bfe92ff2e99ddb73f59&X-Amz-SignedHeaders=host&response-content-disposition=attachment%3B%20filename%3Dluci-theme-argon_2.3.1_all.ipk&response-content-type=application%2Foctet-stream on objects.githubusercontent.com
-Writing to 'luci-theme-argon.ipk'
-luci-theme-argon.ipk 100% |*******************************|   381k  0:00:00 ETA
-Download completed (390325 bytes)
-
 root@OpenWRT:~# wget --no-check-certificate -O luci-app-argon-config.ipk https://github.com/jerrykuku/luci-app-argon-config/releases/download/v0.9/luci-app-argon-config_0.9_all.ipk
-Downloading 'https://github.com/jerrykuku/luci-app-argon-config/releases/download/v0.9/luci-app-argon-config_0.9_all.ipk'
-Connecting to 4.237.22.38:443
-Redirected to /github-production-release-asset-2e65be/293833947/ae3e48a8-5b91-4950-b57a-3022e66a3130?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=releaseassetproduction%2F20241203%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20241203T115856Z&X-Amz-Expires=300&X-Amz-Signature=a94a6aa7b381a5a1b5b44c7e6d7af17dc1e570fac3c4c4c128e76cdb775fae94&X-Amz-SignedHeaders=host&response-content-disposition=attachment%3B%20filename%3Dluci-app-argon-config_0.9_all.ipk&response-content-type=application%2Foctet-stream on objects.githubusercontent.com
-Writing to 'luci-app-argon-config.ipk'
-luci-app-argon-confi 100% |*******************************|  4469   0:00:00 ETA
-Download completed (4469 bytes)
 ```
 
 There are ERRORS:
