@@ -26,6 +26,8 @@ This is the **LAN**, and Firewall is **DISABLED**.
 
 Add **WAN** into VM, and Firewall is **DISABLED**.
 
+Detach and delete current **Hard Disk**.
+
 From `Proxmox` Console, download the latest OpenWRT image:
 
 ```
@@ -78,7 +80,7 @@ Double click the **Unused Disk**, then click the Add button:
 
 - Configure `OpenWRT`
 
-Start up VM; change the user **root** password; set LAN ip address temporarily to **192.168.2.3**:
+Start up VM; change the user **root** password; set LAN ip address temporarily to **192.168.2.3** (Default: **192.168.1.1**):
 
 ![OpenWRT - Console](/img/OpenWRT%20-%20Console.png "OpenWRT - Console")
 
@@ -100,7 +102,6 @@ This key is not known by any other names.
 Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
 Warning: Permanently added '192.168.2.3' (ED25519) to the list of known hosts.
 root@192.168.2.3's password: 
-ash: od: not found
   _______                     ________        __
  |       |.-----.-----.-----.|  |  |  |.----.|  |_
  |   -   ||  _  |  -__|     ||  |  |  ||   _||   _|
@@ -110,11 +111,53 @@ ash: od: not found
  OpenWrt 23.05.5, r24106-10cc5fcd00
  -----------------------------------------------------
 
-
 BusyBox v1.36.1 (2024-09-23 12:34:46 UTC) built-in shell (ash)
 ```
 
-Install `OpenWRT2020` Theme _https://openwrt.org/docs/guide-user/luci/luci.themes_, but get the latest update at first:
+`OpenWRT` packages configuration:
+
+```
+root@OpenWrt:~# ls -al /etc/opkg
+drwxr-xr-x    3 root     root          4096 Dec  6 02:46 .
+drwxr-xr-x   23 root     root          4096 Dec  6 02:41 ..
+-rw-r--r--    1 root     root           103 Sep 23 12:34 customfeeds.conf
+-rw-r--r--    1 root     root           555 Dec  6 02:46 distfeeds.conf
+drwxr-xr-x    2 root     root          4096 Sep 23 12:34 keys
+
+root@OpenWrt:~# ls -al /var/opkg-lists
+drwxr-xr-x    2 root     root           240 Dec  6 02:28 .
+drwxrwxrwt   17 root     root           640 Dec  6 02:37 ..
+-rw-r--r--    1 root     root        100214 Dec  6 02:28 openwrt_core
+-rw-r--r--    1 root     root           142 Dec  6 02:28 openwrt_core.sig
+-rw-r--r--    1 root     root        187546 Dec  6 02:28 openwrt_luci
+-rw-r--r--    1 root     root           142 Dec  6 02:28 openwrt_luci.sig
+-rw-r--r--    1 root     root        492630 Dec  6 02:28 openwrt_packages
+-rw-r--r--    1 root     root           142 Dec  6 02:28 openwrt_packages.sig
+-rw-r--r--    1 root     root         11959 Dec  6 02:28 openwrt_routing
+-rw-r--r--    1 root     root           142 Dec  6 02:28 openwrt_routing.sig
+-rw-r--r--    1 root     root         75622 Dec  6 02:28 openwrt_telephony
+-rw-r--r--    1 root     root           142 Dec  6 02:28 openwrt_telephony.sig
+```
+
+There is some issue with **IPv6** support in `OpenWRT` when download update. Errors thrown when **wan** connected to a **IPv6** router: 
+
+```
+root@OpenWrt:~# opkg update
+Downloading https://downloads.openwrt.org/releases/23.05.5/targets/x86/64/packages/Packages.gz
+*** Failed to download the package list from https://downloads.openwrt.org/releases/23.05.5/targets/x86/64/packages/Packages.gz
+...
+Downloading https://downloads.openwrt.org/releases/23.05.5/packages/x86_64/telephony/Packages.gz
+*** Failed to download the package list from https://downloads.openwrt.org/releases/23.05.5/packages/x86_64/telephony/Packages.gz
+
+Collected errors:
+ * opkg_download: Failed to download https://downloads.openwrt.org/releases/23.05.5/targets/x86/64/packages/Packages.gz, wget returned 4.
+ * opkg_download: Check your network settings and connectivity.
+...
+ * opkg_download: Failed to download https://downloads.openwrt.org/releases/23.05.5/packages/x86_64/telephony/Packages.gz, wget returned 4.
+ * opkg_download: Check your network settings and connectivity.
+```
+
+Turn off **IPv6** on router to workaround.
 
 ```
 root@OpenWRT:~# opkg update
@@ -142,7 +185,11 @@ Downloading https://downloads.openwrt.org/releases/23.05.5/packages/x86_64/telep
 Updated list of available packages in /var/opkg-lists/openwrt_telephony
 Downloading https://downloads.openwrt.org/releases/23.05.5/packages/x86_64/telephony/Packages.sig
 Signature check passed.
+```
 
+Install `OpenWRT2020` Theme _https://openwrt.org/docs/guide-user/luci/luci.themes_:
+
+```
 root@OpenWRT:~# opkg install luci-theme-openwrt-2020
 Installing luci-theme-openwrt-2020 (git-24.332.79522-a493155) to root...
 Downloading https://downloads.openwrt.org/releases/23.05.5/packages/x86_64/luci/luci-theme-openwrt-2020_git-24.332.79522-a493155_all.ipk
