@@ -16,6 +16,8 @@ tags:
 
 ![OpenWRT - VM CPU](/img/OpenWRT%20-%20VM%20CPU.png "OpenWRT - VM CPU")
 
+![OpenWRT - VM Memory](/img/OpenWRT%20-%20VM%20Memory.png "OpenWRT - VM Memory")
+
 ![OpenWRT - VM Network](/img/OpenWRT%20-%20VM%20Network.png "OpenWRT - VM Network")
 
 This is the **LAN**, and Firewall is **DISABLED**.
