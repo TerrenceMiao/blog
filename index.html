@@ -283,6 +283,12 @@
 <p>temporarily. Then run installation:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">root@OpenWRT:~# opkg install luci-theme-argon.ipk </span><br><span class="line">Installing luci-theme-argon (2.3.1) to root...</span><br><span class="line">Configuring luci-theme-argon.</span><br><span class="line"></span><br><span class="line">root@OpenWRT:~# opkg install luci-app-argon-config.ipk </span><br><span class="line">Installing luci-app-argon-config (0.9) to root...</span><br><span class="line">Configuring luci-app-argon-config.</span><br></pre></td></tr></table></figure>
 
+<ul>
+<li>Upgrade</li>
+</ul>
+<p>To upgrade all of the <code>OpenWRT</code> packages:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@OpenWRT:~# opkg list-upgradable | cut -f 1 -d &#x27; &#x27; | xargs -r opkg upgrade  </span><br></pre></td></tr></table></figure>
+
 
 <h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
 <li>Run an OpenWRT VM on Proxmox VE, <em><a target="_blank" rel="noopener" href="https://i12bretro.github.io/tutorials/0405.html">https://i12bretro.github.io/tutorials/0405.html</a></em></li>
