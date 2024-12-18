@@ -90,6 +90,7 @@ Login `OpenWRT` at _http://192.168.2.3/_, via LAN port, and land on dashboard:
 
 ![OpenWRT - Dashboard](/img/OpenWRT%20-%20Dashboard.png "OpenWRT - Dashboard")
 
+
 - Themes
 
 **SSH** login:
@@ -261,6 +262,14 @@ Configuring luci-theme-argon.
 root@OpenWRT:~# opkg install luci-app-argon-config.ipk 
 Installing luci-app-argon-config (0.9) to root...
 Configuring luci-app-argon-config.
+```
+
+- Upgrade
+
+To upgrade all of the `OpenWRT` packages:
+
+```
+root@OpenWRT:~# opkg list-upgradable | cut -f 1 -d ' ' | xargs -r opkg upgrade  
 ```
 
 
