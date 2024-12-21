@@ -81,7 +81,7 @@ root@SenseWrt:~# zerotier-cli listnetworks
 200 listnetworks 8ca917257083e297 igloo.studio 9a:09:7b:41:3d:26 OK PRIVATE ztks555nye 192.168.196.176/24
 ```
 
-Enable the new `ZeroTier` client `OpenWrt` in _https://my.zerotier.com/_.
+Enable and authorise the new `ZeroTier` client `OpenWrt` in _https://my.zerotier.com/_.
 
 Now add `ZeroTier` virtual network as a new interface in `OpenWrt`:
 
@@ -115,3 +115,4 @@ References
 ----------
 
 - 韩风 Talk - 内网穿透工具 ZeroTier，从简单到复杂的玩法，无保留，一期全放送 _https://www.youtube.com/watch?v=pa0tkch3lss_
+- ZeroTier Terminology - Planet server, Moon server and client node (LEAF) _https://www.wlink-tech.com/art/about-zerotier_ 
