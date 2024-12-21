@@ -4,7 +4,7 @@ date: 2024-12-21 11:08:18
 tags:
 ---
 
-Install `ZeroTier` from `OpenWrt` console:
+Install `ZeroTier` package **zerotier** from `OpenWrt` console:
 
 ![OpenWrt - ZeroTier](/img/OpenWrt%20-%20ZeroTier.png "OpenWrt - ZeroTier")
 
