@@ -57,6 +57,8 @@ Configure firewall for `Tailscale` virtual network interface in `OpenWrt`:
 
 ![OpenWrt - Tailscale Firewall General Settings](/img/OpenWrt%20-%20Tailscale%20Firewall%20General%20Settings.png "OpenWrt - Tailscale Firewall General Settings")
 
+**NOTE:** **opt** network is for the downstream DHCP clients.
+
 
 References
 ----------
