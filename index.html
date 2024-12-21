@@ -142,7 +142,7 @@
 <p>Verify <code>ZeroTier</code> client status, which <strong>ztks555nye</strong> is the virtual network interface created on <code>OpenWrt</code>:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">root@SenseWrt:~# zerotier-cli listnetworks</span><br><span class="line">200 listnetworks &lt;nwid&gt; &lt;name&gt; &lt;mac&gt; &lt;status&gt; &lt;type&gt; &lt;dev&gt; &lt;ZT assigned ips&gt;</span><br><span class="line">200 listnetworks 8ca917257083e297 igloo.studio 9a:09:7b:41:3d:26 OK PRIVATE ztks555nye 192.168.196.176/24</span><br></pre></td></tr></table></figure>
 
-<p>Enable the new <code>ZeroTier</code> client <code>OpenWrt</code> in <em><a target="_blank" rel="noopener" href="https://my.zerotier.com/">https://my.zerotier.com/</a></em>.</p>
+<p>Enable and authorise the new <code>ZeroTier</code> client <code>OpenWrt</code> in <em><a target="_blank" rel="noopener" href="https://my.zerotier.com/">https://my.zerotier.com/</a></em>.</p>
 <p>Now add <code>ZeroTier</code> virtual network as a new interface in <code>OpenWrt</code>:</p>
 <p><img src="/blog/img/OpenWrt%20-%20ZeroTier%20Network%20Interface.png" alt="OpenWrt - ZeroTier Network Interface" title="OpenWrt - ZeroTier Network Interface"></p>
 <p>Create firewall for <code>ZeroTier</code> virtual network interface in <code>OpenWrt</code>:</p>
@@ -158,6 +158,7 @@
 <p>Then all <code>OpenWrt</code> clients can access <code>ZeroTier</code> network now.</p>
 <h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
 <li>韩风 Talk - 内网穿透工具 ZeroTier，从简单到复杂的玩法，无保留，一期全放送 <em><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=pa0tkch3lss">https://www.youtube.com/watch?v=pa0tkch3lss</a></em></li>
+<li>ZeroTier Terminology - Planet server, Moon server and client node (LEAF) <em><a target="_blank" rel="noopener" href="https://www.wlink-tech.com/art/about-zerotier">https://www.wlink-tech.com/art/about-zerotier</a></em></li>
 </ul>
 
         
