@@ -102,9 +102,9 @@ xray status: running
 please input a legal number[0-16],input 7 for checking login info:7
 [INF] 当前面板信息[current panel info]:
 面板版本[version]: 0.3.4.4:20230717
-用户名[username]: master
-密码[userpasswd]: C]kJ:XF}`4B29*_V
-监听端口[port]: 55566
+用户名[username]: admin
+密码[userpasswd]: password
+监听端口[port]: 10080
 根路径[rootPath]: /WMa7/ 
 ```
 
