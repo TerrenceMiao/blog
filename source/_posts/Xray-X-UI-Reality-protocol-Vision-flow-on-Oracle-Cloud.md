@@ -121,3 +121,4 @@ References
 ----------
 
 - Host an XTLS Vless+Vision+REALITY server on Oracle Always Free _https://iopq.wordpress.com/2024/02/27/host-an-xtls-vlessvisionreality-server-on-oracle/_
+- Oracle Database Cloud — Open Ports on OCI _https://medium.com/@fathi.ria/oracle-database-cloud-open-ports-on-oci-1af24f4eb9f2_
