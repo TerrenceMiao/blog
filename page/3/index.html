@@ -97,6 +97,96 @@
 
       <div class="outer">
         <section id="main">
+  <article id="post-Setup-MikroTik-CRS504-4XQ-IN-and-run-a-speed-test" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog/2024/09/02/Setup-MikroTik-CRS504-4XQ-IN-and-run-a-speed-test/">Setup MikroTik CRS504-4XQ-IN and run a speed test</a>
+    </h1>
+  
+
+
+      </header>
+    
+    <div class="article-meta">
+      
+      <span class="article-date">
+  <i class="fa fa-date"></i>
+  <time class="dt-published" datetime="2024-09-02T04:17:37.000Z" itemprop="datePublished">2024-09-02</time>
+</span>
+      
+      
+      
+<a href="/blog/2024/09/02/Setup-MikroTik-CRS504-4XQ-IN-and-run-a-speed-test/#comments" class="article-comment-link">
+  
+  <i class="fa fa-commt"></i>
+  Guestbook
+</a>
+
+
+    </div>
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><code>MikroTik CRS504-4XQ-IN</code>, the Cloud Switch can handle FOUR QSFP28 100Gbps ports, equal to 16 x 25Gbps bandwidth.</p>
+<p><img src="/blog/img/MikroTik%20-%20Interfaces.png" alt="MikroTik - Interfaces" title="MikroTik - Interfaces"></p>
+<p>Setup single link mode, only the first QSFP28 sub-interface needs to be configured, while the remaining three sub-interfaces should remain enabled. For example, connect <code>Mellanox MCX455A-ECAT ConnectX-4 InfiniBand/Ethernet adapter card (EDR IB 100Gbps and 100GbE, single-port QSFP28, PCIe 3.0x16)</code> using <code>ONTi DAC QSFP28 100Gbps</code> cable to the switch.</p>
+<p>Change <strong>FEC Mode</strong> to <code>fec91</code>.</p>
+<p><em>Ethernet Forward Error Correction (FEC) is a technique used to improve the reliability of data transmission over Ethernet networks by detecting and correcting errors in data packets. The two most common types of FEC used in Ethernet networks are CL74 and CL91.</em></p>
+<p><em>CL74 and CL91 refer to two different types of FEC codes, each with its own characteristics and performance. Here’s a brief comparison between the two:</em></p>
+<p><em>Code Rate:</em></p>
+<p><em>CL91 has a higher code rate of 91.6%, which means that only 8.4% of the data transmitted is used for error correction.</em></p>
+<p>In addition, setup the swith port connected to <code>ONTi QSFP28 40Gbps TO 4SFP+</code> breakout cable:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -l admin MikroTik.local</span><br><span class="line"></span><br><span class="line">[admin@MikroTik] &gt; /interface ethernet set qsfp28-1-1 auto-negotiation=no speed=10G-baseCR</span><br><span class="line">[admin@MikroTik] &gt; /interface ethernet set qsfp28-1-2 auto-negotiation=no speed=10G-baseCR</span><br><span class="line">[admin@MikroTik] &gt; /interface ethernet set qsfp28-1-3 auto-negotiation=no speed=10G-baseCR</span><br><span class="line">[admin@MikroTik] &gt; /interface ethernet set qsfp28-1-4 auto-negotiation=no speed=10G-baseCR</span><br></pre></td></tr></table></figure>
+
+<h2 id="Speed-test"><a href="#Speed-test" class="headerlink" title="Speed test"></a>Speed test</h2><p>In <code>iperf3</code> server, run listens to 4 ports to manage connections in parallel:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ iperf3 -s -p 5201 &amp; iperf3 -s -p 5202 &amp; iperf3 -s -p 5203 &amp; iperf3 -s -p 5204 &amp;</span><br></pre></td></tr></table></figure>
+
+<p>In a MacBook Pro with WiFi-6 connection, run:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ iperf3 -c MikroTik.local -p 5201 -P 4 -t 1000</span><br></pre></td></tr></table></figure>
+
+<p>In a Mac Studio with 10Gbps Ethernet connection, run:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ iperf3 -c MikroTik.local -p 5202 -P 8 -t 1000 -B 192.168.0.104</span><br></pre></td></tr></table></figure>
+
+<p>In a Windows 11 PC with 100Gbps Ethernet connection, run:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ iperf3 -c MikroTik.local -p 5203 -P 2 -t 1000</span><br></pre></td></tr></table></figure>
+
+<p>Check the speed on switch console:</p>
+<p><img src="/blog/img/MikroTik%20-%20Speed.png" alt="MikroTik - Speed" title="MikroTik - Speed"></p>
+<p>and in graph:</p>
+<p><img src="/blog/img/MikroTik%20-%20Performance.png" alt="MikroTik - Performance" title="MikroTik - Performance"></p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li>MikroTik wired interface compatibility, <em><a target="_blank" rel="noopener" href="https://help.mikrotik.com/docs/display/ROS/MikroTik+wired+interface+compatibility">https://help.mikrotik.com/docs/display/ROS/MikroTik+wired+interface+compatibility</a></em></li>
+<li>MikroTik RouterOS, <em><a target="_blank" rel="noopener" href="https://help.mikrotik.com/docs/display/ROS/RouterOS">https://help.mikrotik.com/docs/display/ROS/RouterOS</a></em></li>
+<li>MikroTik CRS504-4XQ-IN Quick Guide, <em><a target="_blank" rel="noopener" href="https://help.mikrotik.com/docs/display/QG/Quick+Guide+-+CRS504-4XQ-IN">https://help.mikrotik.com/docs/display/QG/Quick+Guide+-+CRS504-4XQ-IN</a></em></li>
+<li>FEC (Forward Error Correction), <em><a target="_blank" rel="noopener" href="https://www.reddit.com/r/fortinet/comments/127z3wd/fec_forward_error_correction/">https://www.reddit.com/r/fortinet/comments/127z3wd/fec_forward_error_correction/</a></em></li>
+</ul>
+
+        
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div class="article-tag-wrap">
+          
+
+          
+          
+
+
+        </div>
+      
+      
+      
+    </footer>
+  </div>
+</article>
+
+
   <article id="post-Setup-network-bond-in-Synology-NAS" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-inner">
     
@@ -912,131 +1002,10 @@
 </article>
 
 
-  <article id="post-Step-by-step-root-OnePlus-5T" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/blog/2024/04/26/Step-by-step-root-OnePlus-5T/">Step by step root OnePlus 5T</a>
-    </h1>
-  
-
-
-      </header>
-    
-    <div class="article-meta">
-      
-      <span class="article-date">
-  <i class="fa fa-date"></i>
-  <time class="dt-published" datetime="2024-04-26T11:29:42.000Z" itemprop="datePublished">2024-04-26</time>
-</span>
-      
-      
-      
-<a href="/blog/2024/04/26/Step-by-step-root-OnePlus-5T/#comments" class="article-comment-link">
-  
-  <i class="fa fa-commt"></i>
-  Guestbook
-</a>
-
-
-    </div>
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p><strong>OnePlus 5T</strong>, first announced in Nov 2017. 7 years later, has been upgraded to Android 10.0.1, still robust and fast.</p>
-<p><strong>NOTE</strong>: Before you take on this brave journey, make sure <strong>backup</strong> all important files on the phone at first!</p>
-<ul>
-<li><p>First, unlock the bootloader, <em><a target="_blank" rel="noopener" href="https://www.lifewire.com/how-to-unlock-bootloader-android-phone-4689186">https://www.lifewire.com/how-to-unlock-bootloader-android-phone-4689186</a></em></p>
-</li>
-<li><p>Enable <strong>Developer Options</strong> in <strong>Settings</strong> -&gt; <strong>About phone</strong> -&gt; <strong>Build number</strong></p>
-</li>
-</ul>
-<p><img src="/blog/img/OnePlus%205T%20-%20About%20phone.jpg" alt="About phone" title="About phone"></p>
-<ul>
-<li>In <strong>Settings</strong> -&gt; <strong>System</strong> -&gt; <strong>Developer options</strong>, enable <strong>Advanced reboot</strong>, <strong>OEM unlocking</strong>, <strong>USB Debugging</strong></li>
-</ul>
-<p><img src="/blog/img/OnePlus%205T%20-%20Developer%20options.jpg" alt="Developer options" title="Developer options"></p>
-<ul>
-<li><p>Download and install Android SDK Platform Tools on Windows <em><a target="_blank" rel="noopener" href="https://developer.android.com/tools/releases/platform-tools">https://developer.android.com/tools/releases/platform-tools</a></em></p>
-</li>
-<li><p>Run commands:</p>
-</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ adb devices</span><br><span class="line">List of devices attached</span><br><span class="line">9b26c76 device</span><br><span class="line"></span><br><span class="line">$ adb reboot bootloader</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>Wait for phone to reboot till phone in the <strong>Bootloader</strong> mode, then run:</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ fastboot flashing unlock</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>ON the phone will ask to confirm “UNLOCK THE BOOTLOADER”. After UNLOCK, your phone <strong>WILL BE RESET</strong>, like a factory hard reset. <strong>ALL APPS AND DATA ARE GONE</strong>. Android system will be reinstalled.</p>
-</li>
-<li><p>Go to OnePlus Smartphone Software Update site and download the latest version of OnePlus 5T update on Windows, <em><a target="_blank" rel="noopener" href="https://oneplus.net/in/support/softwareupdate">https://oneplus.net/in/support/softwareupdate</a></em></p>
-</li>
-<li><p>Unzip OnePlus 5T update on Widnows</p>
-</li>
-<li><p>On the phone <strong>Settings</strong>, search for <strong>USB Preferences</strong>, select USE USB FOR <strong>File transfer</strong></p>
-</li>
-</ul>
-<p><img src="/blog/img/OnePlus%205T%20-%20USB%20Preferences.jpg" alt="USB Preferences" title="USB Preferences"></p>
-<ul>
-<li><p>On Windows, in File Explorer, copy <strong>OnePlus5TOxygen_43_OTA_069_all_2010292144_76910d123e3940e5&#x2F;boot.img</strong> file to <em><strong>ONEPLUS A5010 -&gt; Internal shared storage -&gt; Download</strong></em> directory on the phone</p>
-</li>
-<li><p>On the phone, download and install latest version Magisk, <em><a target="_blank" rel="noopener" href="https://github.com/topjohnwu/Magisk">https://github.com/topjohnwu/Magisk</a></em></p>
-</li>
-<li><p>Run Magisk, select Magisk Install, <em><a target="_blank" rel="noopener" href="https://topjohnwu.github.io/Magisk/install.html">https://topjohnwu.github.io/Magisk/install.html</a></em></p>
-</li>
-<li><p>Select and patch <strong>boot.img</strong> file under <em><strong>&#x2F;Download</strong></em> directory</p>
-</li>
-</ul>
-<p><img src="/blog/img/OnePlus%205T%20-%20Magisk.jpg" alt="Magisk" title="Magisk"></p>
-<p><img src="/blog/img/OnePlus%205T%20-%20Magisk%20select%20and%20patch.jpg" alt="Magisk select and patch" title="Magisk select and patch"></p>
-<p><img src="/blog/img/OnePlus%205T%20-%20Magisk%20patch%20boot.jpg" alt="Magisk patch boot.img" title="Magisk patch boot.img"></p>
-<ul>
-<li><p>A patched file <strong>magisk_patched-27000_nplRf</strong> successfully generated. On Windows, in File Explorer, copy it to local directory</p>
-</li>
-<li><p>On Windows, run:</p>
-</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ fastboot flash boot magisk_patched-27000_nplRf.img</span><br></pre></td></tr></table></figure>
-
-<p><strong>NOTE</strong>: Always patch boot image on the <strong>SAME</strong> device where you run Magisk.</p>
-<ul>
-<li>Reboot the phone, and install <code>Root Checker</code> to verify Root access, <em><a target="_blank" rel="noopener" href="https://play.google.com/store/search?q=root%20checker&c=apps&hl=en&gl=US">https://play.google.com/store/search?q=root%20checker&amp;c=apps&amp;hl=en&amp;gl=US</a></em></li>
-</ul>
-<p>Now OnePlus 5T has been officially <strong>ROOTED</strong>!</p>
-<p><strong>NOTE</strong>: NO need to install <strong>TWRP</strong> (Team Win Recovery Project), <em><a target="_blank" rel="noopener" href="https://twrp.me/">https://twrp.me</a></em>, a customised recovery application for Android devices on OnePlus 5T.</p>
-
-        
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <div class="article-tag-wrap">
-          
-
-          
-          
-
-
-        </div>
-      
-      
-      
-    </footer>
-  </div>
-</article>
-
-
 
     <nav id="page-nav">
 
-<a class="extend prev" rel="prev" href="/blog/page/2/">Previous</a><a class="page-number" href="/blog/">1</a><a class="page-number" href="/blog/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/blog/page/4/">4</a><a class="page-number" href="/blog/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/12/">12</a><a class="extend next" rel="next" href="/blog/page/4/">Next</a>
+<a class="extend prev" rel="prev" href="/blog/page/2/">Previous</a><a class="page-number" href="/blog/">1</a><a class="page-number" href="/blog/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/blog/page/4/">4</a><a class="page-number" href="/blog/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/13/">13</a><a class="extend next" rel="next" href="/blog/page/4/">Next</a>
 </nav>
 
 
@@ -1049,6 +1018,10 @@
     <h3 class="widget-title"><i class="fa fa-posts"></i> Recent</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/blog/2025/01/22/Xray-X-UI-Reality-protocol-Vision-flow-on-Amazon-Linux/">Xray, X-UI, Reality protocol, Vision flow on Amazon Linux</a>
+          </li>
         
           <li>
             <a href="/blog/2024/12/21/How-to-install-and-run-Tailscale-client-on-OpenWrt/">How to install and run Tailscale client on OpenWrt</a>
@@ -1066,10 +1039,6 @@
             <a href="/blog/2024/12/03/Running-OpenWRT-on-Proxmox/">Running OpenWRT on Proxmox</a>
           </li>
         
-          <li>
-            <a href="/blog/2024/11/25/Fixing-Multimedia-Audio-Controller-driver-missing-issue-in-Windows-11/">Fixing Multimedia Audio Controller driver missing issue in Windows 11</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -1085,7 +1054,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title"><i class="fa fa-archive"></i> Archive</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2024/">2024</a><span class="archive-list-count">30</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2023/">2023</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/">2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/">2021</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/">2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/">2019</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/">2017</a><span class="archive-list-count">25</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2025/">2025</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2024/">2024</a><span class="archive-list-count">30</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2023/">2023</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/">2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/">2021</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/">2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/">2019</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/">2017</a><span class="archive-list-count">25</span></li></ul>
     </div>
   </div>
 
@@ -1141,7 +1110,7 @@
         </p>
       
       <p>
-        <span>Copyright &copy; 2024 Terrence Miao.</span>
+        <span>Copyright &copy; 2025 Terrence Miao.</span>
         <span>Theme by <a href="https://github.com/chaooo/hexo-theme-BlueLake/" target="_blank">BlueLake.</a></span>
         <span>Powered by <a href="https://hexo.io/" target="_blank">Hexo.</a></span>
       </p>

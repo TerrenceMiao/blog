@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=330279473"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '330279473');
+</script>
+<!-- End Google Analytics -->
+
+  
+  <title>Xray, X-UI, Reality protocol, Vision flow on Amazon Linux | Terrence Miao&#39;s Adventures</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+    <meta name="description" content="Veni, vidi, vici">
+  
+  
+  
+    <link rel="alternate" href="/blog/atom.xml" title="Terrence Miao's Adventures" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/blog/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/blog/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.min.css">
+
+  
+  
+  
+  
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7274218747178099" crossorigin="anonymous"></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">Terrence Miao&#39;s Adventures</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/blog/" id="subtitle">A journey of a thousand miles begins with a single step</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/blog/."><i class="fa fa-home"></i> Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives/"><i class="fa fa-archive"></i> Archive</a>
+        
+          <a class="main-nav-link" href="/blog/about/"><i class="fa fa-user"></i> About</a>
+        
+          <a class="main-nav-link" href="/blog/atom.xml"><i class="fa fa-rss"></i> RSS</a>
+        
+      </nav>
+    </div>
+    <div id="search-form">
+      <div id="result-mask" class="hide"></div>
+      <label><input id="search-key" type="text" autocomplete="off" placeholder="search"></label>
+      <div id="result-wrap" class="hide">
+        <div id="search-result"></div>
+      </div>
+      <div class="hide">
+        <template id="search-tpl">
+          <div class="item">
+            <a href="/{path}" title="{title}">
+              <div class="title">{title}</div>
+              <div class="time">{date}</div>
+              <div class="tags">{tags}</div>
+            </a>
+          </div>
+        </template>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Xray-X-UI-Reality-protocol-Vision-flow-on-Amazon-Linux" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Xray, X-UI, Reality protocol, Vision flow on Amazon Linux
+    </h1>
+  
+
+
+      </header>
+    
+    <div class="article-meta">
+      
+      <span class="article-date">
+  <i class="fa fa-date"></i>
+  <time class="dt-published" datetime="2025-01-21T22:48:08.000Z" itemprop="datePublished">2025-01-22</time>
+</span>
+      
+      
+        <span class="article-views">
+  <i class="fa fa-views"></i>
+  <i id="busuanzi_container_page_pv">
+      <i id="busuanzi_value_page_pv"></i>
+  </i>
+</span>
+
+      
+      
+<a href="/blog/2025/01/22/Xray-X-UI-Reality-protocol-Vision-flow-on-Amazon-Linux/#comments" class="article-comment-link">
+  
+    
+    
+      <i class="disqus-comment-count" data-disqus-identifier="/blog/2025/01/22/Xray-X-UI-Reality-protocol-Vision-flow-on-Amazon-Linux/"></i>
+    
+    
+    
+    
+  
+  <i class="fa fa-commt"></i>
+  Guestbook
+</a>
+
+
+    </div>
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>AWS EC2 instance, which runs <code>Amazon Linux</code>:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -i .ssh/aws-free-tier.pem -l ec2-user ec2-203-129-56-97.ap-southeast-2.compute.amazonaws.com</span><br><span class="line">   ,     #_</span><br><span class="line">   ~\_  ####_        Amazon Linux 2023</span><br><span class="line">  ~~  \_#####\</span><br><span class="line">  ~~     \###|</span><br><span class="line">  ~~       \#/ ___   https://aws.amazon.com/linux/amazon-linux-2023</span><br><span class="line">   ~~       V~&#x27; &#x27;-&gt;</span><br><span class="line">    ~~~         /</span><br><span class="line">      ~~._.   _/</span><br><span class="line">         _/ _/</span><br><span class="line">       _/m/&#x27;</span><br><span class="line"></span><br><span class="line">$ sudo -i</span><br><span class="line">[root@ip-237-45-6-183 ~]#</span><br></pre></td></tr></table></figure>
+
+<p>Install <code>X-UI</code>:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">[root@ip-237-45-6-183 ~]# bash &lt;(curl -Ls https://raw.githubusercontent.com/FranzKafkaYu/x-ui/master/install_en.sh)</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">2025-01-21 23:05:50 (100 MB/s) - ‘/usr/bin/x-ui’ saved [25637/25637]</span><br><span class="line"></span><br><span class="line">Install/update finished need to modify panel settings out of security</span><br><span class="line">are you continue,if you type n will skip this at this time[y/n]: y</span><br><span class="line">please set up your username: admin</span><br><span class="line">your username will be: admin</span><br><span class="line">please set up your password: password</span><br><span class="line">your password will be: password</span><br><span class="line">please set up the panel port: 10080</span><br><span class="line">your panel port is: 10080</span><br><span class="line">initializing,wait some time here...</span><br><span class="line">set username and password success</span><br><span class="line">account name and password set down!</span><br><span class="line">set port 10080 successpanel port set down!</span><br><span class="line">x-ui v0.3.4.4 install finished,it is working now...</span><br><span class="line"></span><br><span class="line">x-ui control menu usages: </span><br><span class="line">----------------------------------------------</span><br><span class="line">x-ui              - Enter     control menu</span><br><span class="line">x-ui start        - Start     x-ui </span><br><span class="line">x-ui stop         - Stop      x-ui </span><br><span class="line">x-ui restart      - Restart   x-ui </span><br><span class="line">x-ui status       - Show      x-ui status</span><br><span class="line">x-ui enable       - Enable    x-ui on system startup</span><br><span class="line">x-ui disable      - Disable   x-ui on system startup</span><br><span class="line">x-ui log          - Check     x-ui logs</span><br><span class="line">x-ui update       - Update    x-ui </span><br><span class="line">x-ui install      - Install   x-ui </span><br><span class="line">x-ui uninstall    - Uninstall x-ui </span><br><span class="line">x-ui geo          - Update    geo  data</span><br><span class="line">----------------------------------------------</span><br></pre></td></tr></table></figure>
+
+<p>Change AWS security group, and open EC2 instance port <code>10080</code> to admin user’s IP address only.</p>
+<p>Find the root path of <code>X-UI</code>:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">[root@ip-237-45-6-183 ~]# x-ui</span><br><span class="line"></span><br><span class="line">  x-ui control menu</span><br><span class="line">  0. exit</span><br><span class="line">————————————————</span><br><span class="line">  1. install   x-ui</span><br><span class="line">  2. update    x-ui</span><br><span class="line">  3. uninstall x-ui</span><br><span class="line">————————————————</span><br><span class="line">  4. reset username</span><br><span class="line">  5. reset panel</span><br><span class="line">  6. reset panel port</span><br><span class="line">  7. check panel info</span><br><span class="line">————————————————</span><br><span class="line">  8. start x-ui</span><br><span class="line">  9. stop  x-ui</span><br><span class="line">  10. restart x-ui</span><br><span class="line">  11. check x-ui status</span><br><span class="line">  12. check x-ui logs</span><br><span class="line">————————————————</span><br><span class="line">  13. enable  x-ui on system startup</span><br><span class="line">  14. disable x-ui on system startup</span><br><span class="line">————————————————</span><br><span class="line">  15. enable bbr </span><br><span class="line">  16. issuse certs</span><br><span class="line">  17. x-ui cron jobs</span><br><span class="line"> </span><br><span class="line">x-ui status: running</span><br><span class="line">enable on system startup: yes</span><br><span class="line">xray status: running</span><br><span class="line"></span><br><span class="line">please input a legal number[0-16],input 7 for checking login info:7</span><br><span class="line">[INF] 当前面板信息[current panel info]:</span><br><span class="line">面板版本[version]: 0.3.4.4:20230717</span><br><span class="line">用户名[username]: master</span><br><span class="line">密码[userpasswd]: C]kJ:XF&#125;`4B29*_V</span><br><span class="line">监听端口[port]: 55566</span><br><span class="line">根路径[rootPath]: /WMa7/ </span><br></pre></td></tr></table></figure>
+
+<p>In <code>Firefox</code>, go to <em><a target="_blank" rel="noopener" href="http://203.129.56.97:10080/WMa7/">http://203.129.56.97:10080/WMa7/</a></em> and login as <strong>admin</strong> user:</p>
+<p><img src="/blog/img/X-UI%20-%20Login.png" alt="X-UI - Login" title="X-UI - Login"></p>
+<p><img src="/blog/img/X-UI%20-%20Panel.png" alt="X-UI - Panel" title="X-UI - Panel"></p>
+<p>Switch to the latest version <code>Xray</code> e.g. <code>v24.12.31</code>:</p>
+<p><img src="/blog/img/X-UI%20-%20Xray.png" alt="X-UI - Xray" title="X-UI - Xray"></p>
+<p>Add new Inbound:</p>
+<p><img src="/blog/img/X-UI%20-%20Inbound.png" alt="X-UI - Inbound" title="X-UI - Inbound"></p>
+<p>Open up port <strong>32609</strong> to the world <strong>0.0.0.0&#x2F;0</strong> in AWS security group.</p>
+<p>Copy inbound QR link:</p>
+<p><img src="/blog/img/X-UI%20-%20QR.png" alt="X-UI - QR" title="X-UI - QR"></p>
+<p><img src="/blog/img/X-UI%20-%20QR%20Link.png" alt="X-UI - QR Link" title="X-UI - QR Link"></p>
+<p>and paste to <code>Xray</code> Windows client e.g. <code>v2rayN</code>:</p>
+<p><img src="/blog/img/X-UI%20-%20v2rayN.png" alt="X-UI - v2rayN" title="X-UI - v2rayN"></p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li>无敌的 Xray – Reality 协议！Vless + Reality协议 + Vision流控，是否能够摆平一切顾虑！ <em><a target="_blank" rel="noopener" href="https://v2rayssr.com/reality.html">https://v2rayssr.com/reality.html</a></em></li>
+<li>波仔分享 - 无敌的 Xray - Reality 协议！无须域名和证书的 Reality 协议 + Vision 流控，是否能够摆平一切顾虑！Reality 指向网站寻找，Reality 客户端推荐（关联节点搭建&#x2F;科学上网）<em><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DO1_C9YWOYY">https://www.youtube.com/watch?v=DO1_C9YWOYY</a></em></li>
+<li>x-ui <em><a target="_blank" rel="noopener" href="https://github.com/FranzKafkaYu/x-ui/">https://github.com/FranzKafkaYu/x-ui/</a></em></li>
+<li>Qualys. SSL Labs <em><a target="_blank" rel="noopener" href="https://www.ssllabs.com/ssltest/index.html">https://www.ssllabs.com/ssltest/index.html</a></em></li>
+</ul>
+
+        
+            <div id="toc-article">
+                
+  <div class="widget-wrap" id="toc-wrap">
+    <h3 class="widget-title"><i class="fa fa-toc"></i> Contents</h3>
+    <div class="widget">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#References"><span class="toc-text">References</span></a></li></ol>
+    </div>
+  </div>
+
+
+            </div>
+        
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div class="article-tag-wrap">
+          
+
+          
+          
+
+
+        </div>
+      
+      
+        
+<nav id="article-nav">
+  
+    <a href="/blog/2024/12/21/How-to-install-and-run-Tailscale-client-on-OpenWrt/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">older</strong>
+      <div class="article-nav-title">
+        
+          How to install and run Tailscale client on OpenWrt
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+      
+      
+        
+
+
+
+  <div id="comments"><div id="disqus_thread"></div></div>
+
+
+
+
+
+
+      
+    </footer>
+  </div>
+</article>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title"><i class="fa fa-posts"></i> Recent</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2025/01/22/Xray-X-UI-Reality-protocol-Vision-flow-on-Amazon-Linux/">Xray, X-UI, Reality protocol, Vision flow on Amazon Linux</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2024/12/21/How-to-install-and-run-Tailscale-client-on-OpenWrt/">How to install and run Tailscale client on OpenWrt</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2024/12/21/How-to-install-and-run-ZeroTier-client-on-OpenWrt/">How to install and run ZeroTier client on OpenWrt</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2024/12/05/Connecting-OpenWRT-to-internet/">Connecting OpenWRT to internet</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2024/12/03/Running-OpenWRT-on-Proxmox/">Running OpenWRT on Proxmox</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+  
+    
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title"><i class="fa fa-archive"></i> Archive</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2025/">2025</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2024/">2024</a><span class="archive-list-count">30</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2023/">2023</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/">2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/">2021</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/">2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/">2019</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/">2017</a><span class="archive-list-count">25</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title"><i class="fa fa-link"></i> Blogroll</h3>
+    <div class="widget">
+      <ul>
+      
+        <li>
+          <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/terrencemiao/">LinkedIn</a>
+        </li>
+      
+        <li>
+          <a target="_blank" rel="noopener" href="https://github.com/TerrenceMiao">GitHub</a>
+        </li>
+      
+        <li>
+          <a target="_blank" rel="noopener" href="https://twitter.com/TerrenceMiao">Twitter</a>
+        </li>
+      
+      </ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+        
+      </div>
+      <a id="totop" href="#top"></a>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      <p>
+        <a href="/blog/sitemap.xml">Site Map</a>
+        <span> | </span><a href="/blog/atom.xml">Subscribe to this site</a>
+        <span> | </span><a href="/blog/about/">Contact the blogger</a>
+      </p>
+      
+        <p>
+          <i class="fa fa-visitors"></i>
+          <i id="busuanzi_container_site_uv"><i id="busuanzi_value_site_uv"></i></i>
+          ，
+          <i class="fa fa-views"></i>
+          <i id="busuanzi_container_site_pv"><i id="busuanzi_value_site_pv"></i></i>
+        </p>
+      
+      <p>
+        <span>Copyright &copy; 2025 Terrence Miao.</span>
+        <span>Theme by <a href="https://github.com/chaooo/hexo-theme-BlueLake/" target="_blank">BlueLake.</a></span>
+        <span>Powered by <a href="https://hexo.io/" target="_blank">Hexo.</a></span>
+      </p>
+    </div>
+  </div>
+</footer>
+
+    </div>
+  </div>
+  
+<script src="/blog/js/jquery-3.4.1.min.js"></script>
+
+
+<script src="/blog/js/search.json.js"></script>
+
+
+  
+<script src="/blog/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/blog/js/script.js"></script>
+
+
+
+
+
+
+  
+<script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+
+  
+
+  
+    <script>
+      var disqus_shortname = 'terrencemiao';
+      
+        var disqus_url = 'https://terrencemiao.github.io/blog/2025/01/22/Xray-X-UI-Reality-protocol-Vision-flow-on-Amazon-Linux/';
+      
+      (function(){
+        var dsq = document.createElement('script');
+        dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+
+
+
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+  <script src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML" async type="text/javascript"></script>
+
+</body>
+</html>
