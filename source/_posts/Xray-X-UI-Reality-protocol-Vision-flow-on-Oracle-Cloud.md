@@ -116,3 +116,8 @@ success
 Open `X-UI` panel port and `VLESS` port in `Oracle Cloud` **Security List Ingress Rules**:
 
 ![X-UI - Oracle Cloud](/img/X-UI%20-%20Oracle%20Cloud.png "X-UI - Oracle Cloud")
+
+References
+----------
+
+- Host an XTLS Vless+Vision+REALITY server on Oracle Always Free _https://iopq.wordpress.com/2024/02/27/host-an-xtls-vlessvisionreality-server-on-oracle/_
