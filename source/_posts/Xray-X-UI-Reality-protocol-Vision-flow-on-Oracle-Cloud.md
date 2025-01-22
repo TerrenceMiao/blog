@@ -4,7 +4,7 @@ date: 2025-01-22 13:34:40
 tags:
 ---
 
-AWS EC2 instance, which runs `Oracle Linux`:
+`Oracle Cloud` instance, which runs `Oracle Linux`:
 
 ```
 $ ssh -i .ssh/id_rsa_ -l opc 19.214.86.113
