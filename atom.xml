@@ -6,7 +6,7 @@
   <link href="https://terrencemiao.github.io/blog/atom.xml" rel="self"/>
   
   <link href="https://terrencemiao.github.io/blog/"/>
-  <updated>2025-01-22T12:00:01.897Z</updated>
+  <updated>2025-01-25T02:22:58.535Z</updated>
   <id>https://terrencemiao.github.io/blog/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ZeroTier on TrueNAS Scale</title>
+    <link href="https://terrencemiao.github.io/blog/2025/01/25/ZeroTier-on-TrueNAS-Scale/"/>
+    <id>https://terrencemiao.github.io/blog/2025/01/25/ZeroTier-on-TrueNAS-Scale/</id>
+    <published>2025-01-25T02:01:25.000Z</published>
+    <updated>2025-01-25T02:22:58.535Z</updated>
+    
+    <content type="html"><![CDATA[<p>Step by steyp to install <code>ZeroTier</code> on <code>TrueNAS Scale</code>.</p><p>Latest version <code>TrueNAS Scale</code> <strong>ElectricEel 24.10</strong>:</p><p><img src="/blog/img/ZeroTier%20-%20TrueNAS.png" alt="ZeroTier - TrueNAS" title="ZeroTier - TrueNAS"></p><p>Add <code>ZeroTier</code> <strong>Network ID</strong>; enable <strong>Host Network</strong>; leave <strong>Auth Token</strong>, <strong>Identity Public</strong> and <strong>Identity Secret</strong> empty:</p><p><img src="/blog/img/ZeroTier%20-%20Configuration.png" alt="ZeroTier - Configuration" title="ZeroTier - Configuration"></p><p>On <code>ZeroTier</code> console, authorise <code>TrueNAS</code> access the network:</p><p><img src="/blog/img/ZeroTier%20-%20Network.png" alt="ZeroTier - Network" title="ZeroTier - Network"></p><p><code>ZeroTier</code> is happily running in <code>TrueNAS</code>:</p><p><img src="/blog/img/ZeroTier%20-%20Running.png" alt="ZeroTier - Running" title="ZeroTier - Running"></p><h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul><li>How to install zerotier on TrueNas Scale? <em><a href="https://www.reddit.com/r/truenas/comments/1dvdp36/how_to_install_zerotier_on_truenas_scale/">https://www.reddit.com/r/truenas/comments/1dvdp36/how_to_install_zerotier_on_truenas_scale/</a></em></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Step by steyp to install &lt;code&gt;ZeroTier&lt;/code&gt; on &lt;code&gt;TrueNAS Scale&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Latest version &lt;code&gt;TrueNAS Scale&lt;/code&gt; &lt;strong&gt;El</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Xray, X-UI, Reality protocol, Vision flow on Oracle Cloud</title>
@@ -401,27 +422,6 @@
       
       
     <summary type="html">&lt;p&gt;In &lt;code&gt;Windows 11 Pro Station&lt;/code&gt;, a &lt;em&gt;Mellanox ConnectX-4 MCX455A-ECAT PCIe x16 3.0 100GBe VPI EDR IB network adatper&lt;/em&gt;, goes </summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Fixing TrueNAS SMB IP binding</title>
-    <link href="https://terrencemiao.github.io/blog/2024/09/14/Fixing-TrueNAS-SMB-IP-binding/"/>
-    <id>https://terrencemiao.github.io/blog/2024/09/14/Fixing-TrueNAS-SMB-IP-binding/</id>
-    <published>2024-09-14T02:37:53.000Z</published>
-    <updated>2024-09-14T02:53:10.659Z</updated>
-    
-    <content type="html"><![CDATA[<p>After changing network settings, <code>TrueNAS</code> IP address has been updated. If modify SMB configuration, error like:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">smb_update.bindip.0: IP address [192.168.0.51] is not a configured address for this server</span><br></pre></td></tr></table></figure><p>thrown.</p><p>To reset and clean up already bind IP, login TrueNAS Console and run:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">root@TrueNAS[~]# midclt call smb.update &#x27;&#123;&quot;bindip&quot;: []&#125;&#x27;</span><br><span class="line">&#123;</span><br><span class="line">    &quot;id&quot;: 1,</span><br><span class="line">    &quot;netbiosname&quot;: &quot;TRUENAS&quot;,</span><br><span class="line">    &quot;netbiosalias&quot;: [],</span><br><span class="line">    &quot;workgroup&quot;: &quot;IGLOO STUDIO&quot;,</span><br><span class="line">    &quot;description&quot;: &quot;TrueNAS Server&quot;,</span><br><span class="line">    &quot;unixcharset&quot;: &quot;UTF-8&quot;,</span><br><span class="line">    &quot;loglevel&quot;: &quot;MINIMUM&quot;,</span><br><span class="line">    &quot;syslog&quot;: false,</span><br><span class="line">    &quot;aapl_extensions&quot;: true,</span><br><span class="line">    &quot;Localmaster&quot;: true,</span><br><span class="line">    &quot;guest&quot;: &quot;nobody&quot;,</span><br><span class="line">    &quot;filemask&quot;&#x27;: &quot;&quot;,</span><br><span class="line">    &quot;dirmask&quot;&#x27;: &quot;&quot;,</span><br><span class="line">    &quot;smb_options&quot;: &quot;&quot;,</span><br><span class="line">    &quot;bindip&quot;: [],</span><br><span class="line">    &quot;cifs_SID&quot;: &quot;S-1-5-21-2487580926-3122677641-100607549&quot;,</span><br><span class="line">    &quot;ntImv1_auth&quot;: false,</span><br><span class="line">    &quot;enable_smb1&quot;: false,</span><br><span class="line">    &quot;admin_group&quot;: null,</span><br><span class="line">    &quot;next_rid&quot;: 0,</span><br><span class="line">    &quot;multichannel&quot;: true,</span><br><span class="line">    &quot;netbiosname_local&quot;: &quot;TRUENAS&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>then can modify SMB configuration successfully.</p><h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul><li>Help with SMB IP binding, <em><a href="https://www.reddit.com/r/freenas/comments/fovpfz/help_with_smb_ip_binding">https://www.reddit.com/r/freenas/comments/fovpfz/help_with_smb_ip_binding</a></em></li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;After changing network settings, &lt;code&gt;TrueNAS&lt;/code&gt; IP address has been updated. If modify SMB configuration, error like:&lt;/p&gt;
-&lt;figure c</summary>
       
     
     

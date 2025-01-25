@@ -97,6 +97,81 @@
 
       <div class="outer">
         <section id="main">
+  <article id="post-Geekbench-head-to-head-Mac-vs-iPad-vs-Android" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog/2022/10/10/Geekbench-head-to-head-Mac-vs-iPad-vs-Android/">Geekbench head to head - Mac vs iPad vs Android</a>
+    </h1>
+  
+
+
+      </header>
+    
+    <div class="article-meta">
+      
+      <span class="article-date">
+  <i class="fa fa-date"></i>
+  <time class="dt-published" datetime="2022-10-10T01:48:30.000Z" itemprop="datePublished">2022-10-10</time>
+</span>
+      
+      
+      
+<a href="/blog/2022/10/10/Geekbench-head-to-head-Mac-vs-iPad-vs-Android/#comments" class="article-comment-link">
+  
+  <i class="fa fa-commt"></i>
+  Guestbook
+</a>
+
+
+    </div>
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><strong>Geekbench head to head - Mac vs iPad vs Android:</strong></p>
+<ul>
+<li>10 years old Mac mini Late 2012 (2.6GHz quad-core Intel Core i7 Turbo Boost up to 3.6GHz)</li>
+<li>4 years old MacBook Pro 15-inch Mid 2018 (2.6GHz 6-core Intel Core i7, Turbo Boost up to 4.3GHz)</li>
+<li>4 years old iPad Pro 11” 2018 3rd gen (A12X Bionic 7 nm, 4-core Vortex at 2.5GHz , 4-core Tempest at 1.6GHz)</li>
+<li>1 year old MacBook Pro 16-inch 2021 (Apple Silicon M1 Pro, 10-core CPU at 3.2GHz)</li>
+<li>没满岁的 Android (Snapdragon 8 Gen1, 1 core Cortex-X2 at 3GHz, 3-core Cortex-A710 at 2.5GHz, and 4-core Cortex-A510 at 1.8GHz)</li>
+</ul>
+<p><img src="/blog/img/Geekbench%20head%20to%20head%20-%20Mac%20vs%20iPad%20vs%20Android.png" alt="Geekbench head to head - Mac vs iPad vs Android" title="Geekbench head to head - Mac vs iPad vs Android"></p>
+<p><strong>Conclusion:</strong></p>
+<ol>
+<li>Intel 已经是江河日下，被时代淘汰</li>
+<li>Apple Processors 实在太强。 四年前的处理器还可吊打当前最新的 Snapdragon Processors</li>
+<li>同是 2018 年产品，iPad Pro 把 Intel CPU based 的 MacBook Pro 按在地上碾压</li>
+</ol>
+<p>ARM vs x86 谁是未来，一目了然。</p>
+<p><strong>NOTE</strong></p>
+<p>The Apple M1 chip is built for Macs, and the A15 for phones. They use completely different architectures. The A15 prioritizes battery over performance. The M1 has more firepower for graphics.</p>
+
+        
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div class="article-tag-wrap">
+          
+
+          
+          
+
+
+        </div>
+      
+      
+      
+    </footer>
+  </div>
+</article>
+
+
   <article id="post-How-to-use-Web-Inspector-and-debug-Safari-on-iPhone-iPad" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-inner">
     
@@ -728,75 +803,6 @@
 </article>
 
 
-  <article id="post-AWS-KMS-decrypt-for-base64-encoded-input" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/blog/2021/04/30/AWS-KMS-decrypt-for-base64-encoded-input/">AWS KMS decrypt for base64 encoded input</a>
-    </h1>
-  
-
-
-      </header>
-    
-    <div class="article-meta">
-      
-      <span class="article-date">
-  <i class="fa fa-date"></i>
-  <time class="dt-published" datetime="2021-04-30T09:22:55.000Z" itemprop="datePublished">2021-04-30</time>
-</span>
-      
-      
-      
-<a href="/blog/2021/04/30/AWS-KMS-decrypt-for-base64-encoded-input/#comments" class="article-comment-link">
-  
-  <i class="fa fa-commt"></i>
-  Guestbook
-</a>
-
-
-    </div>
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>With AWS CLI version 2:</p>
-<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">𝜆 aws --version</span><br><span class="line">aws-cli/2.1.17 Python/3.7.4 Darwin/20.3.0 exe/x86_64 prompt/off</span><br></pre></td></tr></table></figure>
-
-<p>Encrypt with AWS KMS key:</p>
-<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">𝜆 aws kms encrypt --profile personal \</span><br><span class="line">  --key-id e2695b79-cbe0-4c16-aa5e-b7dbf52df1f9 \</span><br><span class="line">  --plaintext &quot;string-to-encrypt&quot; \</span><br><span class="line">  --output text \</span><br><span class="line">  --query CiphertextBlob \</span><br><span class="line">  --cli-binary-format raw-in-base64-out</span><br><span class="line">AQICAHjbJrIPgME ... lILuBSUdA==</span><br></pre></td></tr></table></figure>
-
-<p>Decrypt with AWS KMS key:</p>
-<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">𝜆 echo &quot;AQICAHjbJrIPgME ... lILuBSUdA==&quot; | base64 -D | \</span><br><span class="line">  aws kms decrypt --profile personal \</span><br><span class="line">  --ciphertext-blob fileb:///dev/stdin \</span><br><span class="line">  --output text \</span><br><span class="line">  --query Plaintext | base64 -D</span><br></pre></td></tr></table></figure>
-
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
-<li>cli_binary_format, <em><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/credref/latest/refdocs/setting-global-cli_binary_format.html">https://docs.aws.amazon.com/credref/latest/refdocs/setting-global-cli_binary_format.html</a></em></li>
-</ul>
-
-        
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <div class="article-tag-wrap">
-          
-
-          
-          
-
-
-        </div>
-      
-      
-      
-    </footer>
-  </div>
-</article>
-
-
 
     <nav id="page-nav">
 
@@ -815,6 +821,10 @@
       <ul>
         
           <li>
+            <a href="/blog/2025/01/25/ZeroTier-on-TrueNAS-Scale/">ZeroTier on TrueNAS Scale</a>
+          </li>
+        
+          <li>
             <a href="/blog/2025/01/22/Xray-X-UI-Reality-protocol-Vision-flow-on-Oracle-Cloud/">Xray, X-UI, Reality protocol, Vision flow on Oracle Cloud</a>
           </li>
         
@@ -828,10 +838,6 @@
         
           <li>
             <a href="/blog/2024/12/21/How-to-install-and-run-ZeroTier-client-on-OpenWrt/">How to install and run ZeroTier client on OpenWrt</a>
-          </li>
-        
-          <li>
-            <a href="/blog/2024/12/05/Connecting-OpenWRT-to-internet/">Connecting OpenWRT to internet</a>
           </li>
         
       </ul>
@@ -849,7 +855,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title"><i class="fa fa-archive"></i> Archive</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2025/">2025</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2024/">2024</a><span class="archive-list-count">30</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2023/">2023</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/">2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/">2021</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/">2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/">2019</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/">2017</a><span class="archive-list-count">25</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2025/">2025</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2024/">2024</a><span class="archive-list-count">30</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2023/">2023</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/">2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/">2021</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/">2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/">2019</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/">2017</a><span class="archive-list-count">25</span></li></ul>
     </div>
   </div>
 

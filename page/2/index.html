@@ -97,6 +97,153 @@
 
       <div class="outer">
         <section id="main">
+  <article id="post-Homelab-Router-OPNsense-and-IPv6" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog/2024/11/01/Homelab-Router-OPNsense-and-IPv6/">Homelab Router OPNsense and IPv6</a>
+    </h1>
+  
+
+
+      </header>
+    
+    <div class="article-meta">
+      
+      <span class="article-date">
+  <i class="fa fa-date"></i>
+  <time class="dt-published" datetime="2024-11-01T10:25:50.000Z" itemprop="datePublished">2024-11-01</time>
+</span>
+      
+      
+      
+<a href="/blog/2024/11/01/Homelab-Router-OPNsense-and-IPv6/#comments" class="article-comment-link">
+  
+  <i class="fa fa-commt"></i>
+  Guestbook
+</a>
+
+
+    </div>
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>Current IPv6 setting on TP-Link Router, connecting to <strong>Buddy Telco &#x2F; Aussie Broadband</strong> ISP.</p>
+<p><img src="/blog/img/OPNsense%20-%20TP-Link%20IPv6.png" alt="OPNsense - TP-Link IPv6" title="OPNsense - TP-Link IPv6"></p>
+<h2 id="Setup-OPNsense-VM"><a href="#Setup-OPNsense-VM" class="headerlink" title="Setup OPNsense VM"></a>Setup OPNsense VM</h2><p>Create a new VM for OPNsense in Proxmox:</p>
+<p><img src="/blog/img/OPNsense%20-%20VM%20General.png" alt="OPNsense - VM General" title="OPNsense - VM General"></p>
+<p><img src="/blog/img/OPNsense%20-%20VM%20OS.png" alt="OPNsense - VM OS" title="OPNsense - VM OS"></p>
+<p><img src="/blog/img/OPNsense%20-%20VM%20System.png" alt="OPNsense - VM System" title="OPNsense - VM System"></p>
+<p><img src="/blog/img/OPNsense%20-%20VM%20Disks.png" alt="OPNsense - VM Disks" title="OPNsense - VM Disks"></p>
+<p><img src="/blog/img/OPNsense%20-%20VM%20CPU.png" alt="OPNsense - VM CPU" title="OPNsense - VM CPU"></p>
+<p><img src="/blog/img/OPNsense%20-%20VM%20Memory.png" alt="OPNsense - VM Memory" title="OPNsense - VM Memory"></p>
+<p><img src="/blog/img/OPNsense%20-%20VM%20Network%20WAN.png" alt="OPNsense - VM Network WAN" title="OPNsense - VM Network WAN"></p>
+<p><img src="/blog/img/OPNsense%20-%20VM%20Network%20LAN.png" alt="OPNsense - VM Network LAN" title="OPNsense - VM Network LAN"></p>
+<p><img src="/blog/img/OPNsense%20-%20VM%20Network%20OPT1.png" alt="OPNsense - VM Network OPT1" title="OPNsense - VM Network OPT1"></p>
+<p><img src="/blog/img/OPNsense%20-%20VM%20In%20Proxmox.png" alt="OPNsense - VM In Proxmox" title="OPNsense - VM In Proxmox"></p>
+<p><img src="/blog/img/OPNsense%20-%20Proxmox%20Network.png" alt="OPNsense - Proxmox Network" title="OPNsense - Proxmox Network"></p>
+<h2 id="Setup-IPv6"><a href="#Setup-IPv6" class="headerlink" title="Setup IPv6"></a>Setup IPv6</h2><p>Step by step to enable IPv6 with <strong>Buddy Telco &#x2F; Aussie Broadband</strong> ISP.</p>
+<p><img src="/blog/img/OPNsense%20-%20Interfaces%20Settings.png" alt="OPNsense - Interfaces Settings" title="OPNsense - Interfaces Settings"></p>
+<p><img src="/blog/img/OPNsense%20-%20WAN.png" alt="OPNsense - WAN" title="OPNsense - WAN"></p>
+<ul>
+<li>Enable DHCP&#x2F;DHCPv6 for IPv4&#x2F;IPv6 Configuration Type</li>
+<li>Set ISP’s <strong>Prefix delegation size</strong> to <code>48</code></li>
+<li>Enable <strong>Send prefix hint</strong></li>
+</ul>
+<p><img src="/blog/img/OPNsense%20-%20Router%20Advertisements.png" alt="OPNsense - Router Advertisements" title="OPNsense - Router Advertisements"></p>
+<ul>
+<li>Set <strong>Router Advertisements</strong> to <code>Unmanaged</code></li>
+<li>Set <strong>Router Priority</strong> to <code>Normal</code></li>
+</ul>
+<h2 id="Setup-OPNsense-Optional-Port"><a href="#Setup-OPNsense-Optional-Port" class="headerlink" title="Setup OPNsense Optional Port"></a>Setup OPNsense Optional Port</h2><p>For example, setup <strong>OPT1</strong> interface after <code>OPNsense</code> installed in <code>Proxmox</code>.</p>
+<ul>
+<li>Enable <strong>OPT1</strong> Interface</li>
+<li>Select <strong>Static IPv4</strong> for IPv4 Configuration Type</li>
+<li>Select <strong>Track Interface</strong> for IPv6 Configuration Type</li>
+<li>IPv4 address set to <strong>192.168.2.1&#x2F;24</strong></li>
+<li>IPv6 parent interface set to <strong>WAN</strong></li>
+<li>IPv6 prefix ID set to <strong>0x1</strong>. <strong>0x0</strong> has been assigned to <strong>LAN</strong></li>
+<li>Enable <strong>Allow manual adjustment of DHCPv6 and Router Advertisements</strong></li>
+</ul>
+<p><img src="/blog/img/OPNsense%20-%20OPT1%20Interface.png" alt="OPNsense - OPT1 Interface" title="OPNsense - OPT1 Interface"></p>
+<ul>
+<li>Enable DHCP server on the OPT1 interface</li>
+<li>Set IP range from <strong>192.168.2.10</strong> to <strong>192.168.2.245</strong></li>
+</ul>
+<p><img src="/blog/img/OPNsense%20-%20OPT1%20DHCP.png" alt="OPNsense - OPT1 DHCP" title="OPNsense - OPT1 DHCP"></p>
+<ul>
+<li>Add Firewall Rule</li>
+<li>Set TCP&#x2F;IP version</li>
+<li>Select <strong>OPT1 net</strong> from dropdown menu as Source</li>
+</ul>
+<p><img src="/blog/img/OPNsense%20-%20OPT1%20Firewall%20Rule.png" alt="OPNsense - OPT1 Firewall Rule" title="OPNsense - OPT1 Firewall Rule"></p>
+<ul>
+<li>Setup Firewall Rule for IPv4 on <strong>OPT1</strong> interface, then</li>
+<li>Setup Firewall Rule for IPv6 on <strong>OPT1</strong> interface</li>
+</ul>
+<p><img src="/blog/img/OPNsense%20-%20OPT1%20Firewall.png" alt="OPNsense - OPT1 Firewall" title="OPNsense - OPT1 Firewall"></p>
+<h2 id="VLAN"><a href="#VLAN" class="headerlink" title="VLAN"></a>VLAN</h2><p>Setup Trusted and Untrusted VLAN.</p>
+<p><img src="/blog/img/OPNsense%20-%20VLAN.png" alt="OPNsense - VLAN" title="OPNsense - VLAN"></p>
+<p><img src="/blog/img/OPNsense%20-%20VLAN%20Interfaces.png" alt="OPNsense - VLAN Interfaces" title="OPNsense - VLAN Interfaces"></p>
+<p><img src="/blog/img/OPNsense%20-%20Trusted%20VLAN.png" alt="OPNsense - Trusted VLAN" title="OPNsense - Trusted VLAN"></p>
+<p><img src="/blog/img/OPNsense%20-%20Untrusted%20VLAN.png" alt="OPNsense - Untrusted VLAN" title="OPNsense - Untrusted VLAN"></p>
+<p>Then,</p>
+<ul>
+<li>Set <strong>Router Advertisements</strong> to <code>Unmanaged</code></li>
+<li>Set <strong>Router Priority</strong> to <code>Normal</code></li>
+</ul>
+<p>for both VLANs. </p>
+<h2 id="Running"><a href="#Running" class="headerlink" title="Running"></a>Running</h2><p>After all the change made above, reboot <code>OPNsense</code> instance.</p>
+<p><img src="/blog/img/OPNsense%20-%20Run%20In%20Proxmox.png" alt="OPNsense - Run In Proxmox" title="OPNsense - Run In Proxmox"></p>
+<p><img src="/blog/img/OPNsense%20-%20Interfaces%20Overview.png" alt="OPNsense - Interfaces Overview" title="OPNsense - Interfaces Overview"></p>
+<p><img src="/blog/img/OPNsense%20-%20Dashboard.png" alt="OPNsense - Dashboard" title="OPNsense - Dashboard"></p>
+<h2 id="IPv6-Test"><a href="#IPv6-Test" class="headerlink" title="IPv6 Test"></a>IPv6 Test</h2><ul>
+<li><em><a target="_blank" rel="noopener" href="https://test-ipv6.com/">https://test-ipv6.com/</a></em></li>
+</ul>
+<p><img src="/blog/img/OPNsense%20-%20Test%20IPv6.png" alt="OPNsense - Test IPv6" title="OPNsense - Test IPv6"></p>
+<ul>
+<li><em><a target="_blank" rel="noopener" href="https://ipv6-test.com/">https://ipv6-test.com/</a></em></li>
+</ul>
+<p><img src="/blog/img/OPNsense%20-%20IPv6%20Test.png" alt="OPNsense - IPv6 Test" title="OPNsense - Test Test"></p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li>Virtualize OPNsense on Proxmox as Your Primary Router, <em><a target="_blank" rel="noopener" href="https://homenetworkguy.com/how-to/virtualize-opnsense-on-proxmox-as-your-primary-router/">https://homenetworkguy.com/how-to/virtualize-opnsense-on-proxmox-as-your-primary-router/</a></em></li>
+<li>How to Configure IPv6 in Your Home Network with ISP such as Comcast Xfinity, <em><a target="_blank" rel="noopener" href="https://homenetworkguy.com/how-to/configure-ipv6-opnsense-with-isp-such-as-comcast-xfinity/">https://homenetworkguy.com/how-to/configure-ipv6-opnsense-with-isp-such-as-comcast-xfinity/</a></em></li>
+<li>Beginner’s Guide to Set Up a Home Network Using OPNsense, <em><a target="_blank" rel="noopener" href="https://homenetworkguy.com/how-to/beginners-guide-to-set-up-home-network-using-opnsense/">https://homenetworkguy.com/how-to/beginners-guide-to-set-up-home-network-using-opnsense/</a></em></li>
+<li>OPNsense Optional Port Configuration, <em><a target="_blank" rel="noopener" href="https://kb.protectli.com/kb/opnsense-optional-port-configuration/">https://kb.protectli.com/kb/opnsense-optional-port-configuration/</a></em></li>
+<li>IPv6 setup, <em><a target="_blank" rel="noopener" href="https://docs.opnsense.org/manual/ipv6.html">https://docs.opnsense.org/manual/ipv6.html</a></em></li>
+<li>Anyone have IPv6 working with OPNSense? <em><a target="_blank" rel="noopener" href="https://www.reddit.com/r/AussieBroadband/comments/10qldin/anyone_have_ipv6_working_with_opnsense/">https://www.reddit.com/r/AussieBroadband/comments/10qldin/anyone_have_ipv6_working_with_opnsense/</a></em>, <em><a target="_blank" rel="noopener" href="https://f001.backblazeb2.com/b2api/v1/b2_download_file_by_id?fileId=4_zd344e4de4b297a128d680f16_f1019c6ea32f55c8f_d20240526_m042719_c001_v0001101_t0001_u01716697639553">https://f001.backblazeb2.com/b2api/v1/b2_download_file_by_id?fileId=4_zd344e4de4b297a128d680f16_f1019c6ea32f55c8f_d20240526_m042719_c001_v0001101_t0001_u01716697639553</a></em></li>
+<li>Common Router Settings (Part of the Aussie Broadband article), <em><a target="_blank" rel="noopener" href="https://whirlpool.net.au/wiki/aussie_broadband_ipv6_router_settings">https://whirlpool.net.au/wiki/aussie_broadband_ipv6_router_settings</a></em></li>
+<li>Aussie Broadband IPv6 deployment journey, <em><a target="_blank" rel="noopener" href="https://2022.apricot.net/assets/files/APNT374/aussie-broadband-ipv6-deployment-journey.pdf">https://2022.apricot.net/assets/files/APNT374/aussie-broadband-ipv6-deployment-journey.pdf</a></em></li>
+<li>IPv6 Chart &#x2F; IPv4 CIDR Chart, <em><a target="_blank" rel="noopener" href="https://www.ripe.net/media/documents/IPv6_Chart_2015.pdf">https://www.ripe.net/media/documents/IPv6_Chart_2015.pdf</a></em></li>
+</ul>
+<p><img src="/blog/img/OPNsense%20-%20IPv6%20Chart.png" alt="OPNsense - IPv6 Chart" title="OPNsense - IPv6 Chart"></p>
+<p><img src="/blog/img/OPNsense%20-%20IPv4%20CIDR%20Chart.png" alt="OPNsense - IPv4 CIDR Chart" title="OPNsense - IPv4 CIDR Chart"></p>
+
+        
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div class="article-tag-wrap">
+          
+
+          
+          
+
+
+        </div>
+      
+      
+      
+    </footer>
+  </div>
+</article>
+
+
   <article id="post-Turn-On-and-Turn-Off-Recall-in-Windows-11" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-inner">
     
@@ -848,74 +995,6 @@
 </article>
 
 
-  <article id="post-Fixing-TrueNAS-SMB-IP-binding" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/blog/2024/09/14/Fixing-TrueNAS-SMB-IP-binding/">Fixing TrueNAS SMB IP binding</a>
-    </h1>
-  
-
-
-      </header>
-    
-    <div class="article-meta">
-      
-      <span class="article-date">
-  <i class="fa fa-date"></i>
-  <time class="dt-published" datetime="2024-09-14T02:37:53.000Z" itemprop="datePublished">2024-09-14</time>
-</span>
-      
-      
-      
-<a href="/blog/2024/09/14/Fixing-TrueNAS-SMB-IP-binding/#comments" class="article-comment-link">
-  
-  <i class="fa fa-commt"></i>
-  Guestbook
-</a>
-
-
-    </div>
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>After changing network settings, <code>TrueNAS</code> IP address has been updated. If modify SMB configuration, error like:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">smb_update.bindip.0: IP address [192.168.0.51] is not a configured address for this server</span><br></pre></td></tr></table></figure>
-
-<p>thrown.</p>
-<p>To reset and clean up already bind IP, login TrueNAS Console and run:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">root@TrueNAS[~]# midclt call smb.update &#x27;&#123;&quot;bindip&quot;: []&#125;&#x27;</span><br><span class="line">&#123;</span><br><span class="line">    &quot;id&quot;: 1,</span><br><span class="line">    &quot;netbiosname&quot;: &quot;TRUENAS&quot;,</span><br><span class="line">    &quot;netbiosalias&quot;: [],</span><br><span class="line">    &quot;workgroup&quot;: &quot;IGLOO STUDIO&quot;,</span><br><span class="line">    &quot;description&quot;: &quot;TrueNAS Server&quot;,</span><br><span class="line">    &quot;unixcharset&quot;: &quot;UTF-8&quot;,</span><br><span class="line">    &quot;loglevel&quot;: &quot;MINIMUM&quot;,</span><br><span class="line">    &quot;syslog&quot;: false,</span><br><span class="line">    &quot;aapl_extensions&quot;: true,</span><br><span class="line">    &quot;Localmaster&quot;: true,</span><br><span class="line">    &quot;guest&quot;: &quot;nobody&quot;,</span><br><span class="line">    &quot;filemask&quot;&#x27;: &quot;&quot;,</span><br><span class="line">    &quot;dirmask&quot;&#x27;: &quot;&quot;,</span><br><span class="line">    &quot;smb_options&quot;: &quot;&quot;,</span><br><span class="line">    &quot;bindip&quot;: [],</span><br><span class="line">    &quot;cifs_SID&quot;: &quot;S-1-5-21-2487580926-3122677641-100607549&quot;,</span><br><span class="line">    &quot;ntImv1_auth&quot;: false,</span><br><span class="line">    &quot;enable_smb1&quot;: false,</span><br><span class="line">    &quot;admin_group&quot;: null,</span><br><span class="line">    &quot;next_rid&quot;: 0,</span><br><span class="line">    &quot;multichannel&quot;: true,</span><br><span class="line">    &quot;netbiosname_local&quot;: &quot;TRUENAS&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>then can modify SMB configuration successfully.</p>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li>Help with SMB IP binding, <em><a target="_blank" rel="noopener" href="https://www.reddit.com/r/freenas/comments/fovpfz/help_with_smb_ip_binding">https://www.reddit.com/r/freenas/comments/fovpfz/help_with_smb_ip_binding</a></em></li>
-</ul>
-
-        
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <div class="article-tag-wrap">
-          
-
-          
-          
-
-
-        </div>
-      
-      
-      
-    </footer>
-  </div>
-</article>
-
-
 
     <nav id="page-nav">
 
@@ -934,6 +1013,10 @@
       <ul>
         
           <li>
+            <a href="/blog/2025/01/25/ZeroTier-on-TrueNAS-Scale/">ZeroTier on TrueNAS Scale</a>
+          </li>
+        
+          <li>
             <a href="/blog/2025/01/22/Xray-X-UI-Reality-protocol-Vision-flow-on-Oracle-Cloud/">Xray, X-UI, Reality protocol, Vision flow on Oracle Cloud</a>
           </li>
         
@@ -947,10 +1030,6 @@
         
           <li>
             <a href="/blog/2024/12/21/How-to-install-and-run-ZeroTier-client-on-OpenWrt/">How to install and run ZeroTier client on OpenWrt</a>
-          </li>
-        
-          <li>
-            <a href="/blog/2024/12/05/Connecting-OpenWRT-to-internet/">Connecting OpenWRT to internet</a>
           </li>
         
       </ul>
@@ -968,7 +1047,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title"><i class="fa fa-archive"></i> Archive</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2025/">2025</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2024/">2024</a><span class="archive-list-count">30</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2023/">2023</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/">2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/">2021</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/">2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/">2019</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/">2017</a><span class="archive-list-count">25</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2025/">2025</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2024/">2024</a><span class="archive-list-count">30</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2023/">2023</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/">2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/">2021</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/">2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/">2019</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/">2017</a><span class="archive-list-count">25</span></li></ul>
     </div>
   </div>
 

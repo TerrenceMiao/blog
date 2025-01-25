@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://terrencemiao.github.io/blog/2025/01/25/ZeroTier-on-TrueNAS-Scale/</loc>
+    
+    <lastmod>2025-01-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://terrencemiao.github.io/blog/2025/01/22/Xray-X-UI-Reality-protocol-Vision-flow-on-Oracle-Cloud/</loc>
     
     <lastmod>2025-01-22</lastmod>
@@ -1111,7 +1120,7 @@
 
   <url>
     <loc>https://terrencemiao.github.io/blog</loc>
-    <lastmod>2025-01-22</lastmod>
+    <lastmod>2025-01-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>

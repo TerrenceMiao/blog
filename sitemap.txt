@@ -1,3 +1,4 @@
+https://terrencemiao.github.io/blog/2025/01/25/ZeroTier-on-TrueNAS-Scale/
 https://terrencemiao.github.io/blog/2025/01/22/Xray-X-UI-Reality-protocol-Vision-flow-on-Oracle-Cloud/
 https://terrencemiao.github.io/blog/2025/01/22/Xray-X-UI-Reality-protocol-Vision-flow-on-Amazon-Linux/
 https://terrencemiao.github.io/blog/2024/12/21/How-to-install-and-run-Tailscale-client-on-OpenWrt/
