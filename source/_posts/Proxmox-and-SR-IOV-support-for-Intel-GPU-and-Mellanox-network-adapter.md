@@ -4,26 +4,20 @@ date: 2024-08-04 11:56:12
 tags:
 ---
 
-- Enable `VT-d`(Intel Virtualization Technology for Directed I/O), for `IOMMU`(Input Output Memory Management Unit) services, and `SR-IOV` (Single Root IO Virtualization), a technology that allows a physical PCIe device to present itself multiple times through the PCIe bus, in motherboard BIOS in Chipset, e.g. _ASRock Z790 Riptide WiFi_.
+- Enable `VT-d`(Intel Virtualization Technology for Directed I/O), for `IOMMU`(Input Output Memory Management Unit) services, and `SR-IOV` (Single Root IO Virtualization), a technology that allows a physical PCIe device to present itself multiple times through the PCIe bus, in motherboard BIOS in Chipset, e.g. _ASRock Z790 Riptide WiFi_ & _Mini PC with Intel Alder Lake-N i3-N305_.
 
 - Enable `SR-IOV` for Mellonax network adapter e.g. _Mellanox ConnectX-4 MCX455A-ECAT PCIe x16 3.0 100GBe VPI EDR IB_ in the same motherboard BIOS.
 
-- Add Proxmox No Subscription URL:
+- `SR-IOV` is default enabled for _Intel 82599ES 10G optical ports network card_.
+
+- Add Proxmox No Subscription by running `Proxmox VE Helper-Scripts` _https://community-scripts.github.io/ProxmoxVE/scripts_:
 
 ```
 root@pve:~# cat /etc/apt/sources.list
-deb http://ftp.au.debian.org/debian bookworm main contrib
-
-deb http://ftp.au.debian.org/debian bookworm-updates main contrib
-
-# security updates
-deb http://security.debian.org bookworm-security main contrib
-
-# Proxmox VE pve-no-subscription repository provided by proxmox.com,
-# NOT recommended for production use
-deb http://download.proxmox.com/debian/pve bookworm pve-no-subscription
+deb http://deb.debian.org/debian bookworm main contrib
+deb http://deb.debian.org/debian bookworm-updates main contrib
+deb http://security.debian.org/debian-security bookworm-security main contrib
 ```
-
 and run packages update:
 
 ```
@@ -33,7 +27,7 @@ root@pve:~# apt update
 and install all build tools:
 
 ```
-root@pve:~# apt install build-* dkms
+root@pve:~# apt install build-* dkms git sysfsutils intel-gpu-tools mokutil -y
 ```
 
 - Set/Pin Proxmox kernel version:
@@ -66,7 +60,10 @@ Pinned kernel:
 - Install Proxmox kernel headers source code package:
 
 ```
-root@pve:~# apt install proxmox-headers-6.8.4-2-pve
+root@pve:~# uname -r
+6.8.4-2-pve
+
+root@pve:~# apt install proxmox-headers-$(uname -r)
 Reading package lists... Done
 Building dependency tree... Done
 Reading state information... Done
@@ -84,6 +81,20 @@ Unpacking proxmox-headers-6.8.4-2-pve (6.8.4-2) ...
 Setting up proxmox-headers-6.8.4-2-pve (6.8.4-2) ...
 ```
 
+Upgrade Linux Kernel i915 firmware to the latest version:
+
+```
+root@pve:~# mkdir firmware && cd firmware
+
+root@pve:~/firmware# wget -r -nd -e robots=no -A '*.bin' --accept-regex '/plain/' https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tree/i915/
+--2025-05-18 13:41:09--  https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tree/i915/
+Resolving git.kernel.org (git.kernel.org)... 172.236.150.65
+Connecting to git.kernel.org (git.kernel.org)|172.236.150.65|:443... connected.
+...
+
+root@pve:~/firmware# mv *.bin /lib/firmware/i915/
+```
+
 - Download `Linux i915 driver with SR-IOV` support for Linux kernel:
 
 ```
@@ -93,8 +104,20 @@ root@pve:~# git clone https://github.com/strongtz/i915-sriov-dkms
 and change into the cloned repository and run:
 
 ```
-root@pve:~/i915-sriov-dkms# cat VERSION
-2024.07.24
+root@pve:~/i915-sriov-dkms# cat dkms.conf
+PACKAGE_NAME="i915-sriov-dkms"
+PACKAGE_VERSION="2024.07.24"
+
+BUILT_MODULE_NAME[0]="i915"
+DEST_MODULE_LOCATION[0]=/updates
+MAKE[0]="make -C ${kernel_source_dir} M=${dkms_tree}/${PACKAGE_NAME}/${PACKAGE_VERSION}/build"
+
+BUILT_MODULE_NAME[1]="kvmgt"
+DEST_MODULE_LOCATION[1]=/updates
+CLEAN="make -C ${kernel_source_dir} M=${dkms_tree}/${PACKAGE_NAME}/${PACKAGE_VERSION}/build clean"
+
+AUTOINSTALL=yes
+BUILD_EXCLUSIVE_KERNEL="^6\.([8-9]|1[0-5])"
 
 root@pve:~/i915-sriov-dkms# dkms add .
 Creating symlink /var/lib/dkms/i915-sriov-dkms/2024.07.24/source -> /usr/src/i915-sriov-dkms-2024.07.24
@@ -103,7 +126,7 @@ Creating symlink /var/lib/dkms/i915-sriov-dkms/2024.07.24/source -> /usr/src/i91
 and build, install `i915-sriov-dkms` Linux kernel module:
 
 ```
-root@pve:~/i915-sriov-dkms# dkms install -m i915-sriov-dkms -v $(cat VERSION) --force
+root@pve:~/i915-sriov-dkms# GUCFIRMWARE_MINOR=13 dkms install -m $(grep PACKAGE_NAME= dkms.conf | awk -F'"' '{print $2}') -v $(grep PACKAGE_VERSION= dkms.conf | awk -F'"' '{print $2}') --force --kernelsourcedir /usr/src/linux-headers-$(uname -r)
 Sign command: /lib/modules/6.8.4-2-pve/build/scripts/sign-file
 Signing key: /var/lib/dkms/mok.key
 Public certificate (MOK): /var/lib/dkms/mok.pub
@@ -127,7 +150,25 @@ and enable `i915-sriov-dkms` module with upto maximum **7** VFS (Virtual File Sy
 
 ```
 root@pve:~# cat /etc/default/grub | grep GRUB_CMDLINE_LINUX_DEFAULT
-GRUB_CMDLINE_LINUX_DEFAULT="quiet intel_iommu=on i915.enable_guc=3 i915.max_vfs=7"
+GRUB_CMDLINE_LINUX_DEFAULT="quiet intel_iommu=on iommu=pt i915.enable_guc=3 i915.max_vfs=7"
+```
+
+enable SR-IOV Configuration:
+
+```
+root@pve:~# cat /etc/sysfs.conf
+devices/pci0000:00/0000:00:02.0/sriov_numvfs = 7
+```
+
+```
+root@pve:~/i915-sriov-dkms# update-grub
+
+root@pve:~/i915-sriov-dkms# update-initramfs -u -k all
+update-initramfs: Generating /boot/initrd.img-6.8.4-2-pve
+Running hook script 'zz-proxmox-boot'..
+Re-executing '/etc/kernel/postinst.d/zz-proxmox-boot' in new private mount namespace..
+No /etc/kernel/proxmox-boot-uuids found, skipping ESP sync.
+...
 ```
 
 - Reboot Proxmox:
@@ -136,10 +177,7 @@ GRUB_CMDLINE_LINUX_DEFAULT="quiet intel_iommu=on i915.enable_guc=3 i915.max_vfs=
 root@pve:~# lspci | grep VGA
 00:02.0 VGA compatible controller: Intel Corporation Raptor Lake-S GT1 [UHD Graphics 770] (rev 04)
 00:02.1 VGA compatible controller: Intel Corporation Raptor Lake-S GT1 [UHD Graphics 770] (rev 04)
-00:02.2 VGA compatible controller: Intel Corporation Raptor Lake-S GT1 [UHD Graphics 770] (rev 04)
-00:02.3 VGA compatible controller: Intel Corporation Raptor Lake-S GT1 [UHD Graphics 770] (rev 04)
-00:02.4 VGA compatible controller: Intel Corporation Raptor Lake-S GT1 [UHD Graphics 770] (rev 04)
-00:02.5 VGA compatible controller: Intel Corporation Raptor Lake-S GT1 [UHD Graphics 770] (rev 04)
+...
 00:02.6 VGA compatible controller: Intel Corporation Raptor Lake-S GT1 [UHD Graphics 770] (rev 04)
 00:02.7 VGA compatible controller: Intel Corporation Raptor Lake-S GT1 [UHD Graphics 770] (rev 04)
 ```
@@ -165,51 +203,107 @@ root@pve:~# dmesg | grep -i iommu
 [    0.303737] DMAR: IOMMU feature dev_iotlb_support inconsistent
 [    0.304175] pci 0000:00:02.0: Adding to iommu group 0
 [    0.304544] pci 0000:00:00.0: Adding to iommu group 1
-[    0.304554] pci 0000:00:01.0: Adding to iommu group 2
-[    0.304562] pci 0000:00:01.1: Adding to iommu group 3
-[    0.304570] pci 0000:00:06.0: Adding to iommu group 4
-[    0.304582] pci 0000:00:14.0: Adding to iommu group 5
-[    0.304589] pci 0000:00:14.2: Adding to iommu group 5
-[    0.304598] pci 0000:00:15.0: Adding to iommu group 6
-[    0.304607] pci 0000:00:16.0: Adding to iommu group 7
-[    0.304614] pci 0000:00:17.0: Adding to iommu group 8
-[    0.304630] pci 0000:00:1a.0: Adding to iommu group 9
-[    0.304641] pci 0000:00:1b.0: Adding to iommu group 10
-[    0.304651] pci 0000:00:1c.0: Adding to iommu group 11
-[    0.304662] pci 0000:00:1c.1: Adding to iommu group 12
-[    0.304671] pci 0000:00:1c.2: Adding to iommu group 13
-[    0.304681] pci 0000:00:1c.3: Adding to iommu group 14
-[    0.304692] pci 0000:00:1c.4: Adding to iommu group 15
-[    0.304703] pci 0000:00:1d.0: Adding to iommu group 16
-[    0.304721] pci 0000:00:1f.0: Adding to iommu group 17
-[    0.304728] pci 0000:00:1f.3: Adding to iommu group 17
-[    0.304735] pci 0000:00:1f.4: Adding to iommu group 17
-[    0.304742] pci 0000:00:1f.5: Adding to iommu group 17
-[    0.304750] pci 0000:01:00.0: Adding to iommu group 18
-[    0.304758] pci 0000:02:00.0: Adding to iommu group 19
-[    0.304765] pci 0000:03:00.0: Adding to iommu group 20
-[    0.304781] pci 0000:04:00.0: Adding to iommu group 21
-[    0.304791] pci 0000:05:00.0: Adding to iommu group 22
-[    0.304801] pci 0000:06:00.0: Adding to iommu group 23
-[    0.304810] pci 0000:07:00.0: Adding to iommu group 24
-[    0.304834] pci 0000:08:00.0: Adding to iommu group 25
-[    0.304845] pci 0000:09:00.0: Adding to iommu group 26
-[    0.304857] pci 0000:0a:00.0: Adding to iommu group 27
+...
 [    0.304866] pci 0000:0b:00.0: Adding to iommu group 28
 [    4.659395] pci 0000:00:02.1: DMAR: Skip IOMMU disabling for graphics
-[    4.659438] pci 0000:00:02.1: Adding to iommu group 29
-[    4.664441] pci 0000:00:02.2: DMAR: Skip IOMMU disabling for graphics
-[    4.664479] pci 0000:00:02.2: Adding to iommu group 30
-[    4.667692] pci 0000:00:02.3: DMAR: Skip IOMMU disabling for graphics
-[    4.667727] pci 0000:00:02.3: Adding to iommu group 31
-[    4.671096] pci 0000:00:02.4: DMAR: Skip IOMMU disabling for graphics
-[    4.671129] pci 0000:00:02.4: Adding to iommu group 32
-[    4.673545] pci 0000:00:02.5: DMAR: Skip IOMMU disabling for graphics
-[    4.673572] pci 0000:00:02.5: Adding to iommu group 33
-[    4.676357] pci 0000:00:02.6: DMAR: Skip IOMMU disabling for graphics
-[    4.676402] pci 0000:00:02.6: Adding to iommu group 34
+...
 [    4.679192] pci 0000:00:02.7: DMAR: Skip IOMMU disabling for graphics
 [    4.679221] pci 0000:00:02.7: Adding to iommu group 35
+```
+
+Verify `i915-sriov-dkms` module has been loaded:
+
+```
+root@pve:~# dmesg | grep i915
+[    0.000000] Command line: BOOT_IMAGE=/boot/vmlinuz-6.8.12-10-pve root=/dev/mapper/pve-root ro quiet intel_iommu=on iommu=pt i915.enable_guc=3 i915.max_vfs=7
+[    0.054188] Kernel command line: BOOT_IMAGE=/boot/vmlinuz-6.8.12-10-pve root=/dev/mapper/pve-root ro quiet intel_iommu=on iommu=pt i915.enable_guc=3 i915.max_vfs=7
+               use xe.force_probe='46d0' and i915.force_probe='!46d0'
+[    3.593393] i915: module verification failed: signature and/or required key missing - tainting kernel
+[    4.270741] i915: You are using the i915-sriov-dkms module, a ported version of the i915 module with SR-IOV support.
+[    4.270743] i915: Please file any bug report at https://github.com/strongtz/i915-sriov-dkms/issues/new.
+[    4.270745] i915: Module Homepage: https://github.com/strongtz/i915-sriov-dkms
+[    4.271143] i915 0000:00:02.0: [drm] Found ALDERLAKE_P/ADL-N (device ID 46d0) display version 13.00 stepping D0
+[    4.271176] i915 0000:00:02.0: Running in SR-IOV PF mode
+[    4.271727] i915 0000:00:02.0: [drm] VT-d active for gfx access
+[    4.364169] i915 0000:00:02.0: vgaarb: deactivate vga console
+[    4.364247] i915 0000:00:02.0: [drm] Using Transparent Hugepages
+[    4.364664] i915 0000:00:02.0: vgaarb: VGA decodes changed: olddecodes=io+mem,decodes=io+mem:owns=io+mem
+[    4.366914] i915 0000:00:02.0: [drm] Finished loading DMC firmware i915/adlp_dmc.bin (v2.20)
+[    4.371743] i915 0000:00:02.0: [drm] GT0: GuC firmware i915/tgl_guc_70.bin version 70.36.0
+[    4.371750] i915 0000:00:02.0: [drm] GT0: HuC firmware i915/tgl_huc.bin version 7.9.3
+[    4.375760] i915 0000:00:02.0: [drm] GT0: HuC: authenticated for all workloads
+[    4.376242] i915 0000:00:02.0: [drm] GT0: GUC: submission enabled
+[    4.376244] i915 0000:00:02.0: [drm] GT0: GUC: SLPC enabled
+[    4.376617] i915 0000:00:02.0: [drm] GT0: GUC: RC enabled
+[    4.378631] mei_pxp 0000:00:16.0-fbf6fcf1-96cf-4e2e-a6a6-1bab8cbe36b1: bound 0000:00:02.0 (ops i915_pxp_tee_component_ops [i915])
+[    4.378826] i915 0000:00:02.0: [drm] Protected Xe Path (PXP) protected content support initialized
+[    4.378831] mei_hdcp 0000:00:16.0-b638ab7e-94e2-4ea2-a552-d1c54b627f04: bound 0000:00:02.0 (ops i915_hdcp_ops [i915])
+[    4.444295] [drm] Initialized i915 1.6.0 20230929 for 0000:00:02.0 on minor 1
+[    4.508802] snd_hda_intel 0000:00:1f.3: bound 0000:00:02.0 (ops i915_audio_component_bind_ops [i915])
+[    4.514543] fbcon: i915drmfb (fb0) is primary device
+[    4.514649] i915 [CRTC:80:pipe A] fastset requirement not met in dpll_hw_state
+[    4.514652] i915 expected:
+[    4.514653] i915 dpll_hw_state: cfgcr0: 0x1001d0, cfgcr1: 0x88, div0: 0x0, mg_refclkin_ctl: 0x0, hg_clktop2_coreclkctl1: 0x0, mg_clktop2_hsclkctl: 0x0, mg_pll_div0: 0x0, mg_pll_div2: 0x0, mg_pll_lf: 0x0, mg_pll_frac_lock: 0x0, mg_pll_ssc: 0x0, mg_pll_bias: 0x0, mg_pll_tdc_coldst_bias: 0x0
+[    4.514655] i915 found:
+[    4.514655] i915 dpll_hw_state: cfgcr0: 0x1001d0, cfgcr1: 0x488, div0: 0x0, mg_refclkin_ctl: 0x0, hg_clktop2_coreclkctl1: 0x0, mg_clktop2_hsclkctl: 0x0, mg_pll_div0: 0x0, mg_pll_div2: 0x0, mg_pll_lf: 0x0, mg_pll_frac_lock: 0x0, mg_pll_ssc: 0x0, mg_pll_bias: 0x0, mg_pll_tdc_coldst_bias: 0x0
+[    4.514658] i915 [CRTC:80:pipe A] fastset requirement not met in infoframes.enable (expected 0x00000010, found 0x00000071)
+[    4.683734] i915 0000:00:02.0: [drm] fb0: i915drmfb frame buffer device
+[    4.688842] i915 display info: display version: 13
+[    4.688854] i915 display info: display stepping: D0
+[    4.688859] i915 display info: cursor_needs_physical: no
+[    4.688862] i915 display info: has_cdclk_crawl: yes
+[    4.688866] i915 display info: has_cdclk_squash: no
+[    4.688869] i915 display info: has_ddi: yes
+[    4.688872] i915 display info: has_dp_mst: yes
+[    4.688874] i915 display info: has_dsb: yes
+[    4.688877] i915 display info: has_fpga_dbg: yes
+[    4.688880] i915 display info: has_gmch: no
+[    4.688883] i915 display info: has_hotplug: yes
+[    4.688885] i915 display info: has_hti: no
+[    4.688887] i915 display info: has_ipc: yes
+[    4.688887] i915 display info: has_overlay: no
+[    4.688888] i915 display info: has_psr: yes
+[    4.688889] i915 display info: has_psr_hw_tracking: no
+[    4.688889] i915 display info: overlay_needs_physical: no
+[    4.688890] i915 display info: supports_tv: no
+[    4.688891] i915 display info: has_hdcp: yes
+[    4.688891] i915 display info: has_dmc: yes
+[    4.688892] i915 display info: has_dsc: yes
+[    4.688892] i915 display info: rawclk rate: 19200 kHz
+[    4.688948] i915 0000:00:02.0: 7 VFs could be associated with this PF
+[    5.506941] i915 0000:00:02.0: vgaarb: VGA decodes changed: olddecodes=io+mem,decodes=none:owns=io+mem
+               use xe.force_probe='46d0' and i915.force_probe='!46d0'
+[    5.507018] i915 0000:00:02.1: enabling device (0000 -> 0002)
+[    5.507040] i915 0000:00:02.1: [drm] Found ALDERLAKE_P/ADL-N (device ID 46d0) display version 13.00 stepping D0
+[    5.507068] i915 0000:00:02.1: Running in SR-IOV VF mode
+[    5.507652] i915 0000:00:02.1: [drm] GT0: GUC: interface version 0.1.17.0
+[    5.508623] i915 0000:00:02.1: [drm] VT-d active for gfx access
+[    5.508669] i915 0000:00:02.1: [drm] Using Transparent Hugepages
+[    5.508928] i915 0000:00:02.1: [drm] GT0: GUC: interface version 0.1.17.0
+[    5.509427] i915 0000:00:02.1: [drm] GT0: GUC: interface version 0.1.17.0
+[    5.510115] i915 0000:00:02.1: GuC firmware PRELOADED version 0.0 submission:SR-IOV VF
+[    5.510119] i915 0000:00:02.1: HuC firmware PRELOADED
+[    5.513190] i915 0000:00:02.1: [drm] Protected Xe Path (PXP) protected content support initialized
+[    5.513196] i915 0000:00:02.1: [drm] PMU not supported for this GPU.
+[    5.513354] [drm] Initialized i915 1.6.0 20230929 for 0000:00:02.1 on minor 0
+[    5.513653] i915 0000:00:02.0: vgaarb: VGA decodes changed: olddecodes=none,decodes=none:owns=io+mem
+[    5.513656] i915 0000:00:02.1: vgaarb: VGA decodes changed: olddecodes=io+mem,decodes=none:owns=none
+               use xe.force_probe='46d0' and i915.force_probe='!46d0'
+...
+[    5.537903] i915 0000:00:02.7: enabling device (0000 -> 0002)
+[    5.537918] i915 0000:00:02.7: [drm] Found ALDERLAKE_P/ADL-N (device ID 46d0) display version 13.00 stepping D0
+[    5.537942] i915 0000:00:02.7: Running in SR-IOV VF mode
+[    5.538115] i915 0000:00:02.7: [drm] GT0: GUC: interface version 0.1.17.0
+[    5.538625] i915 0000:00:02.7: [drm] VT-d active for gfx access
+[    5.538648] i915 0000:00:02.7: [drm] Using Transparent Hugepages
+[    5.538763] i915 0000:00:02.7: [drm] GT0: GUC: interface version 0.1.17.0
+[    5.539078] i915 0000:00:02.7: [drm] GT0: GUC: interface version 0.1.17.0
+[    5.539419] i915 0000:00:02.7: GuC firmware PRELOADED version 0.0 submission:SR-IOV VF
+[    5.539422] i915 0000:00:02.7: HuC firmware PRELOADED
+[    5.541114] i915 0000:00:02.7: [drm] Protected Xe Path (PXP) protected content support initialized
+[    5.541119] i915 0000:00:02.7: [drm] PMU not supported for this GPU.
+[    5.541217] [drm] Initialized i915 1.6.0 20230929 for 0000:00:02.7 on minor 7
+[    5.541403] i915 0000:00:02.0: Enabled 7 VFs
 ```
 
 - Enable Virtual GPU for `Windows 11` VM in Proxmox
