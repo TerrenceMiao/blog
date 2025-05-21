@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://terrencemiao.github.io/blog/2024/12/03/Running-OpenWRT-on-Proxmox/</loc>
+    
+    <lastmod>2025-05-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://terrencemiao.github.io/blog/2025/05/21/Proxmox-over-Wireless/</loc>
     
     <lastmod>2025-05-21</lastmod>
@@ -68,15 +77,6 @@
     <loc>https://terrencemiao.github.io/blog/2024/12/21/How-to-install-and-run-ZeroTier-client-on-OpenWrt/</loc>
     
     <lastmod>2024-12-21</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrencemiao.github.io/blog/2024/12/03/Running-OpenWRT-on-Proxmox/</loc>
-    
-    <lastmod>2024-12-18</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
