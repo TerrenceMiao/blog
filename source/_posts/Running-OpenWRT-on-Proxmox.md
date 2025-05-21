@@ -40,7 +40,7 @@ HTTP request sent, awaiting response... 200 OK
 Length: 11352149 (11M) [application/octet-stream]
 Saving to: ‘openwrt-23.05.5-x86-64-generic-ext4-combined.img.gz’
 
-openwrt-23.05.5-x86-64-generic-ext4-combined.img.gz  100%[===================================================>]  10.83M  --.-KB/s  in 0.1s    
+openwrt-23.05.5-x86-64-generic-ext4-combined.img.gz  100%[===================================================>]  10.83M  --.-KB/s  in 0.1s
 ```
 
 Create disk image for VM:
@@ -102,7 +102,7 @@ ED25519 key fingerprint is SHA256:AggWAL1oU8+r1f84KoqpvcsYUylZOTfN0sXwHSby3b0.
 This key is not known by any other names.
 Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
 Warning: Permanently added '192.168.2.3' (ED25519) to the list of known hosts.
-root@192.168.2.3's password: 
+root@192.168.2.3's password:
   _______                     ________        __
  |       |.-----.-----.-----.|  |  |  |.----.|  |_
  |   -   ||  _  |  -__|     ||  |  |  ||   _||   _|
@@ -144,7 +144,7 @@ drwxrwxrwt   17 root     root           440 Dec  6 03:15 ..
 -rw-r--r--    1 root     root           142 Dec  6 03:15 openwrt_telephony.sig
 ```
 
-There is some issue with **IPv6** support in `OpenWRT` when download update. Errors thrown when **wan** connected to a **IPv6** router: 
+There is some issue with **IPv6** support in `OpenWRT` when download update. Errors thrown when **wan** connected to a **IPv6** router:
 
 ```
 root@OpenWrt:~# opkg update
@@ -162,7 +162,7 @@ Collected errors:
  * opkg_download: Check your network settings and connectivity.
 ```
 
-Turn off **IPv6** on router to workaround.
+Turn off **IPv6** - navigate through OpenWRT UI, **Network** -> **Interfaces**, select **Devices** tab. For device `br-lan` click on **Configure ...**, choose **disabled**  option for **Enable IPv6** in **General device options** tab.
 
 ```
 root@OpenWRT:~# opkg update
@@ -240,13 +240,13 @@ There are ERRORS:
 
 thrown when try to install these packages.
 
-A workaround solution is modify **/lib/functions.sh** file, replace line: 282:
+A workaround solution is modify **/lib/functions.sh** file, replace line **282** (OpenWrt version 23.05.5), or line **377** (OpenWrt version 24.10.0):
 
 ```
     ( [ -f "$i" ] && cd "$(dirname $i)" && . "$i" ) && rm -f "$i"
 ```
 
-with: 
+with:
 
 ```
     ( [ -f "$i" ] && cd "$(dirname $i)" && . "$i" ) && echo
@@ -255,11 +255,11 @@ with:
 temporarily. Then run installation:
 
 ```
-root@OpenWRT:~# opkg install luci-theme-argon.ipk 
+root@OpenWRT:~# opkg install luci-theme-argon.ipk
 Installing luci-theme-argon (2.3.1) to root...
 Configuring luci-theme-argon.
 
-root@OpenWRT:~# opkg install luci-app-argon-config.ipk 
+root@OpenWRT:~# opkg install luci-app-argon-config.ipk
 Installing luci-app-argon-config (0.9) to root...
 Configuring luci-app-argon-config.
 ```
@@ -269,7 +269,7 @@ Configuring luci-app-argon-config.
 To upgrade all of the `OpenWRT` packages:
 
 ```
-root@OpenWRT:~# opkg list-upgradable | cut -f 1 -d ' ' | xargs -r opkg upgrade  
+root@OpenWRT:~# opkg list-upgradable | cut -f 1 -d ' ' | xargs -r opkg upgrade
 ```
 
 
