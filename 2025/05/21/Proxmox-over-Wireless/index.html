@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=330279473"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '330279473');
+</script>
+<!-- End Google Analytics -->
+
+  
+  <title>Proxmox over Wireless | Terrence Miao&#39;s Adventures</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+    <meta name="description" content="Veni, vidi, vici">
+  
+  
+  
+    <link rel="alternate" href="/blog/atom.xml" title="Terrence Miao's Adventures" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/blog/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/blog/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.min.css">
+
+  
+  
+  
+  
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7274218747178099" crossorigin="anonymous"></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">Terrence Miao&#39;s Adventures</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/blog/" id="subtitle">A journey of a thousand miles begins with a single step</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/blog/."><i class="fa fa-home"></i> Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives/"><i class="fa fa-archive"></i> Archive</a>
+        
+          <a class="main-nav-link" href="/blog/about/"><i class="fa fa-user"></i> About</a>
+        
+          <a class="main-nav-link" href="/blog/atom.xml"><i class="fa fa-rss"></i> RSS</a>
+        
+      </nav>
+    </div>
+    <div id="search-form">
+      <div id="result-mask" class="hide"></div>
+      <label><input id="search-key" type="text" autocomplete="off" placeholder="search"></label>
+      <div id="result-wrap" class="hide">
+        <div id="search-result"></div>
+      </div>
+      <div class="hide">
+        <template id="search-tpl">
+          <div class="item">
+            <a href="/{path}" title="{title}">
+              <div class="title">{title}</div>
+              <div class="time">{date}</div>
+              <div class="tags">{tags}</div>
+            </a>
+          </div>
+        </template>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Proxmox-over-Wireless" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Proxmox over Wireless
+    </h1>
+  
+
+
+      </header>
+    
+    <div class="article-meta">
+      
+      <span class="article-date">
+  <i class="fa fa-date"></i>
+  <time class="dt-published" datetime="2025-05-21T01:16:37.000Z" itemprop="datePublished">2025-05-21</time>
+</span>
+      
+      
+        <span class="article-views">
+  <i class="fa fa-views"></i>
+  <i id="busuanzi_container_page_pv">
+      <i id="busuanzi_value_page_pv"></i>
+  </i>
+</span>
+
+      
+      
+<a href="/blog/2025/05/21/Proxmox-over-Wireless/#comments" class="article-comment-link">
+  
+    
+    
+      <i class="disqus-comment-count" data-disqus-identifier="/blog/2025/05/21/Proxmox-over-Wireless/"></i>
+    
+    
+    
+    
+  
+  <i class="fa fa-commt"></i>
+  Guestbook
+</a>
+
+
+    </div>
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>With <code>Proxmox</code> latest version <strong>8.4.1</strong> which has <em>WiFi 7</em> support. A <strong>Intel® Wi-Fi 7 BE200</strong> network adapter <em><a target="_blank" rel="noopener" href="https://www.intel.com/content/www/us/en/products/sku/230078/intel-wifi-7-be200/specifications.html">https://www.intel.com/content/www/us/en/products/sku/230078/intel-wifi-7-be200/specifications.html</a></em> is in action.</p>
+<p>Setup wireless network as main network for <code>Proxmox</code>. <strong>TP-Link Deco BE85&#x2F;BE95 Mesh WiFi 7 System</strong> as the Access Point, with DHCP enabled for the clients.</p>
+<p>On <code>Proxmox</code> host, PCI devices:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">root@mini:~# lspci</span><br><span class="line">00:00.0 Host bridge: Intel Corporation Device 4617</span><br><span class="line">00:02.0 VGA compatible controller: Intel Corporation Alder Lake-N [UHD Graphics]</span><br><span class="line">...</span><br><span class="line">00:02.7 VGA compatible controller: Intel Corporation Alder Lake-N [UHD Graphics]</span><br><span class="line">00:0d.0 USB controller: Intel Corporation Alder Lake-N Thunderbolt 4 USB Controller</span><br><span class="line">00:14.0 USB controller: Intel Corporation Alder Lake-N PCH USB 3.2 xHCI Host Controller</span><br><span class="line">00:14.2 RAM memory: Intel Corporation Alder Lake-N PCH Shared SRAM</span><br><span class="line">00:16.0 Communication controller: Intel Corporation Alder Lake-N PCH HECI Controller</span><br><span class="line">00:17.0 SATA controller: Intel Corporation Alder Lake-N SATA AHCI Controller</span><br><span class="line">00:1c.0 PCI bridge: Intel Corporation Alder Lake-N PCI Express Root Port</span><br><span class="line">00:1c.6 PCI bridge: Intel Corporation Alder Lake-N PCI Express Root Port</span><br><span class="line">00:1d.0 PCI bridge: Intel Corporation Alder Lake-N PCI Express Root Port</span><br><span class="line">00:1d.1 PCI bridge: Intel Corporation Alder Lake-N PCI Express Root Port</span><br><span class="line">00:1d.3 PCI bridge: Intel Corporation Alder Lake-N PCI Express Root Port</span><br><span class="line">00:1f.0 ISA bridge: Intel Corporation Alder Lake-N PCH eSPI Controller</span><br><span class="line">00:1f.3 Multimedia audio controller: Intel Corporation Alder Lake-N PCH High Definition Audio Controller</span><br><span class="line">00:1f.4 SMBus: Intel Corporation Alder Lake-N SMBus</span><br><span class="line">00:1f.5 Serial bus controller: Intel Corporation Alder Lake-N SPI (flash) Controller</span><br><span class="line">01:00.0 Ethernet controller: Intel Corporation 82599ES 10-Gigabit SFI/SFP+ Network Connection (rev 01)</span><br><span class="line">01:00.1 Ethernet controller: Intel Corporation 82599ES 10-Gigabit SFI/SFP+ Network Connection (rev 01)</span><br><span class="line">01:10.0 Ethernet controller: Intel Corporation 82599 Ethernet Controller Virtual Function (rev 01)</span><br><span class="line">...</span><br><span class="line">01:10.7 Ethernet controller: Intel Corporation 82599 Ethernet Controller Virtual Function (rev 01)</span><br><span class="line">01:11.0 Ethernet controller: Intel Corporation 82599 Ethernet Controller Virtual Function (rev 01)</span><br><span class="line">...</span><br><span class="line">01:11.7 Ethernet controller: Intel Corporation 82599 Ethernet Controller Virtual Function (rev 01)</span><br><span class="line">02:00.0 Ethernet controller: Intel Corporation Ethernet Controller I226-V (rev 04)</span><br><span class="line">03:00.0 Ethernet controller: Intel Corporation Ethernet Controller I226-V (rev 04)</span><br><span class="line">04:00.0 Network controller: Intel Corporation Wi-Fi 7(802.11be) AX1775*/AX1790*/BE20*/BE401/BE1750* 2x2 (rev 1a)</span><br><span class="line">05:00.0 Non-Volatile memory controller: Micron/Crucial Technology T500 NVMe PCIe SSD (rev 01)</span><br></pre></td></tr></table></figure>
+<p>network interfaces:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">root@mini:~# cat /etc/network/interfaces</span><br><span class="line">auto lo</span><br><span class="line">iface lo inet loopback</span><br><span class="line"></span><br><span class="line">iface enp2s0 inet manual</span><br><span class="line">iface enp3s0 inet manual</span><br><span class="line"></span><br><span class="line">iface enp1s0f0 inet manual</span><br><span class="line">iface enp1s0f1 inet manual</span><br><span class="line"></span><br><span class="line">iface enp1s0f0v0 inet manual</span><br><span class="line">...</span><br><span class="line">iface enp1s0f0v7 inet manual</span><br><span class="line"></span><br><span class="line">iface enp1s0f1v0 inet manual</span><br><span class="line">...</span><br><span class="line">iface enp1s0f1v7 inet manual</span><br><span class="line"></span><br><span class="line">auto wlp4s0f0</span><br><span class="line">iface wlp4s0f0 inet dhcp</span><br><span class="line">        wpa-ssid &quot;igloo studio&quot;</span><br><span class="line">        wpa-psk &quot;igloo studio password&quot;</span><br><span class="line"></span><br><span class="line">auto vmbr0</span><br><span class="line">iface vmbr0 inet static</span><br><span class="line">        address 10.0.1.1/24</span><br><span class="line">        bridge-ports none</span><br><span class="line">        bridge-stp off</span><br><span class="line">        bridge-fd 0</span><br><span class="line"></span><br><span class="line">        # Enable IP forwarding</span><br><span class="line">        post-up echo 1 &gt; /proc/sys/net/ipv4/ip_forward</span><br><span class="line"></span><br><span class="line">        # Allow all forwarding from VM network to WAN</span><br><span class="line">        post-up   iptables -A FORWARD -i vmbr0 -o wlp4s0f0 -j ACCEPT</span><br><span class="line">        post-down iptables -D FORWARD -i vmbr0 -o wlp4s0f0 -j ACCEPT</span><br><span class="line"></span><br><span class="line">        # Single NAT rule for all traffic</span><br><span class="line">        post-up   iptables -t nat -A POSTROUTING -s &#x27;10.0.1.0/24&#x27; -o wlp4s0f0 -j MASQUERADE</span><br><span class="line">        post-down iptables -t nat -D POSTROUTING -s &#x27;10.0.1.0/24&#x27; -o wlp4s0f0 -j MASQUERADE</span><br><span class="line"></span><br><span class="line">auto vmbr1</span><br><span class="line">iface vmbr1 inet manual</span><br><span class="line">        bridge-ports enp1s0f0</span><br><span class="line">        bridge-stp off</span><br><span class="line">        bridge-fd 0</span><br><span class="line"></span><br><span class="line">auto vmbr2</span><br><span class="line">iface vmbr2 inet manual</span><br><span class="line">        bridge-ports enp1s0f1</span><br><span class="line">        bridge-stp off</span><br><span class="line">        bridge-fd 0</span><br><span class="line"></span><br><span class="line">source /etc/network/interfaces.d/*</span><br></pre></td></tr></table></figure>
+
+<p><code>dnsmasq</code> for VMs’ DNS and DHCP management:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">root@mini:~# cat /etc/dnsmasq.conf</span><br><span class="line">...</span><br><span class="line">## Proxmox</span><br><span class="line"># Hosts dnsmasq on vmbr0</span><br><span class="line">interface=vmbr0</span><br><span class="line"></span><br><span class="line"># The IP-address range that should be used for the clients (virtual machines/containers):</span><br><span class="line"># dhcp-range=first_available_ip, last_available_ip, net_mask, lease_time (&lt;number&gt;h)</span><br><span class="line">dhcp-range=10.0.1.100, 10.0.1.200, 255.255.255.0, 12h</span><br><span class="line"></span><br><span class="line"># Just making sure dnsmasq knows the routers IP-address</span><br><span class="line"># dhcp-option=3,vmbr0_ip</span><br><span class="line">dhcp-option=3,10.0.1.1</span><br></pre></td></tr></table></figure>
+
+<p><code>Proxmox</code> host allocated wireless IP e.g. <code>192.168.68.58</code>. Set this IP in <strong>&#x2F;etc&#x2F;hosts</strong>:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">root@mini:~# cat /etc/hosts</span><br><span class="line">127.0.0.1 localhost.localdomain localhost</span><br><span class="line">192.168.68.58 mini.local mini</span><br><span class="line"></span><br><span class="line"># The following lines are desirable for IPv6 capable hosts</span><br><span class="line"></span><br><span class="line">::1     ip6-localhost ip6-loopback</span><br><span class="line">fe00::0 ip6-localnet</span><br><span class="line">ff00::0 ip6-mcastprefix</span><br><span class="line">ff02::1 ip6-allnodes</span><br><span class="line">ff02::2 ip6-allrouters</span><br><span class="line">ff02::3 ip6-allhosts</span><br></pre></td></tr></table></figure>
+
+<p>then access <code>Proxmox</code> web UI via URL <strong><a target="_blank" rel="noopener" href="https://192.168.68.58:8006/">https://192.168.68.58:8006</a></strong>.</p>
+<p>Reboot <code>Proxmox</code> host:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">root@mini:~# ip a</span><br><span class="line">1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000</span><br><span class="line">    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00</span><br><span class="line">    inet 127.0.0.1/8 scope host lo</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">    inet6 ::1/128 scope host noprefixroute</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">2: enp2s0: &lt;BROADCAST,MULTICAST&gt; mtu 1500 qdisc noop state DOWN group default qlen 1000</span><br><span class="line">    link/ether a8:b8:e0:05:96:4f brd ff:ff:ff:ff:ff:ff</span><br><span class="line">3: enp3s0: &lt;BROADCAST,MULTICAST&gt; mtu 1500 qdisc noop state DOWN group default qlen 1000</span><br><span class="line">    link/ether a8:b8:e0:05:96:50 brd ff:ff:ff:ff:ff:ff</span><br><span class="line">4: enp1s0f0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc mq master vmbr1 state UP group default qlen 1000</span><br><span class="line">    link/ether a8:b8:e0:05:96:4d brd ff:ff:ff:ff:ff:ff</span><br><span class="line">5: enp1s0f1: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc mq master vmbr2 state UP group default qlen 1000</span><br><span class="line">    link/ether a8:b8:e0:05:96:4e brd ff:ff:ff:ff:ff:ff</span><br><span class="line">7: enp1s0f0v1: &lt;BROADCAST,MULTICAST&gt; mtu 1500 qdisc noop state DOWN group default qlen 1000</span><br><span class="line">    link/ether de:11:ed:5f:a6:d5 brd ff:ff:ff:ff:ff:ff</span><br><span class="line">...</span><br><span class="line">13: enp1s0f0v7: &lt;BROADCAST,MULTICAST&gt; mtu 1500 qdisc noop state DOWN group default qlen 1000</span><br><span class="line">    link/ether 3e:45:70:0c:fd:98 brd ff:ff:ff:ff:ff:ff</span><br><span class="line">14: enp1s0f1v0: &lt;BROADCAST,MULTICAST&gt; mtu 1500 qdisc noop state DOWN group default qlen 1000</span><br><span class="line">    link/ether 06:72:73:c2:7a:fc brd ff:ff:ff:ff:ff:ff</span><br><span class="line">...</span><br><span class="line">21: enp1s0f1v7: &lt;BROADCAST,MULTICAST&gt; mtu 1500 qdisc noop state DOWN group default qlen 1000</span><br><span class="line">    link/ether 6a:06:68:af:7a:dc brd ff:ff:ff:ff:ff:ff</span><br><span class="line">22: wlp4s0f0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue state UP group default qlen 1000</span><br><span class="line">    link/ether e0:8f:4c:b2:58:95 brd ff:ff:ff:ff:ff:ff</span><br><span class="line">    inet 192.168.68.58/22 brd 192.168.71.255 scope global dynamic wlp4s0f0</span><br><span class="line">       valid_lft 3800sec preferred_lft 3800sec</span><br><span class="line">    inet6 fda5:9d5d:ff57:10:e28f:4cff:feb2:5895/64 scope global dynamic mngtmpaddr</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">    inet6 2403:5802:8c44:10:e28f:4cff:feb2:5895/64 scope global dynamic mngtmpaddr</span><br><span class="line">       valid_lft 5371sec preferred_lft 1768sec</span><br><span class="line">    inet6 fe80::e28f:4cff:feb2:5895/64 scope link</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">23: vmbr0: &lt;NO-CARRIER,BROADCAST,MULTICAST,UP&gt; mtu 1500 qdisc noqueue state DOWN group default qlen 1000</span><br><span class="line">    link/ether 00:00:00:00:00:00 brd ff:ff:ff:ff:ff:ff</span><br><span class="line">    inet 10.0.1.1/24 scope global vmbr0</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">    inet6 fe80::643d:cdff:fe59:f79/64 scope link</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">24: vmbr1: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue state UP group default qlen 1000</span><br><span class="line">    link/ether a8:b8:e0:05:96:4d brd ff:ff:ff:ff:ff:ff</span><br><span class="line">    inet6 fda5:9d5d:ff57:10:aab8:e0ff:fe05:964d/64 scope global dynamic mngtmpaddr</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">    inet6 2403:5802:8c44:10:aab8:e0ff:fe05:964d/64 scope global dynamic mngtmpaddr</span><br><span class="line">       valid_lft 5372sec preferred_lft 1768sec</span><br><span class="line">    inet6 fe80::aab8:e0ff:fe05:964d/64 scope link</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">25: vmbr2: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue state UP group default qlen 1000</span><br><span class="line">    link/ether a8:b8:e0:05:96:4e brd ff:ff:ff:ff:ff:ff</span><br><span class="line">    inet6 fda5:9d5d:ff57:10:aab8:e0ff:fe05:964e/64 scope global dynamic mngtmpaddr</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">    inet6 2403:5802:8c44:10:aab8:e0ff:fe05:964e/64 scope global dynamic mngtmpaddr</span><br><span class="line">       valid_lft 5372sec preferred_lft 1768sec</span><br><span class="line">    inet6 fe80::aab8:e0ff:fe05:964e/64 scope link</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br></pre></td></tr></table></figure>
+
+<p><code>Proxmox</code> Network settings:</p>
+<p><img src="/blog/img/Proxmox%20Wireless%20-%20Network.png" alt="Proxmox Wireless - Network" title="Proxmox Wireless - Network"></p>
+<p><strong>Linux&#x2F;Ubuntu VM</strong> in <code>Proxmox</code>:</p>
+<p><img src="/blog/img/Proxmox%20Wireless%20-%20Ubuntu%20VM.png" alt="Proxmox Wireless - Ubuntu VM" title="Proxmox Wireless - Ubuntu VM"></p>
+<p><strong>Windows VM</strong> in <code>Proxmox</code>:</p>
+<p><img src="/blog/img/Proxmox%20Wireless%20-%20Windows%20VM.png" alt="Proxmox Wireless - Windows VM" title="Proxmox Wireless - Windows VM"></p>
+<p><strong>Windows VM</strong> in <code>Proxmox</code>‘s network:</p>
+<p><img src="/blog/img/Proxmox%20Wireless%20-%20Windows%20VM%20Network.png" alt="Proxmox Wireless - Windows VM Network" title="Proxmox Wireless - Windows VM Network"></p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li>Setting Up Proxmox on a Laptop Without an Ethernet Port <em><a target="_blank" rel="noopener" href="https://dev.to/varungujarathi9/setting-up-proxmox-on-a-laptop-without-an-ethernet-port-28n8">https://dev.to/varungujarathi9/setting-up-proxmox-on-a-laptop-without-an-ethernet-port-28n8</a></em></li>
+<li>Setting up Proxmox over wifi <em><a target="_blank" rel="noopener" href="https://github.com/ThomasRives/Proxmox-over-wifi">https://github.com/ThomasRives/Proxmox-over-wifi</a></em></li>
+</ul>
+
+        
+            <div id="toc-article">
+                
+  <div class="widget-wrap" id="toc-wrap">
+    <h3 class="widget-title"><i class="fa fa-toc"></i> Contents</h3>
+    <div class="widget">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#References"><span class="toc-text">References</span></a></li></ol>
+    </div>
+  </div>
+
+
+            </div>
+        
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div class="article-tag-wrap">
+          
+
+          
+          
+
+
+        </div>
+      
+      
+        
+<nav id="article-nav">
+  
+    <a href="/blog/2025/01/25/ZeroTier-on-TrueNAS-Scale/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">older</strong>
+      <div class="article-nav-title">
+        
+          ZeroTier on TrueNAS Scale
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+      
+      
+        
+
+
+
+  <div id="comments"><div id="disqus_thread"></div></div>
+
+
+
+
+
+
+      
+    </footer>
+  </div>
+</article>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title"><i class="fa fa-posts"></i> Recent</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2025/05/21/Proxmox-over-Wireless/">Proxmox over Wireless</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2025/01/25/ZeroTier-on-TrueNAS-Scale/">ZeroTier on TrueNAS Scale</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2025/01/22/Xray-X-UI-Reality-protocol-Vision-flow-on-Oracle-Cloud/">Xray, X-UI, Reality protocol, Vision flow on Oracle Cloud</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2025/01/22/Xray-X-UI-Reality-protocol-Vision-flow-on-Amazon-Linux/">Xray, X-UI, Reality protocol, Vision flow on Amazon Linux</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2024/12/21/How-to-install-and-run-Tailscale-client-on-OpenWrt/">How to install and run Tailscale client on OpenWrt</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+  
+    
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title"><i class="fa fa-archive"></i> Archive</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2025/">2025</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2024/">2024</a><span class="archive-list-count">30</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2023/">2023</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/">2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/">2021</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/">2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/">2019</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/">2017</a><span class="archive-list-count">25</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title"><i class="fa fa-link"></i> Blogroll</h3>
+    <div class="widget">
+      <ul>
+      
+        <li>
+          <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/terrencemiao/">LinkedIn</a>
+        </li>
+      
+        <li>
+          <a target="_blank" rel="noopener" href="https://github.com/TerrenceMiao">GitHub</a>
+        </li>
+      
+        <li>
+          <a target="_blank" rel="noopener" href="https://twitter.com/TerrenceMiao">Twitter</a>
+        </li>
+      
+      </ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+        
+      </div>
+      <a id="totop" href="#top"></a>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      <p>
+        <a href="/blog/sitemap.xml">Site Map</a>
+        <span> | </span><a href="/blog/atom.xml">Subscribe to this site</a>
+        <span> | </span><a href="/blog/about/">Contact the blogger</a>
+      </p>
+      
+        <p>
+          <i class="fa fa-visitors"></i>
+          <i id="busuanzi_container_site_uv"><i id="busuanzi_value_site_uv"></i></i>
+          ，
+          <i class="fa fa-views"></i>
+          <i id="busuanzi_container_site_pv"><i id="busuanzi_value_site_pv"></i></i>
+        </p>
+      
+      <p>
+        <span>Copyright &copy; 2025 Terrence Miao.</span>
+        <span>Theme by <a href="https://github.com/chaooo/hexo-theme-BlueLake/" target="_blank">BlueLake.</a></span>
+        <span>Powered by <a href="https://hexo.io/" target="_blank">Hexo.</a></span>
+      </p>
+    </div>
+  </div>
+</footer>
+
+    </div>
+  </div>
+  
+<script src="/blog/js/jquery-3.4.1.min.js"></script>
+
+
+<script src="/blog/js/search.json.js"></script>
+
+
+  
+<script src="/blog/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/blog/js/script.js"></script>
+
+
+
+
+
+
+  
+<script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+
+  
+
+  
+    <script>
+      var disqus_shortname = 'terrencemiao';
+      
+        var disqus_url = 'https://terrencemiao.github.io/blog/2025/05/21/Proxmox-over-Wireless/';
+      
+      (function(){
+        var dsq = document.createElement('script');
+        dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+
+
+
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+  <script src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML" async type="text/javascript"></script>
+
+</body>
+</html>
