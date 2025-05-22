@@ -1,3 +1,4 @@
+https://terrencemiao.github.io/blog/2025/05/22/Proxmox-over-Bluetooth/
 https://terrencemiao.github.io/blog/2024/12/03/Running-OpenWRT-on-Proxmox/
 https://terrencemiao.github.io/blog/2025/05/21/Proxmox-over-Wireless/
 https://terrencemiao.github.io/blog/2024/09/27/Proxmox-VE-Helper-Scripts/

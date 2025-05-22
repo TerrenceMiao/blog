@@ -6,7 +6,7 @@
   <link href="https://terrencemiao.github.io/blog/atom.xml" rel="self"/>
   
   <link href="https://terrencemiao.github.io/blog/"/>
-  <updated>2025-05-21T02:03:28.253Z</updated>
+  <updated>2025-05-22T05:18:50.638Z</updated>
   <id>https://terrencemiao.github.io/blog/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Proxmox over Bluetooth</title>
+    <link href="https://terrencemiao.github.io/blog/2025/05/22/Proxmox-over-Bluetooth/"/>
+    <id>https://terrencemiao.github.io/blog/2025/05/22/Proxmox-over-Bluetooth/</id>
+    <published>2025-05-22T05:09:27.000Z</published>
+    <updated>2025-05-22T05:18:50.638Z</updated>
+    
+    <content type="html"><![CDATA[<p>With <code>Proxmox</code> latest version <strong>8.4.1</strong> which has <em>WiFi 7 &#x2F; Bluetooth 5.4</em> support. A <strong>Intel® Wi-Fi 7 BE200</strong> network adapter <em><a href="https://www.intel.com/content/www/us/en/products/sku/230078/intel-wifi-7-be200/specifications.html">https://www.intel.com/content/www/us/en/products/sku/230078/intel-wifi-7-be200/specifications.html</a></em> is in action.</p><p>On <code>Proxmox</code> host, <strong>USB</strong> devices:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">root@mini:~# lsusb</span><br><span class="line">Bus 004 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub</span><br><span class="line">Bus 003 Device 006: ID 8087:0036 Intel Corp.</span><br><span class="line">Bus 003 Device 003: ID 0461:4e04 Primax Electronics, Ltd Lenovo Keyboard KB1021</span><br><span class="line">Bus 003 Device 002: ID 17ef:600e Lenovo Optical Mouse</span><br><span class="line">Bus 003 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub</span><br><span class="line">Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub</span><br><span class="line">Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub</span><br></pre></td></tr></table></figure><p><img src="/blog/img/Proxmox%20Bluetooth%20-%20USB%20mapping.png" alt="Proxmox Bluetooth - USB mapping" title="Proxmox Bluetooth - USB mapping"></p><p><img src="/blog/img/Proxmox%20Bluetooth%20-%20Resource%20Mappings.png" alt="Proxmox Bluetooth - Resource Mappings" title="Proxmox Bluetooth - Resource Mappings"></p><p><img src="/blog/img/Proxmox%20Bluetooth%20-%20USB%20Device.png" alt="Proxmox Bluetooth - USB Device" title="Proxmox Bluetooth - USB Device"></p><p><img src="/blog/img/Proxmox%20Bluetooth%20-%20Add%20Device.png" alt="Proxmox Bluetooth - Add Device" title="Proxmox Bluetooth - Add Device"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;With &lt;code&gt;Proxmox&lt;/code&gt; latest version &lt;strong&gt;8.4.1&lt;/strong&gt; which has &lt;em&gt;WiFi 7 &amp;#x2F; Bluetooth 5.4&lt;/em&gt; support. A &lt;strong&gt;Intel® </summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Proxmox over Wireless</title>
@@ -401,27 +421,6 @@
       
     <summary type="html">&lt;p&gt;&lt;img src=&quot;/blog/img/Storage%20Pool%20-%20Create.png&quot; alt=&quot;Storage Pool - Create&quot; title=&quot;Storage Pool - Create&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;/blog/im</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Fix network object name already existed issue in Windows</title>
-    <link href="https://terrencemiao.github.io/blog/2024/09/15/Fix-network-object-name-already-existed-issue-in-Windows/"/>
-    <id>https://terrencemiao.github.io/blog/2024/09/15/Fix-network-object-name-already-existed-issue-in-Windows/</id>
-    <published>2024-09-15T11:18:03.000Z</published>
-    <updated>2024-09-15T11:27:42.438Z</updated>
-    
-    <content type="html"><![CDATA[<p>When rename a network adapter in <code>Windows</code>:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PS C:\&gt; Rename-NetAdapter -Name Ethernet -NewName Mellanox</span><br></pre></td></tr></table></figure><p>an error <strong>Rename-NetAdapter : {Object Exists} An attempt was made to create an object and the object name already existed</strong> thrown.</p><p>Work around solution is:</p><ol><li>Open <strong>Device Manager</strong> in Windows Control Panel</li><li>Under menu <strong>View</strong> enable <strong>Show hidden devices</strong></li><li>Uninstall the old network adapter with the old name</li><li>Then rename the network adapter again</li></ol><p><img src="/blog/img/Rename%20Network%20in%20Windows.png" alt="Rename Network in Windows" title="Rename Network in Windows"></p><h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul><li>Registry mismatch Get-NetAdapter, <em><a href="https://stackoverflow.com/questions/42220423/registry-mismatch-get-netadapter">https://stackoverflow.com/questions/42220423/registry-mismatch-get-netadapter</a></em></li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;When rename a network adapter in &lt;code&gt;Windows&lt;/code&gt;:&lt;/p&gt;
-&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span c</summary>
       
     
     
