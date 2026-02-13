@@ -343,6 +343,13 @@ root@sense:~# lspci | grep Ethernet
 Persist number of SR_IOV Virtual Functions after `Proxmox` reboot:
 
 ```
+root@mini:~# cat /etc/udev/rules.d/nic.rules 
+ACTION=="add", SUBSYSTEM=="net", ENV{ID_NET_DRIVER}=="ixgbe", ATTR{device/sriov_numvfs}="8"
+```
+
+or:
+
+```
 root@sense:~# cat /etc/udev/rules.d/enp.rules 
 ACTION=="add", SUBSYSTEM=="net", ENV{INTERFACE}=="enp1s0f0", ATTR{device/sriov_numvfs}="8"
 ACTION=="add", SUBSYSTEM=="net", ENV{INTERFACE}=="enp1s0f1", ATTR{device/sriov_numvfs}="8"
