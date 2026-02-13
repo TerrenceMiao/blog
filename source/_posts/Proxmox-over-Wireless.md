@@ -46,8 +46,6 @@ root@mini:~# git clone git://git.kernel.org/pub/scm/linux/kernel/git/firmware/li
 root@mini:~# rm /lib/firmware/iwlwifi-*.{ucode,pnvm}.xz
 
 root@mini:~# cp linux-firmware/intel/iwlwifi-*.{ucode,pnvm} /lib/firmware/
-
-root@mini:~# xz /lib/firmware/iwlwifi-*.{ucode,pnvm}
 ```
 
 After machine restarted:
