@@ -57,7 +57,7 @@ Pinned kernel:
 6.8.4-2-pve
 ```
 
-- Install Proxmox kernel headers source code package:
+- <s>Install Proxmox kernel headers source code package:</s>
 
 ```
 root@pve:~# uname -r
@@ -95,13 +95,13 @@ Connecting to git.kernel.org (git.kernel.org)|172.236.150.65|:443... connected.
 root@pve:~/firmware# mv *.bin /lib/firmware/i915/
 ```
 
-- Download `Linux i915 driver with SR-IOV` support for Linux kernel:
+- <s>Download `Linux i915 driver with SR-IOV` support for Linux kernel:</s>
 
 ```
 root@pve:~# git clone https://github.com/strongtz/i915-sriov-dkms
 ```
 
-and change into the cloned repository and run:
+<s>and change into the cloned repository and run:</s>
 
 ```
 root@pve:~/i915-sriov-dkms# cat dkms.conf
@@ -123,7 +123,7 @@ root@pve:~/i915-sriov-dkms# dkms add .
 Creating symlink /var/lib/dkms/i915-sriov-dkms/2024.07.24/source -> /usr/src/i915-sriov-dkms-2024.07.24
 ```
 
-and build, install `i915-sriov-dkms` Linux kernel module:
+<s>and build, install `i915-sriov-dkms` Linux kernel module:</s>
 
 ```
 root@pve:~/i915-sriov-dkms# GUCFIRMWARE_MINOR=13 dkms install -m $(grep PACKAGE_NAME= dkms.conf | awk -F'"' '{print $2}') -v $(grep PACKAGE_VERSION= dkms.conf | awk -F'"' '{print $2}') --force --kernelsourcedir /usr/src/linux-headers-$(uname -r)
@@ -146,24 +146,72 @@ Running module version sanity check.
 depmod...
 ```
 
+Download `i915-sriov-dkms` deb release package:
+
+```
+root@pve:~# wget -O /tmp/i915-sriov-dkms_2026.02.09_amd64.deb "https://github.com/strongtz/i915-sriov-dkms/releases/download/2026.02.09/i915-sriov-dkms_2026.02.09_amd64.deb"
+```
+
+Install the deb package with `dpkg`: 
+
+```
+root@pve:~# dpkg -i /tmp/i915-sriov-dkms_2026.02.09_amd64.deb
+Selecting previously unselected package i915-sriov-dkms.
+(Reading database ... 97011 files and directories currently installed.)
+Preparing to unpack .../i915-sriov-dkms_2026.02.09_amd64.deb ...
+Unpacking i915-sriov-dkms (2026.02.09) ...
+Setting up i915-sriov-dkms (2026.02.09) ...
+Removing old i915-sriov-dkms/2026.02.09 DKMS files...
+Deleting module i915-sriov-dkms/2026.02.09 completely from the DKMS tree.
+Loading new i915-sriov-dkms/2026.02.09 DKMS files...
+Building for 6.17.9-1-pve
+
+Building initial module i915-sriov-dkms/2026.02.09 for 6.17.9-1-pve
+Sign command: /lib/modules/6.17.9-1-pve/build/scripts/sign-file
+Signing key: /var/lib/dkms/mok.key
+Public certificate (MOK): /var/lib/dkms/mok.pub
+Certificate or key are missing, generating self signed certificate for MOK...
+
+Building module(s)....................................................... done.
+Signing module /var/lib/dkms/i915-sriov-dkms/2026.02.09/build/compat/intel_sriov_compat.ko
+Signing module /var/lib/dkms/i915-sriov-dkms/2026.02.09/build/drivers/gpu/drm/i915/i915.ko
+Signing module /var/lib/dkms/i915-sriov-dkms/2026.02.09/build/drivers/gpu/drm/i915/kvmgt.ko
+Signing module /var/lib/dkms/i915-sriov-dkms/2026.02.09/build/drivers/gpu/drm/xe/xe.ko
+Installing /lib/modules/6.17.9-1-pve/updates/dkms/intel_sriov_compat.ko
+Found pre-existing /lib/modules/6.17.9-1-pve/kernel/drivers/gpu/drm/i915/i915.ko, archiving for uninstallation
+Installing /lib/modules/6.17.9-1-pve/updates/dkms/i915.ko
+Found pre-existing /lib/modules/6.17.9-1-pve/kernel/drivers/gpu/drm/i915/kvmgt.ko, archiving for uninstallation
+Installing /lib/modules/6.17.9-1-pve/updates/dkms/kvmgt.ko
+Found pre-existing /lib/modules/6.17.9-1-pve/kernel/drivers/gpu/drm/xe/xe.ko, archiving for uninstallation
+Installing /lib/modules/6.17.9-1-pve/updates/dkms/xe.ko
+Running depmod... done.
+update-initramfs: Generating /boot/initrd.img-6.17.9-1-pve
+Running hook script 'zz-proxmox-boot'..
+Re-executing '/etc/kernel/postinst.d/zz-proxmox-boot' in new private mount namespace..
+No /etc/kernel/proxmox-boot-uuids found, skipping ESP sync.
+update-initramfs: Generating /boot/initrd.img-6.17.2-1-pve
+Running hook script 'zz-proxmox-boot'..
+Re-executing '/etc/kernel/postinst.d/zz-proxmox-boot' in new private mount namespace..
+No /etc/kernel/proxmox-boot-uuids found, skipping ESP sync.
+```
+
 and enable `i915-sriov-dkms` module with upto maximum **7** VFS (Virtual File System) in Linux kernel:
 
 ```
 root@pve:~# cat /etc/default/grub | grep GRUB_CMDLINE_LINUX_DEFAULT
-GRUB_CMDLINE_LINUX_DEFAULT="quiet intel_iommu=on iommu=pt i915.enable_guc=3 i915.max_vfs=7"
+GRUB_CMDLINE_LINUX_DEFAULT="quiet intel_iommu=on iommu=pt i915.enable_guc=3 i915.max_vfs=7 module_blacklist=xe"
 ```
 
 enable SR-IOV Configuration:
 
 ```
-root@pve:~# cat /etc/sysfs.conf
-devices/pci0000:00/0000:00:02.0/sriov_numvfs = 7
+root@pve:~# echo "devices/pci0000:00/0000:00:02.0/sriov_numvfs = 7" >> /etc/sysfs.conf
 ```
 
 ```
-root@pve:~/i915-sriov-dkms# update-grub
+root@pve:~# update-grub
 
-root@pve:~/i915-sriov-dkms# update-initramfs -u -k all
+root@pve:~# update-initramfs -u -k all
 update-initramfs: Generating /boot/initrd.img-6.8.4-2-pve
 Running hook script 'zz-proxmox-boot'..
 Re-executing '/etc/kernel/postinst.d/zz-proxmox-boot' in new private mount namespace..
@@ -392,6 +440,7 @@ References
 - PVE 下如何启用 PCI 直通显卡 GPU/iGPU/USB/声卡 AUDIO 等硬件直通教程 _https://imacos.top/2023/07/31/pci/_
 - Enable & Using vGPU Passthrough _https://gist.github.com/scyto/e4e3de35ee23fdb4ae5d5a3b85c16ed3_
 - Proxmox VE: Passthrough with Intel Integrated Graphics Card Alder Lake Architecture | vGPU, VT-d, SR-IOV _https://github.com/kamilllooo/Proxmox_
+- Proxmox VE 9.0: Windows 11 vGPU (VT-d) Passthrough with Intel Alder Lake _https://www.derekseaman.com/2024/07/proxmox-ve-8-2-windows-11-vgpu-vt-d-passthrough-with-intel-alder-lake.html_
 - Remote Desktop connection from Mac to Ubuntu _https://askubuntu.com/questions/893831/remote-desktop-connection-from-mac-to-ubuntu_
 - xRDP – Easy install xRDP on Ubuntu 20.04,22.04,23.XX,24.04 (Script Version 1.5.1) _https://c-nergy.be/blog/?p=19814_
 - Autologon User at Startup in Windows Server _https://jc-lan.org/2022/06/02/autologon-user-at-startup-in-windows-server/_
