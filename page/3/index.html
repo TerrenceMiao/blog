@@ -97,6 +97,67 @@
 
       <div class="outer">
         <section id="main">
+  <article id="post-Create-Storage-Pool-in-Windows-Server-2022" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog/2024/09/15/Create-Storage-Pool-in-Windows-Server-2022/">Create Storage Pool in Windows Server 2022</a>
+    </h1>
+  
+
+
+      </header>
+    
+    <div class="article-meta">
+      
+      <span class="article-date">
+  <i class="fa fa-date"></i>
+  <time class="dt-published" datetime="2024-09-15T11:39:18.000Z" itemprop="datePublished">2024-09-15</time>
+</span>
+      
+      
+      
+<a href="/blog/2024/09/15/Create-Storage-Pool-in-Windows-Server-2022/#comments" class="article-comment-link">
+  
+  <i class="fa fa-commt"></i>
+  Guestbook
+</a>
+
+
+    </div>
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="/blog/img/Storage%20Pool%20-%20Create.png" alt="Storage Pool - Create" title="Storage Pool - Create"></p>
+<p><img src="/blog/img/Storage%20Pool%20-%20Physical%20Disks.png" alt="Storage Pool - Physical Disks" title="Storage Pool - Physical Disks"></p>
+<p><img src="/blog/img/Storage%20Pool%20-%20Storage%20Layout.png" alt="Storage Pool - Storage Layout" title="Storage Pool - Storage Layout"></p>
+<p><img src="/blog/img/Storage%20Pool%20-%20Virtual%20Disk.png" alt="Storage Pool - Virtual Disk" title="Storage Pool - Virtual Disk"></p>
+
+        
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div class="article-tag-wrap">
+          
+
+          
+          
+
+
+        </div>
+      
+      
+      
+    </footer>
+  </div>
+</article>
+
+
   <article id="post-Fix-network-object-name-already-existed-issue-in-Windows" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-inner">
     
@@ -798,190 +859,6 @@
 </article>
 
 
-  <article id="post-Proxmox-and-SR-IOV-support-for-Intel-GPU-and-Mellanox-network-adapter" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/blog/2024/08/04/Proxmox-and-SR-IOV-support-for-Intel-GPU-and-Mellanox-network-adapter/">Proxmox and SR-IOV support for Intel GPU and Mellanox network adapter</a>
-    </h1>
-  
-
-
-      </header>
-    
-    <div class="article-meta">
-      
-      <span class="article-date">
-  <i class="fa fa-date"></i>
-  <time class="dt-published" datetime="2024-08-04T01:56:12.000Z" itemprop="datePublished">2024-08-04</time>
-</span>
-      
-      
-      
-<a href="/blog/2024/08/04/Proxmox-and-SR-IOV-support-for-Intel-GPU-and-Mellanox-network-adapter/#comments" class="article-comment-link">
-  
-  <i class="fa fa-commt"></i>
-  Guestbook
-</a>
-
-
-    </div>
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <ul>
-<li><p>Enable <code>VT-d</code>(Intel Virtualization Technology for Directed I&#x2F;O), for <code>IOMMU</code>(Input Output Memory Management Unit) services, and <code>SR-IOV</code> (Single Root IO Virtualization), a technology that allows a physical PCIe device to present itself multiple times through the PCIe bus, in motherboard BIOS in Chipset, e.g. <em>ASRock Z790 Riptide WiFi</em> &amp; <em>Mini PC with Intel Alder Lake-N i3-N305</em>.</p>
-</li>
-<li><p>Enable <code>SR-IOV</code> for Mellonax network adapter e.g. <em>Mellanox ConnectX-4 MCX455A-ECAT PCIe x16 3.0 100GBe VPI EDR IB</em> in the same motherboard BIOS.</p>
-</li>
-<li><p><code>SR-IOV</code> is default enabled for <em>Intel 82599ES 10G optical ports network card</em>.</p>
-</li>
-<li><p>Add Proxmox No Subscription by running <code>Proxmox VE Helper-Scripts</code> <em><a target="_blank" rel="noopener" href="https://community-scripts.github.io/ProxmoxVE/scripts">https://community-scripts.github.io/ProxmoxVE/scripts</a></em>:</p>
-</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">root@pve:~# cat /etc/apt/sources.list</span><br><span class="line">deb http://deb.debian.org/debian bookworm main contrib</span><br><span class="line">deb http://deb.debian.org/debian bookworm-updates main contrib</span><br><span class="line">deb http://security.debian.org/debian-security bookworm-security main contrib</span><br></pre></td></tr></table></figure>
-<p>and run packages update:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@pve:~# apt update</span><br></pre></td></tr></table></figure>
-
-<p>and install all build tools:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@pve:~# apt install build-* dkms git sysfsutils intel-gpu-tools mokutil -y</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>Set&#x2F;Pin Proxmox kernel version:</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">root@pve:~# proxmox-boot-tool kernel pin 6.8.4-2-pve</span><br><span class="line">Setting &#x27;6.8.4-2-pve&#x27; as grub default entry and running update-grub.</span><br><span class="line">Generating grub configuration file ...</span><br><span class="line">Found linux image: /boot/vmlinuz-6.8.4-2-pve</span><br><span class="line">Found initrd image: /boot/initrd.img-6.8.4-2-pve</span><br><span class="line">Found memtest86+ 64bit EFI image: /boot/memtest86+x64.efi</span><br><span class="line">Adding boot menu entry for UEFI Firmware Settings ...</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
-
-<p>and verify Proxmox kernal version:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">root@pve:~# proxmox-boot-tool kernel list</span><br><span class="line">Manually selected kernels:</span><br><span class="line">None.</span><br><span class="line"></span><br><span class="line">Automatically selected kernels:</span><br><span class="line">6.8.4-2-pve</span><br><span class="line"></span><br><span class="line">Pinned kernel:</span><br><span class="line">6.8.4-2-pve</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><s>Install Proxmox kernel headers source code package:</s></li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">root@pve:~# uname -r</span><br><span class="line">6.8.4-2-pve</span><br><span class="line"></span><br><span class="line">root@pve:~# apt install proxmox-headers-$(uname -r)</span><br><span class="line">Reading package lists... Done</span><br><span class="line">Building dependency tree... Done</span><br><span class="line">Reading state information... Done</span><br><span class="line">The following NEW packages will be installed:</span><br><span class="line">  proxmox-headers-6.8.4-2-pve</span><br><span class="line">0 upgraded, 1 newly installed, 0 to remove and 39 not upgraded.</span><br><span class="line">Need to get 13.7 MB of archives.</span><br><span class="line">After this operation, 97.0 MB of additional disk space will be used.</span><br><span class="line">Get:1 http://download.proxmox.com/debian/pve bookworm/pve-no-subscription amd64 proxmox-headers-6.8.4-2-pve amd64 6.8.4-2 [13.7 MB]</span><br><span class="line">Fetched 13.7 MB in 1s (23.8 MB/s)</span><br><span class="line">Selecting previously unselected package proxmox-headers-6.8.4-2-pve.</span><br><span class="line">(Reading database ... 70448 files and directories currently installed.)</span><br><span class="line">Preparing to unpack .../proxmox-headers-6.8.4-2-pve_6.8.4-2_amd64.deb ...</span><br><span class="line">Unpacking proxmox-headers-6.8.4-2-pve (6.8.4-2) ...</span><br><span class="line">Setting up proxmox-headers-6.8.4-2-pve (6.8.4-2) ...</span><br></pre></td></tr></table></figure>
-
-<p>Upgrade Linux Kernel i915 firmware to the latest version:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">root@pve:~# mkdir firmware &amp;&amp; cd firmware</span><br><span class="line"></span><br><span class="line">root@pve:~/firmware# wget -r -nd -e robots=no -A &#x27;*.bin&#x27; --accept-regex &#x27;/plain/&#x27; https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tree/i915/</span><br><span class="line">--2025-05-18 13:41:09--  https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tree/i915/</span><br><span class="line">Resolving git.kernel.org (git.kernel.org)... 172.236.150.65</span><br><span class="line">Connecting to git.kernel.org (git.kernel.org)|172.236.150.65|:443... connected.</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">root@pve:~/firmware# mv *.bin /lib/firmware/i915/</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><s>Download <code>Linux i915 driver with SR-IOV</code> support for Linux kernel:</s></li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@pve:~# git clone https://github.com/strongtz/i915-sriov-dkms</span><br></pre></td></tr></table></figure>
-
-<p><s>and change into the cloned repository and run:</s></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">root@pve:~/i915-sriov-dkms# cat dkms.conf</span><br><span class="line">PACKAGE_NAME=&quot;i915-sriov-dkms&quot;</span><br><span class="line">PACKAGE_VERSION=&quot;2024.07.24&quot;</span><br><span class="line"></span><br><span class="line">BUILT_MODULE_NAME[0]=&quot;i915&quot;</span><br><span class="line">DEST_MODULE_LOCATION[0]=/updates</span><br><span class="line">MAKE[0]=&quot;make -C $&#123;kernel_source_dir&#125; M=$&#123;dkms_tree&#125;/$&#123;PACKAGE_NAME&#125;/$&#123;PACKAGE_VERSION&#125;/build&quot;</span><br><span class="line"></span><br><span class="line">BUILT_MODULE_NAME[1]=&quot;kvmgt&quot;</span><br><span class="line">DEST_MODULE_LOCATION[1]=/updates</span><br><span class="line">CLEAN=&quot;make -C $&#123;kernel_source_dir&#125; M=$&#123;dkms_tree&#125;/$&#123;PACKAGE_NAME&#125;/$&#123;PACKAGE_VERSION&#125;/build clean&quot;</span><br><span class="line"></span><br><span class="line">AUTOINSTALL=yes</span><br><span class="line">BUILD_EXCLUSIVE_KERNEL=&quot;^6\.([8-9]|1[0-5])&quot;</span><br><span class="line"></span><br><span class="line">root@pve:~/i915-sriov-dkms# dkms add .</span><br><span class="line">Creating symlink /var/lib/dkms/i915-sriov-dkms/2024.07.24/source -&gt; /usr/src/i915-sriov-dkms-2024.07.24</span><br></pre></td></tr></table></figure>
-
-<p><s>and build, install <code>i915-sriov-dkms</code> Linux kernel module:</s></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">root@pve:~/i915-sriov-dkms# GUCFIRMWARE_MINOR=13 dkms install -m $(grep PACKAGE_NAME= dkms.conf | awk -F&#x27;&quot;&#x27; &#x27;&#123;print $2&#125;&#x27;) -v $(grep PACKAGE_VERSION= dkms.conf | awk -F&#x27;&quot;&#x27; &#x27;&#123;print $2&#125;&#x27;) --force --kernelsourcedir /usr/src/linux-headers-$(uname -r)</span><br><span class="line">Sign command: /lib/modules/6.8.4-2-pve/build/scripts/sign-file</span><br><span class="line">Signing key: /var/lib/dkms/mok.key</span><br><span class="line">Public certificate (MOK): /var/lib/dkms/mok.pub</span><br><span class="line">Certificate or key are missing, generating self signed certificate for MOK...</span><br><span class="line"></span><br><span class="line">Building module:</span><br><span class="line">Cleaning build area...</span><br><span class="line">make -j20 KERNELRELEASE=6.8.4-2-pve -C /lib/modules/6.8.4-2-pve/build M=/var/lib/dkms/i915-sriov-dkms/2024.07.24/build.......</span><br><span class="line">Signing module /var/lib/dkms/i915-sriov-dkms/2024.07.24/build/i915.ko</span><br><span class="line">Cleaning build area...</span><br><span class="line"></span><br><span class="line">i915.ko:</span><br><span class="line">Running module version sanity check.</span><br><span class="line"> - Original module</span><br><span class="line"> - Installation</span><br><span class="line">   - Installing to /lib/modules/6.8.4-2-pve/updates/dkms/</span><br><span class="line">depmod...</span><br></pre></td></tr></table></figure>
-
-<p>Download <code>i915-sriov-dkms</code> deb release package:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@pve:~# wget -O /tmp/i915-sriov-dkms_2026.02.09_amd64.deb &quot;https://github.com/strongtz/i915-sriov-dkms/releases/download/2026.02.09/i915-sriov-dkms_2026.02.09_amd64.deb&quot;</span><br></pre></td></tr></table></figure>
-
-<p>Install the deb package with <code>dpkg</code>: </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">root@pve:~# dpkg -i /tmp/i915-sriov-dkms_2026.02.09_amd64.deb</span><br><span class="line">Selecting previously unselected package i915-sriov-dkms.</span><br><span class="line">(Reading database ... 97011 files and directories currently installed.)</span><br><span class="line">Preparing to unpack .../i915-sriov-dkms_2026.02.09_amd64.deb ...</span><br><span class="line">Unpacking i915-sriov-dkms (2026.02.09) ...</span><br><span class="line">Setting up i915-sriov-dkms (2026.02.09) ...</span><br><span class="line">Removing old i915-sriov-dkms/2026.02.09 DKMS files...</span><br><span class="line">Deleting module i915-sriov-dkms/2026.02.09 completely from the DKMS tree.</span><br><span class="line">Loading new i915-sriov-dkms/2026.02.09 DKMS files...</span><br><span class="line">Building for 6.17.9-1-pve</span><br><span class="line"></span><br><span class="line">Building initial module i915-sriov-dkms/2026.02.09 for 6.17.9-1-pve</span><br><span class="line">Sign command: /lib/modules/6.17.9-1-pve/build/scripts/sign-file</span><br><span class="line">Signing key: /var/lib/dkms/mok.key</span><br><span class="line">Public certificate (MOK): /var/lib/dkms/mok.pub</span><br><span class="line">Certificate or key are missing, generating self signed certificate for MOK...</span><br><span class="line"></span><br><span class="line">Building module(s)....................................................... done.</span><br><span class="line">Signing module /var/lib/dkms/i915-sriov-dkms/2026.02.09/build/compat/intel_sriov_compat.ko</span><br><span class="line">Signing module /var/lib/dkms/i915-sriov-dkms/2026.02.09/build/drivers/gpu/drm/i915/i915.ko</span><br><span class="line">Signing module /var/lib/dkms/i915-sriov-dkms/2026.02.09/build/drivers/gpu/drm/i915/kvmgt.ko</span><br><span class="line">Signing module /var/lib/dkms/i915-sriov-dkms/2026.02.09/build/drivers/gpu/drm/xe/xe.ko</span><br><span class="line">Installing /lib/modules/6.17.9-1-pve/updates/dkms/intel_sriov_compat.ko</span><br><span class="line">Found pre-existing /lib/modules/6.17.9-1-pve/kernel/drivers/gpu/drm/i915/i915.ko, archiving for uninstallation</span><br><span class="line">Installing /lib/modules/6.17.9-1-pve/updates/dkms/i915.ko</span><br><span class="line">Found pre-existing /lib/modules/6.17.9-1-pve/kernel/drivers/gpu/drm/i915/kvmgt.ko, archiving for uninstallation</span><br><span class="line">Installing /lib/modules/6.17.9-1-pve/updates/dkms/kvmgt.ko</span><br><span class="line">Found pre-existing /lib/modules/6.17.9-1-pve/kernel/drivers/gpu/drm/xe/xe.ko, archiving for uninstallation</span><br><span class="line">Installing /lib/modules/6.17.9-1-pve/updates/dkms/xe.ko</span><br><span class="line">Running depmod... done.</span><br><span class="line">update-initramfs: Generating /boot/initrd.img-6.17.9-1-pve</span><br><span class="line">Running hook script &#x27;zz-proxmox-boot&#x27;..</span><br><span class="line">Re-executing &#x27;/etc/kernel/postinst.d/zz-proxmox-boot&#x27; in new private mount namespace..</span><br><span class="line">No /etc/kernel/proxmox-boot-uuids found, skipping ESP sync.</span><br><span class="line">update-initramfs: Generating /boot/initrd.img-6.17.2-1-pve</span><br><span class="line">Running hook script &#x27;zz-proxmox-boot&#x27;..</span><br><span class="line">Re-executing &#x27;/etc/kernel/postinst.d/zz-proxmox-boot&#x27; in new private mount namespace..</span><br><span class="line">No /etc/kernel/proxmox-boot-uuids found, skipping ESP sync.</span><br></pre></td></tr></table></figure>
-
-<p>and enable <code>i915-sriov-dkms</code> module with upto maximum <strong>7</strong> VFS (Virtual File System) in Linux kernel:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root@pve:~# cat /etc/default/grub | grep GRUB_CMDLINE_LINUX_DEFAULT</span><br><span class="line">GRUB_CMDLINE_LINUX_DEFAULT=&quot;quiet intel_iommu=on iommu=pt i915.enable_guc=3 i915.max_vfs=7 module_blacklist=xe&quot;</span><br></pre></td></tr></table></figure>
-
-<p>enable SR-IOV Configuration:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@pve:~# echo &quot;devices/pci0000:00/0000:00:02.0/sriov_numvfs = 7&quot; &gt;&gt; /etc/sysfs.conf</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">root@pve:~# update-grub</span><br><span class="line"></span><br><span class="line">root@pve:~# update-initramfs -u -k all</span><br><span class="line">update-initramfs: Generating /boot/initrd.img-6.8.4-2-pve</span><br><span class="line">Running hook script &#x27;zz-proxmox-boot&#x27;..</span><br><span class="line">Re-executing &#x27;/etc/kernel/postinst.d/zz-proxmox-boot&#x27; in new private mount namespace..</span><br><span class="line">No /etc/kernel/proxmox-boot-uuids found, skipping ESP sync.</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>Reboot Proxmox:</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">root@pve:~# lspci | grep VGA</span><br><span class="line">00:02.0 VGA compatible controller: Intel Corporation Raptor Lake-S GT1 [UHD Graphics 770] (rev 04)</span><br><span class="line">00:02.1 VGA compatible controller: Intel Corporation Raptor Lake-S GT1 [UHD Graphics 770] (rev 04)</span><br><span class="line">...</span><br><span class="line">00:02.6 VGA compatible controller: Intel Corporation Raptor Lake-S GT1 [UHD Graphics 770] (rev 04)</span><br><span class="line">00:02.7 VGA compatible controller: Intel Corporation Raptor Lake-S GT1 [UHD Graphics 770] (rev 04)</span><br></pre></td></tr></table></figure>
-
-<p>First VGA <code>00:02.0</code> is the <strong>REAL</strong> GPU. Other <strong>7</strong> are <strong>Virtual</strong> ones.</p>
-<p>Verify IOMMU has been enabled:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">root@pve:~# dmesg | grep -i iommu</span><br><span class="line">[    0.000000] Command line: BOOT_IMAGE=/boot/vmlinuz-6.8.4-2-pve root=/dev/mapper/pve-root ro quiet intel_iommu=on i915.enable_guc=3 i915.max_vfs=7</span><br><span class="line">[    0.036486] Kernel command line: BOOT_IMAGE=/boot/vmlinuz-6.8.4-2-pve root=/dev/mapper/pve-root ro quiet intel_iommu=on i915.enable_guc=3 i915.max_vfs=7</span><br><span class="line">[    0.036515] DMAR: IOMMU enabled</span><br><span class="line">[    0.090320] DMAR-IR: IOAPIC id 2 under DRHD base  0xfed91000 IOMMU 1</span><br><span class="line">[    0.244292] pci 0000:00:02.0: DMAR: Skip IOMMU disabling for graphics</span><br><span class="line">[    0.270125] iommu: Default domain type: Translated</span><br><span class="line">[    0.270125] iommu: DMA domain TLB invalidation policy: lazy mode</span><br><span class="line">[    0.303735] DMAR: IOMMU feature fl1gp_support inconsistent</span><br><span class="line">[    0.303735] DMAR: IOMMU feature pgsel_inv inconsistent</span><br><span class="line">[    0.303736] DMAR: IOMMU feature nwfs inconsistent</span><br><span class="line">[    0.303736] DMAR: IOMMU feature dit inconsistent</span><br><span class="line">[    0.303737] DMAR: IOMMU feature sc_support inconsistent</span><br><span class="line">[    0.303737] DMAR: IOMMU feature dev_iotlb_support inconsistent</span><br><span class="line">[    0.304175] pci 0000:00:02.0: Adding to iommu group 0</span><br><span class="line">[    0.304544] pci 0000:00:00.0: Adding to iommu group 1</span><br><span class="line">...</span><br><span class="line">[    0.304866] pci 0000:0b:00.0: Adding to iommu group 28</span><br><span class="line">[    4.659395] pci 0000:00:02.1: DMAR: Skip IOMMU disabling for graphics</span><br><span class="line">...</span><br><span class="line">[    4.679192] pci 0000:00:02.7: DMAR: Skip IOMMU disabling for graphics</span><br><span class="line">[    4.679221] pci 0000:00:02.7: Adding to iommu group 35</span><br></pre></td></tr></table></figure>
-
-<p>Verify <code>i915-sriov-dkms</code> module has been loaded:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line">root@pve:~# dmesg | grep i915</span><br><span class="line">[    0.000000] Command line: BOOT_IMAGE=/boot/vmlinuz-6.8.12-10-pve root=/dev/mapper/pve-root ro quiet intel_iommu=on iommu=pt i915.enable_guc=3 i915.max_vfs=7</span><br><span class="line">[    0.054188] Kernel command line: BOOT_IMAGE=/boot/vmlinuz-6.8.12-10-pve root=/dev/mapper/pve-root ro quiet intel_iommu=on iommu=pt i915.enable_guc=3 i915.max_vfs=7</span><br><span class="line">               use xe.force_probe=&#x27;46d0&#x27; and i915.force_probe=&#x27;!46d0&#x27;</span><br><span class="line">[    3.593393] i915: module verification failed: signature and/or required key missing - tainting kernel</span><br><span class="line">[    4.270741] i915: You are using the i915-sriov-dkms module, a ported version of the i915 module with SR-IOV support.</span><br><span class="line">[    4.270743] i915: Please file any bug report at https://github.com/strongtz/i915-sriov-dkms/issues/new.</span><br><span class="line">[    4.270745] i915: Module Homepage: https://github.com/strongtz/i915-sriov-dkms</span><br><span class="line">[    4.271143] i915 0000:00:02.0: [drm] Found ALDERLAKE_P/ADL-N (device ID 46d0) display version 13.00 stepping D0</span><br><span class="line">[    4.271176] i915 0000:00:02.0: Running in SR-IOV PF mode</span><br><span class="line">[    4.271727] i915 0000:00:02.0: [drm] VT-d active for gfx access</span><br><span class="line">[    4.364169] i915 0000:00:02.0: vgaarb: deactivate vga console</span><br><span class="line">[    4.364247] i915 0000:00:02.0: [drm] Using Transparent Hugepages</span><br><span class="line">[    4.364664] i915 0000:00:02.0: vgaarb: VGA decodes changed: olddecodes=io+mem,decodes=io+mem:owns=io+mem</span><br><span class="line">[    4.366914] i915 0000:00:02.0: [drm] Finished loading DMC firmware i915/adlp_dmc.bin (v2.20)</span><br><span class="line">[    4.371743] i915 0000:00:02.0: [drm] GT0: GuC firmware i915/tgl_guc_70.bin version 70.36.0</span><br><span class="line">[    4.371750] i915 0000:00:02.0: [drm] GT0: HuC firmware i915/tgl_huc.bin version 7.9.3</span><br><span class="line">[    4.375760] i915 0000:00:02.0: [drm] GT0: HuC: authenticated for all workloads</span><br><span class="line">[    4.376242] i915 0000:00:02.0: [drm] GT0: GUC: submission enabled</span><br><span class="line">[    4.376244] i915 0000:00:02.0: [drm] GT0: GUC: SLPC enabled</span><br><span class="line">[    4.376617] i915 0000:00:02.0: [drm] GT0: GUC: RC enabled</span><br><span class="line">[    4.378631] mei_pxp 0000:00:16.0-fbf6fcf1-96cf-4e2e-a6a6-1bab8cbe36b1: bound 0000:00:02.0 (ops i915_pxp_tee_component_ops [i915])</span><br><span class="line">[    4.378826] i915 0000:00:02.0: [drm] Protected Xe Path (PXP) protected content support initialized</span><br><span class="line">[    4.378831] mei_hdcp 0000:00:16.0-b638ab7e-94e2-4ea2-a552-d1c54b627f04: bound 0000:00:02.0 (ops i915_hdcp_ops [i915])</span><br><span class="line">[    4.444295] [drm] Initialized i915 1.6.0 20230929 for 0000:00:02.0 on minor 1</span><br><span class="line">[    4.508802] snd_hda_intel 0000:00:1f.3: bound 0000:00:02.0 (ops i915_audio_component_bind_ops [i915])</span><br><span class="line">[    4.514543] fbcon: i915drmfb (fb0) is primary device</span><br><span class="line">[    4.514649] i915 [CRTC:80:pipe A] fastset requirement not met in dpll_hw_state</span><br><span class="line">[    4.514652] i915 expected:</span><br><span class="line">[    4.514653] i915 dpll_hw_state: cfgcr0: 0x1001d0, cfgcr1: 0x88, div0: 0x0, mg_refclkin_ctl: 0x0, hg_clktop2_coreclkctl1: 0x0, mg_clktop2_hsclkctl: 0x0, mg_pll_div0: 0x0, mg_pll_div2: 0x0, mg_pll_lf: 0x0, mg_pll_frac_lock: 0x0, mg_pll_ssc: 0x0, mg_pll_bias: 0x0, mg_pll_tdc_coldst_bias: 0x0</span><br><span class="line">[    4.514655] i915 found:</span><br><span class="line">[    4.514655] i915 dpll_hw_state: cfgcr0: 0x1001d0, cfgcr1: 0x488, div0: 0x0, mg_refclkin_ctl: 0x0, hg_clktop2_coreclkctl1: 0x0, mg_clktop2_hsclkctl: 0x0, mg_pll_div0: 0x0, mg_pll_div2: 0x0, mg_pll_lf: 0x0, mg_pll_frac_lock: 0x0, mg_pll_ssc: 0x0, mg_pll_bias: 0x0, mg_pll_tdc_coldst_bias: 0x0</span><br><span class="line">[    4.514658] i915 [CRTC:80:pipe A] fastset requirement not met in infoframes.enable (expected 0x00000010, found 0x00000071)</span><br><span class="line">[    4.683734] i915 0000:00:02.0: [drm] fb0: i915drmfb frame buffer device</span><br><span class="line">[    4.688842] i915 display info: display version: 13</span><br><span class="line">[    4.688854] i915 display info: display stepping: D0</span><br><span class="line">[    4.688859] i915 display info: cursor_needs_physical: no</span><br><span class="line">[    4.688862] i915 display info: has_cdclk_crawl: yes</span><br><span class="line">[    4.688866] i915 display info: has_cdclk_squash: no</span><br><span class="line">[    4.688869] i915 display info: has_ddi: yes</span><br><span class="line">[    4.688872] i915 display info: has_dp_mst: yes</span><br><span class="line">[    4.688874] i915 display info: has_dsb: yes</span><br><span class="line">[    4.688877] i915 display info: has_fpga_dbg: yes</span><br><span class="line">[    4.688880] i915 display info: has_gmch: no</span><br><span class="line">[    4.688883] i915 display info: has_hotplug: yes</span><br><span class="line">[    4.688885] i915 display info: has_hti: no</span><br><span class="line">[    4.688887] i915 display info: has_ipc: yes</span><br><span class="line">[    4.688887] i915 display info: has_overlay: no</span><br><span class="line">[    4.688888] i915 display info: has_psr: yes</span><br><span class="line">[    4.688889] i915 display info: has_psr_hw_tracking: no</span><br><span class="line">[    4.688889] i915 display info: overlay_needs_physical: no</span><br><span class="line">[    4.688890] i915 display info: supports_tv: no</span><br><span class="line">[    4.688891] i915 display info: has_hdcp: yes</span><br><span class="line">[    4.688891] i915 display info: has_dmc: yes</span><br><span class="line">[    4.688892] i915 display info: has_dsc: yes</span><br><span class="line">[    4.688892] i915 display info: rawclk rate: 19200 kHz</span><br><span class="line">[    4.688948] i915 0000:00:02.0: 7 VFs could be associated with this PF</span><br><span class="line">[    5.506941] i915 0000:00:02.0: vgaarb: VGA decodes changed: olddecodes=io+mem,decodes=none:owns=io+mem</span><br><span class="line">               use xe.force_probe=&#x27;46d0&#x27; and i915.force_probe=&#x27;!46d0&#x27;</span><br><span class="line">[    5.507018] i915 0000:00:02.1: enabling device (0000 -&gt; 0002)</span><br><span class="line">[    5.507040] i915 0000:00:02.1: [drm] Found ALDERLAKE_P/ADL-N (device ID 46d0) display version 13.00 stepping D0</span><br><span class="line">[    5.507068] i915 0000:00:02.1: Running in SR-IOV VF mode</span><br><span class="line">[    5.507652] i915 0000:00:02.1: [drm] GT0: GUC: interface version 0.1.17.0</span><br><span class="line">[    5.508623] i915 0000:00:02.1: [drm] VT-d active for gfx access</span><br><span class="line">[    5.508669] i915 0000:00:02.1: [drm] Using Transparent Hugepages</span><br><span class="line">[    5.508928] i915 0000:00:02.1: [drm] GT0: GUC: interface version 0.1.17.0</span><br><span class="line">[    5.509427] i915 0000:00:02.1: [drm] GT0: GUC: interface version 0.1.17.0</span><br><span class="line">[    5.510115] i915 0000:00:02.1: GuC firmware PRELOADED version 0.0 submission:SR-IOV VF</span><br><span class="line">[    5.510119] i915 0000:00:02.1: HuC firmware PRELOADED</span><br><span class="line">[    5.513190] i915 0000:00:02.1: [drm] Protected Xe Path (PXP) protected content support initialized</span><br><span class="line">[    5.513196] i915 0000:00:02.1: [drm] PMU not supported for this GPU.</span><br><span class="line">[    5.513354] [drm] Initialized i915 1.6.0 20230929 for 0000:00:02.1 on minor 0</span><br><span class="line">[    5.513653] i915 0000:00:02.0: vgaarb: VGA decodes changed: olddecodes=none,decodes=none:owns=io+mem</span><br><span class="line">[    5.513656] i915 0000:00:02.1: vgaarb: VGA decodes changed: olddecodes=io+mem,decodes=none:owns=none</span><br><span class="line">               use xe.force_probe=&#x27;46d0&#x27; and i915.force_probe=&#x27;!46d0&#x27;</span><br><span class="line">...</span><br><span class="line">[    5.537903] i915 0000:00:02.7: enabling device (0000 -&gt; 0002)</span><br><span class="line">[    5.537918] i915 0000:00:02.7: [drm] Found ALDERLAKE_P/ADL-N (device ID 46d0) display version 13.00 stepping D0</span><br><span class="line">[    5.537942] i915 0000:00:02.7: Running in SR-IOV VF mode</span><br><span class="line">[    5.538115] i915 0000:00:02.7: [drm] GT0: GUC: interface version 0.1.17.0</span><br><span class="line">[    5.538625] i915 0000:00:02.7: [drm] VT-d active for gfx access</span><br><span class="line">[    5.538648] i915 0000:00:02.7: [drm] Using Transparent Hugepages</span><br><span class="line">[    5.538763] i915 0000:00:02.7: [drm] GT0: GUC: interface version 0.1.17.0</span><br><span class="line">[    5.539078] i915 0000:00:02.7: [drm] GT0: GUC: interface version 0.1.17.0</span><br><span class="line">[    5.539419] i915 0000:00:02.7: GuC firmware PRELOADED version 0.0 submission:SR-IOV VF</span><br><span class="line">[    5.539422] i915 0000:00:02.7: HuC firmware PRELOADED</span><br><span class="line">[    5.541114] i915 0000:00:02.7: [drm] Protected Xe Path (PXP) protected content support initialized</span><br><span class="line">[    5.541119] i915 0000:00:02.7: [drm] PMU not supported for this GPU.</span><br><span class="line">[    5.541217] [drm] Initialized i915 1.6.0 20230929 for 0000:00:02.7 on minor 7</span><br><span class="line">[    5.541403] i915 0000:00:02.0: Enabled 7 VFs</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>Enable Virtual GPU for <code>Windows 11</code> VM in Proxmox</li>
-</ul>
-<p>Add a PCI device for <code>Windows 11</code> VM, and choose one Virtual GPU:</p>
-<p><img src="/blog/img/Proxmox%20-%20Windows%2011,%20PCI%20device.png" alt="Proxmox - Windows 11, PCI device" title="Proxmox - Windows 11, PCI device"></p>
-<p>Enable <code>Primary GPU</code> and <code>PCI Express</code> in options:</p>
-<p><img src="/blog/img/Proxmox%20-%20Windows%2011,%20Primary%20GPU%20and%20PCI%20Express.png" alt="Proxmox - Windows 11, Primary GPU and PCI Express" title="Proxmox - Windows 11, Primary GPU and PCI Express"></p>
-<p>Choose <code>none</code> in Display and <code>host</code> in Processors options for <code>Windows 11</code> VM:</p>
-<p><img src="/blog/img/Proxmox%20-%20Windows%2011,%20Display.png" alt="Proxmox - Windows 11, Display" title="Proxmox - Windows 11, Display"></p>
-<p><img src="/blog/img/Proxmox%20-%20Windows%2011,%20Display%20none.png" alt="Proxmox - Windows 11, Display none" title="Proxmox - Windows 11, Display none"></p>
-<p>Start <code>Windows 11</code> VM, login with <code>Microsoft Remote Desktop</code> <em><a target="_blank" rel="noopener" href="https://apps.microsoft.com/detail/9wzdncrfj3ps">https://apps.microsoft.com/detail/9wzdncrfj3ps</a></em> and a Virtual GPU is available now. Run <code>Task Manager</code> and check CPU and GPU load:</p>
-<p><img src="/blog/img/Proxmox%20-%20Windows%2011,%20Performance.png" alt="Proxmox - Windows 11, Performance" title="Proxmox - Windows 11, Performance"></p>
-<ul>
-<li>Enable Virtual GPU for <code>Ubuntu</code> VM in Proxmox</li>
-</ul>
-<p>Ubuntu version 22.04.4 for desktop.</p>
-<p>Add a PCI device for <code>Ubuntu</code> VM, and choose one Virtual GPU; Enable <code>Primary GPU</code> and <code>PCI Express</code> in options; Choose <code>none</code> in Display and <code>host</code> in Processors options:</p>
-<p><img src="/blog/img/Proxmox%20-%20Ubuntu.png" alt="Proxmox - Ubuntu" title="Proxmox - Ubuntu"></p>
-<p>Setup remote desktop connection to Ubuntu:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">root@nucleus:~# apt install ubuntu-desktop</span><br><span class="line"></span><br><span class="line">root@nucleus:~# apt install xrdp</span><br><span class="line"></span><br><span class="line">root@nucleus:~# systemctl enable xrdp</span><br></pre></td></tr></table></figure>
-
-<p><img src="/blog/img/Proxmox%20-%20Remote%20Desktop.png" alt="Proxmox - Remote Desktop" title="Proxmox - Remote Desktop"></p>
-<ul>
-<li>Fix Remote Desktop audio over HDMI issue with the script, enable the sound redirection:</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">terrence@nucleus:~$ ./xrdp-installer-1.5.1.sh -s</span><br></pre></td></tr></table></figure>
-
-<p>then reboot VM.</p>
-<p><img src="/blog/img/Proxmox%20-%20Ubuntu%20Remote%20Desktop.png" alt="Proxmox - Ubuntu Remote Desktop" title="Proxmox - Ubuntu Remote Desktop"></p>
-<p>Now Audio device becomes xrdp input &#x2F; output.</p>
-<ul>
-<li>Windows Server 2022</li>
-</ul>
-<p>Windows Server 2022 is similar to Windows 11 setup in Proxmox. A few issues like <strong>GPU</strong>:</p>
-<p><img src="/blog/img/Proxmox%20-%20Windows%20Server%202022,%20GPU.png" alt="Proxmox - Windows Server 2022, GPU" title="Proxmox - Windows Server 2022, GPU"></p>
-<p>just disable GPU then enable it, it will work correctly.</p>
-<p>And no sound after installation, but can enable <strong>Windows Audio Service</strong> and choose <strong>Remote Audio</strong>:</p>
-<p><img src="/blog/img/Proxmox%20-%20Windows%20Server%202022,%20Sound.png" alt="Proxmox - Windows Server 2022, Sound" title="Proxmox - Windows Server 2022, Sound"></p>
-<p>then audio over HDMI to remote desktop can work.</p>
-<p>In addition, can setup User Auto Logon after Windows Server 2022 startup. And check Windows license by running:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PS C:\Users\Administrator&gt; slmgr -dlv</span><br></pre></td></tr></table></figure>
-
-<p>Now can remote desktop access Ubuntu, Windows 11 and Windows Server 2022 VMs both run in Proxmox:</p>
-<p><img src="/blog/img/Proxmox%20-%20Ubuntu%20and%20Windows.jpg" alt="Proxmox - Ubuntu and Windows" title="Proxmox - Ubuntu and Windows"></p>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li>最新保姆级 PVE 8 安装教程！虚拟机 PCIE 设备及 SR-IOV 核显直通，最多分配7个虚拟化单独核显！最强虚拟机！<em><a target="_blank" rel="noopener" href="https://v2rayssr.com/pve.html">https://v2rayssr.com/pve.html</a></em></li>
-<li>PVE 8.1 下部署 Intel 集显虚拟化驱动 <em><a target="_blank" rel="noopener" href="https://zoe.red/2023/38.html">https://zoe.red/2023/38.html</a></em></li>
-<li>定制 OVMF 固件实现 PVE 8 环境 UEFI 模式直通 Intel 核显并显示 BIOS 适用于 intel 6-13 代处理器 PVE 8 核显直通画面 Windows 10 and MacOS 系统画面显示教程，可以外接显示器 <em><a target="_blank" rel="noopener" href="https://imacos.top/2023/10/09/152/">https://imacos.top/2023/10/09/152/</a></em></li>
-<li>PVE 下如何启用 PCI 直通显卡 GPU&#x2F;iGPU&#x2F;USB&#x2F;声卡 AUDIO 等硬件直通教程 <em><a target="_blank" rel="noopener" href="https://imacos.top/2023/07/31/pci/">https://imacos.top/2023/07/31/pci/</a></em></li>
-<li>Enable &amp; Using vGPU Passthrough <em><a target="_blank" rel="noopener" href="https://gist.github.com/scyto/e4e3de35ee23fdb4ae5d5a3b85c16ed3">https://gist.github.com/scyto/e4e3de35ee23fdb4ae5d5a3b85c16ed3</a></em></li>
-<li>Proxmox VE: Passthrough with Intel Integrated Graphics Card Alder Lake Architecture | vGPU, VT-d, SR-IOV <em><a target="_blank" rel="noopener" href="https://github.com/kamilllooo/Proxmox">https://github.com/kamilllooo/Proxmox</a></em></li>
-<li>Proxmox VE 9.0: Windows 11 vGPU (VT-d) Passthrough with Intel Alder Lake <em><a target="_blank" rel="noopener" href="https://www.derekseaman.com/2024/07/proxmox-ve-8-2-windows-11-vgpu-vt-d-passthrough-with-intel-alder-lake.html">https://www.derekseaman.com/2024/07/proxmox-ve-8-2-windows-11-vgpu-vt-d-passthrough-with-intel-alder-lake.html</a></em></li>
-<li>Remote Desktop connection from Mac to Ubuntu <em><a target="_blank" rel="noopener" href="https://askubuntu.com/questions/893831/remote-desktop-connection-from-mac-to-ubuntu">https://askubuntu.com/questions/893831/remote-desktop-connection-from-mac-to-ubuntu</a></em></li>
-<li>xRDP – Easy install xRDP on Ubuntu 20.04,22.04,23.XX,24.04 (Script Version 1.5.1) <em><a target="_blank" rel="noopener" href="https://c-nergy.be/blog/?p=19814">https://c-nergy.be/blog/?p=19814</a></em></li>
-<li>Autologon User at Startup in Windows Server <em><a target="_blank" rel="noopener" href="https://jc-lan.org/2022/06/02/autologon-user-at-startup-in-windows-server/">https://jc-lan.org/2022/06/02/autologon-user-at-startup-in-windows-server/</a></em></li>
-<li>Windows Server 2022 audio available but not playing <em><a target="_blank" rel="noopener" href="https://answers.microsoft.com/en-us/windowserver/forum/all/windows-server-2022-audio-available-but-not/eca821f1-7b4a-4293-8273-fda49dd0e9d4">https://answers.microsoft.com/en-us/windowserver/forum/all/windows-server-2022-audio-available-but-not/eca821f1-7b4a-4293-8273-fda49dd0e9d4</a></em></li>
-</ul>
-
-        
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <div class="article-tag-wrap">
-          
-
-          
-          
-
-
-        </div>
-      
-      
-      
-    </footer>
-  </div>
-</article>
-
-
 
     <nav id="page-nav">
 
@@ -1000,6 +877,10 @@
       <ul>
         
           <li>
+            <a href="/blog/2026/04/14/How-to-fix-unknown-terminal-type-error-when-Ghostty-logon-AWS-EC2/">How to fix &#39;unknown terminal type&#39; error when Ghostty logon AWS EC2</a>
+          </li>
+        
+          <li>
             <a href="/blog/2025/05/22/Proxmox-over-Bluetooth/">Proxmox over Bluetooth</a>
           </li>
         
@@ -1013,10 +894,6 @@
         
           <li>
             <a href="/blog/2025/01/22/Xray-X-UI-Reality-protocol-Vision-flow-on-Oracle-Cloud/">Xray, X-UI, Reality protocol, Vision flow on Oracle Cloud</a>
-          </li>
-        
-          <li>
-            <a href="/blog/2025/01/22/Xray-X-UI-Reality-protocol-Vision-flow-on-Amazon-Linux/">Xray, X-UI, Reality protocol, Vision flow on Amazon Linux</a>
           </li>
         
       </ul>
@@ -1034,7 +911,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title"><i class="fa fa-archive"></i> Archive</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2025/">2025</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2024/">2024</a><span class="archive-list-count">30</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2023/">2023</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/">2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/">2021</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/">2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/">2019</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/">2017</a><span class="archive-list-count">25</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2026/">2026</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2025/">2025</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2024/">2024</a><span class="archive-list-count">30</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2023/">2023</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/">2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/">2021</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/">2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/">2019</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/">2017</a><span class="archive-list-count">25</span></li></ul>
     </div>
   </div>
 

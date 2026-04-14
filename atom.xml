@@ -6,7 +6,7 @@
   <link href="https://terrencemiao.github.io/blog/atom.xml" rel="self"/>
   
   <link href="https://terrencemiao.github.io/blog/"/>
-  <updated>2025-05-22T05:18:50.638Z</updated>
+  <updated>2026-04-14T05:42:11.201Z</updated>
   <id>https://terrencemiao.github.io/blog/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>How to fix &#39;unknown terminal type&#39; error when Ghostty logon AWS EC2</title>
+    <link href="https://terrencemiao.github.io/blog/2026/04/14/How-to-fix-unknown-terminal-type-error-when-Ghostty-logon-AWS-EC2/"/>
+    <id>https://terrencemiao.github.io/blog/2026/04/14/How-to-fix-unknown-terminal-type-error-when-Ghostty-logon-AWS-EC2/</id>
+    <published>2026-04-14T05:19:12.000Z</published>
+    <updated>2026-04-14T05:42:11.201Z</updated>
+    
+    <content type="html"><![CDATA[<p>Popular <code>Ghostty</code> Terminal <em><a href="https://ghostty.org/">https://ghostty.org/</a></em> from it to logon AWS EC2 instance, “<strong>unknown terminal type</strong>“ thrown on EC2.</p><p>On <code>Ghostty</code> Terminal host:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ infocmp -x &gt; /tmp/ghostty.terminfo</span><br></pre></td></tr></table></figure><p>Then copy <code>Ghostty</code> terminal info file across over to EC2 instance:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ scp ghostty.terminfo ec2-user@i-0012f794e5fabcdef:/tmp</span><br></pre></td></tr></table></figure><p>Logon EC2 instance, and run: </p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[ec2-user@ip-10-215-240-19 ~]$ tic -x /tmp/ghostty.terminfo</span><br><span class="line">&quot;/tmp/ghostty.terminfo&quot;, line 2, col 31, terminal &#x27;xterm-ghostty&#x27;: older tic versions may treat the description field as an alias</span><br><span class="line"></span><br><span class="line">[ec2-user@ip-10-215-240-19 ~]$ pwd</span><br><span class="line">/home/ec2-user</span><br><span class="line"></span><br><span class="line">[ec2-user@ip-10-215-240-19 ~]$ find .terminfo/</span><br><span class="line">.terminfo/</span><br><span class="line">.terminfo/x</span><br><span class="line">.terminfo/x/xterm-ghostty</span><br><span class="line">.terminfo/g</span><br><span class="line">.terminfo/g/ghostty</span><br></pre></td></tr></table></figure><h3 id="Why-This-Happens"><a href="#Why-This-Happens" class="headerlink" title="Why This Happens"></a>Why This Happens</h3><p>Ghostty uses <strong>TERM&#x3D;xterm-ghostty</strong> which requires a terminfo entry on the remote system. Older Linux servers&#x2F;macOS servers simply don’t have that entry in their terminfo database, so the other terminal utilities throw this “<strong>unknown terminal type</strong>“ error.</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Popular &lt;code&gt;Ghostty&lt;/code&gt; Terminal &lt;em&gt;&lt;a href=&quot;https://ghostty.org/&quot;&gt;https://ghostty.org/&lt;/a&gt;&lt;/em&gt; from it to logon AWS EC2 instance,</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Proxmox over Bluetooth</title>
@@ -400,27 +420,6 @@
       
       
     <summary type="html">&lt;p&gt;A &lt;em&gt;Mellanox ConnectX-4 MCX455A-ECAT PCIe x16 3.0 100GBe VPI EDR IB&lt;/em&gt; network adapter. Enable &lt;code&gt;VT-d&lt;/code&gt;(Intel Virtualization</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Create Storage Pool in Windows Server 2022</title>
-    <link href="https://terrencemiao.github.io/blog/2024/09/15/Create-Storage-Pool-in-Windows-Server-2022/"/>
-    <id>https://terrencemiao.github.io/blog/2024/09/15/Create-Storage-Pool-in-Windows-Server-2022/</id>
-    <published>2024-09-15T11:39:18.000Z</published>
-    <updated>2024-09-15T11:46:28.435Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="/blog/img/Storage%20Pool%20-%20Create.png" alt="Storage Pool - Create" title="Storage Pool - Create"></p><p><img src="/blog/img/Storage%20Pool%20-%20Physical%20Disks.png" alt="Storage Pool - Physical Disks" title="Storage Pool - Physical Disks"></p><p><img src="/blog/img/Storage%20Pool%20-%20Storage%20Layout.png" alt="Storage Pool - Storage Layout" title="Storage Pool - Storage Layout"></p><p><img src="/blog/img/Storage%20Pool%20-%20Virtual%20Disk.png" alt="Storage Pool - Virtual Disk" title="Storage Pool - Virtual Disk"></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;/blog/img/Storage%20Pool%20-%20Create.png&quot; alt=&quot;Storage Pool - Create&quot; title=&quot;Storage Pool - Create&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/blog/im</summary>
       
     
     
