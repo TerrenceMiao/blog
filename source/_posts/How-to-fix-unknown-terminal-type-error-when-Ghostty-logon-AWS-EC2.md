@@ -38,3 +38,26 @@ Logon EC2 instance, and run:
 ### Why This Happens
 
 Ghostty uses **TERM=xterm-ghostty** which requires a terminfo entry on the remote system. Older Linux servers/macOS servers simply don't have that entry in their terminfo database, so the other terminal utilities throw this "**unknown terminal type**" error.
+
+SAME issue also happens when run `asitop` in `Ghostty`. **Error** thrown:
+
+```
+'xterm-ghostty': unknown terminal type.
+/opt/homebrew/Cellar/asitop/0.0.24/libexec/lib/python3.14/site-packages/blessed/terminal.py:186: UserWarning: Failed to setupterm(kind='xterm-ghostty'): setupterm: could not find terminal
+```
+
+This is because `asitop` (via the blessed library) doesn't recognize `Ghostty`'s terminal type **xterm-ghostty**.
+
+Either run as:
+
+```
+TERM=xterm-256color sudo asitop
+```
+
+or, add an alias to the shell config (~/.zshrc or ~/.bashrc):
+
+```
+alias asitop='TERM=xterm-256color sudo asitop'
+```
+
+`Ghostty` uses **xterm-ghostty** as its **$TERM** value, which isn't in the terminfo database that `blessed` checks against. Falling back to **xterm-256color** gives it a fully compatible terminal description while keeping all the color/formatting support `asitop` needs.
