@@ -204,6 +204,17 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[ec2-user@ip-10-215-240-19 ~]$ tic -x /tmp/ghostty.terminfo</span><br><span class="line">&quot;/tmp/ghostty.terminfo&quot;, line 2, col 31, terminal &#x27;xterm-ghostty&#x27;: older tic versions may treat the description field as an alias</span><br><span class="line"></span><br><span class="line">[ec2-user@ip-10-215-240-19 ~]$ pwd</span><br><span class="line">/home/ec2-user</span><br><span class="line"></span><br><span class="line">[ec2-user@ip-10-215-240-19 ~]$ find .terminfo/</span><br><span class="line">.terminfo/</span><br><span class="line">.terminfo/x</span><br><span class="line">.terminfo/x/xterm-ghostty</span><br><span class="line">.terminfo/g</span><br><span class="line">.terminfo/g/ghostty</span><br></pre></td></tr></table></figure>
 
 <h3 id="Why-This-Happens"><a href="#Why-This-Happens" class="headerlink" title="Why This Happens"></a>Why This Happens</h3><p>Ghostty uses <strong>TERM&#x3D;xterm-ghostty</strong> which requires a terminfo entry on the remote system. Older Linux servers&#x2F;macOS servers simply don’t have that entry in their terminfo database, so the other terminal utilities throw this “<strong>unknown terminal type</strong>“ error.</p>
+<p>SAME issue also happens when run <code>asitop</code> in <code>Ghostty</code>. <strong>Error</strong> thrown:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x27;xterm-ghostty&#x27;: unknown terminal type.</span><br><span class="line">/opt/homebrew/Cellar/asitop/0.0.24/libexec/lib/python3.14/site-packages/blessed/terminal.py:186: UserWarning: Failed to setupterm(kind=&#x27;xterm-ghostty&#x27;): setupterm: could not find terminal</span><br></pre></td></tr></table></figure>
+
+<p>This is because <code>asitop</code> (via the blessed library) doesn’t recognize <code>Ghostty</code>‘s terminal type <strong>xterm-ghostty</strong>.</p>
+<p>Either run as:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TERM=xterm-256color sudo asitop</span><br></pre></td></tr></table></figure>
+
+<p>or, add an alias to the shell config (~&#x2F;.zshrc or ~&#x2F;.bashrc):</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alias asitop=&#x27;TERM=xterm-256color sudo asitop&#x27;</span><br></pre></td></tr></table></figure>
+
+<p><code>Ghostty</code> uses <strong>xterm-ghostty</strong> as its <strong>$TERM</strong> value, which isn’t in the terminfo database that <code>blessed</code> checks against. Falling back to <strong>xterm-256color</strong> gives it a fully compatible terminal description while keeping all the color&#x2F;formatting support <code>asitop</code> needs.</p>
 
         
         

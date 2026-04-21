@@ -1,5 +1,5 @@
-https://terrencemiao.github.io/blog/2026/04/21/DNS-PROBE-FINISHED-NXDOMAIN-error/
 https://terrencemiao.github.io/blog/2026/04/14/How-to-fix-unknown-terminal-type-error-when-Ghostty-logon-AWS-EC2/
+https://terrencemiao.github.io/blog/2026/04/21/DNS-PROBE-FINISHED-NXDOMAIN-error/
 https://terrencemiao.github.io/blog/2024/08/04/Proxmox-and-SR-IOV-support-for-Intel-GPU-and-Mellanox-network-adapter/
 https://terrencemiao.github.io/blog/2025/05/21/Proxmox-over-Wireless/
 https://terrencemiao.github.io/blog/2024/11/08/Enable-SR-IOV-in-Intel-82599ES-10Gbps-Ethernet-Controller/
