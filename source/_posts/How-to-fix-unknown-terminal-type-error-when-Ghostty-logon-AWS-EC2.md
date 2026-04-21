@@ -37,7 +37,7 @@ Logon EC2 instance, and run:
 
 ### Why This Happens
 
-Ghostty uses **TERM=xterm-ghostty** which requires a terminfo entry on the remote system. Older Linux servers/macOS servers simply don't have that entry in their terminfo database, so the other terminal utilities throw this "**unknown terminal type**" error.
+`Ghostty` uses **TERM=xterm-ghostty** which requires a terminfo entry on the remote system. Older Linux servers/macOS servers simply don't have that entry in their terminfo database, so the other terminal utilities throw this "**unknown terminal type**" error.
 
 SAME issue also happens when run `asitop` in `Ghostty`. **Error** thrown:
 
