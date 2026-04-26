@@ -6,7 +6,7 @@
   <link href="https://terrencemiao.github.io/blog/atom.xml" rel="self"/>
   
   <link href="https://terrencemiao.github.io/blog/"/>
-  <updated>2026-04-21T00:54:08.552Z</updated>
+  <updated>2026-04-26T05:50:00.589Z</updated>
   <id>https://terrencemiao.github.io/blog/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Qwen 3.6 27B，多种优化方式，从 20t/s 飙到 184t/s</title>
+    <link href="https://terrencemiao.github.io/blog/2026/04/26/Qwen-3-6-27B%EF%BC%8C%E5%A4%9A%E7%A7%8D%E4%BC%98%E5%8C%96%E6%96%B9%E5%BC%8F%EF%BC%8C%E4%BB%8E-20t-s-%E9%A3%99%E5%88%B0-184t-s/"/>
+    <id>https://terrencemiao.github.io/blog/2026/04/26/Qwen-3-6-27B%EF%BC%8C%E5%A4%9A%E7%A7%8D%E4%BC%98%E5%8C%96%E6%96%B9%E5%BC%8F%EF%BC%8C%E4%BB%8E-20t-s-%E9%A3%99%E5%88%B0-184t-s/</id>
+    <published>2026-04-26T05:19:42.000Z</published>
+    <updated>2026-04-26T05:50:00.589Z</updated>
+    
+    <content type="html"><![CDATA[<p>“<em>Local AI should be a default, not a privilege: private data, no per-token bill, no vendor lock-in. The hardware to run capable models already sits on desks. The software to run those chips well doesn’t.</em>“</p><h1 id="Qwen-3-6-27B-推理速度优化技术文档"><a href="#Qwen-3-6-27B-推理速度优化技术文档" class="headerlink" title="Qwen 3.6 27B 推理速度优化技术文档"></a>Qwen 3.6 27B 推理速度优化技术文档</h1><h2 id="一、背景与目标"><a href="#一、背景与目标" class="headerlink" title="一、背景与目标"></a>一、背景与目标</h2><ul><li><strong>模型</strong>：Qwen 3.6 27B（稠密模型，FP8 精度）</li><li><strong>硬件</strong>：单卡 RTX 4090（48GB 显存，无 P2P 通信）；双卡 RTX 4090</li><li><strong>初始性能</strong>：单卡 RTX 4090 裸跑 FP8 精度，输出速度仅 <strong>20 tokens&#x2F;s</strong></li><li><strong>目标</strong>：通过多种优化手段，将单卡 RTX 4090 推理速度提升至 <strong>184 tokens&#x2F;s</strong>（峰值），实现最少 5 倍、最多 10 倍的速度提升</li></ul><hr><h2 id="二、量化优化（第一阶优化）"><a href="#二、量化优化（第一阶优化）" class="headerlink" title="二、量化优化（第一阶优化）"></a>二、量化优化（第一阶优化）</h2><h3 id="2-1-原理"><a href="#2-1-原理" class="headerlink" title="2.1 原理"></a>2.1 原理</h3><ul><li>模型参数的位宽从 FP16 降至 4bit，体积缩小 4 倍</li><li>显存带宽不变时，每次搬运的数据量减半，从而突破显存访问瓶颈，速度翻倍</li><li>适用于显存受限的场景（如 RTX 4090 非高带宽显存）</li></ul><h3 id="2-2-量化方案对比"><a href="#2-2-量化方案对比" class="headerlink" title="2.2 量化方案对比"></a>2.2 量化方案对比</h3><table><thead><tr><th>方案</th><th>框架</th><th>精度</th><th>速度（单卡 RTX 4090）</th><th>特点</th></tr></thead><tbody><tr><td>GGUF Q4_K_M</td><td>llama.cpp</td><td>4bit</td><td>~45 token&#x2F;s</td><td>适合单人使用，可 offload 到内存</td></tr><tr><td>AWQ</td><td>VLLM</td><td>4bit</td><td>~48 token&#x2F;s</td><td>适合高并发场景</td></tr></tbody></table><h3 id="2-3-精度损失评估"><a href="#2-3-精度损失评估" class="headerlink" title="2.3 精度损失评估"></a>2.3 精度损失评估</h3><ul><li>测试工具：<code>ToolCall15</code> <em><a href="https://github.com/stevibe/ToolCall-15">https://github.com/stevibe/ToolCall-15</a></em> + 数据提取 + 指令遵循（共 45 场景）</li><li>结论：大部分场景损失可忽略，仅增加少量错误与纠错 token，但速度提升 2 倍以上，可接受。</li></ul><hr><h2 id="三、投机解码-–-MTP（Multi-Token-Prediction）"><a href="#三、投机解码-–-MTP（Multi-Token-Prediction）" class="headerlink" title="三、投机解码 – MTP（Multi Token Prediction）"></a>三、投机解码 – MTP（Multi Token Prediction）</h2><h3 id="3-1-原理"><a href="#3-1-原理" class="headerlink" title="3.1 原理"></a>3.1 原理</h3><ul><li>在模型主头之外增加多个预测头，一次并行预测后续 N 个 token</li><li>大模型验证时一次通过，命中则跳过单步生成，利用 GPU 闲置算力</li><li>参数 n 控制预测窗口大小（n &#x3D; 1,3,5）</li></ul><h3 id="3-2-测试结果（单卡-RTX-4090）"><a href="#3-2-测试结果（单卡-RTX-4090）" class="headerlink" title="3.2 测试结果（单卡 RTX 4090）"></a>3.2 测试结果（单卡 RTX 4090）</h3><table><thead><tr><th>配置</th><th>速度（tokens&#x2F;s）</th><th>提升幅度</th></tr></thead><tbody><tr><td>VLLM AWQ 无 MTP</td><td>48</td><td>基准</td></tr><tr><td>VLLM AWQ + MTP n &#x3D; 1</td><td>71</td><td>+49%</td></tr><tr><td>VLLM AWQ + MTP n &#x3D; 3</td><td>99</td><td>+106%</td></tr><tr><td>VLLM AWQ + MTP n &#x3D; 5</td><td>108</td><td>+124%</td></tr><tr><td>FP8 无 MTP</td><td>20</td><td>基准</td></tr><tr><td>FP8 + MTP n &#x3D; 1</td><td>38</td><td>+90%</td></tr><tr><td>FP8 + MTP n &#x3D; 3</td><td>60</td><td>+200%</td></tr><tr><td>FP8 + MTP n &#x3D; 5</td><td>72</td><td>+260%</td></tr></tbody></table><ul><li><strong>联合量化 + MTP 可达 5 倍提升</strong>：FP8 (20) → AWQ + MTP n &#x3D; 5 (108)</li></ul><h3 id="3-3-llama-cpp-的投机解码"><a href="#3-3-llama-cpp-的投机解码" class="headerlink" title="3.3 llama.cpp 的投机解码"></a>3.3 llama.cpp 的投机解码</h3><ul><li>采用 n-gram 方式，实测提升不明显（可能因实验场景为每次全新上下文，不适合连续多轮调用）</li></ul><hr><h2 id="四、双卡并行方案"><a href="#四、双卡并行方案" class="headerlink" title="四、双卡并行方案"></a>四、双卡并行方案</h2><h3 id="4-1-单并发性能"><a href="#4-1-单并发性能" class="headerlink" title="4.1 单并发性能"></a>4.1 单并发性能</h3><ul><li>双卡 FP8 + MTP n &#x3D; 5：单并发 120 tokens&#x2F;s（仅比单卡 108 tokens&#x2F;s 提升 11%）</li><li>瓶颈：两张 RTX 4090 间无 P2P 直连，通信需经过 CPU 内存，损耗大</li></ul><h3 id="4-2-多并发优势"><a href="#4-2-多并发优势" class="headerlink" title="4.2 多并发优势"></a>4.2 多并发优势</h3><ul><li>双卡在多请求场景下优势显著：10 并发时可提供更高总吞吐</li><li>类比：单车道→四车道，单请求速度不变但总容量大幅提升</li></ul><hr><h2 id="五、高级投机解码-–-DFlash-与-DDTree"><a href="#五、高级投机解码-–-DFlash-与-DDTree" class="headerlink" title="五、高级投机解码 – DFlash 与 DDTree"></a>五、高级投机解码 – DFlash 与 DDTree</h2><h3 id="5-1-DFlash（扩散式投机解码）"><a href="#5-1-DFlash（扩散式投机解码）" class="headerlink" title="5.1 DFlash（扩散式投机解码）"></a>5.1 DFlash（扩散式投机解码）</h3><ul><li>借鉴图像扩散模型思想：一次性生成整块模糊候选文本，再逐步去噪精炼</li><li>本质是并行路径，但默认仍是单条路径验证，一错全废</li></ul><h3 id="5-2-DDTree（Diffusion-Draft-Tree）"><a href="#5-2-DDTree（Diffusion-Draft-Tree）" class="headerlink" title="5.2 DDTree（Diffusion Draft Tree）"></a>5.2 DDTree（Diffusion Draft Tree）</h3><ul><li>先用扩散模型生成多个备选路径（参数 22 条），同时探索</li><li>任意一条路径通过即成功，大幅提升命中率</li><li>实现项目：<code>lucebox</code> <em><a href="https://github.com/Luce-Org/lucebox-hub">https://github.com/Luce-Org/lucebox-hub</a></em></li></ul><h3 id="5-3-性能表现（单卡-RTX-4090，Q4-DFlash-DDTree）"><a href="#5-3-性能表现（单卡-RTX-4090，Q4-DFlash-DDTree）" class="headerlink" title="5.3 性能表现（单卡 RTX 4090，Q4 + DFlash&#x2F;DDTree）"></a>5.3 性能表现（单卡 RTX 4090，Q4 + DFlash&#x2F;DDTree）</h3><table><thead><tr><th>配置</th><th>平均速度</th><th>峰值速度</th></tr></thead><tbody><tr><td>本机 4090</td><td>141 tokens&#x2F;s</td><td>184 token&#x2F;s</td></tr><tr><td>参考：lucebox 3090</td><td>207 tokens&#x2F;s（Qwen 3.5 27B）</td><td>-</td></tr></tbody></table><h3 id="5-4-速度依赖因素"><a href="#5-4-速度依赖因素" class="headerlink" title="5.4 速度依赖因素"></a>5.4 速度依赖因素</h3><ul><li><strong>任务类型</strong>：数学题（逻辑死板）→ 150 tokens&#x2F;s；代码（变量灵活）→ 125 tokens&#x2F;s；创意写作（自由度最高）→ 效果差</li><li><strong>适用场景</strong>：多 agent、<code>Claude Code</code> 等写代码场景最适合推测解码</li></ul><hr><h2 id="六、KV-Cache-量化-–-TurboQuant"><a href="#六、KV-Cache-量化-–-TurboQuant" class="headerlink" title="六、KV Cache 量化 – TurboQuant"></a>六、KV Cache 量化 – TurboQuant</h2><h3 id="6-1-原理"><a href="#6-1-原理" class="headerlink" title="6.1 原理"></a>6.1 原理</h3><ul><li>将 KV cache 从 FP16 压缩至 3~4 bit，压缩比约 4 倍</li><li>非权重量化，为第首次实现几乎无精度损失的 KV cache 量化</li></ul><h3 id="6-2-效果"><a href="#6-2-效果" class="headerlink" title="6.2 效果"></a>6.2 效果</h3><ul><li>24G 显存（如 RTX 3090）搭配 Q4 模型，可支持 <strong>200K 上下文长度</strong></li><li>已获 <code>VLLM</code> 0.20 及 <code>lucebox</code> 支持</li></ul><hr><h2 id="七、生产环境推荐方案"><a href="#七、生产环境推荐方案" class="headerlink" title="七、生产环境推荐方案"></a>七、生产环境推荐方案</h2><table><thead><tr><th>需求</th><th>推荐配置</th><th>性能</th></tr></thead><tbody><tr><td><strong>最高精度 + 多并发</strong></td><td>FP8 + VLLM + MTP n &#x3D; 5</td><td>10 并发 ~500 tokens&#x2F;s</td></tr><tr><td><strong>极致单请求速度</strong></td><td>Q4 + DFlash &#x2F; DDTree（lucebox）</td><td>峰值 184 tokens&#x2F;s（但暂不支持多并发、工具调用不稳定）</td></tr></tbody></table><hr><h2 id="八、技术限制与展望"><a href="#八、技术限制与展望" class="headerlink" title="八、技术限制与展望"></a>八、技术限制与展望</h2><ul><li><strong>DFlash &#x2F; DDTree 当前限制</strong>：不支持多并发、未合入 <code>llama.cpp</code> 主线、<code>Claude Code</code> 工具调用易断</li><li><strong>软件层潜力</strong>：CUDA 驱动能效比低于 Apple M5，通过 kernel 融合、降功率等优化可大幅提升能效（实验显示 RTX 3090 降功率后能效比追平 M5 Max）</li><li><strong>未来方向</strong>：更多内核级优化 + 框架原生支持，本地算力将持续升值</li></ul><hr><h2 id="九、结论"><a href="#九、结论" class="headerlink" title="九、结论"></a>九、结论</h2><p>通过 <strong>量化（GGUF &#x2F; AWQ）</strong> → <strong>MTP</strong> → <strong>DFlash&#x2F;DDTree</strong> → <strong>TurboQuant</strong> 的递进优化，单卡 RTX 4090 上 Qwen 3.6 27B 的推理速度从 <strong>20 tokens&#x2F;s</strong> 提升至 <strong>184 tokens&#x2F;s（峰值）</strong>，提升超 9 倍。该路线为本地大模型从“玩具”迈向“核弹级生产力工具”提供了已验证的技术路径。</p><h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul><li>小天 fotos - Qwen 3.6 27B，多种优化方式，从 20t&#x2F;s 飙到 184t&#x2F;s，我是怎么做到的？ <em><a href="https://www.youtube.com/watch?v=edHNTFt5jYk">https://www.youtube.com/watch?v=edHNTFt5jYk</a></em></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;“&lt;em&gt;Local AI should be a default, not a privilege: private data, no per-token bill, no vendor lock-in. The hardware to run capable model</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>DNS_PROBE_FINISHED_NXDOMAIN error</title>
@@ -400,26 +420,6 @@
       
     <summary type="html">&lt;p&gt;Run &lt;code&gt;Proxmox VE Post Install&lt;/code&gt; script:&lt;/p&gt;
 &lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Running a Mac app from Unidentified Developer on MacOS Sequoia</title>
-    <link href="https://terrencemiao.github.io/blog/2024/09/19/Running-a-Mac-app-from-Unidentified-Developer-on-MacOS-Sequoia/"/>
-    <id>https://terrencemiao.github.io/blog/2024/09/19/Running-a-Mac-app-from-Unidentified-Developer-on-MacOS-Sequoia/</id>
-    <published>2024-09-19T00:16:23.000Z</published>
-    <updated>2024-09-19T00:34:04.803Z</updated>
-    
-    <content type="html"><![CDATA[<p>Latest <code>MacOS Sequoia</code> has made another security enforcement. To open and run a Mac application, e.g. <code>VLC</code> nightly build at <em><a href="https://nightlies.videolan.org/">https://nightlies.videolan.org/</a></em>, <strong>Unidentified Developer</strong> , the following steps can take.</p><ul><li>Enable “Allow Applications from Anywhere”</li></ul><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">base ~</span><br><span class="line">sudo spctl --master-disable</span><br><span class="line">Password:</span><br><span class="line">Globally disabling the assessment system needs to be confirmed in System Settings.</span><br></pre></td></tr></table></figure><p>Go to <strong>System Settings</strong> -&gt; <strong>Privacy &amp; Security</strong>, select “Allow Applications from Anywhere”:</p><p><img src="/blog/img/MacOS%20-%20Allow%20Applications%20from%20Anywhere.png" alt="MacOS - Allow Applications from Anywhere" title="MacOS - Allow Applications from Anywhere"></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">base ~</span><br><span class="line">sudo spctl --master-enable</span><br><span class="line">Password:</span><br><span class="line">This operation is no longer supported. Please see the man page for more information.</span><br></pre></td></tr></table></figure><ul><li>Disable MacOS Quarantine on the application</li></ul><p>In this case application <code>VLC</code>:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">base ~</span><br><span class="line">xattr -dr com.apple.quarantine /Applications/VLC.app</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;Latest &lt;code&gt;MacOS Sequoia&lt;/code&gt; has made another security enforcement. To open and run a Mac application, e.g. &lt;code&gt;VLC&lt;/code&gt; nightly</summary>
       
     
     
