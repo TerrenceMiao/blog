@@ -6,7 +6,7 @@
   <link href="https://terrencemiao.github.io/blog/atom.xml" rel="self"/>
   
   <link href="https://terrencemiao.github.io/blog/"/>
-  <updated>2026-04-26T05:59:17.857Z</updated>
+  <updated>2026-04-30T08:41:10.752Z</updated>
   <id>https://terrencemiao.github.io/blog/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Microsoft Power Automate - Last day of the month notification</title>
+    <link href="https://terrencemiao.github.io/blog/2026/04/30/Microsoft-Power-Automate-Last-day-of-the-month-notification/"/>
+    <id>https://terrencemiao.github.io/blog/2026/04/30/Microsoft-Power-Automate-Last-day-of-the-month-notification/</id>
+    <published>2026-04-30T08:15:38.000Z</published>
+    <updated>2026-04-30T08:41:10.752Z</updated>
+    
+    <content type="html"><![CDATA[<p>Setting up a scheduled cloud flow in <code>Microsoft Power Automate</code>, to send notification to <code>Microsoft Teams</code> group chat on every last day of the month.</p><p><img src="/blog/img/Power%20Automate%20-%20Workflow.png" alt="Power Automate - Workflow" title="Power Automate - Workflow"></p><p>For example, at 10:30am AEST, on April 30th 2006:</p><ul><li>Compose (get today’s day number) expression</li></ul><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">formatDateTime(convertTimeZone(utcNow(), &#x27;UTC&#x27;, &#x27;AUS Eastern Standard Time&#x27;), &#x27;dd&#x27;)</span><br></pre></td></tr></table></figure><p>The output of above compose is: <strong>“30”</strong></p><ul><li>Compose (calculate last day of current month) expression</li></ul><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">formatDateTime(addDays(startOfMonth(addToTime(convertTimeZone(utcNow(), &#x27;UTC&#x27;, &#x27;AUS Eastern Standard Time&#x27;), 1, &#x27;Month&#x27;)), -1, &#x27;yyyy-MM-dd&#x27;), &#x27;dd&#x27;)</span><br></pre></td></tr></table></figure><ol><li>utcNow(): Grabs the current date and time in UTC (e.g., 2026-04-30T00:30:00Z).</li><li>addToTime(…, 1, ‘Month’): Jumps forward exactly one month into the future (e.g., May 30th, 2026).</li><li>startOfMonth(…): Takes that future date and rewinds it to the very first day of that month (e.g., May 1st, 2026).</li><li>addDays(…, -1, ‘yyyy-MM-dd’): Subtracts exactly one day from the first of next month, landing perfectly on the last day of the current month. The ‘yyyy-MM-dd’ at the end formats the output neatly (e.g., 2026-04-30).</li><li>formatDateTime(…, ‘dd’): Extract just the day</li></ol><p>The output of above compose is: <strong>“30”</strong></p><ul><li>Compose (get today’s weekday number) expression</li></ul><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dayOfWeek(convertTimeZone(utcNow(), &#x27;UTC&#x27;, &#x27;AUS Eastern Standard Time&#x27;))</span><br></pre></td></tr></table></figure><p>The output of above compose is: <strong>4</strong></p><ul><li>Condition</li></ul><p><img src="/blog/img/Power%20Automate%20-%20Condition.png" alt="Power Automate - Condition" title="Power Automate - Condition"></p><ol><li>Output of Compose (get today’s day number) <strong>is equal to</strong>  Compose (calculate last day of current month) </li><li>Output of Compose (get today’s weekday number) <strong>is greater or equal to</strong> 1 (Monday)</li><li>Output of Compose (get today’s weekday number) <strong>is less or equal to</strong> 5 (Friday)</li></ol><ul><li>Notification</li></ul><p><img src="/blog/img/Power%20Automate%20-%20Notification.png" alt="Power Automate - Notification" title="Power Automate - Notification"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Setting up a scheduled cloud flow in &lt;code&gt;Microsoft Power Automate&lt;/code&gt;, to send notification to &lt;code&gt;Microsoft Teams&lt;/code&gt; group ch</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Qwen 3.6 27B，多种优化方式，从 20 t/s 飙到 184 t/s</title>
@@ -399,27 +419,6 @@
       
       
     <summary type="html">&lt;p&gt;By default, &lt;code&gt;Ollama&lt;/code&gt; is only accessible from &lt;strong&gt;localhost&lt;/strong&gt;. CORS error and HTTP 403 returned if try to invoke fro</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Proxmox VE Helper Scripts</title>
-    <link href="https://terrencemiao.github.io/blog/2024/09/27/Proxmox-VE-Helper-Scripts/"/>
-    <id>https://terrencemiao.github.io/blog/2024/09/27/Proxmox-VE-Helper-Scripts/</id>
-    <published>2024-09-27T12:58:54.000Z</published>
-    <updated>2025-05-18T06:04:47.897Z</updated>
-    
-    <content type="html"><![CDATA[<p>Run <code>Proxmox VE Post Install</code> script:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/tools/pve/post-pve-install.sh)&quot;</span><br></pre></td></tr></table></figure><h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul><li>Proxmox VE Helper-Scripts, <em><a href="https://github.com/community-scripts/ProxmoxVE">https://github.com/community-scripts/ProxmoxVE</a></em></li><li>Virtualizing OPNsense on Proxmox as Your Primary Router, <em><a href="https://www.youtube.com/watch?v=VcTGKBHcqmk">https://www.youtube.com/watch?v=VcTGKBHcqmk</a></em></li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;Run &lt;code&gt;Proxmox VE Post Install&lt;/code&gt; script:&lt;/p&gt;
-&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;</summary>
       
     
     
