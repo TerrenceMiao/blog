@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=330279473"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '330279473');
+</script>
+<!-- End Google Analytics -->
+
+  
+  <title>Gnome Remote Desktop on Ubuntu 26.04 | Terrence Miao&#39;s Adventures</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+    <meta name="description" content="Veni, vidi, vici">
+  
+  
+  
+    <link rel="alternate" href="/blog/atom.xml" title="Terrence Miao's Adventures" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/blog/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/blog/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.min.css">
+
+  
+  
+  
+  
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7274218747178099" crossorigin="anonymous"></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">Terrence Miao&#39;s Adventures</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/blog/" id="subtitle">A journey of a thousand miles begins with a single step</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/blog/."><i class="fa fa-home"></i> Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives/"><i class="fa fa-archive"></i> Archive</a>
+        
+          <a class="main-nav-link" href="/blog/about/"><i class="fa fa-user"></i> About</a>
+        
+          <a class="main-nav-link" href="/blog/atom.xml"><i class="fa fa-rss"></i> RSS</a>
+        
+      </nav>
+    </div>
+    <div id="search-form">
+      <div id="result-mask" class="hide"></div>
+      <label><input id="search-key" type="text" autocomplete="off" placeholder="search"></label>
+      <div id="result-wrap" class="hide">
+        <div id="search-result"></div>
+      </div>
+      <div class="hide">
+        <template id="search-tpl">
+          <div class="item">
+            <a href="/{path}" title="{title}">
+              <div class="title">{title}</div>
+              <div class="time">{date}</div>
+              <div class="tags">{tags}</div>
+            </a>
+          </div>
+        </template>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Gnome-Remote-Desktop-on-Ubuntu-26-04" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Gnome Remote Desktop on Ubuntu 26.04
+    </h1>
+  
+
+
+      </header>
+    
+    <div class="article-meta">
+      
+      <span class="article-date">
+  <i class="fa fa-date"></i>
+  <time class="dt-published" datetime="2026-06-02T02:05:43.000Z" itemprop="datePublished">2026-06-02</time>
+</span>
+      
+      
+        <span class="article-views">
+  <i class="fa fa-views"></i>
+  <i id="busuanzi_container_page_pv">
+      <i id="busuanzi_value_page_pv"></i>
+  </i>
+</span>
+
+      
+      
+<a href="/blog/2026/06/02/Gnome-Remote-Desktop-on-Ubuntu-26-04/#comments" class="article-comment-link">
+  
+    
+    
+      <i class="disqus-comment-count" data-disqus-identifier="/blog/2026/06/02/Gnome-Remote-Desktop-on-Ubuntu-26-04/"></i>
+    
+    
+    
+    
+  
+  <i class="fa fa-commt"></i>
+  Guestbook
+</a>
+
+
+    </div>
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>Latest <code>Ubuntu 26.04 LTS</code> has dropped the support of <strong>X11 Server</strong> and <strong>xRDP</strong> and moved to the adoption of <strong>Wayland Display Server</strong>.  Old approach with <strong>xRDP</strong> doesn’t work anymore. The solution &#x2F; fix is the new <strong>Gnome Remote Desktop</strong>.</p>
+<p><img src="/blog/img/Gnome%20Remote%20Desktop.png" alt="Gnome Remote Desktop" title="Gnome Remote Desktop"></p>
+<p>Generate Remote Desktop Server self-signed certificate:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ sudo openssl req -newkey rsa:2048 -nodes -keyout /var/lib/gnome-remote-desktop/rdp-tls.key -x509 -days 3650 -out /var/lib/gnome-remote-desktop/rdp-tls.crt -subj &quot;/CN=$(hostname)&quot;</span><br><span class="line"></span><br><span class="line">$ sudo chmod 600 /var/lib/gnome-remote-desktop/rdp-tls.key</span><br><span class="line">$ sudo chmod 644 /var/lib/gnome-remote-desktop/rdp-tls.crt</span><br></pre></td></tr></table></figure>
+
+<p>Register self-signed certificate with the system daemon:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ sudo grdctl --system rdp set-tls-key /var/lib/gnome-remote-desktop/rdp-tls.key</span><br><span class="line">$ sudo grdctl --system rdp set-tls-cert /var/lib/gnome-remote-desktop/rdp-tls.crt</span><br><span class="line"></span><br><span class="line">$ sudo grdctl --system rdp set-credentials $(whoami) rdp-user-password</span><br><span class="line"></span><br><span class="line">$ sudo grdctl --system rdp enable</span><br><span class="line">$ sudo systemctl restart gnome-remote-desktop.service</span><br></pre></td></tr></table></figure>
+
+<p>Show Remote Desktop Server status:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$ sudo grdctl --system status --show-credentials</span><br><span class="line">Overall:</span><br><span class="line">        Unit status: active</span><br><span class="line">RDP:</span><br><span class="line">        Status: enabled</span><br><span class="line">        Port: 3389</span><br><span class="line">        Authentication methods: credentials</span><br><span class="line">        TLS certificate: /var/lib/gnome-remote-desktop/rdp-tls.crt</span><br><span class="line">        TLS fingerprint: 71:f1:20:64:fe:e3:58:97:95:8d</span><br><span class="line">        TLS key: /var/lib/gnome-remote-desktop/rdp-tls.key</span><br><span class="line">        Kerberos keytab: (null)</span><br><span class="line">        Username: terrence</span><br><span class="line">        Password: rdp-user-password</span><br></pre></td></tr></table></figure>
+
+<p>When connect from <code>Windows App (Microsoft Remote Desktop)</code>, error thrown in log:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ sudo journalctl -u gnome-remote-desktop.service -f</span><br><span class="line">...</span><br><span class="line">Jun 02 12:40:22 NucBox gnome-remote-desktop-daemon[58071]: [RDP] Sending server redirection</span><br><span class="line">Jun 02 12:40:22 NucBox gnome-remote-desktop-daemon[58071]: [12:40:22:884] [58071:0004752e] [ERROR][com.freerdp.core.peer] - [rdp_set_error_info]: ERRINFO_LOGOFF_BY_USER [0x0001000C]</span><br><span class="line">Jun 02 12:40:22 NucBox gnome-remote-desktop-daemon[58071]: [RDP] Network or intentional disconnect, stopping session</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>NOTE:</strong>  According to AI, GNOME Remote Desktop <strong>–system</strong> mode uses Server Redirection — after you authenticate at the system level, it redirects the RDP client to your actual user session on a different internal port. Microsoft Remote Desktop on Mac sometimes rejects this redirection for self-signed certificates because the certificate on the redirected session doesn’t match what it expects. And use user-level approach instead.</p>
+</blockquote>
+<p>However, choose a different Remote Desktop Client like <code>Royal TSX</code> <em><a target="_blank" rel="noopener" href="https://royalapps.com/ts/mac/features">https://royalapps.com/ts/mac/features</a></em>, works fine.</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li>xRDP – Easy install xRDP on Ubuntu 22.04,24.04,25.10,26.04 (Script Version 1.6)- Maintenance Release <em><a target="_blank" rel="noopener" href="https://c-nergy.be/blog/?p=20369">https://c-nergy.be/blog/?p=20369</a></em></li>
+</ul>
+
+        
+            <div id="toc-article">
+                
+  <div class="widget-wrap" id="toc-wrap">
+    <h3 class="widget-title"><i class="fa fa-toc"></i> Contents</h3>
+    <div class="widget">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#References"><span class="toc-text">References</span></a></li></ol>
+    </div>
+  </div>
+
+
+            </div>
+        
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div class="article-tag-wrap">
+          
+
+          
+          
+
+
+        </div>
+      
+      
+        
+<nav id="article-nav">
+  
+    <a href="/blog/2026/05/29/Fast-and-Furious-way-to-import-and-export-AWS-DynamoDB-table/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">older</strong>
+      <div class="article-nav-title">
+        
+          Fast and Furious way to import and export AWS DynamoDB table
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+      
+      
+        
+
+
+
+  <div id="comments"><div id="disqus_thread"></div></div>
+
+
+
+
+
+
+      
+    </footer>
+  </div>
+</article>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title"><i class="fa fa-posts"></i> Recent</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2026/06/02/Gnome-Remote-Desktop-on-Ubuntu-26-04/">Gnome Remote Desktop on Ubuntu 26.04</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2026/05/29/Fast-and-Furious-way-to-import-and-export-AWS-DynamoDB-table/">Fast and Furious way to import and export AWS DynamoDB table</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2026/04/30/Microsoft-Power-Automate-Last-day-of-the-month-notification/">Microsoft Power Automate - Last day of the month notification</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2026/04/26/Qwen-3-6-27B%EF%BC%8C%E5%A4%9A%E7%A7%8D%E4%BC%98%E5%8C%96%E6%96%B9%E5%BC%8F%EF%BC%8C%E4%BB%8E-20t-s-%E9%A3%99%E5%88%B0-184t-s/">Qwen 3.6 27B，多种优化方式，从 20 t/s 飙到 184 t/s</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2026/04/21/DNS-PROBE-FINISHED-NXDOMAIN-error/">DNS_PROBE_FINISHED_NXDOMAIN error</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+  
+    
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title"><i class="fa fa-archive"></i> Archive</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2026/">2026</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2025/">2025</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2024/">2024</a><span class="archive-list-count">30</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2023/">2023</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/">2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/">2021</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/">2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/">2019</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/">2017</a><span class="archive-list-count">25</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title"><i class="fa fa-link"></i> Blogroll</h3>
+    <div class="widget">
+      <ul>
+      
+        <li>
+          <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/terrencemiao/">LinkedIn</a>
+        </li>
+      
+        <li>
+          <a target="_blank" rel="noopener" href="https://github.com/TerrenceMiao">GitHub</a>
+        </li>
+      
+        <li>
+          <a target="_blank" rel="noopener" href="https://twitter.com/TerrenceMiao">Twitter</a>
+        </li>
+      
+      </ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+        
+      </div>
+      <a id="totop" href="#top"></a>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      <p>
+        <a href="/blog/sitemap.xml">Site Map</a>
+        <span> | </span><a href="/blog/atom.xml">Subscribe to this site</a>
+        <span> | </span><a href="/blog/about/">Contact the blogger</a>
+      </p>
+      
+        <p>
+          <i class="fa fa-visitors"></i>
+          <i id="busuanzi_container_site_uv"><i id="busuanzi_value_site_uv"></i></i>
+          ，
+          <i class="fa fa-views"></i>
+          <i id="busuanzi_container_site_pv"><i id="busuanzi_value_site_pv"></i></i>
+        </p>
+      
+      <p>
+        <span>Copyright &copy; 2026 Terrence Miao.</span>
+        <span>Theme by <a href="https://github.com/chaooo/hexo-theme-BlueLake/" target="_blank">BlueLake.</a></span>
+        <span>Powered by <a href="https://hexo.io/" target="_blank">Hexo.</a></span>
+      </p>
+    </div>
+  </div>
+</footer>
+
+    </div>
+  </div>
+  
+<script src="/blog/js/jquery-3.4.1.min.js"></script>
+
+
+<script src="/blog/js/search.json.js"></script>
+
+
+  
+<script src="/blog/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/blog/js/script.js"></script>
+
+
+
+
+
+
+  
+<script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+
+  
+
+  
+    <script>
+      var disqus_shortname = 'terrencemiao';
+      
+        var disqus_url = 'https://terrencemiao.github.io/blog/2026/06/02/Gnome-Remote-Desktop-on-Ubuntu-26-04/';
+      
+      (function(){
+        var dsq = document.createElement('script');
+        dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+
+
+
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+  <script src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML" async type="text/javascript"></script>
+
+</body>
+</html>
