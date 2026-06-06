@@ -13,8 +13,8 @@ Generate Remote Desktop Server self-signed certificate:
 ```
 $ sudo openssl req -newkey rsa:2048 -nodes -keyout /var/lib/gnome-remote-desktop/rdp-tls.key -x509 -days 3650 -out /var/lib/gnome-remote-desktop/rdp-tls.crt -subj "/CN=$(hostname)"
 
-$ sudo chmod 600 /var/lib/gnome-remote-desktop/rdp-tls.key
-$ sudo chmod 644 /var/lib/gnome-remote-desktop/rdp-tls.crt
+$ sudo chown gnome-remote-desktop:gnome-remote-desktop /var/lib/gnome-remote-desktop/rdp-tls.key
+$ sudo chown gnome-remote-desktop:gnome-remote-desktop /var/lib/gnome-remote-desktop/rdp-tls.crt
 ```
 
 Register self-signed certificate with the system daemon:
@@ -27,6 +27,18 @@ $ sudo grdctl --system rdp set-credentials $(whoami) rdp-user-password
 
 $ sudo grdctl --system rdp enable
 $ sudo systemctl restart gnome-remote-desktop.service
+```
+
+After Gnome Remote Desktop restarted, in the log:
+
+```
+$ sudo journalctl -u gnome-remote-desktop.service -f
+...
+Jun 06 22:21:17 Aorus systemd[1]: Starting gnome-remote-desktop.service - GNOME Remote Desktop...
+Jun 06 22:21:17 Aorus gnome-remote-desktop-daemon[24618]: Init TPM credentials failed because Failed to initialize transmission interface context: tcti:IO failure, using GKeyFile as fallback
+Jun 06 22:21:17 Aorus systemd[1]: Started gnome-remote-desktop.service - GNOME Remote Desktop.
+Jun 06 22:21:17 Aorus gnome-remote-desktop-daemon[24618]: RDP server started
+
 ```
 
 Show Remote Desktop Server status:
