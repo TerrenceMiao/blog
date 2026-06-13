@@ -15,7 +15,7 @@
 <!-- End Google Analytics -->
 
   
-  <title>Archive: 2026/4 | Terrence Miao&#39;s Adventures</title>
+  <title>Running remote X Window applications locally on Mac | Terrence Miao&#39;s Adventures</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   
     <meta name="description" content="Veni, vidi, vici">
@@ -96,71 +96,144 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-
-  
-  
+        <section id="main"><article id="post-Running-remote-X-Window-applications-locally-on-Mac" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner">
     
     
-    <section class="archives-wrap">
-      <div class="archive-title">
+      <header class="article-header">
         
-          <i class="fa fa-date"></i>
-          2026
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Running remote X Window applications locally on Mac
+    </h1>
+  
+
+
+      </header>
+    
+    <div class="article-meta">
+      
+      <span class="article-date">
+  <i class="fa fa-date"></i>
+  <time class="dt-published" datetime="2026-06-13T10:26:04.000Z" itemprop="datePublished">2026-06-13</time>
+</span>
+      
+      
+        <span class="article-views">
+  <i class="fa fa-views"></i>
+  <i id="busuanzi_container_page_pv">
+      <i id="busuanzi_value_page_pv"></i>
+  </i>
+</span>
+
+      
+      
+<a href="/blog/2026/06/13/Running-remote-X-Window-applications-locally-on-Mac/#comments" class="article-comment-link">
+  
+    
+    
+      <i class="disqus-comment-count" data-disqus-identifier="/blog/2026/06/13/Running-remote-X-Window-applications-locally-on-Mac/"></i>
+    
+    
+    
+    
+  
+  <i class="fa fa-commt"></i>
+  Guestbook
+</a>
+
+
+    </div>
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>On Mac, install <code>XQuartz</code> from <em><a target="_blank" rel="noopener" href="https://www.xquartz.org/">https://www.xquartz.org/</a></em></p>
+<p>On remote Linux host <strong>Aorus.local</strong>, make sure:</p>
+<ul>
+<li>$DISPLAY</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ echo $DISPLAY</span><br><span class="line">localhost:10.0</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>$XAUTHORITY</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ echo $XAUTHORITY</span><br><span class="line">/home/terrence/.Xauthority</span><br><span class="line"></span><br><span class="line">$ ls -al /home/terrence/.Xauthority</span><br><span class="line">-rw------- 1 terrence terrence 51 Jun 13 20:11 /home/terrence/.Xauthority</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>sshd_config</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ grep -iE &#x27;X11Forwarding|X11UseLocalhost|XAuthLocation&#x27; /etc/ssh/sshd_config</span><br><span class="line">X11Forwarding yes</span><br><span class="line">X11UseLocalhost yes</span><br><span class="line"></span><br><span class="line">$ sudo systemctl restart sshd</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>xauth</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ which xauth</span><br><span class="line">/usr/bin/xauth</span><br><span class="line"></span><br><span class="line">$ xauth list</span><br><span class="line">Aorus/unix:10  MIT-MAGIC-COOKIE-1  27e55a1edf7347d27957e71637f99ab2</span><br><span class="line"></span><br><span class="line">$ xauth add localhost:10 MIT-MAGIC-COOKIE-1 27e55a1edf7347d27957e71637f99ab2</span><br></pre></td></tr></table></figure>
+
+<p>Then on Mac run:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -Y Aorus.local</span><br></pre></td></tr></table></figure>
+
+<p>On Aorus.local:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ firefox</span><br></pre></td></tr></table></figure>
+
+        
+            <div id="toc-article">
+                
+  <div class="widget-wrap" id="toc-wrap">
+    <h3 class="widget-title"><i class="fa fa-toc"></i> Contents</h3>
+    <div class="widget">
+      
+    </div>
+  </div>
+
+
+            </div>
+        
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div class="article-tag-wrap">
+          
+
+          
+          
+
+
+        </div>
+      
+      
+        
+<nav id="article-nav">
+  
+    <a href="/blog/2026/06/02/Gnome-Remote-Desktop-on-Ubuntu-26-04/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">older</strong>
+      <div class="article-nav-title">
+        
+          Gnome Remote Desktop on Ubuntu 26.04
         
       </div>
-      <div class="archives">
-  
-  <ul class="archive-article archive-type-post">
-  <li class="archive-article-inner">
-    <a href="/blog/2026/04/30/Microsoft-Power-Automate-Last-day-of-the-month-notification/">
-      <time class="dt-published" datetime="2026-04-30T08:15:38.000Z" itemprop="datePublished">2026-04-30</time>
-      | <span class="archive-article-title">Microsoft Power Automate - Last day of the month notification</span>
     </a>
-  </li>
-</ul>
-
-
   
   
-  <ul class="archive-article archive-type-post">
-  <li class="archive-article-inner">
-    <a href="/blog/2026/04/26/Qwen-3-6-27B%EF%BC%8C%E5%A4%9A%E7%A7%8D%E4%BC%98%E5%8C%96%E6%96%B9%E5%BC%8F%EF%BC%8C%E4%BB%8E-20t-s-%E9%A3%99%E5%88%B0-184t-s/">
-      <time class="dt-published" datetime="2026-04-26T05:19:42.000Z" itemprop="datePublished">2026-04-26</time>
-      | <span class="archive-article-title">Qwen 3.6 27B，多种优化方式，从 20 t/s 飙到 184 t/s</span>
-    </a>
-  </li>
-</ul>
+</nav>
 
-
-  
-  
-  <ul class="archive-article archive-type-post">
-  <li class="archive-article-inner">
-    <a href="/blog/2026/04/21/DNS-PROBE-FINISHED-NXDOMAIN-error/">
-      <time class="dt-published" datetime="2026-04-21T00:41:11.000Z" itemprop="datePublished">2026-04-21</time>
-      | <span class="archive-article-title">DNS_PROBE_FINISHED_NXDOMAIN error</span>
-    </a>
-  </li>
-</ul>
-
-
-  
-  
-  <ul class="archive-article archive-type-post">
-  <li class="archive-article-inner">
-    <a href="/blog/2026/04/14/How-to-fix-unknown-terminal-type-error-when-Ghostty-logon-AWS-EC2/">
-      <time class="dt-published" datetime="2026-04-14T05:19:12.000Z" itemprop="datePublished">2026-04-14</time>
-      | <span class="archive-article-title">How to fix &#39;unknown terminal type&#39; error when Ghostty logon AWS EC2</span>
-    </a>
-  </li>
-</ul>
+      
+      
+        
 
 
 
-  </div></section>
+  <div id="comments"><div id="disqus_thread"></div></div>
 
 
+
+
+
+
+      
+    </footer>
+  </div>
+</article>
 </section>
         
           <aside id="sidebar">
@@ -298,6 +371,9 @@
 
 
 
+  
+  
+
 
 
   
@@ -310,10 +386,12 @@
     <script>
       var disqus_shortname = 'terrencemiao';
       
+        var disqus_url = 'https://terrencemiao.github.io/blog/2026/06/13/Running-remote-X-Window-applications-locally-on-Mac/';
+      
       (function(){
         var dsq = document.createElement('script');
         dsq.async = true;
-        dsq.src = 'https://' + disqus_shortname + '.disqus.com/count.js';
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
       })();
     </script>

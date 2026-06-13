@@ -6,7 +6,7 @@
   <link href="https://terrencemiao.github.io/blog/atom.xml" rel="self"/>
   
   <link href="https://terrencemiao.github.io/blog/"/>
-  <updated>2026-06-06T12:22:15.146Z</updated>
+  <updated>2026-06-13T10:45:32.275Z</updated>
   <id>https://terrencemiao.github.io/blog/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Running remote X Window applications locally on Mac</title>
+    <link href="https://terrencemiao.github.io/blog/2026/06/13/Running-remote-X-Window-applications-locally-on-Mac/"/>
+    <id>https://terrencemiao.github.io/blog/2026/06/13/Running-remote-X-Window-applications-locally-on-Mac/</id>
+    <published>2026-06-13T10:26:04.000Z</published>
+    <updated>2026-06-13T10:45:32.275Z</updated>
+    
+    <content type="html"><![CDATA[<p>On Mac, install <code>XQuartz</code> from <em><a href="https://www.xquartz.org/">https://www.xquartz.org/</a></em></p><p>On remote Linux host <strong>Aorus.local</strong>, make sure:</p><ul><li>$DISPLAY</li></ul><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ echo $DISPLAY</span><br><span class="line">localhost:10.0</span><br></pre></td></tr></table></figure><ul><li>$XAUTHORITY</li></ul><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ echo $XAUTHORITY</span><br><span class="line">/home/terrence/.Xauthority</span><br><span class="line"></span><br><span class="line">$ ls -al /home/terrence/.Xauthority</span><br><span class="line">-rw------- 1 terrence terrence 51 Jun 13 20:11 /home/terrence/.Xauthority</span><br></pre></td></tr></table></figure><ul><li>sshd_config</li></ul><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ grep -iE &#x27;X11Forwarding|X11UseLocalhost|XAuthLocation&#x27; /etc/ssh/sshd_config</span><br><span class="line">X11Forwarding yes</span><br><span class="line">X11UseLocalhost yes</span><br><span class="line"></span><br><span class="line">$ sudo systemctl restart sshd</span><br></pre></td></tr></table></figure><ul><li>xauth</li></ul><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ which xauth</span><br><span class="line">/usr/bin/xauth</span><br><span class="line"></span><br><span class="line">$ xauth list</span><br><span class="line">Aorus/unix:10  MIT-MAGIC-COOKIE-1  27e55a1edf7347d27957e71637f99ab2</span><br><span class="line"></span><br><span class="line">$ xauth add localhost:10 MIT-MAGIC-COOKIE-1 27e55a1edf7347d27957e71637f99ab2</span><br></pre></td></tr></table></figure><p>Then on Mac run:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -Y Aorus.local</span><br></pre></td></tr></table></figure><p>On Aorus.local:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ firefox</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;On Mac, install &lt;code&gt;XQuartz&lt;/code&gt; from &lt;em&gt;&lt;a href=&quot;https://www.xquartz.org/&quot;&gt;https://www.xquartz.org/&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;On remote Linux</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Gnome Remote Desktop on Ubuntu 26.04</title>
@@ -400,26 +421,6 @@
       
     <summary type="html">&lt;p&gt;Current IPv6 setting on TP-Link Router, connecting to &lt;strong&gt;Buddy Telco &amp;#x2F; Aussie Broadband&lt;/strong&gt; ISP.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;/blog/im</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Turn On and Turn Off Recall in Windows 11</title>
-    <link href="https://terrencemiao.github.io/blog/2024/10/26/Turn-On-and-Turn-Off-Recall-in-Windows-11/"/>
-    <id>https://terrencemiao.github.io/blog/2024/10/26/Turn-On-and-Turn-Off-Recall-in-Windows-11/</id>
-    <published>2024-10-25T14:15:03.000Z</published>
-    <updated>2024-10-25T15:18:33.738Z</updated>
-    
-    <content type="html"><![CDATA[<p>Turn On <strong>Recall</strong> feature in <code>Windows 11 24H2</code>, by running Widnows Power Shell as <strong>Administrator</strong>:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">PS C:\&gt; DISM /Online /Get-FeatureInfo /FeatureName:Recall</span><br><span class="line"></span><br><span class="line">Deployment Image Servicing and Management tool</span><br><span class="line">Version: 10.0.26100.1150</span><br><span class="line"></span><br><span class="line">Image Version: 10.0.26100.2033</span><br><span class="line"></span><br><span class="line">Feature Information:</span><br><span class="line"></span><br><span class="line">Feature Name : Recall</span><br><span class="line">Display Name : Recall</span><br><span class="line">Description : Recall application.</span><br><span class="line">Restart Required : Possible</span><br><span class="line">State : Enabled</span><br><span class="line"></span><br><span class="line">Custom Properties:</span><br><span class="line"></span><br><span class="line">(No custom properties found)</span><br><span class="line"></span><br><span class="line">The operation completed successfully.</span><br></pre></td></tr></table></figure><p>Turn Off <strong>Recall</strong> in <code>Windows 11 24H2</code>:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">PS C:\&gt; DISM /Online /Disable-Feature /FeatureName:Recall</span><br><span class="line"></span><br><span class="line">Deployment Image Servicing and Management tool</span><br><span class="line">Version: 10.0.26100.1150</span><br><span class="line"></span><br><span class="line">Image Version: 10.0.26100.2033</span><br><span class="line"></span><br><span class="line">Disabling feature(s)</span><br><span class="line">[==========================100.0%==========================]</span><br><span class="line">The operation completed successfully.</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;Turn On &lt;strong&gt;Recall&lt;/strong&gt; feature in &lt;code&gt;Windows 11 24H2&lt;/code&gt;, by running Widnows Power Shell as &lt;strong&gt;Administrator&lt;/strong&gt;</summary>
       
     
     
