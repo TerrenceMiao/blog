@@ -1,3 +1,4 @@
+https://terrencemiao.github.io/blog/2026/06/14/Quick-way-convert-Copilot-skill-prompt-to-work-with-Kilo-Code/
 https://terrencemiao.github.io/blog/2026/06/13/Running-remote-X-Window-applications-locally-on-Mac/
 https://terrencemiao.github.io/blog/2026/06/02/Gnome-Remote-Desktop-on-Ubuntu-26-04/
 https://terrencemiao.github.io/blog/2026/05/29/Fast-and-Furious-way-to-import-and-export-AWS-DynamoDB-table/

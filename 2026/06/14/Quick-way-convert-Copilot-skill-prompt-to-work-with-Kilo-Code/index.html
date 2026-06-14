@@ -15,7 +15,7 @@
 <!-- End Google Analytics -->
 
   
-  <title>Add final and javadoc for auto-generated getters and setters in IntelliJ | Terrence Miao&#39;s Adventures</title>
+  <title>Quick way convert Copilot skill/prompt to work with Kilo Code | Terrence Miao&#39;s Adventures</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   
     <meta name="description" content="Veni, vidi, vici">
@@ -96,7 +96,7 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-Add-final-and-javadoc-for-auto-generated-getters-and-setters-in-IntelliJ" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-Quick-way-convert-Copilot-skill-prompt-to-work-with-Kilo-Code" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-inner">
     
     
@@ -104,7 +104,7 @@
         
   
     <h1 class="p-name article-title" itemprop="headline name">
-      Add final and javadoc for auto-generated getters and setters in IntelliJ
+      Quick way convert Copilot skill/prompt to work with Kilo Code
     </h1>
   
 
@@ -115,7 +115,7 @@
       
       <span class="article-date">
   <i class="fa fa-date"></i>
-  <time class="dt-published" datetime="2019-01-10T23:29:06.000Z" itemprop="datePublished">2019-01-11</time>
+  <time class="dt-published" datetime="2026-06-14T04:39:35.000Z" itemprop="datePublished">2026-06-14</time>
 </span>
       
       
@@ -128,11 +128,11 @@
 
       
       
-<a href="/blog/2019/01/11/Add-final-and-javadoc-for-auto-generated-getters-and-setters-in-IntelliJ/#comments" class="article-comment-link">
+<a href="/blog/2026/06/14/Quick-way-convert-Copilot-skill-prompt-to-work-with-Kilo-Code/#comments" class="article-comment-link">
   
     
     
-      <i class="disqus-comment-count" data-disqus-identifier="/blog/2019/01/11/Add-final-and-javadoc-for-auto-generated-getters-and-setters-in-IntelliJ/"></i>
+      <i class="disqus-comment-count" data-disqus-identifier="/blog/2026/06/14/Quick-way-convert-Copilot-skill-prompt-to-work-with-Kilo-Code/"></i>
     
     
     
@@ -146,18 +146,21 @@
     </div>
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h2 id="Default-final-modifier"><a href="#Default-final-modifier" class="headerlink" title="Default final modifier"></a>Default final modifier</h2><p>To satisfy Checkstyle setup. In IntelliJ (version 2018.3.2) Preferences | Editor &gt; Code Style &gt; Java, select “Code Generation” tab, check “Make generated parameters final”</p>
-<p><img src="/blog/img/IntelliJ%20-%20final%20modifier.png" alt="Final Modifier" title="Final Modifier"></p>
-<h2 id="javadoc-for-auto-generated-getters-and-setters"><a href="#javadoc-for-auto-generated-getters-and-setters" class="headerlink" title="javadoc for auto-generated getters and setters"></a>javadoc for auto-generated getters and setters</h2><p>Create customised Getter Template:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">* Gets $field.name.</span><br><span class="line">*</span><br><span class="line">* @return value of $field.name</span><br><span class="line">*/</span><br><span class="line">#if($field.modifierStatic)</span><br><span class="line">static ##</span><br><span class="line">#end</span><br><span class="line">$field.type ##</span><br><span class="line">#set($name = $StringUtil.capitalizeWithJavaBeanConvention($StringUtil.sanitizeJavaIdentifier($helper.getPropertyName($field, $project))))</span><br><span class="line">#if ($field.boolean &amp;&amp; $field.primitive)</span><br><span class="line">    is##</span><br><span class="line">#else</span><br><span class="line">    get##</span><br><span class="line">#end</span><br><span class="line">$&#123;name&#125;() &#123;</span><br><span class="line">    return $field.name;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>Kilo Code<code>doesn&#39;t natively read **.github-based** Copilot skill/prompt/workflow/convention files — that format is specific to</code>GitHub Copilot&#96;’s custom instructions&#x2F;prompts system.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">$ tree .github</span><br><span class="line">.github</span><br><span class="line">├── conventions</span><br><span class="line">│   ├── component-test-patterns.md</span><br><span class="line">│   ├── test-anti-patterns.md</span><br><span class="line">│   └── unit-test-conventions.md</span><br><span class="line">├── prompts</span><br><span class="line">│   ├── gen-it-tests.prompt.md</span><br><span class="line">│   ├── gen-unit-tests.prompt.md</span><br><span class="line">│   ├── it-coverage-gap-analysis.prompt.md</span><br><span class="line">│   ├── unit-test-coverage-gap-analysis.prompt.md</span><br><span class="line">│   └── uplift-unit-tests.prompt.md</span><br><span class="line">└── skills</span><br><span class="line">    ├── integration-test-coverage-analysis</span><br><span class="line">    │   ├── integration-test-coverage-classifier.md</span><br><span class="line">    │   ├── integration-test-dependency-extractor.md</span><br><span class="line">    │   ├── integration-test-evidence-collector.md</span><br><span class="line">    │   ├── integration-test-freshness-checker.md</span><br><span class="line">    │   ├── integration-test-gap-report-writer.md</span><br><span class="line">    │   ├── integration-test-gateway-scanner.md</span><br><span class="line">    │   ├── integration-test-scope-validator.md</span><br><span class="line">    │   ├── SKILL.md</span><br><span class="line">    │   └── templates</span><br><span class="line">    │       ├── Component-test-analysis.md</span><br><span class="line">    │       └── IT-analysis.md</span><br><span class="line">    ├── integration-test-generator</span><br><span class="line">    │   ├── integration-test-code-generator.md</span><br><span class="line">    │   ├── integration-test-gap-discoverer.md</span><br><span class="line">    │   ├── integration-test-option-selector.md</span><br><span class="line">    │   ├── integration-test-plan-builder.md</span><br><span class="line">    │   └── SKILL.md</span><br><span class="line">    ├── shared</span><br><span class="line">    │   ├── diff-analysis-ci.md</span><br><span class="line">    │   ├── diff-analysis-ide.md</span><br><span class="line">    │   ├── test-quality-rules.md</span><br><span class="line">    │   └── tiered-model-strategy.md</span><br><span class="line">    ├── unit-test-coverage-analysis</span><br><span class="line">    │   ├── SKILL.md</span><br><span class="line">    │   ├── templates</span><br><span class="line">    │   │   └── unit-test-coverage-analysis-report.md</span><br><span class="line">    │   ├── unit-test-codebase-analysis.md</span><br><span class="line">    │   ├── unit-test-coverage-analysis-preflight.md</span><br><span class="line">    │   ├── unit-test-diff-scope-analysis.md</span><br><span class="line">    │   ├── unit-test-project-discovery.md</span><br><span class="line">    │   └── unit-test-report-synthesis.md</span><br><span class="line">    └── unit-test-generator</span><br><span class="line">        ├── SKILL.md</span><br><span class="line">        ├── unit-test-code-generator.md</span><br><span class="line">        ├── unit-test-diff-coverage-resolver.md</span><br><span class="line">        ├── unit-test-infrastructure-setup.md</span><br><span class="line">        ├── unit-test-post-generation-verification.md</span><br><span class="line">        └── unit-test-refactor-specialist.md</span><br><span class="line"></span><br><span class="line">11 directories, 40 files</span><br></pre></td></tr></table></figure>
 
-<p><img src="/blog/img/IntelliJ%20-%20Getter%20Template.png" alt="Getter Template" title="Getter Template"></p>
-<p>Create customised Setter Template:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">* Sets $field.name.</span><br><span class="line">*</span><br><span class="line">* @param $field.name value of $field.name</span><br><span class="line">*/</span><br><span class="line">#set($paramName = $helper.getParamName($field, $project))</span><br><span class="line">#if($field.modifierStatic)</span><br><span class="line">static ##</span><br><span class="line">#end</span><br><span class="line">void set$StringUtil.capitalizeWithJavaBeanConvention($StringUtil.sanitizeJavaIdentifier($helper.getPropertyName($field, $project)))($field.type $paramName) &#123;</span><br><span class="line">#if ($field.name == $paramName)</span><br><span class="line">    #if (!$field.modifierStatic)</span><br><span class="line">    this.##</span><br><span class="line">    #else</span><br><span class="line">        $classname.##</span><br><span class="line">    #end</span><br><span class="line">#end</span><br><span class="line">$field.name = $paramName;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>A quick way to convert to <code>Kilo Code</code> custom way:</p>
+<ul>
+<li>Add <code>Kilo Code</code> directory structure</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ln -s .github .kilo</span><br></pre></td></tr></table></figure>
 
-<p><img src="/blog/img/IntelliJ%20-%20Setter%20Template.png" alt="Setter Template" title="Setter Template"></p>
-<p>Use the customised Getter and Setter templates when automatically generate getters and setters:</p>
-<p><img src="/blog/img/IntelliJ%20-%20auto-generated%20getters%20setters.png" alt="auto-generated getters setters" title="auto-generated getters setters"></p>
+<ul>
+<li>Convert prompt to <code>Kilo Code</code> custom slash command</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cd .github</span><br><span class="line"></span><br><span class="line">$ ln -s prompts commands</span><br></pre></td></tr></table></figure>
+
+<p>In <code>Kilo Code</code> chat window, then can find and run command e.g. <code>/gen-unit-tests</code>.</p>
 
         
             <div id="toc-article">
@@ -165,7 +168,7 @@
   <div class="widget-wrap" id="toc-wrap">
     <h3 class="widget-title"><i class="fa fa-toc"></i> Contents</h3>
     <div class="widget">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Default-final-modifier"><span class="toc-text">Default final modifier</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#javadoc-for-auto-generated-getters-and-setters"><span class="toc-text">javadoc for auto-generated getters and setters</span></a></li></ol>
+      
     </div>
   </div>
 
@@ -190,24 +193,15 @@
         
 <nav id="article-nav">
   
-    <a href="/blog/2019/01/01/Year-2018-in-the-Rear-View-Mirror/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/blog/2026/06/13/Running-remote-X-Window-applications-locally-on-Mac/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">older</strong>
       <div class="article-nav-title">
         
-          Year 2018 in the Rear View Mirror
+          Running remote X Window applications locally on Mac
         
       </div>
     </a>
   
-  
-    <a href="/blog/2019/01/11/Keep-running/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">newer</strong>
-      <div class="article-nav-title">
-        
-          Keep running
-        
-      </div>
-    </a>
   
 </nav>
 
@@ -380,7 +374,7 @@
     <script>
       var disqus_shortname = 'terrencemiao';
       
-        var disqus_url = 'https://terrencemiao.github.io/blog/2019/01/11/Add-final-and-javadoc-for-auto-generated-getters-and-setters-in-IntelliJ/';
+        var disqus_url = 'https://terrencemiao.github.io/blog/2026/06/14/Quick-way-convert-Copilot-skill-prompt-to-work-with-Kilo-Code/';
       
       (function(){
         var dsq = document.createElement('script');
