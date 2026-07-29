@@ -141,6 +141,11 @@
 <p>The <strong>-108</strong> error sometimes is caused by the BT USB device not being reset properly at boot. Try a full module reload in correct order:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ sudo systemctl stop bluetooth</span><br><span class="line"></span><br><span class="line">$ sudo lsof /dev/rfkill 2&gt;/dev/null</span><br><span class="line"></span><br><span class="line">$ sudo modprobe -r btusb</span><br><span class="line">$ sudo modprobe -r btmtk</span><br><span class="line"></span><br><span class="line">$ sudo modprobe btmtk</span><br><span class="line">$ sudo modprobe btusb</span><br><span class="line"></span><br><span class="line">$ sudo systemctl start bluetooth</span><br></pre></td></tr></table></figure>
 
+<p>Other error like:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ dmesg | grep -i -E &quot;bluetooth|mt7925|btmtk|firmware&quot;</span><br><span class="line">...</span><br><span class="line">Bluetooth: hci0: Failed to get fw version (-108) [    8.050441] </span><br><span class="line">Bluetooth: hci0: HCI Enhanced Setup Synchronous Connection command is advertised, but not supported.</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>can be addressed in the same approach above.</p>
+
         
         
       
