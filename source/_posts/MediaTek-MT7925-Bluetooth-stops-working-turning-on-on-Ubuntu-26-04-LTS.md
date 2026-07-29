@@ -61,3 +61,15 @@ $ sudo modprobe btusb
 
 $ sudo systemctl start bluetooth
 ```
+
+Other error like:
+
+```
+$ dmesg | grep -i -E "bluetooth|mt7925|btmtk|firmware"
+...
+Bluetooth: hci0: Failed to get fw version (-108) [    8.050441] 
+Bluetooth: hci0: HCI Enhanced Setup Synchronous Connection command is advertised, but not supported.
+...
+```
+
+can be addressed in the same approach above.
