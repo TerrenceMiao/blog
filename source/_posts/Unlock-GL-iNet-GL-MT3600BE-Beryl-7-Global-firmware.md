@@ -104,9 +104,17 @@ US
 
 ![GL.iNet GL-MT3600BE Toggle Button Settings Mobile](/img/GL.iNet%20GL-MT3600BE%20Toggle%20Button%20Mobile.png "GL.iNet GL-MT3600BE Toggle Button Settings Mobile")
 
+> **_NOTE:_** Disable **IPv6** when install iStoreOS, e.g. from GL-iNet 系列路由器一键 iStoreOS 风格化脚本 https://github.com/wukongdaily/gl-inet-onescript
+
+```
+$ sh -c "$(curl -fsSL https://cafe.cpolar.cn/wkdaily/gl/raw/branch/main/mt3600.sh)"
+```
+
 
 References
 ----------
 
 - [Guide] Region Unlock GL-MT3600BE (Beryl 7) CN to Global _https://www.reddit.com/r/GlInet/comments/1qfeva7/guide_region_unlock_glmt3600be_beryl_7_cn_to/_
-- GL.iNet 国行版和国际版，我越对比越不对劲 _https://www.youtube.com/watch?v=n5qruWaG-ok_
+- yksten - GL.iNet 国行版和国际版，我越对比越不对劲 _https://www.youtube.com/watch?v=n5qruWaG-ok_
+- WukongDaily - MT3600BE脚本使用指南 零基础完整版 _https://www.youtube.com/watch?v=MTtEUsi4V8o_
+- Cloud Run Files Builder 工作流同步各位大佬项目里最新编译的 ipk 文件，生成适用于 OpenWrt 用的 run 自解压包 _https://github.com/wkccd/CloudRunFilesBuilder_
