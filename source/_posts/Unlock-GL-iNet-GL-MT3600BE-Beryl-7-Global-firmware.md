@@ -108,7 +108,33 @@ US
 
 ```
 $ sh -c "$(curl -fsSL https://cafe.cpolar.cn/wkdaily/gl/raw/branch/main/mt3600.sh)"
+
+***********************************************************************
+*      一键安装工具箱(for gl-inet MT3600BE)  by @wukongdaily
+**********************************************************************
+*******支持的机型列表***************************************************
+*******GL-iNet MT3600BE********
+
+ 1. GL-iNet MT3600BE 一键iStoreOS风格化
+
+ 2. 安装argon紫色主题
+
+ 3. 单独安装iStore商店
+
+ 4. 隐藏首页格式化按钮
+
+ 5. 设置风扇工作温度
+
+ 6. 安装个性化UI辅助插件(by VMatrices)
+
+ 7. 恢复出厂设置/重置路由器
+
+ Q. 退出本程序
+
+请选择一个选项:
 ```
+
+![GL.iNet GL-MT3600BE Services](/img/GL.iNet%20GL-MT3600BE%20Services.png "GL.iNet GL-MT3600BE Services")
 
 
 References
