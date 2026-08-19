@@ -62,7 +62,7 @@ $ sudo modprobe btusb
 $ sudo systemctl start bluetooth
 ```
 
-Other error like:
+Other like (-108) error:
 
 ```
 $ dmesg | grep -i -E "bluetooth|mt7925|btmtk|firmware"
@@ -73,3 +73,46 @@ Bluetooth: hci0: HCI Enhanced Setup Synchronous Connection command is advertised
 ```
 
 can be addressed in the same approach above.
+
+Other like (-110) error:
+
+```
+$ dmesg | grep -i -E "bluetooth|mt7925|btmtk|firmware"
+...
+Bluetooth: hci0: Execution of wmt command timed out 
+Bluetooth: hci0: Failed to send wmt patch dwnld (-110) 
+Bluetooth: hci0: Failed to set up firmware (-110) 
+Bluetooth: hci0: HCI Enhanced Setup Synchronous Connection command is advertised, but not supported.
+...
+
+$ rfkill unblock bluetooth
+
+$ rfkill
+ID TYPE      DEVICE      SOFT      HARD
+ 0 bluetooth hci0   unblocked unblocked
+ 1 wlan      phy0   unblocked unblocked
+
+$ hciconfig
+hci0:   Type: Primary  Bus: USB
+        BD Address: 00:00:00:00:00:00  ACL MTU: 0:0  SCO MTU: 0:0
+        DOWN
+        RX bytes:0 acl:0 sco:0 events:0 errors:0
+        TX bytes:61 acl:0 sco:0 commands:1 errors:0
+
+$ sudo hciconfig -a hci0 up
+Can't init device hci0: Connection timed out (110)
+```
+
+Fix it by **Hardware Power Reset**:
+
+Often, MediaTek and other PCIe/USB combo cards get stuck in a low-power or un-responsive state that a simple reboot misses because power remains supplied to the motherboard.
+
+- Shut down your computer completely.
+- Unplug the power cable (and/or turn off the laptop and unplug the charger). Hold down the physical power button for 30 to 45 seconds to drain all residual charge from the system board.
+- Turn the machine back on and boot into Ubuntu.
+
+
+References
+----------
+
+- Bluetooth failure on reboot - Kernel 6.11.0-17 - Mediatek 7921 https://discourse.ubuntu.com/t/bluetooth-failure-on-reboot-kernel-6-11-0-17-mediatek-7921/55462
