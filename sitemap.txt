@@ -1,3 +1,4 @@
+https://terrencemiao.github.io/blog/2026/08/27/Setting-up-3x-ui-server-at-home-internet-on-IPv6-without-dedicated-VPS/
 https://terrencemiao.github.io/blog/2026/06/22/MediaTek-MT7925-Bluetooth-stops-working-turning-on-on-Ubuntu-26-04-LTS/
 https://terrencemiao.github.io/blog/2026/08/14/Unlock-GL-iNet-GL-MT3600BE-Beryl-7-Global-firmware/
 https://terrencemiao.github.io/blog/2026/06/14/Quick-way-convert-Copilot-skill-prompt-to-work-with-Kilo-Code/
