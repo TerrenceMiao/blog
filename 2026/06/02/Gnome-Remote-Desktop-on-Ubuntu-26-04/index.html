@@ -163,10 +163,19 @@
 <p>When connect from <code>Windows App (Microsoft Remote Desktop)</code>, error thrown in log:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ sudo journalctl -u gnome-remote-desktop.service -f</span><br><span class="line">...</span><br><span class="line">Jun 02 12:40:22 NucBox gnome-remote-desktop-daemon[58071]: [RDP] Sending server redirection</span><br><span class="line">Jun 02 12:40:22 NucBox gnome-remote-desktop-daemon[58071]: [12:40:22:884] [58071:0004752e] [ERROR][com.freerdp.core.peer] - [rdp_set_error_info]: ERRINFO_LOGOFF_BY_USER [0x0001000C]</span><br><span class="line">Jun 02 12:40:22 NucBox gnome-remote-desktop-daemon[58071]: [RDP] Network or intentional disconnect, stopping session</span><br></pre></td></tr></table></figure>
 
-<blockquote>
-<p><strong>NOTE:</strong>  According to A.I., GNOME Remote Desktop <strong>–system</strong> mode uses Server Redirection — after you authenticate at the system level, it redirects the RDP client to your actual user session on a different internal port. Microsoft Remote Desktop on Mac sometimes rejects this redirection for self-signed certificates because the certificate on the redirected session doesn’t match what it expects. And use user-level approach instead.</p>
-</blockquote>
 <p>However, choose a different Remote Desktop Client like <code>Royal TSX</code> <em><a target="_blank" rel="noopener" href="https://royalapps.com/ts/mac/features">https://royalapps.com/ts/mac/features</a></em>, works fine.</p>
+<blockquote>
+<p><strong>NOTE:</strong> This is a well-documented, well-known incompatibility between Windows App on macOS and GNOME Remote Desktop’s “server redirection” handshake — not something specific to 26.04, and there’s a widely confirmed fix.</p>
+</blockquote>
+<p>What’s actually happening: in “Remote Login” (system) mode, GNOME Remote Desktop doesn’t hand you straight into a session. It first accepts the connection, then sends an RDP Server Redirection PDU telling the client “reconnect, here’s the real session token” (that’s <strong>[RDP] Sending server redirection</strong> line — this part is normal and means auth succeeded). Windows App on Mac has a bug&#x2F;quirk where it doesn’t follow that redirection properly by default, so it just logs off immediately — hence <strong>ERRINFO_LOGOFF_BY_USER</strong> right after.  </p>
+<ol>
+<li><p>Export the connection as an .rdp file</p>
+</li>
+<li><p>Edit the file to force redirection handling - Find the line <code>use redirection server name:i:0</code> and change the <code>0</code> to a <code>1</code>. This is the specific setting Windows App needs to correctly follow GNOME’s server-redirection handshake instead of dropping the session.</p>
+</li>
+<li><p>Delete old entry and import the edited .rdp file into Windows App</p>
+</li>
+</ol>
 <h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
 <li>xRDP – Easy install xRDP on Ubuntu 22.04,24.04,25.10,26.04 (Script Version 1.6)- Maintenance Release <em><a target="_blank" rel="noopener" href="https://c-nergy.be/blog/?p=20369">https://c-nergy.be/blog/?p=20369</a></em></li>
 </ul>

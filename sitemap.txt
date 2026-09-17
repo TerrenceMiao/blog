@@ -1,10 +1,10 @@
+https://terrencemiao.github.io/blog/2026/06/02/Gnome-Remote-Desktop-on-Ubuntu-26-04/
 https://terrencemiao.github.io/blog/2026/09/17/Windows-11-Remote-Connection-with-Windows-App-for-Mac/
 https://terrencemiao.github.io/blog/2026/08/27/Setting-up-3x-ui-server-at-home-internet-on-IPv6-without-dedicated-VPS/
 https://terrencemiao.github.io/blog/2026/06/22/MediaTek-MT7925-Bluetooth-stops-working-turning-on-on-Ubuntu-26-04-LTS/
 https://terrencemiao.github.io/blog/2026/08/14/Unlock-GL-iNet-GL-MT3600BE-Beryl-7-Global-firmware/
 https://terrencemiao.github.io/blog/2026/06/14/Quick-way-convert-Copilot-skill-prompt-to-work-with-Kilo-Code/
 https://terrencemiao.github.io/blog/2026/06/13/Running-remote-X-Window-applications-locally-on-Mac/
-https://terrencemiao.github.io/blog/2026/06/02/Gnome-Remote-Desktop-on-Ubuntu-26-04/
 https://terrencemiao.github.io/blog/2026/05/29/Fast-and-Furious-way-to-import-and-export-AWS-DynamoDB-table/
 https://terrencemiao.github.io/blog/2026/04/30/Microsoft-Power-Automate-Last-day-of-the-month-notification/
 https://terrencemiao.github.io/blog/2026/04/26/Qwen-3-6-27B%EF%BC%8C%E5%A4%9A%E7%A7%8D%E4%BC%98%E5%8C%96%E6%96%B9%E5%BC%8F%EF%BC%8C%E4%BB%8E-20t-s-%E9%A3%99%E5%88%B0-184t-s/
