@@ -1,3 +1,4 @@
+https://terrencemiao.github.io/blog/2026/10/11/A-blocking-connect-to-mDNS-resolved-IPv6-addresses-fails-with-errno-0-on-macOS-27/
 https://terrencemiao.github.io/blog/2026/06/02/Gnome-Remote-Desktop-on-Ubuntu-26-04/
 https://terrencemiao.github.io/blog/2026/09/17/Windows-11-Remote-Connection-with-Windows-App-for-Mac/
 https://terrencemiao.github.io/blog/2026/08/27/Setting-up-3x-ui-server-at-home-internet-on-IPv6-without-dedicated-VPS/
