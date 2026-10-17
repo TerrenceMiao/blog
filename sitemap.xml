@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://terrencemiao.github.io/blog/2026/10/17/M365-user-and-Open-Authentication-OATH/</loc>
+    
+    <lastmod>2026-10-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://terrencemiao.github.io/blog/2026/10/11/A-blocking-connect-to-mDNS-resolved-IPv6-addresses-fails-with-errno-0-on-macOS-27/</loc>
     
     <lastmod>2026-10-11</lastmod>
@@ -1255,7 +1264,7 @@
 
   <url>
     <loc>https://terrencemiao.github.io/blog</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
