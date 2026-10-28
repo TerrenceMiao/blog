@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=330279473"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '330279473');
+</script>
+<!-- End Google Analytics -->
+
+  
+  <title>Unchain Nvidia RTX GPU heart | Terrence Miao&#39;s Adventures</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+    <meta name="description" content="Veni, vidi, vici">
+  
+  
+  
+    <link rel="alternate" href="/blog/atom.xml" title="Terrence Miao's Adventures" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/blog/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/blog/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.min.css">
+
+  
+  
+  
+  
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7274218747178099" crossorigin="anonymous"></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">Terrence Miao&#39;s Adventures</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/blog/" id="subtitle">A journey of a thousand miles begins with a single step</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/blog/."><i class="fa fa-home"></i> Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives/"><i class="fa fa-archive"></i> Archive</a>
+        
+          <a class="main-nav-link" href="/blog/about/"><i class="fa fa-user"></i> About</a>
+        
+          <a class="main-nav-link" href="/blog/atom.xml"><i class="fa fa-rss"></i> RSS</a>
+        
+      </nav>
+    </div>
+    <div id="search-form">
+      <div id="result-mask" class="hide"></div>
+      <label><input id="search-key" type="text" autocomplete="off" placeholder="search"></label>
+      <div id="result-wrap" class="hide">
+        <div id="search-result"></div>
+      </div>
+      <div class="hide">
+        <template id="search-tpl">
+          <div class="item">
+            <a href="/{path}" title="{title}">
+              <div class="title">{title}</div>
+              <div class="time">{date}</div>
+              <div class="tags">{tags}</div>
+            </a>
+          </div>
+        </template>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Unchain-Nvidia-RTX-GPU-heart" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Unchain Nvidia RTX GPU heart
+    </h1>
+  
+
+
+      </header>
+    
+    <div class="article-meta">
+      
+      <span class="article-date">
+  <i class="fa fa-date"></i>
+  <time class="dt-published" datetime="2026-10-28T04:41:56.000Z" itemprop="datePublished">2026-10-28</time>
+</span>
+      
+      
+        <span class="article-views">
+  <i class="fa fa-views"></i>
+  <i id="busuanzi_container_page_pv">
+      <i id="busuanzi_value_page_pv"></i>
+  </i>
+</span>
+
+      
+      
+<a href="/blog/2026/10/28/Unchain-Nvidia-RTX-GPU-heart/#comments" class="article-comment-link">
+  
+    
+    
+      <i class="disqus-comment-count" data-disqus-identifier="/blog/2026/10/28/Unchain-Nvidia-RTX-GPU-heart/"></i>
+    
+    
+    
+    
+  
+  <i class="fa fa-commt"></i>
+  Guestbook
+</a>
+
+
+    </div>
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>Unlock Nvidia RTX 4080 GPU’s all power potentials.</p>
+<p>Install and confirm the stock NVIDIA driver first. Most test reports used NVIDIA’s <strong>open</strong> kernel modules, so the <code>-open</code> package is the safest choice:</p>
+  <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ sudo ubuntu-drivers list</span><br><span class="line">nvidia-driver-595-open, (kernel modules provided by linux-modules-nvidia-595-open-generic-hwe-26.04)</span><br><span class="line">nvidia-driver-580-open, (kernel modules provided by linux-modules-nvidia-580-open-generic-hwe-26.04)</span><br><span class="line">nvidia-driver-615-open, (kernel modules provided by linux-modules-nvidia-615-open-generic-hwe-26.04)</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">$ sudo apt install nvidia-driver-595-open <span class="comment"># pick the version listed</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/blog/img/GPU%20-%20Driver%20Comparison.png" alt="GPU - Driver Comparison" title="GPU - Driver Comparison"></p>
+<p>Find GPU’s PCI address and card information:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ lspci -Dnn | grep -i nvidia</span><br><span class="line">0000:06:00.0 VGA compatible controller [0300]: NVIDIA Corporation AD103 [GeForce RTX 4080] [10de:2704] (rev a1)</span><br><span class="line">0000:06:00.1 Audio device [0403]: NVIDIA Corporation AD103 High Definition Audio Controller [10de:22bb] (rev a1)</span><br><span class="line"></span><br><span class="line">$ lspci -nnk -s 0000:06:00.0</span><br><span class="line">06:00.0 VGA compatible controller [0300]: NVIDIA Corporation AD103 [GeForce RTX 4080] [10de:2704] (rev a1)</span><br><span class="line">	Subsystem: ASUSTeK Computer Inc. Device [1043:88c8]</span><br><span class="line">	Kernel driver <span class="keyword">in</span> use: nvidia</span><br><span class="line">	Kernel modules: nvidiafb, nouveau, nvidia_drm, nvidia</span><br></pre></td></tr></table></figure>
+
+<p>Install build dependencies:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt update</span><br><span class="line">$ sudo apt install git build-essential dpkg-dev debhelper dkms dh-dkms python3 zstd linux-headers-$(<span class="built_in">uname</span> -r)</span><br></pre></td></tr></table></figure>
+
+<p>Build and isntall the packages:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/JustAResearcher/gpu-unlock-ada.git</span><br><span class="line"></span><br><span class="line">$ <span class="built_in">cd</span> gpu-unlock-ada</span><br><span class="line"></span><br><span class="line">$ make install </span><br></pre></td></tr></table></figure>
+
+<p>This downloads the pinned NVIDIA <strong>610.43.03</strong> inputs, checks their SHA-256 hashes, generates the firmware locally, and builds and installs <code>gpu-unlock-dkms</code> and <code>gpu-unlock-firmware</code>.</p>
+<p>The package’s post-install step runs <strong>update-initramfs -u -k all</strong>, so the module and firmware go into the initramfs. Can confirm that:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">$ sudo lsinitramfs /boot/initrd.img-$(<span class="built_in">uname</span> -r) | grep -E <span class="string">&#x27;gpu_unlock|gpu-unlock&#x27;</span></span><br><span class="line">usr/lib/firmware/gpu-unlock</span><br><span class="line">usr/lib/firmware/gpu-unlock/610.43.03</span><br><span class="line">usr/lib/firmware/gpu-unlock/610.43.03/booter_load_ad102.bin</span><br><span class="line">usr/lib/firmware/gpu-unlock/610.43.03/booter_load_ga100.bin</span><br><span class="line">usr/lib/firmware/gpu-unlock/610.43.03/booter_load_ga102.bin</span><br><span class="line">usr/lib/firmware/gpu-unlock/610.43.03/booter_load_tu102.bin</span><br><span class="line">usr/lib/firmware/gpu-unlock/610.43.03/falcon_loader.bin</span><br><span class="line">usr/lib/firmware/gpu-unlock/610.43.03/gsp_boot_ad102.bin</span><br><span class="line">usr/lib/firmware/gpu-unlock/610.43.03/gsp_boot_desc_ad102.bin</span><br><span class="line">usr/lib/firmware/gpu-unlock/610.43.03/gsp_boot_desc_ga100.bin</span><br><span class="line">usr/lib/firmware/gpu-unlock/610.43.03/gsp_boot_desc_ga102.bin</span><br><span class="line">usr/lib/firmware/gpu-unlock/610.43.03/gsp_boot_desc_tu102.bin</span><br><span class="line">usr/lib/firmware/gpu-unlock/610.43.03/gsp_boot_ga100.bin</span><br><span class="line">usr/lib/firmware/gpu-unlock/610.43.03/gsp_boot_ga102.bin</span><br><span class="line">usr/lib/firmware/gpu-unlock/610.43.03/gsp_boot_tu102.bin</span><br><span class="line">usr/lib/firmware/gpu-unlock/610.43.03/gsp_ga10x.bin</span><br><span class="line">usr/lib/firmware/gpu-unlock/610.43.03/gsp_tu10x.bin</span><br><span class="line">usr/lib/firmware/gpu-unlock/610.43.03/sec2_bl_tu102.bin</span><br><span class="line">usr/lib/modules/7.0.0-38-generic/updates/dkms/gpu_unlock.ko.zst</span><br></pre></td></tr></table></figure>
+
+<p>Print the exact boot option:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ python3 tools/print_boot_option.py</span><br><span class="line">RTX 4080 (experimental) at 0000:06:00.0 [10de:2704]:</span><br><span class="line">gpu_unlock.targets=0000:06:00.0 gpu_unlock.rtx4080_experimental=1</span><br></pre></td></tr></table></figure>
+
+<p>Add above options to GRUB: <strong>GRUB_CMDLINE_LINUX_DEFAULT&#x3D;”quiet splash gpu_unlock.targets&#x3D;0000:06:00.0 gpu_unlock.rtx4080_experimental&#x3D;1</strong>. Then appl the change:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo update-grub</span><br></pre></td></tr></table></figure>
+
+<p>Cold boot:</p>
+<ol>
+<li>Shut down.</li>
+<li>Switch off or unplug the AC power and wait about 30 seconds.</li>
+<li>Power on.</li>
+</ol>
+<p>The module needs a card that hasn’t been initialised since power-on. If the card was already initialised, it refuses to run.</p>
+<p><img src="/blog/img/GPU%20-%20MOK.png" alt="GPU - MOK" title="GPU - MOK"></p>
+<p>Verify:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cat</span> /proc/cmdline</span><br><span class="line">BOOT_IMAGE=/boot/vmlinuz-7.0.0-38-generic root=UUID=0e66f11d-6081-4b8c-9321-821ea4c0a793 ro quiet splash gpu_unlock.targets=0000:06:00.0 gpu_unlock.rtx4080_experimental=1 crashkernel=2G-4G:320M,4G-32G:512M,32G-64G:1024M,64G-128G:2048M,128G-:4096M</span><br><span class="line"></span><br><span class="line">$ journalctl -k -b --no-pager | grep -E <span class="string">&#x27;gpu_unlock: unlocked|already unlocked|unlock failed|experimental|post-FLR SEC2&#x27;</span></span><br><span class="line">Oct 27 22:47:22 Aorus kernel: Command line: BOOT_IMAGE=/boot/vmlinuz-7.0.0-38-generic root=UUID=0e66f11d-6081-4b8c-9321-821ea4c0a793 ro quiet splash gpu_unlock.targets=0000:06:00.0 gpu_unlock.rtx4080_experimental=1 crashkernel=2G-4G:320M,4G-32G:512M,32G-64G:1024M,64G-128G:2048M,128G-:4096M</span><br><span class="line">Oct 27 22:47:22 Aorus kernel: Kernel <span class="built_in">command</span> line: BOOT_IMAGE=/boot/vmlinuz-7.0.0-38-generic root=UUID=0e66f11d-6081-4b8c-9321-821ea4c0a793 ro quiet splash gpu_unlock.targets=0000:06:00.0 gpu_unlock.rtx4080_experimental=1 crashkernel=2G-4G:320M,4G-32G:512M,32G-64G:1024M,64G-128G:2048M,128G-:4096M</span><br><span class="line">Oct 27 22:47:23 Aorus kernel: pci 0000:06:00.0: post-FLR SEC2 reset released, GSP halted, BME=0 pending=0 WPR2=1ffffe00:00000000 SS0=88888888 SS1=00000008</span><br><span class="line">Oct 27 22:47:23 Aorus kernel: pci 0000:06:00.0: gpu_unlock: unlocked</span><br><span class="line"></span><br><span class="line">$ nvidia-smi</span><br><span class="line">Tue Oct 27 22:50:13 2026</span><br><span class="line">+-----------------------------------------------------------------------------------------+</span><br><span class="line">| NVIDIA-SMI 595.99.02              Driver Version: 595.99.02      CUDA Version: 13.2     |</span><br><span class="line">+-----------------------------------------+------------------------+----------------------+</span><br><span class="line">| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |</span><br><span class="line">| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |</span><br><span class="line">|                                         |                        |               MIG M. |</span><br><span class="line">|=========================================+========================+======================|</span><br><span class="line">|   0  NVIDIA GeForce RTX 4080        Off |   00000000:06:00.0 Off |                  N/A |</span><br><span class="line">|  0%   26C    P8              4W /  360W |      14MiB /  16376MiB |      0%      Default |</span><br><span class="line">|                                         |                        |                  N/A |</span><br><span class="line">+-----------------------------------------+------------------------+----------------------+</span><br><span class="line"></span><br><span class="line">+-----------------------------------------------------------------------------------------+</span><br><span class="line">| Processes:                                                                              |</span><br><span class="line">|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |</span><br><span class="line">|        ID   ID                                                               Usage      |</span><br><span class="line">|=========================================================================================|</span><br><span class="line">|    0   N/A  N/A            2896      G   /usr/bin/gnome-shell                      3MiB |</span><br><span class="line">+-----------------------------------------------------------------------------------------+</span><br><span class="line"></span><br><span class="line">$ journalctl -k -b | grep -i xid <span class="comment"># should print nothing</span></span><br></pre></td></tr></table></figure>
+
+<p>Success requires all three of these:</p>
+<ul>
+<li>A <strong>gpu_unlock: unlocked</strong> line for your card’s address.</li>
+<li>A healthy <code>nvidia-smi</code>.</li>
+<li>A rate readback showing full rate:</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">$ UUID=$(nvidia-smi --query-gpu=uuid --format=csv,noheader)</span><br><span class="line"></span><br><span class="line">$ python3 tools/read_sm_rates.py --expect-uuid <span class="string">&quot;<span class="variable">$UUID</span>&quot;</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;gpu&quot;</span>: <span class="string">&quot;GPU-28b6243c-d078-fbba-a6ff-ea24c62d4ccf, NVIDIA GeForce RTX 4080, 00000000:06:00.0, 595.99.02, 360.00, 210, 405&quot;</span>,</span><br><span class="line">  <span class="string">&quot;command&quot;</span>: <span class="string">&quot;0x20801230&quot;</span>,</span><br><span class="line">  <span class="string">&quot;rates&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;imla0&quot;</span>: 0,</span><br><span class="line">    <span class="string">&quot;fmla16&quot;</span>: 0,</span><br><span class="line">    <span class="string">&quot;dp&quot;</span>: 0,</span><br><span class="line">    <span class="string">&quot;fmla32&quot;</span>: 0,</span><br><span class="line">    <span class="string">&quot;ffma&quot;</span>: 0,</span><br><span class="line">    <span class="string">&quot;imla1&quot;</span>: 0,</span><br><span class="line">    <span class="string">&quot;imla2&quot;</span>: 0,</span><br><span class="line">    <span class="string">&quot;imla3&quot;</span>: 0,</span><br><span class="line">    <span class="string">&quot;imla4&quot;</span>: 0</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">&quot;meaning&quot;</span>: <span class="string">&quot;0=full; 1=half; 2=quarter; higher values are further reductions&quot;</span>,</span><br><span class="line">  <span class="string">&quot;hardware_changes&quot;</span>: <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Look for <strong>fmla32</strong> changing from <strong>1</strong> (stock) to <strong>0</strong> (unlocked).</p>
+<p>Uninstall:</p>
+<p>To roll back, remove the <strong>gpu_unlock.</strong>* options from <strong>&#x2F;etc&#x2F;default&#x2F;grub</strong>, run <strong>sudo update-grub</strong>, and power-cycle. </p>
+<p>To remove the software completely:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt remove gpu-unlock-dkms gpu-unlock-firmware</span><br></pre></td></tr></table></figure>
+
+<p><img src="/blog/img/GPU%20-%20File%20Structure.png" alt="GPU - File Structure" title="GPU - File Structure"></p>
+<p><img src="/blog/img/GPU%20-%20Sequence%20Diagram.png" alt="GPU - Sequence Diagram" title="GPU - Sequence Diagram"></p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li>GPU Unlock Ada <em><a target="_blank" rel="noopener" href="https://github.com/JustAResearcher/gpu-unlock-ada">https://github.com/JustAResearcher/gpu-unlock-ada</a></em></li>
+<li>The Origin of GPU Unlock <em><a target="_blank" rel="noopener" href="https://github.com/Zagitta/gpu-unlock">https://github.com/Zagitta/gpu-unlock</a></em></li>
+</ul>
+
+        
+            <div id="toc-article">
+                
+  <div class="widget-wrap" id="toc-wrap">
+    <h3 class="widget-title"><i class="fa fa-toc"></i> Contents</h3>
+    <div class="widget">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#References"><span class="toc-text">References</span></a></li></ol>
+    </div>
+  </div>
+
+
+            </div>
+        
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div class="article-tag-wrap">
+          
+
+          
+          
+
+
+        </div>
+      
+      
+        
+<nav id="article-nav">
+  
+    <a href="/blog/2026/10/17/M365-user-and-Open-Authentication-OATH/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">older</strong>
+      <div class="article-nav-title">
+        
+          M365 user and Open Authentication (OATH)
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+      
+      
+        
+
+
+
+  <div id="comments"><div id="disqus_thread"></div></div>
+
+
+
+
+
+
+      
+    </footer>
+  </div>
+</article>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title"><i class="fa fa-posts"></i> Recent</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2026/10/28/Unchain-Nvidia-RTX-GPU-heart/">Unchain Nvidia RTX GPU heart</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2026/10/17/M365-user-and-Open-Authentication-OATH/">M365 user and Open Authentication (OATH)</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2026/10/11/A-blocking-connect-to-mDNS-resolved-IPv6-addresses-fails-with-errno-0-on-macOS-27/">A blocking connect() to mDNS-resolved IPv6 addresses fails with errno 0 on macOS 27</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2026/09/17/Windows-11-Remote-Connection-with-Windows-App-for-Mac/">Windows 11 Remote Connection with Windows App for Mac</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2026/08/27/Setting-up-3x-ui-server-at-home-internet-on-IPv6-without-dedicated-VPS/">Setting up 3x-ui server at home internet on IPv6 without dedicated VPS</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+  
+    
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title"><i class="fa fa-archive"></i> Archive</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2026/">2026</a><span class="archive-list-count">15</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2025/">2025</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2024/">2024</a><span class="archive-list-count">30</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2023/">2023</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/">2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/">2021</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/">2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/">2019</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/">2017</a><span class="archive-list-count">25</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title"><i class="fa fa-link"></i> Blogroll</h3>
+    <div class="widget">
+      <ul>
+      
+        <li>
+          <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/terrencemiao/">LinkedIn</a>
+        </li>
+      
+        <li>
+          <a target="_blank" rel="noopener" href="https://github.com/TerrenceMiao">GitHub</a>
+        </li>
+      
+        <li>
+          <a target="_blank" rel="noopener" href="https://twitter.com/TerrenceMiao">Twitter</a>
+        </li>
+      
+      </ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+        
+      </div>
+      <a id="totop" href="#top"></a>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      <p>
+        <a href="/blog/sitemap.xml">Site Map</a>
+        <span> | </span><a href="/blog/atom.xml">Subscribe to this site</a>
+        <span> | </span><a href="/blog/about/">Contact the blogger</a>
+      </p>
+      
+        <p>
+          <i class="fa fa-visitors"></i>
+          <i id="busuanzi_container_site_uv"><i id="busuanzi_value_site_uv"></i></i>
+          ，
+          <i class="fa fa-views"></i>
+          <i id="busuanzi_container_site_pv"><i id="busuanzi_value_site_pv"></i></i>
+        </p>
+      
+      <p>
+        <span>Copyright &copy; 2026 Terrence Miao.</span>
+        <span>Theme by <a href="https://github.com/chaooo/hexo-theme-BlueLake/" target="_blank">BlueLake.</a></span>
+        <span>Powered by <a href="https://hexo.io/" target="_blank">Hexo.</a></span>
+      </p>
+    </div>
+  </div>
+</footer>
+
+    </div>
+  </div>
+  
+<script src="/blog/js/jquery-3.4.1.min.js"></script>
+
+
+<script src="/blog/js/search.json.js"></script>
+
+
+  
+<script src="/blog/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/blog/js/script.js"></script>
+
+
+
+
+
+
+  
+<script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+
+  
+
+  
+    <script>
+      var disqus_shortname = 'terrencemiao';
+      
+        var disqus_url = 'https://terrencemiao.github.io/blog/2026/10/28/Unchain-Nvidia-RTX-GPU-heart/';
+      
+      (function(){
+        var dsq = document.createElement('script');
+        dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+
+
+
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+  <script src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML" async type="text/javascript"></script>
+
+</body>
+</html>

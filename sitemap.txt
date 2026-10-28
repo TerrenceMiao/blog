@@ -1,3 +1,4 @@
+https://terrencemiao.github.io/blog/2026/10/28/Unchain-Nvidia-RTX-GPU-heart/
 https://terrencemiao.github.io/blog/2026/10/17/M365-user-and-Open-Authentication-OATH/
 https://terrencemiao.github.io/blog/2026/10/11/A-blocking-connect-to-mDNS-resolved-IPv6-addresses-fails-with-errno-0-on-macOS-27/
 https://terrencemiao.github.io/blog/2026/06/02/Gnome-Remote-Desktop-on-Ubuntu-26-04/
