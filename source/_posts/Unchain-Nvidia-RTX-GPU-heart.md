@@ -180,6 +180,29 @@ To remove the software completely:
 $ sudo apt remove gpu-unlock-dkms gpu-unlock-firmware
 ```
 
+Benchmark test and run **python benchmark.py**:
+
+```python
+import torch, time
+
+N, ITERS = 8192, 50
+torch.backends.cuda.matmul.allow_tf32 = True
+
+for name, dt in [("FP16", torch.float16), ("BF16", torch.bfloat16), ("TF32", torch.float32)]:
+    a = torch.randn(N, N, device="cuda", dtype=dt)
+    b = torch.randn(N, N, device="cuda", dtype=dt)
+    for _ in range(10):
+        a @ b
+    torch.cuda.synchronize()
+    t = time.perf_counter()
+    for _ in range(ITERS):
+        a @ b
+    torch.cuda.synchronize()
+    dt_s = time.perf_counter() - t
+    print(f"{name}: {2 * N**3 * ITERS / dt_s / 1e12:.1f} TFLOPS")
+```
+
+
 ![GPU - File Structure](/img/GPU%20-%20File%20Structure.png "GPU - File Structure")
 
 ![GPU - Sequence Diagram](/img/GPU%20-%20Sequence%20Diagram.png "GPU - Sequence Diagram")
